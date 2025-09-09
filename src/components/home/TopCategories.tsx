@@ -163,7 +163,7 @@ export default function TopCategories() {
                   }}
                 >
                   {/* Image Section */}
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-80 overflow-hidden">
                     <img
                       // src={styles.image || "/placeholder.svg"}
                       // src={`http://api.jajamblockprints.com${categories?.image}`}

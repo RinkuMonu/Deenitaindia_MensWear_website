@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import footerLogo from "../../assest/footerLogo.jpg";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Footer() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -37,40 +38,40 @@ export default function Footer() {
     fetchCategories();
   }, [baseUrl, referenceWebsite]);
 
-  const handleSubscribe = async () => {
-    if (!email) {
-      setMessage("Please enter your email");
-      return;
-    }
-    setLoading(true);
-    setMessage("");
-    try {
-      const res = await fetch(
-        "http://localhost:5007/api/newsletter/subscribe",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGNhMzM3Njg5M2FjOWY3MTllYTVjNGQiLCJlbWFpbCI6ImRldmVsb3BlckA3dW5pcXVlLmluIiwidXNlcm5hbWUiOiJhZG1pbiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTc1NTU5OTE5MCwiZXhwIjoxNzU1NjAyNzkwfQ.pFKqDtkko3EQxbUQEA99XXeEACN1bdsCxuSYCpye4cI",
-          },
-          body: JSON.stringify({ email }),
-        }
-      );
 
-      const data = await res.json();
-      if (res.ok) {
-        setMessage("✅ Subscribed successfully!");
-      } else {
-        setMessage(`❌ Error: ${data.message || "Failed to subscribe"}`);
-      }
-    } catch (error) {
-      console.error("Subscription error:", error);
+
+const handleSubscribe = async () => {
+  if (!email) {
+    setMessage("Please enter your email");
+    return;
+  }
+
+  setLoading(true);
+  setMessage("");
+
+  try {
+    const { data } = await axios.post(`${baseUrl}/newsletter/subscribe`, { email }, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGNhMzM3Njg5M2FjOWY3MTllYTVjNGQiLCJlbWFpbCI6ImRldmVsb3BlckA3dW5pcXVlLmluIiwidXNlcm5hbWUiOiJhZG1pbiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTc1NTU5OTE5MCwiZXhwIjoxNzU1NjAyNzkwfQ.pFKqDtkko3EQxbUQEA99XXeEACN1bdsCxuSYCpye4cI",
+      },
+    });
+
+    setMessage("✅ Subscribed successfully!");
+  } catch (error) {
+    console.error("Subscription error:", error);
+
+    if (error.response) {
+      setMessage(`❌ Error: ${error.response.data.message || "Failed to subscribe"}`);
+    } else {
       setMessage("❌ Something went wrong!");
-    } finally {
-      setLoading(false);
     }
-  };
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   function slugify(text) {
     return text
@@ -368,8 +369,8 @@ export default function Footer() {
                       Contact Us
                     </h5>
                     <p className="text-gray-600">
-                      <a href="tel:9116131960" className="hover:underline">
-                        +91-9116131960
+                      <a href="tel:9680034960" className="hover:underline">
+                        +91-9680034960
                       </a>
                     </p>
                   </div>
