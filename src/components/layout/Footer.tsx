@@ -18,6 +18,9 @@ export default function Footer() {
   const [categories, setCategories] = useState<string[]>([]);
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE;
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -34,14 +37,49 @@ export default function Footer() {
     fetchCategories();
   }, [baseUrl, referenceWebsite]);
 
+  const handleSubscribe = async () => {
+    if (!email) {
+      setMessage("Please enter your email");
+      return;
+    }
+    setLoading(true);
+    setMessage("");
+    try {
+      const res = await fetch(
+        "http://localhost:5007/api/newsletter/subscribe",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGNhMzM3Njg5M2FjOWY3MTllYTVjNGQiLCJlbWFpbCI6ImRldmVsb3BlckA3dW5pcXVlLmluIiwidXNlcm5hbWUiOiJhZG1pbiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTc1NTU5OTE5MCwiZXhwIjoxNzU1NjAyNzkwfQ.pFKqDtkko3EQxbUQEA99XXeEACN1bdsCxuSYCpye4cI",
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      const data = await res.json();
+      if (res.ok) {
+        setMessage("✅ Subscribed successfully!");
+      } else {
+        setMessage(`❌ Error: ${data.message || "Failed to subscribe"}`);
+      }
+    } catch (error) {
+      console.error("Subscription error:", error);
+      setMessage("❌ Something went wrong!");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   function slugify(text) {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, '-')      // Replace spaces with hyphens
-    .replace(/[^\w-]+/g, '')   // Remove special characters
-    .replace(/--+/g, '-');     // Remove duplicate hyphens
-}
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-") // Replace spaces with hyphens
+      .replace(/[^\w-]+/g, "") // Remove special characters
+      .replace(/--+/g, "-"); // Remove duplicate hyphens
+  }
 
   return (
     <footer className="relative overflow-hidden">
@@ -176,6 +214,31 @@ export default function Footer() {
                     ))}
                   </div>
                 </div>
+                <div className="">
+                  <h3 className="text-xl font-bold my-4 ">
+                    Subscribe to our Newsletter
+                  </h3>
+                  <div className="flex justify-left items-center gap-2">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      className="border px-4 py-2 rounded-lg w-64"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <button
+                      onClick={handleSubscribe}
+                      disabled={loading}
+                      className="text-black px-4 py-2 rounded-lg"
+                      style={{ backgroundColor: "#ffdcf1" }}
+                    >
+                      {loading ? "Subscribing..." : "Subscribe"}
+                    </button>
+                  </div>
+                  {message && (
+                    <p className="mt-2 text-sm text-gray-700">{message}</p>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -205,7 +268,7 @@ export default function Footer() {
                 {categories.slice(0, 10).map((item, index) => (
                   <Link
                     key={item}
-                   to={`/category/${slugify(item)}`}
+                    to={`/category/${slugify(item)}`}
                     className="group flex items-center p-1  duration-300 "
                     // style={{
                     //   background: "rgba(157, 48, 137, 0.05)",
@@ -272,8 +335,8 @@ export default function Footer() {
                       Operating Address
                     </h6>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                       PLOT NO 21-A (2), RAMDWARA
-                      COLONY-2, SANGANER, JAIPUR-302029
+                      PLOT NO 21-A (2), RAMDWARA COLONY-2, SANGANER,
+                      JAIPUR-302029
                     </p>
                     <p className="text-gray-500 text-xs mt-1">
                       LANDMARK: BEHIND SPARSH HOSPITAL
@@ -331,59 +394,6 @@ export default function Footer() {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Copyright section with Customer Support links */}
-        <div
-          className="border-t-2 py-8"
-          style={{
-            borderColor: "rgba(157, 48, 137, 0.2)",
-            background:
-              "linear-gradient(135deg, rgba(157, 48, 137, 0.05), rgba(161, 60, 120, 0.05))",
-          }}
-        >
-          <div className="container mx-auto px-4">
-            <div className="text-center space-y-6">
-              <p className="text-gray-700 text-lg font-medium">
-                &copy; {new Date().getFullYear()} JAJAM BLOCK PRINTS . All
-                rights reserved.
-              </p>
-
-              {/* Customer Support Links with dividers */}
-              <div className="flex flex-wrap justify-center items-center gap-2 text-sm">
-                {[
-                  { title: "About Us", path: "/about-us" },
-                  { title: "Terms of Service", path: "/terms-of-service" },
-                  { title: "Privacy Policy", path: "/privacy-policy" },
-                  {
-                    title: "Terms And Conditions",
-                    path: "/terms-and-conditions",
-                  },
-                  { title: "Shipping Policy", path: "/shipping-policy" },
-                  {
-                    title: "Return, Refund & Exchange Policy",
-                    path: "/returns-and-exchanges",
-                  },
-                  { title: "Cancellation Policy", path: "/cancellation_policy" },
-                ].map((item, index, array) => (
-                  <div key={index} className="flex items-center">
-                    <Link
-                      to={item.path}
-                      className="text-gray-600 hover:text-purple-700 transition-colors font-medium px-3 py-1 rounded-full hover:bg-purple-50"
-                    >
-                      {item.title}
-                    </Link>
-                    {index < array.length - 1 && (
-                      <div
-                        className="w-1 h-1 rounded-full mx-2"
-                        style={{ background: "rgba(157, 48, 137, 0.4)" }}
-                      ></div>
-                    )}
-                  </div>
-                ))}
               </div>
             </div>
           </div>
