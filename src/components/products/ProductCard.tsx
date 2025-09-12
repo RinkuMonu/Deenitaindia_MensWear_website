@@ -197,7 +197,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             >
               <button
                 onClick={(e) => handleAddToCart(e, product)}
-                className="bg-white rounded-full p-2 shadow-lg transition-all hover:scale-110"
+                className="bg-white rounded-full p-2 shadow-lg transition-all hover:scale-110 "
                 style={{ color: "rgb(157 48 137)" }}
                 title="Add to Cart"
                 aria-label="Add to cart"
@@ -239,7 +239,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 }}
                 disabled={outOfStock}
                 className={[
-                  "w-full text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300",
+                  "w-full text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 hidden md:block",
                   outOfStock
                     ? "opacity-50 cursor-not-allowed pointer-events-none"
                     : "hover:scale-105",
@@ -288,13 +288,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
                 </span>
                 {ratedProduct.price &&
                   ratedProduct.price !== ratedProduct.actualPrice && (
-                    <span className="text-sm text-gray-400 line-through">
+                    <span className="text-sm text-gray-400 line-through hidden md:block">
                       ₹{ratedProduct.price.toLocaleString()}
                     </span>
                   )}
               </div>
               {ratedProduct.discount && (
-                <span className="text-xs font-medium text-green-600">
+                <span className="text-xs font-medium text-green-600 hidden md:block">
                   Save {ratedProduct.discount}%
                 </span>
               )}
