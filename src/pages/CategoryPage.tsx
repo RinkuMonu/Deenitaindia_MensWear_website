@@ -110,7 +110,7 @@ export default function CategoryPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto md:px-4 py-8">
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold capitalize mb-4" style={{ color: "#1B2E4F" }}>
@@ -121,7 +121,7 @@ export default function CategoryPage() {
             <span className="font-semibold" style={{ color: "rgb(157 48 137)" }}>
               {filteredProducts.length}
             </span>{" "}
-            authentic traditional pieces
+            authentic traditional pieces 
           </p>
         </div>
 
@@ -337,7 +337,7 @@ export default function CategoryPage() {
                 </button> */}
               </div>
             ) : (
-              <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filteredProducts.map((product) => (
                   <ProductCard key={product._id} product={product} />
                 ))}
