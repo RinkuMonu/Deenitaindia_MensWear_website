@@ -41,7 +41,11 @@ import WhatsAppButton from "./pages/WhatsAppButton";
 import LoginModal from "./components/loginModal/LoginModal";
 import AboutUs from "./pages/AboutUs";
 import { ProfilePage } from "./components/userProfile/userProfile";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import SearchPage from "./pages/SearchPage";
+
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
 
 function App() {
   const location = useLocation();
