@@ -12,6 +12,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { GoogleLogin } from "@react-oauth/google";
+
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -436,7 +438,7 @@ export default function Login() {
       Swal.fire(
         "Reset Failed",
         err.response?.data?.msg ||
-          "Password reset failed. The link may have expired.",
+        "Password reset failed. The link may have expired.",
         "error"
       );
     }
@@ -446,6 +448,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] p-2">
+
       <div className="w-full max-w-6xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white">
         <div className="w-full md:w-1/2 bg-gradient-to-br from-purple-950 to-purple-400 p-8 md:p-12 flex flex-col gap-2 relative overflow-hidden">
           <motion.div className="max-w-md">
@@ -500,11 +503,10 @@ export default function Login() {
                           size={18}
                         />
                         <input
-                          className={`w-full p-3 pl-10 pr-10 rounded-xl border ${
-                            resetErrors.newPassword
-                              ? "border-red-500"
-                              : "border-gray-200"
-                          }`}
+                          className={`w-full p-3 pl-10 pr-10 rounded-xl border ${resetErrors.newPassword
+                            ? "border-red-500"
+                            : "border-gray-200"
+                            }`}
                           type={showNewPassword ? "text" : "password"}
                           value={newPassword}
                           onChange={(e) => setNewPassword(e.target.value)}
@@ -583,11 +585,10 @@ export default function Login() {
                           size={18}
                         />
                         <input
-                          className={`w-full p-3 pl-10 pr-10 rounded-xl border ${
-                            resetErrors.confirmNewPassword
-                              ? "border-red-500"
-                              : "border-gray-200"
-                          }`}
+                          className={`w-full p-3 pl-10 pr-10 rounded-xl border ${resetErrors.confirmNewPassword
+                            ? "border-red-500"
+                            : "border-gray-200"
+                            }`}
                           type={showConfirmNewPassword ? "text" : "password"}
                           value={confirmNewPassword}
                           onChange={(e) =>
@@ -627,11 +628,10 @@ export default function Login() {
                         resetErrors.newPassword ||
                         resetErrors.confirmNewPassword
                       }
-                      className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${
-                        resetPasswordLoading
-                          ? "bg-indigo-400 cursor-not-allowed"
-                          : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
-                      }`}
+                      className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${resetPasswordLoading
+                        ? "bg-indigo-400 cursor-not-allowed"
+                        : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
+                        }`}
                     >
                       {resetPasswordLoading ? "Resetting..." : "Reset Password"}
                     </button>
@@ -690,11 +690,10 @@ export default function Login() {
                     <button
                       type="submit"
                       disabled={forgotPasswordLoading}
-                      className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${
-                        forgotPasswordLoading
-                          ? "bg-indigo-400 cursor-not-allowed"
-                          : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
-                      }`}
+                      className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${forgotPasswordLoading
+                        ? "bg-indigo-400 cursor-not-allowed"
+                        : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
+                        }`}
                     >
                       {forgotPasswordLoading ? "Sending..." : "Submit"}
                     </button>
@@ -736,11 +735,10 @@ export default function Login() {
                               size={18}
                             />
                             <input
-                              className={`w-full p-3 pl-10 rounded-xl border ${
-                                errors.firstName
-                                  ? "border-red-500"
-                                  : "border-gray-200"
-                              }`}
+                              className={`w-full p-3 pl-10 rounded-xl border ${errors.firstName
+                                ? "border-red-500"
+                                : "border-gray-200"
+                                }`}
                               value={firstName}
                               onChange={(e) => {
                                 const value = e.target.value;
@@ -771,11 +769,10 @@ export default function Login() {
                               size={18}
                             />
                             <input
-                              className={`w-full p-3 pl-10 rounded-xl border ${
-                                errors.lastName
-                                  ? "border-red-500"
-                                  : "border-gray-200"
-                              }`}
+                              className={`w-full p-3 pl-10 rounded-xl border ${errors.lastName
+                                ? "border-red-500"
+                                : "border-gray-200"
+                                }`}
                               value={lastName}
                               onChange={(e) => {
                                 const value = e.target.value;
@@ -809,9 +806,8 @@ export default function Login() {
                           size={18}
                         />
                         <input
-                          className={`w-full p-3 pl-10 rounded-xl border ${
-                            errors.email ? "border-red-500" : "border-gray-200"
-                          }`}
+                          className={`w-full p-3 pl-10 rounded-xl border ${errors.email ? "border-red-500" : "border-gray-200"
+                            }`}
                           type="email"
                           value={email}
                           onChange={(e) => {
@@ -843,11 +839,10 @@ export default function Login() {
                             size={18}
                           />
                           <input
-                            className={`w-full p-3 pl-10 rounded-xl border ${
-                              errors.mobile
-                                ? "border-red-500"
-                                : "border-gray-200"
-                            }`}
+                            className={`w-full p-3 pl-10 rounded-xl border ${errors.mobile
+                              ? "border-red-500"
+                              : "border-gray-200"
+                              }`}
                             type="tel"
                             value={mobile}
                             onChange={(e) => {
@@ -882,11 +877,10 @@ export default function Login() {
                           size={18}
                         />
                         <input
-                          className={`w-full p-3 pl-10 pr-10 rounded-xl border ${
-                            errors.password
-                              ? "border-red-500"
-                              : "border-gray-200"
-                          }`}
+                          className={`w-full p-3 pl-10 pr-10 rounded-xl border ${errors.password
+                            ? "border-red-500"
+                            : "border-gray-200"
+                            }`}
                           type={showPassword ? "text" : "password"}
                           value={password}
                           onChange={(e) => {
@@ -984,19 +978,21 @@ export default function Login() {
                       }
                       onMouseEnter={() => setIsHovered(true)}
                       onMouseLeave={() => setIsHovered(false)}
-                      className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${
-                        isLoading
-                          ? "bg-indigo-400 cursor-not-allowed"
-                          : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
-                      }`}
+                      className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${isLoading
+                        ? "bg-indigo-400 cursor-not-allowed"
+                        : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
+                        }`}
                     >
                       {isLoading
                         ? "Processing..."
                         : isLogin
-                        ? "Sign In"
-                        : "Create Account"}
+                          ? "Sign In"
+                          : "Create Account"}
                     </button>
                   </form>
+
+
+
 
                   <div className="mt-6 text-center">
                     <button
@@ -1009,6 +1005,55 @@ export default function Login() {
                       <ChevronRight className="h-4 w-4 ml-1" />
                     </button>
                   </div>
+
+
+
+                  {/* login with google  */}
+
+
+                  {isLogin && (
+                    <div className="mt-4 flex justify-center">
+                      <GoogleLogin
+                        onSuccess={async (credentialResponse) => {
+                          const idToken = credentialResponse.credential;
+
+                          try {
+                            const res = await axios.post(
+                              `${baseUrl}/auth/google`,
+                              {
+                                idToken,
+                                referenceWebsite,
+                              },
+                              { withCredentials: true }
+                            );
+
+                            const data = res.data;
+                            if (data && data.accessToken) {
+                              localStorage.setItem("userData", JSON.stringify(data.userData));
+                              localStorage.setItem("token", data.accessToken);
+                              Swal.fire("Login Successful", "", "success");
+                              navigate("/");
+                              window.location.reload();
+                            } else {
+                              Swal.fire("Login failed", data?.msg || "Something went wrong", "error");
+                            }
+                          } catch (err) {
+                            Swal.fire(
+                              "Login failed",
+                              err.response?.data?.msg || "Something went wrong",
+                              "error"
+                            );
+                          }
+                        }}
+                        onError={() =>
+                          Swal.fire("Google Login Failed", "Please try again.", "error")
+                        }
+                      />
+                    </div>
+                  )}
+                  {/* end of google login  */}
+
+
                 </motion.div>
               )}
             </AnimatePresence>
