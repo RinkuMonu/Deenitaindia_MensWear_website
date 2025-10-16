@@ -277,6 +277,8 @@ export default function Login() {
 
       const data = res.data;
 
+      console.log("login data : : " , data);
+
       if (data && data.accessToken) {
         // ✅ Save login data
         localStorage.setItem("userData", JSON.stringify(data.userData));
@@ -462,7 +464,8 @@ export default function Login() {
             </p>
           </motion.div>
           <img
-            src="https://img.freepik.com/free-vector/secure-login-concept-illustration_114360-4585.jpg"
+            // src="https://img.freepik.com/free-vector/secure-login-concept-illustration_114360-4585.jpg"
+            src="/loginImage.jpeg"
             alt="Security"
             className="w-full max-w-md object-contain mt-10 hidden md:block"
           />
