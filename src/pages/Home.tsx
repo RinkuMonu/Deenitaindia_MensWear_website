@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import Banner from "../components/home/Banner";
 import TrendingProducts from "../components/home/TrendingProducts";
 import Arrivals from "../components/home/Arrivals";
+import DealOfTheDay from "../components/home/DealOfTheDay";
+
 import TopCategories from "../components/home/TopCategories";
 import Newsletter from "../components/home/Newsletter";
 import HowItWorks from "../components/home/HowItWorks";
 import DeliveryFeatures from "../components/home/DeliveryFeatures";
+
+import FAQComponent from '../components/home/FAQComponent';
+
+
 import axios from "axios";
 import { useEffect } from "react";
 
@@ -71,9 +77,11 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
       <TrendingProducts addToCart={addToCart} /> {/* Pass addToCart here */}
       <Arrivals addToCart={addToCart} />
       <TopCategories />
+      <DealOfTheDay addToCart={addToCart} /> {/* Add this line */}
 
       <HowItWorks />
       <DeliveryFeatures />
+        <FAQComponent />
       {/* <Newsletter /> */}
     </>
   );

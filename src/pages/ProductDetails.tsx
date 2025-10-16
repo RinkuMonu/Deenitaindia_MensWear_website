@@ -11,6 +11,7 @@ import {
   FaEnvelope,
   FaRegCopy,
   FaRegUser,
+  FaInstagram,
 } from "react-icons/fa";
 import Arrivals from "../components/home/Arrivals";
 import { useDispatch } from "react-redux";
@@ -279,7 +280,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
     );
 
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen">
+    <div className="md:px-4 px-2  py-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         <div className="flex flex-col items-center">
           <div
@@ -316,7 +317,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
         {/* Product Details */}
         <div className="p-2">
           <h1
-            className="text-5xl font-extrabold mb-4 leading-tight"
+            className="text-2xl md:text-5xl font-extrabold mb-4 leading-tight"
             style={{ color: "#1B2E4F" }}
           >
             {product?.productName}
@@ -482,11 +483,18 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
           <div className="flex items-center gap-4 text-gray-600 text-xl">
             <span className="font-semibold text-lg text-gray-800">Share:</span>
             <a
-              href="#"
+              href="https://www.facebook.com/jajamblockprints"
               aria-label="Share on Facebook"
               className="hover:text-purple-600 transition-colors"
             >
               <FaFacebookF />
+            </a>
+               <a
+              href="https://www.instagram.com/jajamblockprints/"
+              aria-label="Share on instagram"
+              className="hover:text-purple-600 transition-colors"
+            >
+              <FaInstagram />
             </a>
             <a
               href="#"
@@ -502,13 +510,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             >
               <FaPinterestP />
             </a>
-            <a
-              href="#"
-              aria-label="Share on LinkedIn"
-              className="hover:text-purple-600 transition-colors"
-            >
-              <FaLinkedinIn />
-            </a>
+         
             <a
               href="#"
               aria-label="Share on WhatsApp"
