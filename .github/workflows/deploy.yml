@@ -18,10 +18,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Dependencies & dist
+      - name: Install Dependencies & Build
         run: |
-          npm install
-           CI=false npm run build   # 👈 CI=false taaki warnings build ko fail na kare
+          CI=false npm install
+          CI=false npm run build
 
       - name: Zip dist files
         run: |
@@ -37,7 +37,7 @@ jobs:
           source: "dist.tar.gz"
           target: "/home/jajamblo/"
 
-      - name: Unzip files on Server via SSH
+      - name: Unzip & Deploy on Server via SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
