@@ -178,7 +178,7 @@ function App() {
       </main>
       <Cart isOpen={isCartOpen} onClose={toggleCart} cartItems={cartItems} />
       {!shouldHide && <Footer />}
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
     </div>
   );
 }
