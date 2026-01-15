@@ -5,8 +5,8 @@ import { Sliders, X, ChevronDown, ChevronUp } from "lucide-react"
 import ProductCard from "../components/products/ProductCard"
 
 export default function CategoryPage() {
-  let initialMinPrice = 0
-  let initialMaxPrice = 50000
+  let initialMinPrice = 100
+  let initialMaxPrice = 5000
   const { category } = useParams()
   const catagory1 = category?.replace(/-/g, " ");
   const [products, setProducts] = useState<any[]>([])
