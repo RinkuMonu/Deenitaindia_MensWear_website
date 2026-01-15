@@ -297,7 +297,7 @@ ular items loved by customers worldwide
               {Array.from({ length: maxSlides }).map((_, slideIndex) => (
                 <div key={slideIndex} className="w-full flex-shrink-0">
                   <div
-                    className="grid gap-6"
+                    className="grid gap-6 mb-10"
                     style={{
                       gridTemplateColumns: `repeat(${itemsPerSlide}, 1fr)`,
                     }}
@@ -427,7 +427,7 @@ ular items loved by customers worldwide
                             </button> :
                             <button
                               onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white bg-[#787878] py-3 text-center font-semibold transition-all duration-300 z-20 ${
+                              className={`absolute bottom-0 left-0 w-full text-white bg-[#cba146] py-3 text-center font-semibold transition-all duration-300 z-20 ${
                                 hoveredProduct === product._id
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
