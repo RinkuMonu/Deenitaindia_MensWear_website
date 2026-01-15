@@ -97,14 +97,14 @@
 //       {/* Main footer content */}
 //       <div
 //         className="relative bg-gradient-to-br from-slate-50 to-blue-50 border-t-4"
-//         style={{ borderColor: "rgb(157 48 137)" }}
+//         style={{ borderColor: "rgb(120 120 120)" }}
 //       >
 //         {/* Decorative top border pattern */}
 //         <div
 //           className="w-full h-2"
 //           style={{
 //             background:
-//               "linear-gradient(90deg, rgb(157 48 137) 0%, #A13C78 25%, #872D67 50%, #681853 75%, rgb(157 48 137) 100%)",
+//               "linear-gradient(90deg, rgb(120 120 120) 0%, #A13C78 25%, #872D67 50%, #681853 75%, rgb(120 120 120) 100%)",
 //           }}
 //         ></div>
 
@@ -138,7 +138,7 @@
 //                   harmony.
 //                   {/* <span
 //                     className="font-semibold"
-//                     style={{ color: "rgb(157 48 137)" }}
+//                     style={{ color: "rgb(120 120 120)" }}
 //                   >
 //                     authentic traditional wear
 //                   </span> */}
@@ -188,7 +188,7 @@
 //                         className="group relative h-12 w-12 flex items-center justify-center rounded-full border-2 transition-all duration-300 hover:shadow-xl"
 //                         style={{
 //                           borderColor: "rgba(157, 48, 137, 0.3)",
-//                           color: "rgb(157 48 137)",
+//                           color: "rgb(120 120 120)",
 //                         }}
 //                         onMouseEnter={(e) => {
 //                           e.currentTarget.style.background = social.color;
@@ -199,7 +199,7 @@
 //                         }}
 //                         onMouseLeave={(e) => {
 //                           e.currentTarget.style.background = "transparent";
-//                           e.currentTarget.style.color = "rgb(157 48 137)";
+//                           e.currentTarget.style.color = "rgb(120 120 120)";
 //                           e.currentTarget.style.borderColor =
 //                             "rgba(157, 48, 137, 0.3)";
 //                           e.currentTarget.style.transform =
@@ -256,11 +256,11 @@
 //                 <div className="flex items-center space-x-2 mb-6">
 //                   <div
 //                     className="w-16 h-1 rounded-full"
-//                     style={{ background: "rgb(157 48 137)" }}
+//                     style={{ background: "rgb(120 120 120)" }}
 //                   ></div>
 //                   <div
 //                     className="w-2 h-2 rounded-full"
-//                     style={{ background: "rgb(157 48 137)" }}
+//                     style={{ background: "rgb(120 120 120)" }}
 //                   ></div>
 //                 </div>
 //               </div>
@@ -276,7 +276,7 @@
 //                     // }}
 //                     // onMouseEnter={(e) => {
 //                     //   e.currentTarget.style.background =
-//                     //     "rgba(157, 48, 137, 0.1)";
+//                     //     "rgba(120, 120, 120, 0.3)";
 //                     //   e.currentTarget.style.transform = "translateX(8px)";
 //                     // }}
 //                     // onMouseLeave={(e) => {
@@ -313,11 +313,11 @@
 //                 <div className="flex items-center space-x-2 mb-6">
 //                   <div
 //                     className="w-16 h-1 rounded-full"
-//                     style={{ background: "rgb(157 48 137)" }}
+//                     style={{ background: "rgb(120 120 120)" }}
 //                   ></div>
 //                   <div
 //                     className="w-2 h-2 rounded-full"
-//                     style={{ background: "rgb(157 48 137)" }}
+//                     style={{ background: "rgb(120 120 120)" }}
 //                   ></div>
 //                 </div>
 //               </div>
@@ -326,7 +326,7 @@
 //                 <div className="flex items-start space-x-4  ">
 //                   <MapPin
 //                     className="h-6 w-6 mt-1 flex-shrink-0"
-//                     style={{ color: "rgb(157 48 137)" }}
+//                     style={{ color: "rgb(120 120 120)" }}
 //                   />
 //                   <div>
 //                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -347,7 +347,7 @@
 //                 <div className="flex items-center space-x-4   ">
 //                   <Workflow
 //                     className="h-6 w-6 flex-shrink-0"
-//                     style={{ color: "rgb(157 48 137)" }}
+//                     style={{ color: "rgb(120 120 120)" }}
 //                   />
 //                   <div>
 //                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -362,7 +362,7 @@
 //                 <div className="flex items-center space-x-4   ">
 //                   <Phone
 //                     className="h-6 w-6 flex-shrink-0"
-//                     style={{ color: "rgb(157 48 137)" }}
+//                     style={{ color: "rgb(120 120 120)" }}
 //                   />
 //                   <div>
 //                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -379,7 +379,7 @@
 //                 <div className="flex items-center space-x-4   ">
 //                   <Mail
 //                     className="h-6 w-6 flex-shrink-0"
-//                     style={{ color: "rgb(157 48 137)" }}
+//                     style={{ color: "rgb(120 120 120)" }}
 //                   />
 //                   <div>
 //                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -600,14 +600,14 @@ export default function Footer() {
       {/* Main footer content */}
       <div
         className="relative bg-gradient-to-br from-slate-50 to-blue-50 border-t-4"
-        style={{ borderColor: "rgb(157 48 137)" }}
+        style={{ borderColor: "rgb(120 120 120)" }}
       >
         {/* Decorative top border pattern */}
         <div
           className="w-full h-2"
           style={{
             background:
-              "linear-gradient(90deg, rgb(157 48 137) 0%, #A13C78 25%, #872D67 50%, #681853 75%, rgb(157 48 137) 100%)",
+              "linear-gradient(90deg, rgb(120 120 120) 0%, #A13C78 25%, #872D67 50%, #681853 75%, rgb(120 120 120) 100%)",
           }}
         ></div>
 
@@ -684,7 +684,7 @@ export default function Footer() {
                         className="group relative h-12 w-12 flex items-center justify-center rounded-full border-2 transition-all duration-300 hover:shadow-xl"
                         style={{
                           borderColor: "rgba(157, 48, 137, 0.3)",
-                          color: "rgb(157 48 137)",
+                          color: "rgb(120 120 120)",
                         }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.background = social.color;
@@ -695,7 +695,7 @@ export default function Footer() {
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.background = "transparent";
-                          e.currentTarget.style.color = "rgb(157 48 137)";
+                          e.currentTarget.style.color = "rgb(120 120 120)";
                           e.currentTarget.style.borderColor =
                             "rgba(157, 48, 137, 0.3)";
                           e.currentTarget.style.transform =
@@ -748,11 +748,11 @@ export default function Footer() {
                 <div className="flex items-center space-x-2 mb-6">
                   <div
                     className="w-16 h-1 rounded-full"
-                    style={{ background: "rgb(157 48 137)" }}
+                    style={{ background: "rgb(120 120 120)" }}
                   ></div>
                   <div
                     className="w-2 h-2 rounded-full"
-                    style={{ background: "rgb(157 48 137)" }}
+                    style={{ background: "rgb(120 120 120)" }}
                   ></div>
                 </div>
               </div>
@@ -792,11 +792,11 @@ export default function Footer() {
                 <div className="flex items-center space-x-2 mb-6">
                   <div
                     className="w-16 h-1 rounded-full"
-                    style={{ background: "rgb(157 48 137)" }}
+                    style={{ background: "rgb(120 120 120)" }}
                   ></div>
                   <div
                     className="w-2 h-2 rounded-full"
-                    style={{ background: "rgb(157 48 137)" }}
+                    style={{ background: "rgb(120 120 120)" }}
                   ></div>
                 </div>
               </div>
@@ -805,7 +805,7 @@ export default function Footer() {
                 <div className="flex items-start space-x-4  ">
                   <MapPin
                     className="h-6 w-6 mt-1 flex-shrink-0"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -826,7 +826,7 @@ export default function Footer() {
                 <div className="flex items-center space-x-4   ">
                   <Workflow
                     className="h-6 w-6 flex-shrink-0"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -841,7 +841,7 @@ export default function Footer() {
                 <div className="flex items-center space-x-4   ">
                   <Phone
                     className="h-6 w-6 flex-shrink-0"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -858,7 +858,7 @@ export default function Footer() {
                 <div className="flex items-center space-x-4   ">
                   <Mail
                     className="h-6 w-6 flex-shrink-0"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <div>
                     <h5 className="font-semibold text-gray-800 mb-1">
@@ -889,11 +889,11 @@ export default function Footer() {
                 <div className="flex items-center space-x-2 mb-6">
                   <div
                     className="w-16 h-1 rounded-full"
-                    style={{ background: "rgb(157 48 137)" }}
+                    style={{ background: "rgb(120 120 120)" }}
                   ></div>
                   <div
                     className="w-2 h-2 rounded-full"
-                    style={{ background: "rgb(157 48 137)" }}
+                    style={{ background: "rgb(120 120 120)" }}
                   ></div>
                 </div>
               </div>
@@ -957,7 +957,7 @@ export default function Footer() {
                 <span className="text-gray-600 text-sm">Crafted with</span>
                 <Heart
                   className="h-4 w-4 text-red-500"
-                  style={{ fill: "rgb(157 48 137)" }}
+                  style={{ fill: "rgb(120 120 120)" }}
                 />
                 <span className="text-gray-600 text-sm">
                   in Rajasthan, India

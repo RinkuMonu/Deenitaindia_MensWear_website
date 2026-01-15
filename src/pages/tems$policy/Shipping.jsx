@@ -5,11 +5,11 @@ import React from "react";
 export default function ShippingDelivery() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 text-gray-800">
-      <h1 className="text-4xl font-extrabold text-[#9d3089] mb-4 text-center border-b-slate-200 border-b pb-4 border-gray-300">
+      <h1 className="text-4xl font-extrabold text-[#393838] mb-4 text-center border-b-slate-200 border-b pb-4 border-gray-300">
         Shipping & Delivery
       </h1>
 
-      <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#9d3089] space-y-4 text-justify text-gray-700 leading-relaxed">
+      <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#393838] space-y-4 text-justify text-gray-700 leading-relaxed">
         <p>
           Products on <strong>https://jajamblockprints.com</strong> are designer made and hand crafted. Due to the intricate and unique nature of the ethnic products available on our website, we take great care to ensure that we deliver only the best quality products.
         </p>

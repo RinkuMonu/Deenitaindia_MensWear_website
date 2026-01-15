@@ -100,7 +100,7 @@ const handleSizeChange = (size: string) => {
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover our curated collection of{" "}
-            <span className="font-semibold" style={{ color: "rgb(157 48 137)" }}>
+            <span className="font-semibold" style={{ color: "rgb(120 120 120)" }}>
               {filteredProducts.length}
             </span>{" "}
             authentic traditional pieces
@@ -134,7 +134,7 @@ const handleSizeChange = (size: string) => {
             <button
               onClick={() => {}}
               className="flex items-center space-x-2 text-white px-6 py-2.5 rounded-lg transition-colors font-medium"
-              style={{ background: "rgb(157 48 137)" }}
+              style={{ background: "rgb(120 120 120)" }}
             >
               <Sliders className="h-4 w-4" />
               <span>Filters</span>
@@ -186,7 +186,7 @@ const handleSizeChange = (size: string) => {
                       <div
                         className="absolute h-1 rounded-full"
                         style={{
-                          background: "rgb(157 48 137)",
+                          background: "rgb(120 120 120)",
                           left: `${(priceRange[0] / initialMaxPrice) * 100}%`,
                           width: `${((priceRange[1] - priceRange[0]) / initialMaxPrice) * 100}%`,
                         }}
@@ -311,7 +311,7 @@ const handleSizeChange = (size: string) => {
                 {/* <button
                   onClick={resetFilters}
                   className="px-6 py-3 text-white rounded-lg font-medium transition-colors hover:shadow-lg"
-                  style={{ background: "rgb(157 48 137)" }}
+                  style={{ background: "rgb(120 120 120)" }}
                 >
                   Reset All Filters
                 </button> */}
@@ -333,7 +333,7 @@ const handleSizeChange = (size: string) => {
           height: 20px;
           width: 20px;
           border-radius: 50%;
-          background: rgb(157 48 137);
+          background: rgb(120 120 120);
           cursor: pointer;
           border: 3px solid white;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -345,7 +345,7 @@ const handleSizeChange = (size: string) => {
           height: 20px;
           width: 20px;
           border-radius: 50%;
-          background: rgb(157 48 137);
+          background: rgb(120 120 120);
           cursor: pointer;
           border: 3px solid white;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);

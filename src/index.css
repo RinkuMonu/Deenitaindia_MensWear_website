@@ -61,10 +61,10 @@ body{
   --finunique-blue-2: #2a4172;
   --finunique-blue-3: #1b2e4f;
   --finunique-blue-4: #14263f;
-  --finunique-purple-1: #a13c78;
-  --finunique-purple-2: #872d67;
-  --finunique-purple-3: #681853;
-  --finunique-purple-4: #c1467f;
+  --finunique-purple-1: #999797;
+  --finunique-purple-2: #545252;
+  --finunique-purple-3: #999797;
+  --finunique-purple-4: #999797;
 }
 
 /* Custom hover effects for finunique colors */
@@ -99,11 +99,11 @@ body{
 
 /* Custom gradient backgrounds */
 .finunique-gradient-blue {
-  background: linear-gradient(135deg, var(--finunique-blue-1) 0%, var(--finunique-blue-2) 100%);
+  background: #E8E8E8;
 }
 
 .finunique-gradient-purple {
-  background: linear-gradient(135deg, var(--finunique-purple-1) 0%, var(--finunique-purple-2) 100%);
+  background: #999797;
 }
 
 /* Custom scrollbar for category bar */
@@ -170,7 +170,7 @@ body{
 }
 
 .text-finunique-accent {
-  color: #a13c78;
+  color: #787878;
 }
 
 .bg-finunique-primary {
@@ -178,7 +178,7 @@ body{
 }
 
 .bg-finunique-accent {
-  background-color: #a13c78;
+  background-color: #787878;
 }
 
 /* Hover effects */

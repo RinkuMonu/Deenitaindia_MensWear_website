@@ -161,7 +161,7 @@ const Banner: React.FC = () => {
                         }
                         className="group inline-flex items-center justify-center gap-2 py-1 px-4 text-xs font-bold bg-white text-black rounded-full shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "rgb(157 48 137)";
+                          e.currentTarget.style.background = "rgb(120 120 120)";
                           e.currentTarget.style.color = "white";
                         }}
                         onMouseLeave={(e) => {
@@ -227,7 +227,7 @@ const Banner: React.FC = () => {
 
           .swiper-button-next:hover,
           .swiper-button-prev:hover {
-            background: rgb(157, 48, 137);
+            background: #393838
             border-color: white;
             transform: scale(1.1);
           }

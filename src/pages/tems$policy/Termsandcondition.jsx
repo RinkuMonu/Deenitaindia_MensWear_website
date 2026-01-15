@@ -6,10 +6,10 @@ import React from "react";
 export default function TermsConditions() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 text-gray-800">
-      <h1 className="text-4xl font-extrabold text-[#9d3089] mb-6 border-b pb-4 border-gray-300">Terms & Conditions</h1>
+      <h1 className="text-4xl font-extrabold text-[#393838] mb-6 border-b pb-4 border-gray-300">Terms & Conditions</h1>
 
       {termsSections.map((section, index) => (
-        <div key={index} className="p-6 bg-white rounded-lg shadow-md border-l-4 border-[#9d3089] mb-8">
+        <div key={index} className="p-6 bg-white rounded-lg shadow-md border-l-4 border-[#393838] mb-8">
           <h2 className="text-2xl font-semibold mb-4">{section.title}</h2>
           {section.content.map((para, idx) => (
             <p key={idx} className="mb-3 text-justify leading-relaxed text-gray-700">{para}</p>

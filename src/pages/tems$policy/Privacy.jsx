@@ -5,7 +5,7 @@ import React from "react";
 export default function PrivacyPolicy() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 text-gray-800">
-      <h1 className="text-4xl font-extrabold text-[#9d3089] mb-4 text-center border-b-slate-200">
+      <h1 className="text-4xl font-extrabold text-[#393838] mb-4 text-center border-b-slate-200">
         Privacy Policy
       </h1>
       <p className="text-md text-gray-600 text-center">
@@ -15,9 +15,9 @@ export default function PrivacyPolicy() {
       {privacySections.map((section, index) => (
         <div
           key={index}
-          className="mt-10 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#9d3089]"
+          className="mt-10 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#393838]"
         >
-          <h2 className="text-2xl font-semibold mb-4 text-[#9d3089]">{section.title}</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-[#393838]">{section.title}</h2>
           {section.content.map((para, idx) => (
             <p key={idx} className="mb-3 text-justify text-gray-700 leading-relaxed">
               {para}

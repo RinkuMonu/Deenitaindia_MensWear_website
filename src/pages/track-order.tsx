@@ -554,7 +554,7 @@ const TrackOrder = () => {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: "#1B2E4F" }}
           >
-            Track Your <span style={{ color: "rgb(157 48 137)" }}>Order</span>
+            Track Your <span style={{ color: "rgb(120 120 120)" }}>Order</span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Get real-time updates on your order status and delivery progress
@@ -634,7 +634,7 @@ const TrackOrder = () => {
               <Link
                 to="/order-history"
                 className="inline-flex items-center space-x-2 text-white px-6 py-3 rounded-lg transition-colors font-medium"
-                style={{ background: "rgb(157 48 137)" }}
+                style={{ background: "rgb(120 120 120)" }}
               >
                 <ArrowLeft className="h-4 w-4" />
                 <span>Go to Order History</span>
@@ -659,11 +659,11 @@ const TrackOrder = () => {
                 <div className="flex items-center gap-4">
                   <div
                     className="w-16 h-16 rounded-full flex items-center justify-center"
-                    style={{ background: "rgba(157, 48, 137, 0.1)" }}
+                    style={{ background: "rgba(120, 120, 120, 0.3)" }}
                   >
                     <Package
                       className="w-8 h-8"
-                      style={{ color: "rgb(157 48 137)" }}
+                      style={{ color: "rgb(120 120 120)" }}
                     />
                   </div>
                   <div>
@@ -681,7 +681,7 @@ const TrackOrder = () => {
                   <div className="text-right">
                     <p
                       className="text-3xl font-bold"
-                      style={{ color: "rgb(157 48 137)" }}
+                      style={{ color: "rgb(120 120 120)" }}
                     >
                       ₹{orderData.total.toLocaleString()}
                     </p>
@@ -713,7 +713,7 @@ const TrackOrder = () => {
                   <div
                     className="h-2 rounded-full transition-all duration-500"
                     style={{
-                      background: "rgb(157 48 137)",
+                      background: "rgb(120 120 120)",
                       width: `${getProgressPercentage()}%`,
                     }}
                   />
@@ -745,7 +745,7 @@ const TrackOrder = () => {
                   <>
                     <p
                       className="font-mono text-lg font-bold"
-                      style={{ color: "rgb(157 48 137)" }}
+                      style={{ color: "rgb(120 120 120)" }}
                     >
                       {orderData.trackingNumber}
                     </p>
@@ -767,7 +767,7 @@ const TrackOrder = () => {
                 <div className="flex items-center gap-3 mb-4">
                   <Truck
                     className="w-5 h-5"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <h3 className="font-semibold text-gray-900">
                     Courier Partner
@@ -794,7 +794,7 @@ const TrackOrder = () => {
                 <div className="flex items-center gap-3 mb-4">
                   <Clock
                     className="w-5 h-5"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <h3 className="font-semibold text-gray-900">
                     {orderData.status === "delivered"
@@ -936,7 +936,7 @@ const TrackOrder = () => {
                           </span>
                           <span
                             className="font-medium"
-                            style={{ color: "rgb(157 48 137)" }}
+                            style={{ color: "rgb(120 120 120)" }}
                           >
                             ₹{item.price.toLocaleString()}
                           </span>
@@ -954,7 +954,7 @@ const TrackOrder = () => {
                   <div className="flex items-center gap-3 mb-4">
                     <MapPin
                       className="w-5 h-5"
-                      style={{ color: "rgb(157 48 137)" }}
+                      style={{ color: "rgb(120 120 120)" }}
                     />
                     <h3 className="text-lg font-bold text-gray-900">
                       Shipping Address
@@ -998,7 +998,7 @@ const TrackOrder = () => {
                   <div className="flex items-center gap-3 mb-4">
                     <CreditCard
                       className="w-5 h-5"
-                      style={{ color: "rgb(157 48 137)" }}
+                      style={{ color: "rgb(120 120 120)" }}
                     />
                     <h3 className="text-lg font-bold text-gray-900">
                       Payment Details
@@ -1015,7 +1015,7 @@ const TrackOrder = () => {
                       <span className="text-gray-600">Order Total</span>
                       <span
                         className="font-bold text-xl"
-                        style={{ color: "rgb(157 48 137)" }}
+                        style={{ color: "rgb(120 120 120)" }}
                       >
                         ₹{orderData.total.toLocaleString()}
                       </span>
@@ -1055,7 +1055,7 @@ const TrackOrder = () => {
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <Phone
                     className="w-8 h-8 mx-auto mb-2"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <h4 className="font-semibold text-gray-900 mb-1">
                     Call Support
@@ -1069,7 +1069,7 @@ const TrackOrder = () => {
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <Mail
                     className="w-8 h-8 mx-auto mb-2"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <h4 className="font-semibold text-gray-900 mb-1">Email Us</h4>
                   <p className="text-gray-600 text-sm">
@@ -1084,7 +1084,7 @@ const TrackOrder = () => {
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <Package
                     className="w-8 h-8 mx-auto mb-2"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                   <h4 className="font-semibold text-gray-900 mb-1">
                     Track Issues

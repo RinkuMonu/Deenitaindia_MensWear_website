@@ -6,11 +6,11 @@ import React from "react";
 export default function ExchangeReturn() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 text-gray-800">
-      <h1 className="text-4xl font-extrabold text-[#9d3089] mb-4 text-center border-b-slate-200 border-b pb-2 border-gray-300">Return, Refund & Exchange Policy</h1>
+      <h1 className="text-4xl font-extrabold text-[#393838] mb-4 text-center border-b-slate-200 border-b pb-2 border-gray-300">Return, Refund & Exchange Policy</h1>
 
-    <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#9d3089] space-y-4">
+    <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#393838] space-y-4">
 
-  <h2 className="text-xl font-semibold text-[#9d3089]">Return, Refund & Exchange Policy</h2>
+  <h2 className="text-xl font-semibold text-[#393838]">Return, Refund & Exchange Policy</h2>
   <p className="text-justify text-gray-700 leading-relaxed">
     (Jajam Block Prints)
     <br />
@@ -20,7 +20,7 @@ export default function ExchangeReturn() {
     However, we do provide options for return, refund, or exchange under the following conditions:
   </p>
 
-  <h3 className="text-lg font-semibold text-[#9d3089]">1. Replacement / Refund for Defective or Incorrect Products</h3>
+  <h3 className="text-lg font-semibold text-[#393838]">1. Replacement / Refund for Defective or Incorrect Products</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
     If you receive a defective or incorrect product, please notify us within 48 hours of delivery by emailing 
     <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>.
@@ -32,14 +32,14 @@ export default function ExchangeReturn() {
     If the returned product does not meet these conditions (e.g., used, washed, altered, or damaged), the return will be rejected.
   </p>
 
-  <h3 className="text-lg font-semibold text-[#9d3089]">2. Refund Process</h3>
+  <h3 className="text-lg font-semibold text-[#393838]">2. Refund Process</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
     Refunds will be issued to the original payment method used at purchase. 
     Please allow 7–14 working days for the amount to reflect in your account, depending on your payment provider. 
     If replacement stock is unavailable, we will provide either store credit or a full refund.
   </p>
 
-  <h3 className="text-lg font-semibold text-[#9d3089]">3. Exchange Policy</h3>
+  <h3 className="text-lg font-semibold text-[#393838]">3. Exchange Policy</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
     We offer product exchanges under the following terms:
     <br />• Exchange can be requested within 7 days from the date of delivery.  
@@ -58,14 +58,14 @@ export default function ExchangeReturn() {
     Store credit is valid for 30 days from the date of issue.
   </p>
 
-  <h3 className="text-lg font-semibold text-[#9d3089]">4. Cancellations</h3>
+  <h3 className="text-lg font-semibold text-[#393838]">4. Cancellations</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
     Orders can be cancelled before shipping by emailing us at 
     <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>.  
     If the order has already been shipped and delivered, you may return it following the return process above.
   </p>
 
-  <h3 className="text-lg font-semibold text-[#9d3089]">5. Non-Returnable / Non-Refundable Items</h3>
+  <h3 className="text-lg font-semibold text-[#393838]">5. Non-Returnable / Non-Refundable Items</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
     For hygiene and safety reasons, the following items cannot be returned or exchanged:
     <br />• Innerwear  
@@ -78,7 +78,7 @@ export default function ExchangeReturn() {
     • Free items or products purchased during clearance sales  
   </p>
 
-  <h3 className="text-lg font-semibold text-[#9d3089]">6. Important Notes</h3>
+  <h3 className="text-lg font-semibold text-[#393838]">6. Important Notes</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
     • Color variation is not a valid reason for return/exchange. A 5–10% difference in shade may occur due to screen resolution and lighting.  
     • Products once exchanged cannot be returned for a refund.  

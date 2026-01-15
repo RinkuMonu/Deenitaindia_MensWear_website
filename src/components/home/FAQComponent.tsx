@@ -80,7 +80,7 @@ const FAQComponent: React.FC = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-pink-50 py-10 px-4 sm:px-6 lg:px-8">
+    <div className="bg-[#e1e0e0] py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -102,7 +102,7 @@ const FAQComponent: React.FC = () => {
             {Object.entries(faqsByCategory).map(([category, categoryFaqs]) => (
               <div key={category} className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 {/* Category Header */}
-                <div className="bg-gradient-to-r from-purple-500 to-pink-400 px-6 py-4">
+                <div className="bg-[#f9bd5b] px-6 py-4">
                   <h2 className="text-xl font-semibold text-white">
                     {category}
                   </h2>
