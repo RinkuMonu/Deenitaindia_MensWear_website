@@ -65,7 +65,7 @@ const FAQComponent: React.FC = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
+      <div  className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
         <div className="text-center text-red-600">
           <p>Error: {error}</p>
           <button 
