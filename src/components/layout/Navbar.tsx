@@ -912,247 +912,246 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
         <div
           className="absolute bottom-0 left-0 right-0 h-1"
           style={{
-            background:
-              "linear-gradient(90deg, #681853 0%, #872D67 25%, #A13C78 50%, #C1467F 75%, #681853 100%)",
+            background: "linear-gradient(90deg, #cba146 0%, #d9b55a 25%, #e6c46d 50%, #f0d380 75%, #cba146 100%)",
           }}
         ></div>
       </nav>
 
       {/* Category Navigation */}
-      <div
-        className={`hidden xl:block border-t-2 transition-all duration-300 ${isSticky ? "sticky top-0 z-50 shadow-lg" : "reltive"
-          }`}
-        style={{
-          background:
-            "linear-gradient(135deg, rgb(255 246 254), rgb(255 210 237 / 97%))",
-          borderColor: primaryColor,
-        }}
-      >
-        <div className="container mx-auto px-4 relative z-10 ">
-          <div className="flex items-center justify-center py-3 gap-10">
-            {/* Traditional ornamental left divider */}
-            <div className="flex items-center space-x-2">
-              <div
-                className="w-12 h-0.5 rounded-full"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent, #cba146, transparent)",
-                }}
-              ></div>
-              <div
-                className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
-                style={{
-                  borderColor: primaryColor,
-                  background: "rgba(120, 120, 120, 0.3)",
-                }}
-              >
-                <div
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: primaryColor }}
-                ></div>
-              </div>
-            </div>
-
-            {/* Home Link */}
-            <Link
-              to="/"
-              className="text-[13px] font-semibold transition-all duration-300 hover:text-[#872D67] text-[#1B2E4F]"
-            >
-              Home
-            </Link>
-
-            {/* Main Categories  */}
-            <div className="flex items-center space-x-1">
-              {Object.entries(groupedCategories).map(([subcategory, items]) => (
-                <div key={subcategory} className="relative group">
-                  <div
-                    // to={`/category/${slugify(subcategory)}`}
-                    className="relative px-3 py-2 text-sm font-bold transition-all duration-300"
-                    style={{ color: textColor }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = textColor;
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                      e.currentTarget.style.boxShadow =
-                        "0 8px 25px rgba(157, 48, 137, 0.4)";
-                      e.currentTarget.style.borderColor = primaryColor;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = textColor;
-                      e.currentTarget.style.background =
-                        "linear-gradient(135deg, rgb(255 255 255 / 5%), rgb(255 201 233 / 5%))";
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
-                  >
-                    <span className="relative z-10 text-[12px]">
-                      {subcategory.toUpperCase()}
-                    </span>
-                  </div>
-
-                  {/* Hover Tooltip */}
-                  <div className="absolute top-full left-0 w-50 bg-[#FFF3FD] border border-gray-100 text-gray-800 rounded-lg shadow-xl hidden  scale-95 group-hover:flex group-hover:scale-100 transform origin-top transition-all duration-200 ease-out z-50">
-                    <ul className="py-1">
-                      {items.map((item) => (
-                        <li key={item._id}>
-                          <Link
-                            to={`/category/${slugify(item?.name)}`}
-                            className="flex items-center px-4 py-2.5 text-sm group/link transition-colors duration-200"
-                          >
-                            <span className="relative truncate">
-                              {item?.name}
-                              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-purple-500 transition-all duration-300 group-hover/link:w-full"></span>
-                            </span>
-                            {item?.icon && (
-                              <span className="ml-2 text-gray-400 group-hover/link:text-purple-400 transition-colors">
-                                <item.icon className="w-4 h-4" />
-                              </span>
-                            )}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-              {/* More Categories Dropdown */}
-              {categories?.length > 6 && (
-                <div className="relative" ref={moreMenuRef}>
-                  <button
-                    onClick={() => setMoreMenuOpen(!moreMenuOpen)}
-                    className="relative px-4 py-2 text-sm bg-[#c561b1] font-bold transition-all duration-300 rounded-full flex items-center space-x-2 group"
-                    style={{ color: "#fff" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#fff";
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                      e.currentTarget.style.borderColor = primaryColor;
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!moreMenuOpen) {
-                        e.currentTarget.style.color = "#fff";
-                        e.currentTarget.style.transform = "translateY(0)";
-                      }
-                    }}
-                  >
-                    <span>More Categories</span>
-                    <svg
-                      className={`w-4 h-4 transition-transform duration-300 ${moreMenuOpen ? "rotate-180" : ""
-                        }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-
-                  {/* Dropdown Menu */}
-                  {moreMenuOpen && (
-                    <div
-                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 z-50"
-                      style={{
-                        background: "linear-gradient(135deg, #f8fafc, #f1f5f9)",
-                        border: "1px solid #cba146",
-                        borderRadius: "10px",
-                        boxShadow: "0 20px 40px rgba(157, 48, 137, 0.2)",
-                      }}
-                    >
-                      <div className="px-6 py-4 border-b-2">
-                        <h3 className="text-sm font-bold text-center relative z-10">
-                          ✦ Explore More Collections ✦
-                        </h3>
-                      </div>
-
-                      <div className="p-4">
-                        <div className="grid grid-cols-2 gap-2">
-                          {categories.slice(6).map((item, index) => (
-                            <Link
-                              key={index}
-                              to={`/category/${slugify(item?.name)}`}
-                              className="relative group px-4 py-3 text-sm font-semibold transition-all duration-300 rounded-lg border"
-                              style={{
-                                color: textColor,
-                                background: "rgba(157, 48, 137, 0.05)",
-                                borderColor: "rgba(120, 120, 120, 0.3)",
-                              }}
-                              onMouseEnter={(e) => {
-                                e.currentTarget.style.color = "white";
-                                e.currentTarget.style.background =
-                                  "linear-gradient(135deg, rgb(157, 48, 137), rgb(135, 45, 103))";
-                                e.currentTarget.style.transform =
-                                  "translateX(4px)";
-                                e.currentTarget.style.boxShadow =
-                                  "0 4px 15px rgba(157, 48, 137, 0.3)";
-                                e.currentTarget.style.borderColor =
-                                  primaryColor;
-                              }}
-                              onMouseLeave={(e) => {
-                                e.currentTarget.style.color = textColor;
-                                e.currentTarget.style.background =
-                                  "rgba(157, 48, 137, 0.05)";
-                                e.currentTarget.style.transform =
-                                  "translateX(0)";
-                                e.currentTarget.style.boxShadow = "none";
-                                e.currentTarget.style.borderColor =
-                                  "rgba(120, 120, 120, 0.3)";
-                              }}
-                              onClick={() => handleCategorySelect(item?.name)}
-                            >
-                              <div className="flex items-center justify-between text-xs">
-                                <span>{item?.name}</span>
-                                <svg
-                                  className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 5l7 7-7 7"
-                                  />
-                                </svg>
-                              </div>
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-
-            {/* Traditional ornamental right divider */}
-            <div className="flex items-center space-x-2">
-              <div
-                className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
-                style={{
-                  borderColor: primaryColor,
-                  background: "rgba(120, 120, 120, 0.3)",
-                }}
-              >
-                <div
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: primaryColor }}
-                ></div>
-              </div>
-              <div
-                className="w-12 h-0.5 rounded-full"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent, #cba146, transparent)",
-                }}
-              ></div>
-            </div>
-          </div>
+    <div
+  className={`hidden xl:block border-t-2 transition-all duration-300 ${
+    isSticky ? "sticky top-0 z-50 shadow-lg" : "relative"
+  }`}
+  style={{
+    background:
+      "linear-gradient(135deg, rgb(255 252 245), rgb(255 248 240 / 97%))",
+    borderColor: primaryColor,
+  }}
+>
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="flex items-center justify-center py-3 gap-10">
+      {/* Traditional ornamental left divider */}
+      <div className="flex items-center space-x-2">
+        <div
+          className="w-12 h-0.5 rounded-full"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, #cba146, transparent)",
+          }}
+        ></div>
+        <div
+          className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
+          style={{
+            borderColor: primaryColor,
+            background: "rgba(203, 161, 70, 0.3)",
+          }}
+        >
+          <div
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ background: primaryColor }}
+          ></div>
         </div>
       </div>
+
+      {/* Home Link */}
+      <Link
+        to="/"
+        className="text-[13px] font-semibold transition-all duration-300 hover:text-[#cba146] text-[#1B2E4F]"
+      >
+        Home
+      </Link>
+
+      {/* Main Categories */}
+      <div className="flex items-center space-x-1">
+        {Object.entries(groupedCategories).map(([subcategory, items]) => (
+          <div key={subcategory} className="relative group">
+            <div
+              className="relative px-3 py-2 text-sm font-bold transition-all duration-300"
+              style={{ color: textColor }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#cba146";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 25px rgba(203, 161, 70, 0.4)";
+                e.currentTarget.style.borderColor = primaryColor;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = textColor;
+                e.currentTarget.style.background =
+                  "linear-gradient(135deg, rgb(255 255 255 / 5%), rgb(255 248 240 / 5%))";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <span className="relative z-10 text-[12px]">
+                {subcategory.toUpperCase()}
+              </span>
+            </div>
+
+            {/* Hover Tooltip */}
+            <div className="absolute top-full left-0 w-50 bg-[#FFF8F0] border border-gray-100 text-gray-800 rounded-lg shadow-xl hidden scale-95 group-hover:flex group-hover:scale-100 transform origin-top transition-all duration-200 ease-out z-50">
+              <ul className="py-1">
+                {items.map((item) => (
+                  <li key={item._id}>
+                    <Link
+                      to={`/category/${slugify(item?.name)}`}
+                      className="flex items-center px-4 py-2.5 text-sm group/link transition-colors duration-200"
+                    >
+                      <span className="relative truncate">
+                        {item?.name}
+                        <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#cba146] transition-all duration-300 group-hover/link:w-full"></span>
+                      </span>
+                      {item?.icon && (
+                        <span className="ml-2 text-gray-400 group-hover/link:text-[#cba146] transition-colors">
+                          <item.icon className="w-4 h-4" />
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+        
+        {/* More Categories Dropdown */}
+        {categories?.length > 6 && (
+          <div className="relative" ref={moreMenuRef}>
+            <button
+              onClick={() => setMoreMenuOpen(!moreMenuOpen)}
+              className="relative px-4 py-2 text-sm bg-[#cba146] font-bold transition-all duration-300 rounded-full flex items-center space-x-2 group"
+              style={{ color: "#fff" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.borderColor = primaryColor;
+              }}
+              onMouseLeave={(e) => {
+                if (!moreMenuOpen) {
+                  e.currentTarget.style.color = "#fff";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }
+              }}
+            >
+              <span>More Categories</span>
+              <svg
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  moreMenuOpen ? "rotate-180" : ""
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            {moreMenuOpen && (
+              <div
+                className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 z-50"
+                style={{
+                  background: "linear-gradient(135deg, #fffaf5, #fdf8f3)",
+                  border: "1px solid #cba146",
+                  borderRadius: "10px",
+                  boxShadow: "0 20px 40px rgba(203, 161, 70, 0.2)",
+                }}
+              >
+                <div className="px-6 py-4 border-b-2" style={{ borderColor: "#cba146" }}>
+                  <h3 className="text-sm font-bold text-center relative z-10">
+                    ✦ Explore More Collections ✦
+                  </h3>
+                </div>
+
+                <div className="p-4">
+                  <div className="grid grid-cols-2 gap-2">
+                    {categories.slice(6).map((item, index) => (
+                      <Link
+                        key={index}
+                        to={`/category/${slugify(item?.name)}`}
+                        className="relative group px-4 py-3 text-sm font-semibold transition-all duration-300 rounded-lg border"
+                        style={{
+                          color: textColor,
+                          background: "rgba(203, 161, 70, 0.08)",
+                          borderColor: "rgba(203, 161, 70, 0.3)",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.color = "white";
+                          e.currentTarget.style.background =
+                            "linear-gradient(135deg, #cba146, #d9b55a)";
+                          e.currentTarget.style.transform = "translateX(4px)";
+                          e.currentTarget.style.boxShadow =
+                            "0 4px 15px rgba(203, 161, 70, 0.3)";
+                          e.currentTarget.style.borderColor = primaryColor;
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.color = textColor;
+                          e.currentTarget.style.background =
+                            "rgba(203, 161, 70, 0.08)";
+                          e.currentTarget.style.transform = "translateX(0)";
+                          e.currentTarget.style.boxShadow = "none";
+                          e.currentTarget.style.borderColor =
+                            "rgba(203, 161, 70, 0.3)";
+                        }}
+                        onClick={() => handleCategorySelect(item?.name)}
+                      >
+                        <div className="flex items-center justify-between text-xs">
+                          <span>{item?.name}</span>
+                          <svg
+                            className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Traditional ornamental right divider */}
+      <div className="flex items-center space-x-2">
+        <div
+          className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
+          style={{
+            borderColor: primaryColor,
+            background: "rgba(203, 161, 70, 0.3)",
+          }}
+        >
+          <div
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ background: primaryColor }}
+          ></div>
+        </div>
+        <div
+          className="w-12 h-0.5 rounded-full"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, #cba146, transparent)",
+          }}
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {menuOpen && renderMobileMenu()}
     </>
