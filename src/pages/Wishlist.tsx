@@ -128,7 +128,7 @@ const Wishlist = () => {
                         <img
                           src={
                             item?.product?.images?.[0]
-                              ? `http://api.jajamblockprints.com${item.product.images[0]}`
+                              ? `http://localhost:5007${item.product.images[0]}`
                               : "/placeholder.svg"
                           }
                           alt={item?.product?.productName || "No image"}
