@@ -452,7 +452,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] p-2">
 
       <div className="w-full max-w-6xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white">
-        <div className="w-full md:w-1/2 bg-gradient-to-br from-purple-950 to-purple-400 p-8 md:p-12 flex flex-col gap-2 relative overflow-hidden">
+        <div className="w-full md:w-1/2 bg-[#cba146] p-8 md:p-12 flex flex-col gap-2 relative overflow-hidden">
           <motion.div className="max-w-md">
             <h2 className="text-4xl font-bold text-white mb-4">
               {isLogin ? "Welcome back!" : "Create your account"}
