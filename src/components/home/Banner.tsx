@@ -218,9 +218,9 @@ const Banner: React.FC = () => {
           .swiper-button-prev {
             width: 50px;
             height: 50px;
-            background: rgba(157, 48, 137, 0.8);
+            background: #cba146;
             border-radius: 50%;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            border: 3px solid #cba146;
             backdrop-filter: blur(15px);
             transition: all 0.3s ease;
           }
