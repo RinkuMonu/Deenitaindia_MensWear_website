@@ -39,7 +39,7 @@ const features = [
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "#1B2E4F" }}>
-            Why Choose <span style={{ color: "rgb(120 120 120)" }}>Our Heritage</span>
+            Why Choose <span style={{ color: "#cba146" }}>Our Heritage</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
            Experience the richness of India’s finest handloom & print traditions
@@ -56,7 +56,7 @@ const features = [
                 borderColor: "rgba(120, 120, 120, 0.3)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgb(120 120 120)"
+                e.currentTarget.style.borderColor = "#cba146"
                 e.currentTarget.style.backgroundColor = "rgba(157, 48, 137, 0.02)"
               }}
               onMouseLeave={(e) => {
@@ -68,7 +68,7 @@ const features = [
               <div className="absolute -top-4 left-8">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-lg"
-                  style={{ background: "rgb(120 120 120)" }}
+                  style={{ background: "#cba146" }}
                 >
                   {index + 1}
                 </div>
@@ -105,7 +105,7 @@ const features = [
               {/* Divider */}
               <div
                 className="w-12 h-0.5 rounded-full mx-auto mb-4 transition-all duration-300 group-hover:w-20"
-                style={{ background: "rgb(120 120 120)" }}
+                style={{ background: "#cba146" }}
               />
 
               {/* Description */}
@@ -123,12 +123,12 @@ const features = [
           >
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 rounded-full" style={{ background: "rgb(120 120 120)" }} />
+                <div className="w-2 h-2 rounded-full" style={{ background: "#cba146" }} />
                 <span className="text-sm font-semibold">Trusted by 10,000+ Customers</span>
               </div>
               <div className="w-px h-4" style={{ background: "rgba(157, 48, 137, 0.3)" }} />
               <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 rounded-full" style={{ background: "rgb(120 120 120)" }} />
+                <div className="w-2 h-2 rounded-full" style={{ background: "#cba146" }} />
                 <span className="text-sm font-semibold">Authentic Heritage Guarantee</span>
               </div>
             </div>

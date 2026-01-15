@@ -6,67 +6,67 @@ import { ArrowRight, Sparkles } from "lucide-react"
 
 // const styleMap: Record<string, any> = {
 //   "Kalmkari Print Fabric": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "320+ Products",
 //     image: "/saree1.webp",
 //   },
 //   "Cotton mal mal saree": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "450+ Products",
 //     image: "/saree2.webp",
 //   },
 //   "Chanderi Silk saree": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "180+ Products",
 //     image: "/saree3.webp",
 //   },
 //   "Maheswari Silk saree": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "210+ Products",
 //     image: "/saree4.webp",
 //   },
 //   "Kota Doriya Saree": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "380+ Products",
 //     image: "/saree5.webp",
 //   },
 //   "Cotton Suit": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "150+ Products",
 //     image: "/saree6.webp",
 //   },
 //   "Sanganeri Print Fabric": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "160+ Products",
 //     image: "/saree7.webp",
 //   },
 //   "Dabu Print Fabric": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "140+ Products",
 //     image: "/saree8.webp",
 //   },
 //   "Bagru Print": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "130+ Products",
 //     image: "/saree9.webp",
 //   },
 //   "Cotton Suit In Kota": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "170+ Products",
 //     image: "/saree10.webp",
 //   },
 //   "Chanderi Silk Suits": {
-//     color: "rgb(120 120 120)",
+//     color: "#cba146",
 //     lightColor: "rgba(120, 120, 120, 0.3)",
 //     count: "190+ Products",
 //     image: "/saree11.webp",
@@ -116,8 +116,8 @@ export default function TopCategories() {
             <span
               className="text-sm font-semibold px-6 py-3 underline inline-flex items-center gap-2 "
             // style={{
-            //   color: "rgb(120 120 120)",
-            //   borderColor: "rgb(120 120 120)",
+            //   color: "#cba146",
+            //   borderColor: "#cba146",
             // }}
             >
               <Sparkles className="w-4 h-4" />
@@ -127,7 +127,7 @@ export default function TopCategories() {
           </div>
 
           <h2 className="text-5xl md:text-6xl font-bold mb-6" style={{ color: "#1B2E4F" }}>
-            Our <span style={{ color: "rgb(120 120 120)" }}>Categories</span>
+            Our <span style={{ color: "#cba146" }}>Categories</span>
           </h2>
 
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -140,7 +140,7 @@ export default function TopCategories() {
           {categories.map((name, index) => {
 
             // const styles = styleMap[name?.name] || {
-            //   color: "rgb(120 120 120)",
+            //   color: "#cba146",
             //   lightColor: "rgba(120, 120, 120, 0.3)",
             //   count: "100+ Products",
             //   image: "/saree12.webp",
@@ -154,7 +154,7 @@ export default function TopCategories() {
                     borderColor: "rgba(120, 120, 120, 0.3)",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "rgb(120 120 120)"
+                    e.currentTarget.style.borderColor = "#cba146"
                     e.currentTarget.style.boxShadow = "0 20px 40px rgba(157, 48, 137, 0.15)"
                   }}
                   onMouseLeave={(e) => {
@@ -179,7 +179,7 @@ export default function TopCategories() {
                     {/* <div className="absolute top-4 left-4">
                       <div
                         className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white shadow-lg"
-                        style={{ background: "rgb(120 120 120)" }}
+                        style={{ background: "#cba146" }}
                       >
                         {index + 1}
                       </div>
@@ -201,7 +201,7 @@ export default function TopCategories() {
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div
                         className="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300"
-                        style={{ background: "rgb(120 120 120)" }}
+                        style={{ background: "#cba146" }}
                       >
                         <ArrowRight className="w-5 h-5" />
                       </div>
@@ -221,7 +221,7 @@ export default function TopCategories() {
                     {/* Simple Divider */}
                     <div
                       className="w-12 h-0.5 rounded-full mb-4 transition-all duration-300 group-hover:w-20"
-                      style={{ background: "rgb(120 120 120)" }}
+                      style={{ background: "#cba146" }}
                     />
 
                     {/* Description */}
@@ -236,8 +236,8 @@ export default function TopCategories() {
 
                     {/* Explore Link */}
                     <div className="flex items-center text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">
-                      <span style={{ color: "rgb(120 120 120)" }}>Explore Collection</span>
-                      <ArrowRight className="ml-2 h-4 w-4" style={{ color: "rgb(120 120 120)" }} />
+                      <span style={{ color: "#cba146" }}>Explore Collection</span>
+                      <ArrowRight className="ml-2 h-4 w-4" style={{ color: "#cba146" }} />
                     </div>
                   </div>
                 </div>

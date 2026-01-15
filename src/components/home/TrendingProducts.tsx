@@ -236,7 +236,7 @@ const outOfStock = !products || products.stock >= 0;
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: "#1B2E4F" }}
           >
-            Trending <span style={{ color: "#999797" }}>Products</span>
+            Trending <span style={{ color: "#cba146" }}>Products</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
 ular items loved by customers worldwide
@@ -251,16 +251,16 @@ ular items loved by customers worldwide
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -ml-6 sm:hidden md:flex xs:hidden"
             style={{
               background: "white",
-              border: "2px solid rgb(120 120 120)",
-              color: "rgb(120 120 120)",
+              border: "2px solid #cba146",
+              color: "#cba146",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(120 120 120)";
+              e.currentTarget.style.background = "#cba146";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "white";
-              e.currentTarget.style.color = "rgb(120 120 120)";
+              e.currentTarget.style.color = "#cba146";
             }}
           >
             <ChevronLeft size={20} />
@@ -271,16 +271,16 @@ ular items loved by customers worldwide
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -mr-6 sm:hidden md:flex xs:hidden"
             style={{
               background: "white",
-              border: "2px solid rgb(120 120 120)",
-              color: "rgb(120 120 120)",
+              border: "2px solid #cba146",
+              color: "#cba146",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(120 120 120)";
+              e.currentTarget.style.background = "#cba146";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "white";
-              e.currentTarget.style.color = "rgb(120 120 120)";
+              e.currentTarget.style.color = "#cba146";
             }}
           >
             <ChevronRight size={20} />
@@ -326,7 +326,7 @@ ular items loved by customers worldwide
                             {/* Discount Badge */}
                             {product.discount && (
                               <div
-                                className="absolute top-4 left-4 text-white bg-[#787878] text-xs font-bold px-3 py-2 rounded-full z-10"
+                                className="absolute top-4 left-4 text-white bg-[#cba146] text-xs font-bold px-3 py-2 rounded-full z-10"
                                 
                               >
                                 {product.discount}% OFF
@@ -339,17 +339,17 @@ ular items loved by customers worldwide
                                 onClick={() => handleAddToCart(product)}
                                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                 style={{
-                                  color: "rgb(120 120 120)",
+                                  color: "#cba146",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                 }}
                               >
                                 <ShoppingCart size={18} />
@@ -358,17 +358,17 @@ ular items loved by customers worldwide
                                 onClick={() => openProductModal(product)}
                                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                 style={{
-                                  color: "rgb(120 120 120)",
+                                  color: "#cba146",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                 }}
                               >
                                 <Eye size={18} />
@@ -380,17 +380,17 @@ ular items loved by customers worldwide
                                   color:
                                     hoveredProduct === product._id
                                       ? "#ef4444"
-                                      : "rgb(120 120 120)",
+                                      : "#cba146",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                 }}
                               >
                                 <Heart size={18} />
@@ -409,7 +409,7 @@ ular items loved by customers worldwide
     ${hoveredProduct === product._id ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}
     ${outOfStock ? "opacity-50 cursor-not-allowed pointer-events-none" : "hover:scale-105"}
   `}
-  style={{ background: "rgb(120 120 120)" }}
+  style={{ background: "#cba146" }}
 >
   {outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
 </button> */}
@@ -420,7 +420,7 @@ ular items loved by customers worldwide
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
                               }`}
-                              style={{ background: "rgb(120 120 120)" }}
+                              style={{ background: "#cba146" }}
                               disabled={true}
                             >
                               Out of Stock
@@ -472,7 +472,7 @@ ular items loved by customers worldwide
                             <div className="flex items-center justify-between">
                               <div className="flex items-center space-x-2">
                                 <span
-                                  className="text-xl text-[#787878] font-bold"
+                                  className="text-xl text-[#cba146] font-bold"
                                
                                 >
                                   ₹{product.actualPrice}
@@ -506,7 +506,7 @@ ular items loved by customers worldwide
                 style={{
                   background:
                     currentSlide === index
-                      ? "rgb(120 120 120)"
+                      ? "#cba146"
                       : "rgb(232 232 232)",
                 }}
               />
@@ -606,7 +606,7 @@ ular items loved by customers worldwide
                   <div className="flex items-center mb-6">
                     <span
                       className="text-3xl font-bold mr-3"
-                      style={{ color: "rgb(120 120 120)" }}
+                      style={{ color: "#cba146" }}
                     >
                       ₹{selectedProduct.actualPrice}
                     </span>
@@ -668,7 +668,7 @@ ular items loved by customers worldwide
     className={`flex-1 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2
       ${outOfStock ? "opacity-50 cursor-not-allowed" : "hover:shadow-lg"}
     `}
-    style={{ background: "rgb(120 120 120)" }}
+    style={{ background: "#cba146" }}
   >
     <ShoppingCart size={18} />
     <span>{outOfStock ? "Out of Stock" : "Add to Cart"}</span>

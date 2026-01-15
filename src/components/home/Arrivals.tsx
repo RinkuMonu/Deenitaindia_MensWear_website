@@ -230,7 +230,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: "#1B2E4F" }}
           >
-            Latest <span className="text-[#787878]">Arrivals</span>
+            Latest <span className="text-[#cba146]">Arrivals</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover our newest collection of authentic traditional wear
@@ -245,16 +245,16 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -ml-6 sm:hidden md:flex xs:hidden"
             style={{
               background: "white",
-              border: "2px solid rgb(120 120 120)",
-              color: "rgb(120 120 120)",
+              border: "2px solid #cba146",
+              color: "#cba146",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(120 120 120)";
+              e.currentTarget.style.background = "#cba146";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "white";
-              e.currentTarget.style.color = "rgb(120 120 120)";
+              e.currentTarget.style.color = "#cba146";
             }}
           >
             <ChevronLeft size={20} />
@@ -265,16 +265,16 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -mr-6 sm:hidden md:flex xs:hidden"
             style={{
               background: "white",
-              border: "2px solid rgb(120 120 120)",
-              color: "rgb(120 120 120)",
+              border: "2px solid #cba146",
+              color: "#cba146",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(120 120 120)";
+              e.currentTarget.style.background = "#cba146";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "white";
-              e.currentTarget.style.color = "rgb(120 120 120)";
+              e.currentTarget.style.color = "#cba146";
             }}
           >
             <ChevronRight size={20} />
@@ -320,7 +320,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                             {/* Discount Badge */}
                             {product.discount && (
                               <div
-                                className="absolute top-4 left-4 text-white bg-[#787878] text-xs font-bold px-3 py-2 rounded-full z-10"
+                                className="absolute top-4 left-4 text-white bg-[#cba146] text-xs font-bold px-3 py-2 rounded-full z-10"
                                 
                               >
                                 {product.discount}% OFF
@@ -333,17 +333,17 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                                 onClick={() => handleAddToCart(product)}
                                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                 style={{
-                                  color: "rgb(120 120 120)",
+                                  color: "#cba146",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                 }}
                               >
                                 <ShoppingCart size={18} />
@@ -352,17 +352,17 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                                 onClick={() => openProductModal(product)}
                                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                 style={{
-                                  color: "rgb(120 120 120)",
+                                  color: "#cba146",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                 }}
                               >
                                 <Eye size={18} />
@@ -374,17 +374,17 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                                   color:
                                     hoveredProduct === product._id
                                       ? "#ef4444"
-                                      : "rgb(120 120 120)",
+                                      : "#cba146",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(120 120 120)";
+                                    "#cba146";
                                 }}
                               >
                                 <Heart size={18} />
@@ -399,7 +399,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
                               }`}
-                              style={{ background: "rgb(120 120 120)" }}
+                              style={{ background: "#cba146" }}
                               disabled={true}
                             >
                               Out of Stock
@@ -411,7 +411,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
                               }`}
-                              style={{ background: "rgb(120 120 120)" }}
+                              style={{ background: "#cba146" }}
                             >
                               ADD TO CART
                             </button>}
@@ -451,7 +451,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                               <div className="flex items-center space-x-2">
                                 <span
                                   className="text-xl font-bold"
-                                  style={{ color: "rgb(120 120 120)" }}
+                                  style={{ color: "#cba146" }}
                                 >
                                   ₹{product.actualPrice}
                                 </span>
@@ -484,7 +484,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                 style={{
                   background:
                     currentSlide === index
-                      ? "rgb(120 120 120)"
+                      ? "#cba146"
                       : "rgba(120, 120, 120, 0.3)",
                 }}
               />
@@ -498,16 +498,16 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
             to="/products"
             className="inline-flex items-center px-8 py-4 rounded-full font-semibold transition-all duration-300 border-2 hover:shadow-lg"
             style={{
-              color: "rgb(120 120 120)",
-              borderColor: "rgb(120 120 120)",
+              color: "#cba146",
+              borderColor: "#cba146",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(120 120 120)";
+              e.currentTarget.style.background = "#cba146";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "rgb(120 120 120)";
+              e.currentTarget.style.color = "#cba146";
             }}
           >
             View All Products
@@ -595,7 +595,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                   <div className="flex items-center mb-6">
                     <span
                       className="text-3xl font-bold mr-3"
-                      style={{ color: "rgb(120 120 120)" }}
+                      style={{ color: "#cba146" }}
                     >
                       ₹{selectedProduct.actualPrice}
                     </span>
@@ -649,7 +649,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                   <button
                     onClick={() => handleAddToCart(selectedProduct)}
                     className="flex-1 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2 hover:shadow-lg"
-                    style={{ background: "rgb(120 120 120)" }}
+                    style={{ background: "#cba146" }}
                   >
                     <ShoppingCart size={18} />
                     <span>Add to Cart</span>

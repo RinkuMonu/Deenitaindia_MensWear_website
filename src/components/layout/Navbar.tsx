@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
   // Constants
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE;
-  const primaryColor = "rgb(120 120 120)";
+  const primaryColor = "#cba146";
   const textColor = "#1B2E4F";
 
   // Memoized styles
@@ -536,7 +536,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                         style={{
                           background:
                             "linear-gradient(135deg, #f8fafc, #f1f5f9)",
-                          border: "1px solid rgb(120 120 120)",
+                          border: "1px solid #cba146",
                           borderRadius: "10px",
                           boxShadow: "0 20px 40px rgba(157, 48, 137, 0.2)",
                         }}
@@ -936,7 +936,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                 className="w-12 h-0.5 rounded-full"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, rgb(120 120 120), transparent)",
+                    "linear-gradient(90deg, transparent, #cba146, transparent)",
                 }}
               ></div>
               <div
@@ -1056,7 +1056,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                       className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 z-50"
                       style={{
                         background: "linear-gradient(135deg, #f8fafc, #f1f5f9)",
-                        border: "1px solid rgb(120 120 120)",
+                        border: "1px solid #cba146",
                         borderRadius: "10px",
                         boxShadow: "0 20px 40px rgba(157, 48, 137, 0.2)",
                       }}
@@ -1146,7 +1146,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                 className="w-12 h-0.5 rounded-full"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, rgb(120 120 120), transparent)",
+                    "linear-gradient(90deg, transparent, #cba146, transparent)",
                 }}
               ></div>
             </div>

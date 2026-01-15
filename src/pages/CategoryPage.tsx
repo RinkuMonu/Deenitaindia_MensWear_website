@@ -118,7 +118,7 @@ export default function CategoryPage() {
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover our curated collection of{" "}
-            <span className="font-semibold" style={{ color: "rgb(120 120 120)" }}>
+            <span className="font-semibold" style={{ color: "#cba146" }}>
               {filteredProducts.length}
             </span>{" "}
             authentic traditional pieces 
@@ -152,7 +152,7 @@ export default function CategoryPage() {
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="flex items-center space-x-2 text-white px-6 py-2.5 rounded-lg transition-colors font-medium"
-              style={{ background: "rgb(120 120 120)" }}
+              style={{ background: "#cba146" }}
             >
               <Sliders className="h-4 w-4" />
               <span>Filters</span>
@@ -203,7 +203,7 @@ export default function CategoryPage() {
                       <div
                         className="absolute h-1 rounded-full"
                         style={{
-                          background: "rgb(120 120 120)",
+                          background: "#cba146",
                           left: `${(priceRange[0] / initialMaxPrice) * 100}%`,
                           width: `${((priceRange[1] - priceRange[0]) / initialMaxPrice) * 100}%`,
                         }}
@@ -331,7 +331,7 @@ export default function CategoryPage() {
                 {/* <button
                   onClick={resetFilters}
                   className="px-6 py-3 text-white rounded-lg font-medium transition-colors hover:shadow-lg"
-                  style={{ background: "rgb(120 120 120)" }}
+                  style={{ background: "#cba146" }}
                 >
                   Reset All Filters
                 </button> */}
@@ -354,7 +354,7 @@ export default function CategoryPage() {
           height: 20px;
           width: 20px;
           border-radius: 50%;
-          background: rgb(120 120 120);
+          background: #cba146;
           cursor: pointer;
           border: 3px solid white;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -366,7 +366,7 @@ export default function CategoryPage() {
           height: 20px;
           width: 20px;
           border-radius: 50%;
-          background: rgb(120 120 120);
+          background: #cba146;
           cursor: pointer;
           border: 3px solid white;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);

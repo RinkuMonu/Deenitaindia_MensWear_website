@@ -285,7 +285,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
               className="text-4xl md:text-5xl font-bold"
               style={{ color: "#1B2E4F" }}
             >
-              Deal Of The <span style={{ color: "rgb(120 120 120)" }}>Day</span>
+              Deal Of The <span style={{ color: "#cba146" }}>Day</span>
             </h2>
             <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-lg">
               <Clock size={20} className="text-red-500" />
@@ -308,16 +308,16 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
               className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -ml-6 sm:hidden md:flex xs:hidden"
               style={{
                 background: "white",
-                border: "2px solid rgb(120 120 120)",
-                color: "rgb(120 120 120)",
+                border: "2px solid #cba146",
+                color: "#cba146",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgb(120 120 120)";
+                e.currentTarget.style.background = "#cba146";
                 e.currentTarget.style.color = "white";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "white";
-                e.currentTarget.style.color = "rgb(120 120 120)";
+                e.currentTarget.style.color = "#cba146";
               }}
             >
               <ChevronLeft size={20} />
@@ -328,16 +328,16 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
               className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -mr-6 sm:hidden md:flex xs:hidden"
               style={{
                 background: "white",
-                border: "2px solid rgb(120 120 120)",
-                color: "rgb(120 120 120)",
+                border: "2px solid #cba146",
+                color: "#cba146",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgb(120 120 120)";
+                e.currentTarget.style.background = "#cba146";
                 e.currentTarget.style.color = "white";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "white";
-                e.currentTarget.style.color = "rgb(120 120 120)";
+                e.currentTarget.style.color = "#cba146";
               }}
             >
               <ChevronRight size={20} />
@@ -404,7 +404,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                 {product.discount && (
                                   <div
                                     className="absolute top-4 right-4 text-white text-xs font-bold px-3 py-2 rounded-full z-10"
-                                    style={{ background: "rgb(120 120 120)" }}
+                                    style={{ background: "#cba146" }}
                                   >
                                     {product.discount}% OFF
                                   </div>
@@ -416,17 +416,17 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                     onClick={() => handleAddToCart(product)}
                                     className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                     style={{
-                                      color: "rgb(120 120 120)",
+                                      color: "#cba146",
                                     }}
                                     onMouseEnter={(e) => {
                                       e.currentTarget.style.background =
-                                        "rgb(120 120 120)";
+                                        "#cba146";
                                       e.currentTarget.style.color = "white";
                                     }}
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.background = "white";
                                       e.currentTarget.style.color =
-                                        "rgb(120 120 120)";
+                                        "#cba146";
                                     }}
                                   >
                                     <ShoppingCart size={18} />
@@ -435,17 +435,17 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                     onClick={() => openProductModal(product)}
                                     className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                     style={{
-                                      color: "rgb(120 120 120)",
+                                      color: "#cba146",
                                     }}
                                     onMouseEnter={(e) => {
                                       e.currentTarget.style.background =
-                                        "rgb(120 120 120)";
+                                        "#cba146";
                                       e.currentTarget.style.color = "white";
                                     }}
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.background = "white";
                                       e.currentTarget.style.color =
-                                        "rgb(120 120 120)";
+                                        "#cba146";
                                     }}
                                   >
                                     <Eye size={18} />
@@ -457,17 +457,17 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                       color:
                                         hoveredProduct === product._id
                                           ? "#ef4444"
-                                          : "rgb(120 120 120)",
+                                          : "#cba146",
                                     }}
                                     onMouseEnter={(e) => {
                                       e.currentTarget.style.background =
-                                        "rgb(120 120 120)";
+                                        "#cba146";
                                       e.currentTarget.style.color = "white";
                                     }}
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.background = "white";
                                       e.currentTarget.style.color =
-                                        "rgb(120 120 120)";
+                                        "#cba146";
                                     }}
                                   >
                                     <Heart size={18} />
@@ -482,7 +482,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                         ? "translate-y-0 opacity-100"
                                         : "translate-y-full opacity-0"
                                     }`}
-                                    style={{ background: "rgb(120 120 120)" }}
+                                    style={{ background: "#cba146" }}
                                     disabled={true}
                                   >
                                     Out of Stock
@@ -526,7 +526,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                   <div className="flex items-center space-x-2">
                                     <span
                                       className="text-xl font-bold"
-                                      style={{ color: "rgb(120 120 120)" }}
+                                      style={{ color: "#cba146" }}
                                     >
                                       ₹{product.actualPrice}
                                     </span>
@@ -564,7 +564,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                   style={{
                     background:
                       currentSlide === index
-                        ? "rgb(120 120 120)"
+                        ? "#cba146"
                         : "rgba(120, 120, 120, 0.3)",
                   }}
                 />
@@ -591,16 +591,16 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
             to="/products"
             className="inline-flex items-center px-8 py-4 rounded-full font-semibold transition-all duration-300 border-2 hover:shadow-lg"
             style={{
-              color: "rgb(120 120 120)",
-              borderColor: "rgb(120 120 120)",
+              color: "#cba146",
+              borderColor: "#cba146",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(120 120 120)";
+              e.currentTarget.style.background = "#cba146";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "transparent";
-              e.currentTarget.style.color = "rgb(120 120 120)";
+              e.currentTarget.style.color = "#cba146";
             }}
           >
             View All Products
@@ -721,7 +721,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                   <div className="flex items-center mb-6">
                     <span
                       className="text-3xl font-bold mr-3"
-                      style={{ color: "rgb(120 120 120)" }}
+                      style={{ color: "#cba146" }}
                     >
                       ₹{selectedProduct.actualPrice}
                     </span>

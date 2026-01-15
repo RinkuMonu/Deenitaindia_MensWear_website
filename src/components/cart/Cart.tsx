@@ -144,7 +144,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
               >
                 <ShoppingCart
                   className="w-5 h-5"
-                  style={{ color: "rgb(120 120 120)" }}
+                  style={{ color: "#cba146" }}
                 />
               </div>
               <div>
@@ -175,7 +175,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                 >
                   <ShoppingCart
                     className="w-10 h-10"
-                    style={{ color: "rgb(120 120 120)" }}
+                    style={{ color: "#cba146" }}
                   />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -187,7 +187,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                 <button
                   onClick={onClose}
                   className="flex items-center gap-2 text-white px-6 py-2.5 rounded-lg font-medium transition-colors"
-                  style={{ background: "rgb(120 120 120)" }}
+                  style={{ background: "#cba146" }}
                 >
                   Continue Shopping
                   <ArrowRight className="w-4 h-4" />
@@ -219,7 +219,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                       <div className="flex items-center justify-between">
                         <span
                           className="font-bold"
-                          style={{ color: "rgb(120 120 120)" }}
+                          style={{ color: "#cba146" }}
                         >
                           ₹{item.price.toLocaleString()}
                           {/* ₹{item.price.toFixed(0)} */}
@@ -284,7 +284,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                 <button
                   onClick={handleCheckout}
                   className="w-full flex items-center justify-center gap-2 text-white py-3 px-4 rounded-lg font-semibold transition-colors hover:shadow-lg"
-                  style={{ background: "rgb(120 120 120)" }}
+                  style={{ background: "#cba146" }}
                 >
                   Proceed to Checkout
                   <ArrowRight className="w-4 h-4" />

@@ -80,7 +80,7 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
       <BlockImageSection />
       <Arrivals addToCart={addToCart} />
       <ElevatedSection />
-      <DealOfTheDay addToCart={addToCart} /> {/* Add this line */}
+      {/* <DealOfTheDay addToCart={addToCart} /> */}
       <TopCategories />
       <HowItWorks />
       <DeliveryFeatures />
