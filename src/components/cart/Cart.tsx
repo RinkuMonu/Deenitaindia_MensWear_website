@@ -207,6 +207,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                         className="w-20 h-20 object-cover rounded-lg"
                       />
                     </div>
+                    
                     <div className="flex-1 min-w-0">
                       <h3 className="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">
                         {item.name}
