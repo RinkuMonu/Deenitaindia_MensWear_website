@@ -493,25 +493,28 @@ console.log(location.state,"loca")
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] p-2">
+    <div className="flex items-center justify-center ">
       <div className="w-full max-w-6xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white">
-        <div className="w-full md:w-1/2 bg-gradient-to-br from-purple-950 to-purple-400 p-8 md:p-12 flex flex-col gap-2 relative overflow-hidden">
-          <motion.div className="max-w-md">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              {isLogin ? "Welcome back!" : "Create your account"}
-            </h2>
-            <p className="text-indigo-100 text-lg">
-              {isLogin
-                ? "Sign in to access your personalized dashboard."
-                : "Join our community to unlock exclusive features."}
-            </p>
-          </motion.div>
-          <img
-            src="https://img.freepik.com/free-vector/secure-login-concept-illustration_114360-4585.jpg"
-            alt="Security"
-            className="w-full max-w-md object-contain mt-10 hidden md:block"
-          />
-        </div>
+      <div
+  className="w-full md:w-1/2 p-8 md:p-12 flex flex-col gap-2 relative overflow-hidden bg-cover bg-center"
+  style={{ backgroundImage: "url('/home/login-img.jpg')" }}
+>
+  {/* Black gradient overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70 z-0"></div>
+
+  {/* Content */}
+  <motion.div className="max-w-md relative z-10">
+    <h2 className="text-4xl font-bold text-white mb-4">
+      {isLogin ? "Welcome back!" : "Create your account"}
+    </h2>
+    <p className="text-gray-200 text-lg">
+      {isLogin
+        ? "Sign in to access your personalized dashboard."
+        : "Join our community to unlock exclusive features."}
+    </p>
+  </motion.div>
+</div>
+
 
         <div
           className="w-full md:w-1/2 p-6 md:p-10 lg:p-14 bg-white overflow-y-auto"
@@ -691,7 +694,7 @@ console.log(location.state,"loca")
                         setShowResetPassword(false);
                         setShowForgotPassword(true);
                       }}
-                      className="text-indigo-600 font-medium hover:text-indigo-800 inline-flex items-center"
+                      className="text-[#cba146] font-medium hover:text-[#c79018] inline-flex items-center"
                     >
                       ← Back to Forgot Password
                     </button>
@@ -1014,7 +1017,7 @@ console.log(location.state,"loca")
                         <button
                           type="button"
                           onClick={() => setShowForgotPassword(true)}
-                          className="text-sm text-indigo-600 hover:text-indigo-800"
+                          className="text-sm text-[#cba146] hover:text-[#c28b13]"
                         >
                           Forgot password?
                         </button>
@@ -1034,8 +1037,8 @@ console.log(location.state,"loca")
                       onMouseLeave={() => setIsHovered(false)}
                       className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${
                         isLoading
-                          ? "bg-indigo-400 cursor-not-allowed"
-                          : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
+                          ? "bg-[#cba146] cursor-not-allowed"
+                          : "bg-[#cba146] hover:shadow-xl"
                       }`}
                     >
                       {isLoading
@@ -1049,7 +1052,7 @@ console.log(location.state,"loca")
                   <div className="mt-6 text-center">
                     <button
                       onClick={() => setIsLogin(!isLogin)}
-                      className="text-indigo-600 font-medium hover:text-indigo-800 inline-flex items-center"
+                      className="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center"
                     >
                       {isLogin
                         ? "Don't have an account? Sign up"

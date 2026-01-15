@@ -234,7 +234,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
               <span
                 className="text-xs text-white px-2 xl:px-3 py-1 rounded-full font-semibold"
                 style={{
-                  background: "linear-gradient(135deg, #A13C78, #872D67)",
+                  background: "#cba146",
                 }}
               >
                 Category
