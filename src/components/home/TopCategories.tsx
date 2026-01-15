@@ -167,7 +167,7 @@ export default function TopCategories() {
                     <img
                       // src={styles.image || "/placeholder.svg"}
                       // src={`http://api.jajamblockprints.com${categories?.image}`}
-                      src={`http://api.jajamblockprints.com${name?.image}` || "/placeholder.svg"}
+                      src={`http://localhost:5007${name?.image}` || "/placeholder.svg"}
                       alt={name?.name}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />

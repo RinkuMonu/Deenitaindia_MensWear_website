@@ -395,7 +395,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                               <div className="relative aspect-square overflow-hidden">
                                 <img
                                   className="absolute inset-0 w-full h-full object-cover"
-                                  src={`http://api.jajamblockprints.com${product.images[0]}`}
+                                  src={`http://localhost:5007${product.images[0]}`}
                                   alt={product.productName}
                                   loading="lazy"
                                 />
@@ -676,7 +676,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
               <div className="flex items-center justify-center bg-gray-50 rounded-xl p-8">
                 <img
                   className="rounded-xl object-contain max-h-[400px]"
-                  src={`http://api.jajamblockprints.com${selectedProduct.images[0]}`}
+                  src={`http://localhost:5007${selectedProduct.images[0]}`}
                   alt={selectedProduct.productName}
                   loading="lazy"
                 />

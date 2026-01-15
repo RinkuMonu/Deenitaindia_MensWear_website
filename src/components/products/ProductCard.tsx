@@ -132,7 +132,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     if (!imagePath) return "";
     return imagePath.startsWith("http")
       ? imagePath
-      : `http://api.jajamblockprints.com${imagePath}`;
+      : `http://localhost:5007${imagePath}`;
   };
   const outOfStock = !ratedProduct || ratedProduct.stock <= 0;
 

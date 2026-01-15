@@ -289,14 +289,14 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
           >
             <img
               // src={mainImage || "/placeholder.svg?height=600&width=600&query=main product image"}
-              src={`http://api.jajamblockprints.com${mainImage}`}
+              src={`http://localhost:5007${mainImage}`}
               alt={product.productName}
               className="w-full h-auto object-cover"
             />
           </div>
           <div className="flex mt-6 space-x-4">
             {product.images.map((img, index) => {
-              const fullUrl = `http://api.jajamblockprints.com${img}`;
+              const fullUrl = `http://localhost:5007${img}`;
               return (
                 <img
                   key={index}

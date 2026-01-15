@@ -202,7 +202,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                   >
                     <div className="flex-shrink-0">
                       <img
-                        src={`http://api.jajamblockprints.com${item.image}`}
+                        src={`http://localhost:5007${item.image}`}
                         alt={item.name}
                         className="w-20 h-20 object-cover rounded-lg"
                       />
