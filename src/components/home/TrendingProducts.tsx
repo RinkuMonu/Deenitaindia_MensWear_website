@@ -236,10 +236,10 @@ const outOfStock = !products || products.stock >= 0;
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ color: "#1B2E4F" }}
           >
-            Trending <span style={{ color: "rgb(157 48 137)" }}>Products</span>
+            Trending <span style={{ color: "#999797" }}>Products</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular items loved by customers worldwide
+ular items loved by customers worldwide
           </p>
         </div>
 
@@ -251,16 +251,16 @@ const outOfStock = !products || products.stock >= 0;
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -ml-6 sm:hidden md:flex xs:hidden"
             style={{
               background: "white",
-              border: "2px solid rgb(157 48 137)",
-              color: "rgb(157 48 137)",
+              border: "2px solid rgb(120 120 120)",
+              color: "rgb(120 120 120)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(157 48 137)";
+              e.currentTarget.style.background = "rgb(120 120 120)";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "white";
-              e.currentTarget.style.color = "rgb(157 48 137)";
+              e.currentTarget.style.color = "rgb(120 120 120)";
             }}
           >
             <ChevronLeft size={20} />
@@ -271,16 +271,16 @@ const outOfStock = !products || products.stock >= 0;
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center -mr-6 sm:hidden md:flex xs:hidden"
             style={{
               background: "white",
-              border: "2px solid rgb(157 48 137)",
-              color: "rgb(157 48 137)",
+              border: "2px solid rgb(120 120 120)",
+              color: "rgb(120 120 120)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgb(157 48 137)";
+              e.currentTarget.style.background = "rgb(120 120 120)";
               e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "white";
-              e.currentTarget.style.color = "rgb(157 48 137)";
+              e.currentTarget.style.color = "rgb(120 120 120)";
             }}
           >
             <ChevronRight size={20} />
@@ -326,8 +326,8 @@ const outOfStock = !products || products.stock >= 0;
                             {/* Discount Badge */}
                             {product.discount && (
                               <div
-                                className="absolute top-4 left-4 text-white text-xs font-bold px-3 py-2 rounded-full z-10"
-                                style={{ background: "rgb(157 48 137)" }}
+                                className="absolute top-4 left-4 text-white bg-[#787878] text-xs font-bold px-3 py-2 rounded-full z-10"
+                                
                               >
                                 {product.discount}% OFF
                               </div>
@@ -339,17 +339,17 @@ const outOfStock = !products || products.stock >= 0;
                                 onClick={() => handleAddToCart(product)}
                                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                 style={{
-                                  color: "rgb(157 48 137)",
+                                  color: "rgb(120 120 120)",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(157 48 137)";
+                                    "rgb(120 120 120)";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(157 48 137)";
+                                    "rgb(120 120 120)";
                                 }}
                               >
                                 <ShoppingCart size={18} />
@@ -358,17 +358,17 @@ const outOfStock = !products || products.stock >= 0;
                                 onClick={() => openProductModal(product)}
                                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
                                 style={{
-                                  color: "rgb(157 48 137)",
+                                  color: "rgb(120 120 120)",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(157 48 137)";
+                                    "rgb(120 120 120)";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(157 48 137)";
+                                    "rgb(120 120 120)";
                                 }}
                               >
                                 <Eye size={18} />
@@ -380,17 +380,17 @@ const outOfStock = !products || products.stock >= 0;
                                   color:
                                     hoveredProduct === product._id
                                       ? "#ef4444"
-                                      : "rgb(157 48 137)",
+                                      : "rgb(120 120 120)",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.background =
-                                    "rgb(157 48 137)";
+                                    "rgb(120 120 120)";
                                   e.currentTarget.style.color = "white";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.background = "white";
                                   e.currentTarget.style.color =
-                                    "rgb(157 48 137)";
+                                    "rgb(120 120 120)";
                                 }}
                               >
                                 <Heart size={18} />
@@ -409,7 +409,7 @@ const outOfStock = !products || products.stock >= 0;
     ${hoveredProduct === product._id ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}
     ${outOfStock ? "opacity-50 cursor-not-allowed pointer-events-none" : "hover:scale-105"}
   `}
-  style={{ background: "rgb(157 48 137)" }}
+  style={{ background: "rgb(120 120 120)" }}
 >
   {outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
 </button> */}
@@ -420,19 +420,19 @@ const outOfStock = !products || products.stock >= 0;
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
                               }`}
-                              style={{ background: "rgb(157 48 137)" }}
+                              style={{ background: "rgb(120 120 120)" }}
                               disabled={true}
                             >
                               Out of Stock
                             </button> :
                             <button
                               onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${
+                              className={`absolute bottom-0 left-0 w-full text-white bg-[#787878] py-3 text-center font-semibold transition-all duration-300 z-20 ${
                                 hoveredProduct === product._id
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
                               }`}
-                              style={{ background: "rgb(157 48 137)" }}
+                           
                             >
                               ADD TO CART
                             </button>}     
@@ -472,8 +472,8 @@ const outOfStock = !products || products.stock >= 0;
                             <div className="flex items-center justify-between">
                               <div className="flex items-center space-x-2">
                                 <span
-                                  className="text-xl font-bold"
-                                  style={{ color: "rgb(157 48 137)" }}
+                                  className="text-xl text-[#787878] font-bold"
+                               
                                 >
                                   ₹{product.actualPrice}
                                 </span>
@@ -506,8 +506,8 @@ const outOfStock = !products || products.stock >= 0;
                 style={{
                   background:
                     currentSlide === index
-                      ? "rgb(157 48 137)"
-                      : "rgba(157, 48, 137, 0.3)",
+                      ? "rgb(120 120 120)"
+                      : "rgb(232 232 232)",
                 }}
               />
             ))}
@@ -518,11 +518,8 @@ const outOfStock = !products || products.stock >= 0;
         <div className="text-center mt-12">
           <Link
             to="/products"
-            className="inline-flex items-center px-8 py-4 rounded-full font-semibold transition-all duration-300 border-2 hover:shadow-lg"
-            style={{
-              color: "rgb(157 48 137)",
-              borderColor: "rgb(157 48 137)",
-            }}
+            className="inline-flex items-center px-8 py-4 rounded-full font-semibold transition-all duration-300 border-2 border-[#787878] text-[#787878] hover:shadow-lg "
+          
           >
             View All Products
           </Link>
@@ -609,7 +606,7 @@ const outOfStock = !products || products.stock >= 0;
                   <div className="flex items-center mb-6">
                     <span
                       className="text-3xl font-bold mr-3"
-                      style={{ color: "rgb(157 48 137)" }}
+                      style={{ color: "rgb(120 120 120)" }}
                     >
                       ₹{selectedProduct.actualPrice}
                     </span>
@@ -671,7 +668,7 @@ const outOfStock = !products || products.stock >= 0;
     className={`flex-1 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2
       ${outOfStock ? "opacity-50 cursor-not-allowed" : "hover:shadow-lg"}
     `}
-    style={{ background: "rgb(157 48 137)" }}
+    style={{ background: "rgb(120 120 120)" }}
   >
     <ShoppingCart size={18} />
     <span>{outOfStock ? "Out of Stock" : "Add to Cart"}</span>

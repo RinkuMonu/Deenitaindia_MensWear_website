@@ -115,7 +115,7 @@ export default function TermsOfService() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-14 text-gray-800 bg-white">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold text-[#9d3089] mb-4">Terms of Service</h1>
+        <h1 className="text-4xl font-extrabold text-[#393838] mb-4">Terms of Service</h1>
         <p className="text-md text-gray-600">
           Please read our terms carefully before using Jajam Block Print services.
         </p>
@@ -125,9 +125,9 @@ export default function TermsOfService() {
         {sectionTitles.map((title, index) => (
           <div
             key={index}
-            className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition duration-300 border-l-4 border-[#9d3089]"
+            className="bg-gray-50 p-6 rounded-lg shadow hover:shadow-lg transition duration-300 border-l-4 border-[#393838]"
           >
-            <h2 className="text-2xl font-semibold text-[#9d3089] mb-4 uppercase tracking-wide">
+            <h2 className="text-2xl font-semibold text-[#393838] mb-4 uppercase tracking-wide">
               Section {index + 1}: {title}
             </h2>
             <div className="space-y-3">

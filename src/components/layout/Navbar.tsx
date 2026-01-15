@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
   // Constants
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE;
-  const primaryColor = "rgb(157 48 137)";
+  const primaryColor = "rgb(120 120 120)";
   const textColor = "#1B2E4F";
 
   // Memoized styles
@@ -536,7 +536,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                         style={{
                           background:
                             "linear-gradient(135deg, #f8fafc, #f1f5f9)",
-                          border: "1px solid rgb(157 48 137)",
+                          border: "1px solid rgb(120 120 120)",
                           borderRadius: "10px",
                           boxShadow: "0 20px 40px rgba(157, 48, 137, 0.2)",
                         }}
@@ -557,12 +557,12 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                                 style={{
                                   color: textColor,
                                   background: "rgba(157, 48, 137, 0.05)",
-                                  borderColor: "rgba(157, 48, 137, 0.1)",
+                                  borderColor: "rgba(120, 120, 120, 0.3)",
                                 }}
                                 onMouseEnter={(e) => {
                                   e.currentTarget.style.color = "white";
                                   e.currentTarget.style.background =
-                                    "linear-gradient(135deg, rgb(157, 48, 137), rgb(135, 45, 103))";
+                                    "linear-gradient(135deg, #787878, #a8a8a8)";
                                   e.currentTarget.style.transform =
                                     "translateX(4px)";
                                   e.currentTarget.style.boxShadow =
@@ -578,7 +578,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                                     "translateX(0)";
                                   e.currentTarget.style.boxShadow = "none";
                                   e.currentTarget.style.borderColor =
-                                    "rgba(157, 48, 137, 0.1)";
+                                    "rgba(120, 120, 120, 0.3)";
                                 }}
                                 onClick={() => handleCategorySelect(item?.name)}
                               >
@@ -679,11 +679,8 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
     <>
       {/* Top announcement bar */}
       <div
-        className="relative overflow-hidden text-white text-xs sm:text-sm text-center py-2 sm:py-3 px-4"
-        style={{
-          background:
-            "linear-gradient(135deg, rgb(108 30 108) 0%, rgb(167 86 135) 50%, rgb(143 0 138) 100%)",
-        }}
+        className="relative overflow-hidden text-white bg-[#f9bd5b] text-xs sm:text-sm text-center py-2 sm:py-3 px-4"
+       
       >
         <div className="relative z-10 font-semibold tracking-wide">
           <span className="hidden sm:inline">
@@ -696,13 +693,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
 
       {/* Main Navbar */}
       <nav className="relative transition-all duration-300 bg-white py-3 sm:py-4">
-        <div
-          className="absolute top-0 left-0 right-0 h-1"
-          style={{
-            background:
-              "linear-gradient(90deg, rgb(157 48 137) 0%, #A13C78 25%, #872D67 50%, #681853 75%, rgb(157 48 137) 100%)",
-          }}
-        ></div>
+       
 
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
@@ -740,7 +731,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                       className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white rounded-full p-2 xl:p-3 transition-all shadow-lg border-2 border-white"
                       style={{
                         background:
-                          "linear-gradient(135deg, rgb(149 21 137), rgb(220 133 195))",
+                          "linear-gradient(135deg, rgb(184, 134, 11), rgb(255, 193, 7))",
                       }}
                     >
                       <Search size={16} className="xl:w-[18px] xl:h-[18px]" />
@@ -792,7 +783,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                 style={{ color: textColor }}
               >
                 <div
-                  className="absolute inset-0 rounded-full border-2 group-hover:shadow-lg transition-all"
+                  className="absolute inset-0 rounded-full  group-hover:shadow-lg transition-all"
                   style={{
                     background:
                       "linear-gradient(135deg, rgba(56, 77, 137, 0.1), rgba(161, 60, 120, 0.1))",
@@ -804,7 +795,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                   <span
                     className="absolute -top-1 -right-1 text-white text-xs font-bold rounded-full w-5 h-5 xl:w-6 xl:h-6 flex items-center justify-center border-2 border-white shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg, #A13C78, #872D67)",
+                      background: "#f9bd5b",
                     }}
                   >
                     {wishlistCount}
@@ -818,7 +809,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                 style={{ color: textColor }}
               >
                 <div
-                  className="absolute inset-0 rounded-full border-2 group-hover:shadow-lg transition-all"
+                  className="absolute inset-0 rounded-full group-hover:shadow-lg transition-all"
                   style={{
                     background:
                       "linear-gradient(135deg, rgba(56, 77, 137, 0.1), rgba(161, 60, 120, 0.1))",
@@ -833,7 +824,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                   <span
                     className="absolute -top-1 -right-1 text-white text-xs font-bold rounded-full w-5 h-5 xl:w-6 xl:h-6 flex items-center justify-center border-2 border-white shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg, #A13C78, #872D67)",
+                      background: "#f9bd5b",
                     }}
                   >
                     {totalCart}
@@ -945,14 +936,14 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                 className="w-12 h-0.5 rounded-full"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, rgb(157 48 137), transparent)",
+                    "linear-gradient(90deg, transparent, rgb(120 120 120), transparent)",
                 }}
               ></div>
               <div
                 className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
                 style={{
                   borderColor: primaryColor,
-                  background: "rgba(157, 48, 137, 0.1)",
+                  background: "rgba(120, 120, 120, 0.3)",
                 }}
               >
                 <div
@@ -1065,7 +1056,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                       className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 z-50"
                       style={{
                         background: "linear-gradient(135deg, #f8fafc, #f1f5f9)",
-                        border: "1px solid rgb(157 48 137)",
+                        border: "1px solid rgb(120 120 120)",
                         borderRadius: "10px",
                         boxShadow: "0 20px 40px rgba(157, 48, 137, 0.2)",
                       }}
@@ -1086,7 +1077,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                               style={{
                                 color: textColor,
                                 background: "rgba(157, 48, 137, 0.05)",
-                                borderColor: "rgba(157, 48, 137, 0.1)",
+                                borderColor: "rgba(120, 120, 120, 0.3)",
                               }}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.color = "white";
@@ -1107,7 +1098,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                                   "translateX(0)";
                                 e.currentTarget.style.boxShadow = "none";
                                 e.currentTarget.style.borderColor =
-                                  "rgba(157, 48, 137, 0.1)";
+                                  "rgba(120, 120, 120, 0.3)";
                               }}
                               onClick={() => handleCategorySelect(item?.name)}
                             >
@@ -1143,7 +1134,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                 className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
                 style={{
                   borderColor: primaryColor,
-                  background: "rgba(157, 48, 137, 0.1)",
+                  background: "rgba(120, 120, 120, 0.3)",
                 }}
               >
                 <div
@@ -1155,7 +1146,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                 className="w-12 h-0.5 rounded-full"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, rgb(157 48 137), transparent)",
+                    "linear-gradient(90deg, transparent, rgb(120 120 120), transparent)",
                 }}
               ></div>
             </div>

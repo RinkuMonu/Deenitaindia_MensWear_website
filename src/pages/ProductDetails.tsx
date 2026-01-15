@@ -285,7 +285,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
         <div className="flex flex-col items-center">
           <div
             className="relative w-full max-w-xl rounded-3xl overflow-hidden  border-4 border-transparent transition-all duration-300 hover:border-purple-200"
-            style={{ borderColor: "rgba(157, 48, 137, 0.1)" }}
+            style={{ borderColor: "rgba(120, 120, 120, 0.3)" }}
           >
             <img
               // src={mainImage || "/placeholder.svg?height=600&width=600&query=main product image"}
@@ -337,7 +337,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             {/* Selected size price OR fallback to actual price */}
             <span
               className="text-5xl font-bold mr-4"
-              style={{ color: "rgb(157 48 137)" }}
+              style={{ color: "rgb(120 120 120)" }}
             >
               ₹{selectedSize?.price || product?.actualPrice}
             </span>
@@ -356,7 +356,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             {product?.discount && (
               <span
                 className="ml-6 px-4 py-2 rounded-full text-lg font-semibold text-white shadow-md"
-                style={{ background: "rgb(157 48 137)" }}
+                style={{ background: "rgb(120 120 120)" }}
               >
                 {product?.discount}% OFF
               </span>
@@ -450,7 +450,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
               className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] text-sm ${
                 product?.stock <= 0 && "cursor-not-allowed opacity-50"
               } `} // Smaller buttons
-              style={{ background: "rgb(157 48 137)" }}
+              style={{ background: "rgb(120 120 120)" }}
             >
               <ShoppingCart size={20} /> Add to Cart
             </button>
@@ -465,14 +465,14 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             </button>
             {/* <button
               className="flex items-center justify-center gap-2 px-5 py-3 border-2 rounded-full font-bold transition-all duration-300 hover:shadow-lg hover:scale-[1.02] text-sm" // Smaller buttons
-              style={{ borderColor: "rgb(157 48 137)", color: "rgb(157 48 137)" }}
+              style={{ borderColor: "rgb(120 120 120)", color: "rgb(120 120 120)" }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgb(157 48 137)"
+                e.currentTarget.style.background = "rgb(120 120 120)"
                 e.currentTarget.style.color = "white"
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent"
-                e.currentTarget.style.color = "rgb(157 48 137)"
+                e.currentTarget.style.color = "rgb(120 120 120)"
               }}
             >
               <Heart size={20} /> Add to Wishlist
@@ -547,7 +547,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
                 : "text-gray-700 hover:text-purple-600"
             }`}
             style={{
-              borderColor: activeTab === "description" ? "rgb(157 48 137)" : "",
+              borderColor: activeTab === "description" ? "rgb(120 120 120)" : "",
             }}
           >
             Description
@@ -563,7 +563,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
                   : "text-gray-700 hover:text-purple-600"
               }`}
               style={{
-                borderColor: activeTab === "reviews" ? "rgb(157 48 137)" : "",
+                borderColor: activeTab === "reviews" ? "rgb(120 120 120)" : "",
               }}
             >
               Reviews
@@ -680,7 +680,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
       {/* <div className="mt-20">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight" style={{ color: "#1B2E4F" }}>
-            You Might Also <span style={{ color: "rgb(157 48 137)" }}>Like</span>
+            You Might Also <span style={{ color: "rgb(120 120 120)" }}>Like</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Explore other handcrafted treasures from our authentic collection, curated just for you.
@@ -709,7 +709,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div
                       className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300"
-                      style={{ background: "rgb(157 48 137)" }}
+                      style={{ background: "rgb(120 120 120)" }}
                     >
                       <ArrowRight className="w-6 h-6" />
                     </div>
@@ -722,7 +722,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
                   </h3>
                   <p className="text-base text-gray-600 mb-4">{relProd.category?.name || "Traditional Wear"}</p>
                   <div className="flex items-center text-base font-medium group-hover:translate-x-1 transition-transform duration-300">
-                    <span className="text-2xl font-bold" style={{ color: "rgb(157 48 137)" }}>
+                    <span className="text-2xl font-bold" style={{ color: "rgb(120 120 120)" }}>
                       ₹{relProd.actualPrice}
                     </span>
                     {relProd.price && relProd.price !== relProd.actualPrice && (

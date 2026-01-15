@@ -140,11 +140,11 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ background: "rgba(157, 48, 137, 0.1)" }}
+                style={{ background: "rgba(120, 120, 120, 0.3)" }}
               >
                 <ShoppingCart
                   className="w-5 h-5"
-                  style={{ color: "rgb(157 48 137)" }}
+                  style={{ color: "rgb(120 120 120)" }}
                 />
               </div>
               <div>
@@ -171,11 +171,11 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
               <div className="flex flex-col items-center justify-center h-full text-center">
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center mb-4"
-                  style={{ background: "rgba(157, 48, 137, 0.1)" }}
+                  style={{ background: "rgba(120, 120, 120, 0.3)" }}
                 >
                   <ShoppingCart
                     className="w-10 h-10"
-                    style={{ color: "rgb(157 48 137)" }}
+                    style={{ color: "rgb(120 120 120)" }}
                   />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -187,7 +187,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                 <button
                   onClick={onClose}
                   className="flex items-center gap-2 text-white px-6 py-2.5 rounded-lg font-medium transition-colors"
-                  style={{ background: "rgb(157 48 137)" }}
+                  style={{ background: "rgb(120 120 120)" }}
                 >
                   Continue Shopping
                   <ArrowRight className="w-4 h-4" />
@@ -219,7 +219,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                       <div className="flex items-center justify-between">
                         <span
                           className="font-bold"
-                          style={{ color: "rgb(157 48 137)" }}
+                          style={{ color: "rgb(120 120 120)" }}
                         >
                           ₹{item.price.toLocaleString()}
                           {/* ₹{item.price.toFixed(0)} */}
@@ -284,7 +284,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                 <button
                   onClick={handleCheckout}
                   className="w-full flex items-center justify-center gap-2 text-white py-3 px-4 rounded-lg font-semibold transition-colors hover:shadow-lg"
-                  style={{ background: "rgb(157 48 137)" }}
+                  style={{ background: "rgb(120 120 120)" }}
                 >
                   Proceed to Checkout
                   <ArrowRight className="w-4 h-4" />

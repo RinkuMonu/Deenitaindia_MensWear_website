@@ -154,7 +154,7 @@ export const RatingModal = ({ isOpen, onClose }: RatingModalProps) => {
             className={`w-full py-3 px-4 rounded-md font-medium text-white ${
               rating === 0
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-[#9D3089] hover:bg-[#C561B1"
+                : "bg-[#393838] hover:bg-[#C561B1"
             }`}
           >
             Submit Rating

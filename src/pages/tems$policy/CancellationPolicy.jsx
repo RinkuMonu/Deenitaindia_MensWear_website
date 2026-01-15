@@ -812,15 +812,15 @@ export default function CancellationPolicy() {
      
 
       {/* New: Cancellation Policy section (same styling/colors) */}
-      <div className="mt-8 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#9d3089] space-y-4">
-        <h2 className="text-xl font-semibold text-[#9d3089]">Cancellation Policy</h2>
+      <div className="mt-8 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#393838] space-y-4">
+        <h2 className="text-xl font-semibold text-[#393838]">Cancellation Policy</h2>
         <p className="text-justify text-gray-700 leading-relaxed">
           (Jajam Block Prints)
           <br />
           At Jajam Block Prints, we understand that sometimes plans change. To make shopping worry-free, we allow customers to cancel their orders under the following terms:
         </p>
 
-        <h3 className="text-lg font-semibold text-[#9d3089]">1. Order Cancellation Before Shipping</h3>
+        <h3 className="text-lg font-semibold text-[#393838]">1. Order Cancellation Before Shipping</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
           Customers can cancel their order within 24 hours of placing it, or before it has been shipped.
           To request a cancellation, please email us at
@@ -828,19 +828,19 @@ export default function CancellationPolicy() {
           In such cases, a full refund will be issued to the original payment method.
         </p>
 
-        <h3 className="text-lg font-semibold text-[#9d3089]">2. Order Cancellation After Shipping</h3>
+        <h3 className="text-lg font-semibold text-[#393838]">2. Order Cancellation After Shipping</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
           If your order has already been shipped but not yet delivered, you may notify us immediately at
           <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>.
           Once the package is returned to us, we will process a refund minus shipping charges.
         </p>
 
-        <h3 className="text-lg font-semibold text-[#9d3089]">3. Order Cancellation After Delivery</h3>
+        <h3 className="text-lg font-semibold text-[#393838]">3. Order Cancellation After Delivery</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
           If you wish to cancel the order after receiving it, this will be treated as a Return/Exchange request and the rules of our Return, Refund & Exchange Policy will apply.
         </p>
 
-        <h3 className="text-lg font-semibold text-[#9d3089]">4. Non-Cancellable Items</h3>
+        <h3 className="text-lg font-semibold text-[#393838]">4. Non-Cancellable Items</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
           Certain items cannot be cancelled once an order is placed, including:
           <br />• Gift cards

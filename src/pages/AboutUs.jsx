@@ -5,8 +5,8 @@ export default function AboutUs() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       {/* Hero Header */}
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#9d3089] mb-6">About Us</h1>
-        <div className="w-24 h-1.5 bg-[#9d3089] mx-auto rounded-full"></div>
+        <h1 className="text-4xl md:text-5xl font-bold text-[#393838] mb-6">About Us</h1>
+        <div className="w-24 h-1.5 bg-[#393838] mx-auto rounded-full"></div>
       </div>
 
       {/* Shree Shyam Block Prints Section */}
@@ -29,11 +29,11 @@ export default function AboutUs() {
         <div className="space-y-8">
           <div className="space-y-6">
             <div className="inline-block">
-              <span className="bg-[#9d3089]/10 text-[#9d3089] px-4 py-2 rounded-full text-sm font-semibold">
+              <span className="bg-[#393838]/10 text-[#393838] px-4 py-2 rounded-full text-sm font-semibold">
                 Est. 1981 | Handcrafted in Rajasthan
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#9d3089]">Shree Shyam Block Prints</h2> 
+            <h2 className="text-3xl md:text-4xl font-bold text-[#393838]">Shree Shyam Block Prints</h2> 
             <p className="text-lg text-gray-700 leading-relaxed">
               For more than 40 years, Shree Shyam Block Prints has been keeping India’s textile traditions alive. Started in 1981 by <strong>Ram Vinod Shukla</strong>, we are a family-run production unit in Rajasthan, known for hand block printing styles like Bagru, Dabu, and Sanganeri.
             </p>
@@ -45,12 +45,12 @@ export default function AboutUs() {
       </div>
 
       {/* Jajam Block Prints Section */}
-      <div className="bg-gradient-to-r from-[#9d3089]/5 to-purple-50 rounded-3xl p-8 md:p-12 mb-20">
+      <div className="bg-gradient-to-r from-[#393838]/5 to-purple-50 rounded-3xl p-8 md:p-12 mb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#9d3089]">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#393838]">
                 Jajam Block Prints
                 <span className="block text-lg font-normal text-gray-600 mt-2">A Sub-Brand by Shree Shyam</span>
               </h2>
@@ -85,7 +85,7 @@ export default function AboutUs() {
       {/* What We Stand For Section */}
       <div className="mb-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#9d3089] mb-4">What We Stand For</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#393838] mb-4">What We Stand For</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Our commitment to authenticity, sustainability, and artisan craftsmanship drives everything we do
           </p>
@@ -104,7 +104,7 @@ export default function AboutUs() {
                 <h3 className="text-sm font-bold">100% In-House</h3>
               </div>
             </div>
-            <h3 className="text-lg font-bold text-[#9d3089] mb-3">100% In-House Production</h3>
+            <h3 className="text-lg font-bold text-[#393838] mb-3">100% In-House Production</h3>
             <p className="text-gray-600 text-sm">Complete control over quality from start to finish</p>
           </div>
 
@@ -120,7 +120,7 @@ export default function AboutUs() {
                 <h3 className="text-sm font-bold">Natural Dyes</h3>
               </div>
             </div>
-            <h3 className="text-lg font-bold text-[#9d3089] mb-3">Natural Dyes & Sustainable Practices</h3>
+            <h3 className="text-lg font-bold text-[#393838] mb-3">Natural Dyes & Sustainable Practices</h3>
             <p className="text-gray-600 text-sm">Eco-friendly processes that respect our environment</p>
           </div>
 
@@ -136,7 +136,7 @@ export default function AboutUs() {
                 <h3 className="text-sm font-bold">Authentic Craft</h3>
               </div>
             </div>
-            <h3 className="text-lg font-bold text-[#9d3089] mb-3">Authentic Artisan Craftsmanship</h3>
+            <h3 className="text-lg font-bold text-[#393838] mb-3">Authentic Artisan Craftsmanship</h3>
             <p className="text-gray-600 text-sm">Skills passed down through generations of master craftsmen</p>
           </div>
 
@@ -152,7 +152,7 @@ export default function AboutUs() {
                 <h3 className="text-sm font-bold">Heritage</h3>
               </div>
             </div>
-            <h3 className="text-lg font-bold text-[#9d3089] mb-3">Rooted in Rajasthan's Textile Heritage</h3>
+            <h3 className="text-lg font-bold text-[#393838] mb-3">Rooted in Rajasthan's Textile Heritage</h3>
             <p className="text-gray-600 text-sm">Preserving centuries-old traditions for future generations</p>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function AboutUs() {
       <div className="bg-[#f9f4f8] rounded-xl p-8 mb-12">
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-lg font-bold text-[#9d3089] mb-4 flex items-center">
+            <h3 className="text-lg font-bold text-[#393838] mb-4 flex items-center">
               <svg
                 className="w-5 h-5 mr-2"
                 fill="none"
@@ -182,7 +182,7 @@ export default function AboutUs() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +197,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +212,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -227,7 +227,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +242,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -259,7 +259,7 @@ export default function AboutUs() {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-[#9d3089] mb-4 flex items-center">
+            <h3 className="text-lg font-bold text-[#393838] mb-4 flex items-center">
               <svg
                 className="w-5 h-5 mr-2"
                 fill="none"
@@ -279,7 +279,7 @@ export default function AboutUs() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -294,7 +294,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -309,7 +309,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -324,7 +324,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -339,7 +339,7 @@ export default function AboutUs() {
               </li>
               <li className="flex items-start">
                 <svg
-                  className="w-4 h-4 mt-0.5 mr-2 text-[#9d3089]"
+                  className="w-4 h-4 mt-0.5 mr-2 text-[#393838]"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -358,21 +358,21 @@ export default function AboutUs() {
       </div>
 
       {/* Thank You Message */}
-      <div className="text-center py-12 bg-gradient-to-r from-[#9d3089]/10 to-purple-100 rounded-2xl">
+      <div className="text-center py-12 bg-gradient-to-r from-[#393838]/10 to-purple-100 rounded-2xl">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#9d3089] mb-4">Thank you for supporting handmade.</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#393838] mb-4">Thank you for supporting handmade.</h2>
           <p className="text-xl md:text-2xl font-semibold text-gray-700">Thank you for supporting Indian artisans.</p>
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#9d3089] mb-2">40+</div>
+              <div className="text-3xl font-bold text-[#393838] mb-2">40+</div>
               <div className="text-gray-600">Years of Heritage</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#9d3089] mb-2">100%</div>
+              <div className="text-3xl font-bold text-[#393838] mb-2">100%</div>
               <div className="text-gray-600">In-House Production</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-[#9d3089] mb-2">3</div>
+              <div className="text-3xl font-bold text-[#393838] mb-2">3</div>
               <div className="text-gray-600">Traditional Techniques</div>
             </div>
           </div>

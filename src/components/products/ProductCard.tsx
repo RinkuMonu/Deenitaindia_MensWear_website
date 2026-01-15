@@ -182,7 +182,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             {ratedProduct.discount && (
               <div
                 className="absolute top-3 left-3 text-white text-xs font-bold px-2 py-1 rounded-full z-10"
-                style={{ background: "rgb(157 48 137)" }}
+                style={{ background: "rgb(120 120 120)" }}
               >
                 {ratedProduct.discount}% OFF
               </div>
@@ -198,7 +198,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <button
                 onClick={(e) => handleAddToCart(e, product)}
                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:scale-110 "
-                style={{ color: "rgb(157 48 137)" }}
+                style={{ color: "rgb(120 120 120)" }}
                 title="Add to Cart"
                 aria-label="Add to cart"
                 disabled={product.stock <= 0}
@@ -208,7 +208,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <button
                 onClick={handleAddToWishlist}
                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:scale-110"
-                style={{ color: "rgb(157 48 137)" }}
+                style={{ color: "rgb(120 120 120)" }}
                 title="Add to Wishlist"
                 aria-label="Add to wishlist"
               >
@@ -217,7 +217,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <Link
                 to={`/product/${ratedProduct._id}`}
                 className="bg-white rounded-full p-2 shadow-lg transition-all hover:scale-110"
-                style={{ color: "rgb(157 48 137)" }}
+                style={{ color: "rgb(120 120 120)" }}
                 title="Quick View"
                 aria-label="Quick view"
               >
@@ -244,7 +244,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     ? "opacity-50 cursor-not-allowed pointer-events-none"
                     : "hover:scale-105",
                 ].join(" ")}
-                style={{ background: "rgb(157 48 137)" }}
+                style={{ background: "rgb(120 120 120)" }}
                 aria-label={outOfStock ? "Out of Stock" : "Add to cart"}
               >
                 {outOfStock ? "Out of Stock" : "Add to Cart"}
@@ -282,7 +282,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <div className="flex items-center space-x-2">
                 <span
                   className="text-lg font-bold"
-                  style={{ color: "rgb(157 48 137)" }}
+                  style={{ color: "rgb(120 120 120)" }}
                 >
                   ₹{ratedProduct.actualPrice.toLocaleString()}
                 </span>
