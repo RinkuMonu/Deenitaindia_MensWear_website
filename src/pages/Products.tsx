@@ -6,8 +6,8 @@ import ProductCard from "../components/products/ProductCard"
 
 
 
-const initialMinPrice = 0
-const initialMaxPrice =50000
+const initialMinPrice = 100
+const initialMaxPrice =5000
 const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 export default function Products() {
   const { category } = useParams()
