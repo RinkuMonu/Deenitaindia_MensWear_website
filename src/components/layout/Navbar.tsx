@@ -113,7 +113,6 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
         const res = await fetch(`${baseUrl}/website/${referenceWebsite}`);
         const data = await res.json();
         console.log(data);
-
         setCategories(data?.website?.categories)
         // Group items by subcategory
         const grouped = {};

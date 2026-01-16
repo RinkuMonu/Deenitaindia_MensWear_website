@@ -61,7 +61,7 @@ export default function TopCategories() {
           </h2>
 
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover our curated collection of traditional wear, each piece crafted with authentic techniques
+            Discover our acurated collection of traditional wear, each piece crafted with authentic techniques
           </p>
         </div>
 
