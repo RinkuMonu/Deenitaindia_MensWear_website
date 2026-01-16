@@ -3,66 +3,23 @@ import AboutBannerSection from '../components/about/AboutBanner';
 import BlockImageSection from '../components/home/Blockimage';
 import ElevatedSection from '../components/home/Elevated';
 
-
-
-
-
 export default function AboutUs() {
   return (
     <>
         <AboutBannerSection />
-        <BlockImageSection />
-      
-
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      {/* Hero Header */}
-      
       <div className="text-center mb-10">
         <h1 className="text-4xl md:text-5xl font-bold text-[#393838] mb-6">About <span className='text-[#cba146]'>Us</span></h1>
         <div className="w-24 h-1.5 bg-[#393838] mx-auto rounded-full"></div>
       </div>
-
-      {/* Shree Shyam Block Prints Section */}
-      <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-        {/* Image */}
-        <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-xl transition-all hover:shadow-2xl">
-          <img
-            src="/8.jpeg"
-            alt="Artisan working on block printing"
-            className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 p-6 text-white">
-            <p className="text-sm font-medium">Master Artisan at Work</p>
-            <p className="text-xs opacity-80">Traditional Block Printing Since 1981</p>
-          </div>
-        </div>
-
-        {/* Text Content */}
-        <div className="space-y-8">
-          <div className="space-y-6">
-            <div className="inline-block">
-              <span className="bg-[#cba146] text-white px-4 py-2 rounded-full text-sm font-semibold">
-                Est. 1981 | Handcrafted in Rajasthan
-              </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#393838]">Shree Shyam Block Prints</h2> 
-            <p className="text-sm text-gray-700 leading-relaxed">
-              For more than 40 years, Shree Shyam Block Prints has been keeping India’s textile traditions alive. Started in 1981 by <strong>Ram Vinod Shukla</strong>, we are a family-run production unit in Rajasthan, known for hand block printing styles like Bagru, Dabu, and Sanganeri.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Every product is carefully handmade by skilled artisans, using age-old methods passed down through generations. Our aim is to keep tradition alive by creating sustainable, high-quality fabrics.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Jajam Block Prints Section */}
-      <div className="bg-gradient-to-r from-[#393838]/5 to-purple-50 rounded-3xl p-8 md:p-12 mb-20">
+      <div className="bg-gradient-to-r from-[#393838]/5 to-purple-50 rounded-3xl p-8 md:p-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <div className="space-y-8">
             <div className="space-y-6">
+              <span className="bg-[#cba146] text-white px-4 py-2 rounded-full text-sm font-semibold">
+                Est. 1981 | Handcrafted in Rajasthan
+              </span>
               <h2 className="text-2xl md:text-3xl font-bold text-[#393838]">
                 Jajam Block Prints
                 <span className="block text-base font-normal text-gray-600 mt-2">A Sub-Brand by Shree Shyam</span>
@@ -78,8 +35,6 @@ export default function AboutUs() {
               </p>
             </div>
           </div>
-
-          {/* Image */}
           <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-xl">
             <img
               src="/1.jpeg"
@@ -170,9 +125,8 @@ export default function AboutUs() {
           </div>
         </div>
       </div> */}
-
-   
     </div>
+       <BlockImageSection />
       <ElevatedSection />
     </>
   )

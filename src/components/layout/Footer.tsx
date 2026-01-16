@@ -675,7 +675,15 @@ style={{
 
       </div>
 
- 
+      <div>
+<ul className="flex justify-end gap-6 pb-3 text-gray-400 me-2">
+  <li><Link to="/privacy-policy">Privacy Policy</Link></li> <span>|</span>
+  <li><Link to="/returns-and-exchanges">Refund Policy</Link></li><span>|</span>
+  <li><Link to="/terms-of-service">Terms Policy</Link></li><span>|</span>
+  <li><Link to="/cancellation_policy">Cancellation Policy</Link></li><span>|</span>
+</ul>
+      </div>
+
       <div className="border-t border-white/10 text-center py-4 text-sm text-gray-500">
         © {new Date().getFullYear()} Your Company. All rights reserved.
       </div>
