@@ -21,6 +21,8 @@ import Blazer from "../components/home/Blazer";
 import Kurtaset from "../components/home/KurtaSet";
 import Casual from "../components/home/Casual";
 import TreckPents from "../components/home/TreckPents";
+import BannerSection1 from "../components/banner/Banner1";
+import BannerSection2 from "../components/banner/Banner2";
 
 interface HomeProps {
   addToCart: (product: Product) => void;
@@ -83,11 +85,13 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
       <Banner />
       <TrendingProducts addToCart={addToCart} /> {/* Pass addToCart here */}
       {/* <BlockImageSection /> */}
+      <BannerSection1 />
       <Arrivals addToCart={addToCart} />
          <Casual />
       <TreckPents />
       {/* <ElevatedSection /> */}
       {/* <DealOfTheDay addToCart={addToCart} /> */}
+      <BannerSection2 />
       <TopCategories />
       {/* <HowItWorks /> */}
       {/* <DeliveryFeatures /> */}

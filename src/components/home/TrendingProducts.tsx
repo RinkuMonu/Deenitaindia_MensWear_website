@@ -239,7 +239,7 @@ const TrendingProducts = ({
             Trending <span style={{ color: "#cba146" }}>Products</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            ular items loved by customers worldwide
+            Popular items loved by customers worldwide
           </p>
         </div>
 

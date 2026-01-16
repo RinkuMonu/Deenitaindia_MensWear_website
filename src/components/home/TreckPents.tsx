@@ -129,7 +129,7 @@ export default function TreckPents() {
     <section className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8 border border-top">
       <div className="text-left mb-4 max-w-7xl mx-auto">
         <h1 className="text-3xl sm:text-4xl lg:text-xl font-bold text-gray-900 mb-6 leading-tight">
-          Treck Pents & Joggers
+          Track Pants & Joggers
           <span className="block text-2xl sm:text-3xl lg:text-4xl text-[#cba146] mt-2">
             Top Favourite
           </span>
