@@ -675,15 +675,47 @@ export default function Footer() {
       </div>
 
       <div>
-        <ul className="flex justify-end gap-6 pb-3 text-gray-400 me-2">
-          <li><Link to="/privacy-policy">Privacy Policy</Link></li> <span>|</span>
-          <li><Link to="/returns-and-exchanges">Refund Policy</Link></li><span>|</span>
-          <li><Link to="/terms-of-service">Terms Policy</Link></li><span>|</span>
-          <li><Link to="/cancellation_policy">Cancellation Policy</Link></li><span>|</span>
-          <li><Link to="/shipping-policy">Shipping Policy</Link></li><span>|</span>
+  <ul className="flex flex-wrap justify-center sm:justify-end items-center gap-x-3 gap-y-2 pb-3 text-gray-400 px-3 text-sm sm:text-base">
+    <li>
+      <Link to="/privacy-policy" className="hover:text-black transition">
+        Privacy Policy
+      </Link>
+    </li>
 
-        </ul>
-      </div>
+    <span className="hidden sm:inline">|</span>
+
+    <li>
+      <Link to="/returns-and-exchanges" className="hover:text-black transition">
+        Refund Policy
+      </Link>
+    </li>
+
+    <span className="hidden sm:inline">|</span>
+
+    <li>
+      <Link to="/terms-of-service" className="hover:text-black transition">
+        Terms Policy
+      </Link>
+    </li>
+
+    <span className="hidden sm:inline">|</span>
+
+    <li>
+      <Link to="/cancellation_policy" className="hover:text-black transition">
+        Cancellation Policy
+      </Link>
+    </li>
+
+    <span className="hidden sm:inline">|</span>
+
+    <li>
+      <Link to="/shipping-policy" className="hover:text-black transition">
+        Shipping Policy
+      </Link>
+    </li>
+  </ul>
+</div>
+
 
       <div className="border-t border-white/10 text-center py-4 text-sm text-gray-500">
         © {new Date().getFullYear()} Your Company. All rights reserved.
