@@ -2,7 +2,7 @@
 
 export default function BlockImageSection() {
   return (
-    <section className="w-full bg-[#eef5f7]">
+    <section className="w-full bg-[#eef5f7] mb-16">
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 min-h-[70vh]">
 
         {/* TOP LEFT – IMAGE */}
