@@ -23,7 +23,7 @@ export default function Popular() {
             <div className="text-left mb-4 max-w-7xl mx-auto">
                 <h1 className="text-3xl sm:text-4xl lg:text-xl font-bold text-gray-900 mb-6 leading-tight">
                     Featured Products, 
-                    <span className="block text-2xl sm:text-3xl lg:text-4xl text-purple-600 mt-2">NEW JOURNEYS.</span>
+                    <span className="block text-2xl sm:text-3xl lg:text-4xl text-[#cba146] mt-2">NEW JOURNEYS.</span>
                 </h1>
             </div>
 

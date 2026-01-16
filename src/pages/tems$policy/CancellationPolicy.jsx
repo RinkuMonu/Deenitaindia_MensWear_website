@@ -809,65 +809,47 @@ import React from "react";
 export default function CancellationPolicy() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10 text-gray-800">
-     
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-extrabold text-[#393838] mb-4">Cancellation Policy</h1>
+        <p className="text-md text-gray-600">
+         At Deenita India , we understand that plans can change. To make your shopping experience flexible and stress-free, we offer order cancellations under the following conditions:
+        </p>
+      </div>
 
       {/* New: Cancellation Policy section (same styling/colors) */}
       <div className="mt-8 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#393838] space-y-4">
-        <h2 className="text-xl font-semibold text-[#393838]">Cancellation Policy</h2>
-        <p className="text-justify text-gray-700 leading-relaxed">
-          (Jajam Block Prints)
-          <br />
-          At Jajam Block Prints, we understand that sometimes plans change. To make shopping worry-free, we allow customers to cancel their orders under the following terms:
-        </p>
+        
+        
 
         <h3 className="text-lg font-semibold text-[#393838]">1. Order Cancellation Before Shipping</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
-          Customers can cancel their order within 24 hours of placing it, or before it has been shipped.
-          To request a cancellation, please email us at
-          <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a> with your Order ID.
-          In such cases, a full refund will be issued to the original payment method.
+          You can cancel your order within 24 hours of placing it, or at any time before it has been shipped. To cancel, please email us at support@Deenita India .com with your Order ID. In these cases, a full refund will be issued to your original payment method.
         </p>
 
-        <h3 className="text-lg font-semibold text-[#393838]">2. Order Cancellation After Shipping</h3>
+        <h3 className="text-lg font-semibold text-[#393838]">2. Cancelling an Order After Shipping</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
-          If your order has already been shipped but not yet delivered, you may notify us immediately at
-          <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>.
-          Once the package is returned to us, we will process a refund minus shipping charges.
+          If your order has already been shipped but not yet delivered, please contact us immediately at
+          <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> info@deenitaindia.com</a>.
+          Once the package is returned to us, we will process a refund minus any applicable shipping charges.
         </p>
 
-        <h3 className="text-lg font-semibold text-[#393838]">3. Order Cancellation After Delivery</h3>
+        <h3 className="text-lg font-semibold text-[#393838]">3. Cancelling an Order After Delivery</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
-          If you wish to cancel the order after receiving it, this will be treated as a Return/Exchange request and the rules of our Return, Refund & Exchange Policy will apply.
+          If you wish to cancel an order after it has been delivered, this will be handled as a Return or Exchange, and our Return, Refund & Exchange Policy will apply.
         </p>
 
         <h3 className="text-lg font-semibold text-[#393838]">4. Non-Cancellable Items</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
-          Certain items cannot be cancelled once an order is placed, including:
+          The following items cannot be cancelled once the order is placed:
           <br />• Gift cards
           • Items marked as Final Sale or Non-Returnable
-          • Personalized or customized products
+          • Personalized or customized menswear products
         </p>
 
-        <p className="text-justify text-gray-700 leading-relaxed">
-          📧 For any cancellation requests, please contact us at:
-          <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>
-        </p>
+       
       </div>
 
-      <div className="mt-12 text-sm text-gray-600 space-y-2 border-t border-gray-300 pt-6">
-        <p>
-          <strong>Shop by Craft:</strong>{" "}
-          <span className="text-gray-700">
-            Jajam Block Print | Dabu Print | Sanganeri Print | Discharge Print | Tine And Dye Print | Black And White Print
-          </span>
-        </p>
-        <p>
-          <strong>Shop by Collection:</strong>{" "}
-          <span className="text-gray-700">
-            Cotton Suit Sets | Cotton Suit With Chiffon Dupatta | Cotton Suit With Cotton Dupatta | Cotton Suit With Kota Doria Dupatta | Maheshwari Silk Suit | Chanderi Silk Suit Sets
-          </span>
-        </p>
-      </div>
+     
     </div>
   );
 }

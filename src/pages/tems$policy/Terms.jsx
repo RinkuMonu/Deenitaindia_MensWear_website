@@ -28,85 +28,74 @@ const sectionTitles = [
 // Section contents (each element is an array of paragraphs)
 const sectionContents = [
   [
-    "By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site. You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws). You must not transmit any worms or viruses or any code of a destructive nature. A breach or violation of any of the Terms will result in an immediate termination of your Services.",
+    "By using the Deenita India website, you confirm that you are of legal age in your place of residence, or that you have obtained permission from a parent or guardian to allow any minor dependents to access and use this site.You agree that you will not use our products or services for any illegal, unauthorized, or harmful purposes. This includes, but is not limited to, violating intellectual property laws or transmitting viruses, malware, or any destructive code.Any breach of these terms may result in immediate suspension or termination of your access to Deenita India  services and accounts.",
   ],
   [
-    "We reserve the right to refuse Service to anyone for any reason at any time. You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. Credit card information is always encrypted during transfer over networks.",
-    "You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the website through which the Service is provided, without express written permission by us.",
-    "The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.",
+    "Deenita India reserves the right to refuse service to any user at any time and for any reason.You acknowledge that any content you submit to our website (excluding payment or credit card information) may be transmitted over networks unencrypted. Such transmissions may include:Sending content through multiple networks, andAdjustments or formatting changes required to meet technical standards of different networks or devices.Rest assured, all credit card and payment information is securely encrypted during transmission to protect your data.You also agree not to reproduce, copy, sell, resell, or exploit any part of the website or its services without Deenita India ’s express written consent. This includes content, products, services, or any contact information obtained through the website.",
   ],
   [
-    "We are not responsible if information made available on this site is not accurate, complete or current. The material on this site is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete or more timely sources of information. Any reliance on the material on this site is at your own risk.",
-    "This site may contain certain historical information. Historical information, necessarily, is not current and is provided for your reference only. We reserve the right to modify the contents of this site at any time, but we have no obligation to update any information on our site. You agree that it is your responsibility to monitor changes to our site.",
+    "Deenita India  strives to provide accurate, up-to-date, and complete information on our website. However, we cannot guarantee that all content, product descriptions, images, pricing, or other information is error-free, current, or complete at all times.The materials on our website are intended for general information purposes only and should not be relied upon as the sole source for making decisions regarding purchases or services. We encourage customers to verify details or consult with us directly if needed.Some information on the website may be historical or reference-based and may not reflect current conditions. Deenita India  reserves the right to update, correct, or modify website content at any time without prior notice. It is your responsibility to review any updates or changes that may affect your purchases or use of our services.",
   ],
   [
-    "Prices for our products are subject to change without notice. We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time. We shall not be liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service.",
+    "All prices for products and services offered on Deenita India are subject to change without prior notice.We reserve the right to modify, update, or discontinue any product, service, or content on our website at any time. This includes changes to product availability, features, or service offerings.Deenita India will not be liable for any consequences, losses, or damages that may result from price changes, modifications, suspension, or discontinuation of any product or service, whether to you or to any third party.",
   ],
   [
-    "Certain products or Services may be available exclusively online through the website. These products or Services may have limited quantities and are subject to return or exchange only according to our Refund Policy.",
-    "We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate.",
-    "We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis. We reserve the right to limit the quantities of any products or Services that we offer. All descriptions of products or product pricing are subject to change at anytime without notice, at the sole discretion of us. We reserve the right to discontinue any product at any time. Any offer for any product or Service made on this site is void where prohibited.",
-    "We do not warrant that the quality of any products, Services, information, or other material purchased or obtained by you will meet your expectations, or that any errors in the Service will be corrected.",
+    "Certain products and services on Deenita India may be available exclusively online and could have limited stock. All purchases are subject to our Return & Exchange Policy if applicable.",
+    "We make every effort to display product colors, designs, and images as accurately as possible. However, actual colors may vary slightly due to differences in monitors, screens, or lighting conditions.",
+    "Deenita India reserves the right to:Limit sales of products or services to any individual, region, or jurisdiction.Restrict quantities per order or per customer to ensure fair availability.Discontinue any product or service at any time, without prior notice.All product descriptions, images, and pricing are provided for informational purposes only and may change at our discretion. Any offers or promotions displayed on the website are void where prohibited.",
   ],
   [
-    "We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel quantities purchased per person, per household or per order. These restrictions may include orders placed by or under the same customer account, the same credit card, and/or orders that use the same billing and/or shipping address. In the event that we make a change to or cancel an order, we may attempt to notify you by contacting the e‑mail and/or billing address/phone number provided at the time the order was made.",
-    "We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers or distributors.",
-    "You agree to provide current, complete and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit card numbers and expiration dates, so that we can complete your transactions and contact you as needed.",
+    "When placing an order with Deenita India, you agree to provide complete, accurate, and up-to-date information for all purchases and account details, including your name, billing address, shipping address, email, and payment information.We reserve the right to refuse, limit, or cancel any order at our discretion. This includes orders that appear to be placed by resellers, distributors, or using duplicate accounts, credit cards, or addresses.If an order is modified or canceled due to inaccuracies or suspected misuse, we will attempt to notify you via the contact information provided at the time of purchase.You are responsible for keeping your account information current, including updating email addresses, phone numbers, and payment methods, to ensure seamless processing of your transactions and communication.",
   ],
   [
-    "We may provide you with access to third-party tools over which we neither monitor nor have any control nor input.",
-    "You acknowledge and agree that we provide access to such tools 'as is' and 'as available' without any warranties, representations or conditions of any kind and without any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party tools.",
-    "Any use by you of the optional tools offered through the site is entirely at your own risk and discretion and you should ensure that you are familiar with and approve of the terms on which tools are provided by the relevant third-party provider(s).",
-    "We may also, in the future, offer new Services and/or features through the website (including the release of new tools and resources). Such new features and/or Services shall also be subject to these Terms of Service.",
+    "DeenitaIndia may provide access to certain third-party tools or resources to enhance your shopping experience. These tools are provided “as is” and “as available” without any warranties, representations, or endorsements from DeenitaIndia.",
+    "We do not monitor or control these third-party tools, and we are not responsible for any issues, damages, or losses arising from their use.",
+    "Any use of these optional tools is entirely at your own risk. We encourage you to review the terms and conditions of the third-party provider before using their services",
+    "In the future, DeenitaIndia may introduce new features, tools, or services. All new offerings will be governed by these Terms of Service unless otherwise specified.",
   ],
   [
-    "Certain content, products and Services available via our Service may include materials from third-parties.",
-    "Third-party links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or Services of third-parties.",
-    "We are not liable for any harm or damages related to the purchase or use of goods, Services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party's policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.",
+    "Some content, products, or services on DeenitaIndia may include links to third-party websites that are not affiliated with or controlled by us.",
+    "We are not responsible for the accuracy, legality, or content of any third-party website, and we do not endorse any products, services, or information offered by these external sites.",
+    "Any transactions, purchases, or interactions conducted on third-party websites are solely between you and the third party. We recommend reviewing their policies, terms, and practices before engaging in any transaction.DeenitaIndia will not be liable for any loss, damage, or issues resulting from your use of third-party websites, including claims related to products, services, or content obtained through them.",
   ],
   [
-    "If, at our request, you send certain specific submissions (for example contest entries) or without a request from us, you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, 'comments'), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us.",
-    "We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments.",
-    "You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website.",
+    "If you submit comments, suggestions, ideas, or other materials to Deenita India whether requested (e.g., contest entries) or unsolicited you agree that we may use, edit, publish, distribute, translate, or otherwise utilize such submissions in any form or medium without restriction.By submitting content, you acknowledge that DeenitaIndia:Is not obligated to maintain any submission in confidence.Is not required to provide compensation for any submissions.May use submissions freely for business or promotional purposes.You also agree that any submissions you provide will not infringe on the rights of others, including copyright, trademark, privacy, or other proprietary rights. Submissions must not contain illegal, abusive, obscene, or harmful content, including viruses or malware that could compromise the website or other users.",
   ],
   [
-    "Your submission of personal information through the store is governed by our Privacy Policy, which can be viewed on our Privacy Policy page.",
+    "At DeenitaIndia, your privacy is important. Any personal information you share is used only to process orders, communicate with you, and improve your shopping experience. We take strong measures to protect your data and never sell or share it with unauthorized third parties. For more details, please refer to our Privacy Policy.",
   ],
   [
-    "Occasionally there may be information on our site or in the Service that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability.",
-    "We reserve the right to correct any errors, inaccuracies or omissions, and to change or update information or cancel orders if any information in the Service or on any related website is inaccurate at any time without prior notice (including after you have submitted your order).",
+    "We strive for accuracy, but errors in product details, pricing, or availability may occur.Deenita India reserves the right to correct mistakes, update information, or cancel orders if necessary, without prior notice.",
   ],
   [
-    "In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the site or its content for any unlawful or abusive purposes, including but not limited to harassing, defaming, spamming, violating intellectual property rights, or attempting to hack or damage our systems.",
+    "You may not use the Deenita India website or its content for any unlawful, harmful, or abusive activities. This includes violating intellectual property rights, spreading malware, spamming, harassing others, or attempting to damage or access our systems without authorization",
   ],
   [
-    "We do not guarantee, represent or warrant that your use of our Service will be uninterrupted, timely, secure or error-free.",
-    "You expressly agree that your use of, or inability to use, the Service is at your sole risk. All products and services delivered to you through the Service are provided 'as is' and 'as available', without any representation or warranties.",
-    "In no case shall jajamblockprints , our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind.",
+    "Deenita India provides all products and services on an “as is” and “as available” basis, without any guarantees or warranties of any kind.We do not guarantee uninterrupted, secure, or error-free service. To the fullest extent permitted by law, DeenitaIndia shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of our website or products.",
   ],
   [
-    "You agree to indemnify, defend and hold harmless jajamblockprints  and our affiliates from any claim or demand made by any third-party due to your breach of these Terms of Service or your violation of any law or the rights of a third-party.",
+    "You agree to indemnify and hold harmless Deenita India, its owners, employees, and affiliates from any claims, losses, or expenses arising out of your violation of these Terms, misuse of the website, or breach of any applicable law or third-party rights.",
   ],
   [
-    "If any provision of these Terms of Service is found to be unlawful, void or unenforceable, that provision shall still be enforceable to the fullest extent permitted, and the unenforceable portion shall be severed from these Terms.",
+    "If any part of these Terms is found to be invalid or unenforceable, the remaining provisions will continue to remain fully effective and enforceable.",
   ],
   [
-    "These Terms are effective unless and until terminated by you or us. We may also terminate this agreement at any time without notice if you fail to comply with any term, and you will remain liable for all amounts due.",
+    "These Terms remain in effect unless terminated by you or Deenita India. We reserve the right to suspend or terminate access to our website or services at any time if these Terms are violated, without prior notice.",
   ],
   [
-    "These Terms of Service constitute the entire agreement between you and us and govern your use of the Service, superseding any prior agreements.",
+    "These Terms of Service constitute the entire agreement between you and Deenita India and supersede any prior communications or agreements regarding the use of our website and services.",
   ],
   [
-    "These Terms shall be governed by and construed in accordance with the laws of India.",
+    "These Terms of Service shall be governed by and interpreted in accordance with the laws of India",
   ],
   [
-    "We reserve the right to update, change or replace any part of these Terms by posting updates to our website. Your continued use of the website constitutes acceptance of those changes.",
+    "Deenita India reserves the right to update, modify, or replace any part of these Terms at any time. Changes will be posted on this page, and continued use of the website implies acceptance of the updated Terms.",
   ],
   [
-    "Questions about the Terms of Service should be sent to us at ",
-    "Email: shreeshyamblockprints.1@gmail.com",
-    "Address: JANKI BLOCK PRINTS JANKI HOUSE, PLOT NO 21-A (2), RAMDWARA COLONY-2, SANGANER, JAIPUR-302029",
-    "Phone: +91-9116131960",
+    "If you have any questions regarding these Terms of Service, please contact us at ",
+    "Email: info@deenitaindia.com",
+    "Address: Deenita India",
+    "Phone: 0141-4511098",
   ],
 ];
 
@@ -141,17 +130,7 @@ export default function TermsOfService() {
         ))}
       </div>
 
-      <div className="mt-16 text-sm text-gray-700 border-t pt-6 space-y-3">
-        <p>
-          <strong>Shop by Craft:</strong> Jajam Block Print | Dabu Print | Sanganeri Print | Discharge Print | Tie And Dye Print | Black And White Print
-        </p>
-        <p>
-          <strong>Shop by Collection:</strong> Cotton Suit Sets | Cotton Suit With Chiffon Dupatta | Cotton Suit With Cotton Dupatta | Cotton Suit With Kota Doria Dupatta | Maheshwari Silk Suit | Chanderi Silk Suit Sets
-        </p>
-        {/* <p className="text-xs text-gray-500">
-          Copyright © {new Date().getFullYear()} Jajam Block Print. All rights reserved.
-        </p> */}
-      </div>
+     
     </div>
   );
 }

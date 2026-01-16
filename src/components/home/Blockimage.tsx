@@ -1,4 +1,5 @@
 "use client";
+import { Link } from "react-router-dom";
 
 export default function BlockImageSection() {
   return (
@@ -19,21 +20,18 @@ export default function BlockImageSection() {
           <div className="max-w-md">
             <div className="flex items-center gap-3 mb-3">
               <span className="w-8 h-[2px] bg-[#d4a84e]" />
-              <h4 className="font-semibold">Story 2017</h4>
+              <h4 className="font-semibold">Formal Edition</h4>
             </div>
 
             <p className="text-[#d4a84e] italic mb-4 text-2xl">New creations</p>
 
             <p className="text-gray-500 leading-relaxed mb-8 text-base">
-              To celebrate its return to the Store International de la Haute
-              Horlogerie de Geneve (SIHH), Girard-Perregaux unveils new and
-              stunning creations, heirs of the icons on which the Manufacture
-              has built its reputation over the centuries.
+              Our formal and classic collection introduces a new chapter of timeless menswear — where heritage craftsmanship meets contemporary refinement. Inspired by iconic silhouettes, these designs are created for men who value elegance, quality, and lasting impression.
             </p>
 
-            <button className="bg-[#d4a84e] text-white px-10 py-3 text-sm tracking-wide hover:bg-black transition">
+            <Link to="/category/blazer-and-coats" className="bg-[#d4a84e] text-white px-10 py-3 text-sm tracking-wide hover:bg-black transition">
               DISCOVER
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -46,15 +44,12 @@ export default function BlockImageSection() {
             </div>
 
             <p className="text-gray-500 leading-relaxed mb-8 text-base">
-              To celebrate its return to the Store International de la Haute
-              Horlogerie de Geneve (SIHH), Girard-Perregaux unveils new and
-              stunning creations, heirs of the icons on which the Manufacture
-              has built its reputation over the centuries.
+             We are dedicated to redefining formal menswear through timeless design, precision tailoring, and uncompromising quality. Every garment is crafted using premium fabrics, classic silhouettes, and modern fits — ensuring you look distinguished on every occasion.
             </p>
 
-            <button className="bg-[#d4a84e] text-white px-10 py-3 text-sm tracking-wide hover:bg-black transition">
+            <Link to="/products" className="bg-[#d4a84e] text-white px-10 py-3 text-sm tracking-wide hover:bg-black transition">
               DISCOVER
-            </button>
+            </Link>
           </div>
         </div>
 
