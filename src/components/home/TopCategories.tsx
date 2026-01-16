@@ -13,6 +13,7 @@ export default function TopCategories() {
   const [categories, setCategories] = useState([])
   const baseUrl = import.meta.env.VITE_API_BASE_URL
   const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   const linkUrl = (text) => {
     return text
@@ -98,7 +99,7 @@ export default function TopCategories() {
                   {/* Image */}
                   <div className="relative h-80 overflow-hidden">
                     <img
-                      src={`http://localhost:5007${name?.image}` || "/placeholder.svg"}
+                      src={`${baseUrliMAGE}${name?.image}` || "/placeholder.svg"}
                       alt={name?.name}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
