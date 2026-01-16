@@ -113,6 +113,7 @@ function AddressShipping({ cartItems }) {
   const [appliedCoupon, setAppliedCoupon] = useState(null);
   const [discount, setDiscount] = useState(0);
   const [couponStatus, setCouponStatus] = useState("");
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -992,7 +993,7 @@ function AddressShipping({ cartItems }) {
                   {cartItems.map((item) => (
                     <div key={item.id} className="flex gap-3">
                       <img
-                        src={`http://localhost:5007${item?.image}`}
+                        src={`${baseUrliMAGE}${item?.image}`}
                         alt={item?.name}
                         className="w-16 h-16 object-cover rounded-lg"
                       />

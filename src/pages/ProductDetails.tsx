@@ -59,6 +59,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [isRatingModalOpen, setRatingModalOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState<any>(null);
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -288,14 +289,14 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
           >
             <img
               // src={mainImage || "/placeholder.svg?height=600&width=600&query=main product image"}
-              src={`http://localhost:5007${mainImage}`}
+              src={`${baseUrliMAGE}${mainImage}`}
               alt={product.productName}
               className="w-full h-auto object-cover"
             />
           </div>
           <div className="flex mt-6 space-x-4">
             {product.images.map((img, index) => {
-              const fullUrl = `http://localhost:5007${img}`;
+              const fullUrl = `${baseUrliMAGE}${img}`;
               return (
                 <img
                   key={index}

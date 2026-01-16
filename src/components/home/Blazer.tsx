@@ -159,7 +159,7 @@ export default function Blazer() {
               >
                 <div className="absolute inset-0 w-full h-full">
                   <img
-                    src={`http://localhost:5007${product.images[0]}`}
+                    src={`${imageBaseUrl}${product.images[0]}`}
                     alt={product.productName}
                     className="w-full h-full object-containe transition-transform duration-700"
                   />

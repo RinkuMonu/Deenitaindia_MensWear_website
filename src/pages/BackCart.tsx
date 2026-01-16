@@ -241,7 +241,8 @@ const ShoppingCart: React.FC<{ cartItems: CartItem[] }> = ({ cartItems }) => {
   const dispatch = useDispatch();
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
-  
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
+
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -298,7 +299,7 @@ const ShoppingCart: React.FC<{ cartItems: CartItem[] }> = ({ cartItems }) => {
                   <div className="md:col-span-2 flex items-center">
                     <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border border-gray-200">
                       <img
-                          src={`http://localhost:5007${item?.image}`}
+                          src={`${baseUrliMAGE}${item?.image}`}
                         alt={item.name}
                         className="w-full h-full object-cover"
                       />

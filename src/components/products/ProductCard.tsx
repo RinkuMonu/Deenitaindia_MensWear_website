@@ -40,6 +40,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [addedProduct, setAddedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   // Generate random review count and rating if not provided
   const ratedProduct = useMemo(() => {
@@ -132,7 +133,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     if (!imagePath) return "";
     return imagePath.startsWith("http")
       ? imagePath
-      : `http://localhost:5007${imagePath}`;
+      : `${baseUrliMAGE}${imagePath}`;
   };
   const outOfStock = !ratedProduct || ratedProduct.stock <= 0;
 

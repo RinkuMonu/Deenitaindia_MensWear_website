@@ -26,7 +26,8 @@ const Banner: React.FC = () => {
   const [deviceType, setDeviceType] = useState<"mobile" | "desktop">("desktop");
   const [categories, setCategories] = useState<string[]>([]);
   const [isNewArrival, setIsNewArrival] = useState(false);
-  
+    const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
+
   // ✅ Detect "new arrivals" banner
   useEffect(() => {
     const hasNewArrivalBanner = banners.some(
@@ -143,7 +144,7 @@ const Banner: React.FC = () => {
             <SwiperSlide key={item._id}>
               <div className="relative w-full h-auto">
                 <img
-                  src={`http://localhost:5007${item.images[0]}`}
+                  src={`${baseUrliMAGE}${item.images[0]}`}
                   alt={item.bannerName}
                   className="w-full h-auto object-fill"
                   loading="eager"

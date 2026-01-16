@@ -50,6 +50,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
   const [addedProduct, setAddedProduct] = useState<Product | null>(null);
   const [isWishlistPopupVisible, setIsWishlistPopupVisible] = useState(false);
   const [wishlistProduct, setWishlistProduct] = useState<Product | null>(null);
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   // Generate rated products with random ratings and review counts
   const ratedProducts = useMemo(() => {
@@ -311,7 +312,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                           <div className="relative aspect-square overflow-hidden">
                             <img
                               className="absolute inset-0 w-full h-full object-cover"
-                              src={`http://localhost:5007${product.images[0]}`}
+                              src={`${baseUrliMAGE}${product.images[0]}`}
                               alt={product.productName}
                               loading="lazy"
                             />
@@ -571,7 +572,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
               <div className="flex items-center justify-center bg-gray-50 rounded-xl p-8">
                 <img
                   className="rounded-xl object-contain max-h-[400px]"
-                  src={`http://localhost:5007${selectedProduct.images}`}
+                  src={`${baseUrliMAGE}${selectedProduct.images}`}
                   alt={selectedProduct.productName}
                   loading="lazy"
                 />

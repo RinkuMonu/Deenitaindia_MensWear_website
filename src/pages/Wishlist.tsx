@@ -9,6 +9,7 @@ import Swal from "sweetalert2"
 const Wishlist = () => {
   const { items: wishlistItems, loading } = useSelector((state: any) => state.wishlist)
   const dispatch = useDispatch<any>()
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   useEffect(() => {
     dispatch(fetchWishlist())
@@ -128,7 +129,7 @@ const Wishlist = () => {
                         <img
                           src={
                             item?.product?.images?.[0]
-                              ? `http://localhost:5007${item.product.images[0]}`
+                              ? `${baseUrliMAGE}${item.product.images[0]}`
                               : "/placeholder.svg"
                           }
                           alt={item?.product?.productName || "No image"}
