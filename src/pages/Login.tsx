@@ -449,27 +449,28 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] p-2">
+    <div className="flex items-center justify-center bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] ">
 
       <div className="w-full max-w-6xl flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-2xl bg-white">
-        <div className="w-full md:w-1/2 bg-gradient-to-br from-purple-950 to-purple-400 p-8 md:p-12 flex flex-col gap-2 relative overflow-hidden">
-          <motion.div className="max-w-md">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              {isLogin ? "Welcome back!" : "Create your account"}
-            </h2>
-            <p className="text-indigo-100 text-lg">
-              {isLogin
-                ? "Sign in to access your personalized dashboard."
-                : "Join our community to unlock exclusive features."}
-            </p>
-          </motion.div>
-          <img
-            // src="https://img.freepik.com/free-vector/secure-login-concept-illustration_114360-4585.jpg"
-            src="/loginImage.jpeg"
-            alt="Security"
-            className="w-full max-w-md object-contain mt-10 hidden md:block"
-          />
-        </div>
+       <div
+  className="w-full md:w-1/2 p-8 md:p-12 flex flex-col gap-2 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: "url('/home/login-img.jpg')" }}
+>
+  {/* overlay (optional for better text visibility) */}
+  <div className="absolute inset-0 bg-black/60 z-0"></div>
+
+  <motion.div className="max-w-md relative z-10">
+    <h2 className="text-4xl font-bold text-white mb-4">
+      {isLogin ? "Welcome back!" : "Create your account"}
+    </h2>
+    <p className="text-indigo-100 text-lg">
+      {isLogin
+        ? "Sign in to access your personalized dashboard."
+        : "Join our community to unlock exclusive features."}
+    </p>
+  </motion.div>
+</div>
+
 
         <div
           className="w-full md:w-1/2 p-6 md:p-10 lg:p-14 bg-white overflow-y-auto"
@@ -632,8 +633,8 @@ export default function Login() {
                         resetErrors.confirmNewPassword
                       }
                       className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${resetPasswordLoading
-                        ? "bg-indigo-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
+                        ? "bg-[#cba146] cursor-not-allowed"
+                        : "bg-[#cba146] hover:shadow-xl"
                         }`}
                     >
                       {resetPasswordLoading ? "Resetting..." : "Reset Password"}
@@ -694,8 +695,8 @@ export default function Login() {
                       type="submit"
                       disabled={forgotPasswordLoading}
                       className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${forgotPasswordLoading
-                        ? "bg-indigo-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
+                        ? "bg-[#cba146]  cursor-not-allowed"
+                        : "bg-[#cba146]  hover:shadow-xl"
                         }`}
                     >
                       {forgotPasswordLoading ? "Sending..." : "Submit"}
@@ -963,7 +964,7 @@ export default function Login() {
                         <button
                           type="button"
                           onClick={() => setShowForgotPassword(true)}
-                          className="text-sm text-indigo-600 hover:text-indigo-800"
+                          className="text-sm text-[#cba146]  hover:text-[#cba146] "
                         >
                           Forgot password?
                         </button>
@@ -982,8 +983,8 @@ export default function Login() {
                       onMouseEnter={() => setIsHovered(true)}
                       onMouseLeave={() => setIsHovered(false)}
                       className={`w-full py-4 px-4 rounded-xl text-white font-medium transition-all duration-300 flex items-center justify-center relative ${isLoading
-                        ? "bg-indigo-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-purple-900 to-purple-400 hover:shadow-xl"
+                        ? "bg-[#cba146] cursor-not-allowed"
+                        : "bg-[#cba146]  hover:shadow-xl"
                         }`}
                     >
                       {isLoading
@@ -1009,52 +1010,6 @@ export default function Login() {
                     </button>
                   </div>
 
-
-
-                  {/* login with google  */}
-
-
-                  {isLogin && (
-                    <div className="mt-4 flex justify-center">
-                      <GoogleLogin
-                        onSuccess={async (credentialResponse) => {
-                          const idToken = credentialResponse.credential;
-
-                          try {
-                            const res = await axios.post(
-                              `${baseUrl}/auth/google`,
-                              {
-                                idToken,
-                                referenceWebsite,
-                              },
-                              { withCredentials: true }
-                            );
-
-                            const data = res.data;
-                            if (data && data.accessToken) {
-                              localStorage.setItem("userData", JSON.stringify(data.userData));
-                              localStorage.setItem("token", data.accessToken);
-                              Swal.fire("Login Successful", "", "success");
-                              navigate("/");
-                              window.location.reload();
-                            } else {
-                              Swal.fire("Login failed", data?.msg || "Something went wrong", "error");
-                            }
-                          } catch (err) {
-                            Swal.fire(
-                              "Login failed",
-                              err.response?.data?.msg || "Something went wrong",
-                              "error"
-                            );
-                          }
-                        }}
-                        onError={() =>
-                          Swal.fire("Google Login Failed", "Please try again.", "error")
-                        }
-                      />
-                    </div>
-                  )}
-                  {/* end of google login  */}
 
 
                 </motion.div>

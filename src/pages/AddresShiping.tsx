@@ -530,7 +530,7 @@ function AddressShipping({ cartItems }) {
                 {/* Logo */}
                 <div className="mb-6">
                   <img
-                    src={logo || "/placeholder.svg"}
+                    src="/"
                     alt="logo"
                     className="w-32 h-auto"
                   />
@@ -992,7 +992,7 @@ function AddressShipping({ cartItems }) {
                   {cartItems.map((item) => (
                     <div key={item.id} className="flex gap-3">
                       <img
-                        src={`http://localhost:5007/${item?.image}`}
+                        src={`http://localhost:5007${item?.image}`}
                         alt={item?.name}
                         className="w-16 h-16 object-cover rounded-lg"
                       />

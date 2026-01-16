@@ -234,7 +234,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
               <span
                 className="text-xs text-white px-2 xl:px-3 py-1 rounded-full font-semibold"
                 style={{
-                  background: "linear-gradient(135deg, #A13C78, #872D67)",
+                  background: "#cba146",
                 }}
               >
                 Category
@@ -701,7 +701,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
             <Link to="/" className="flex items-center relative group">
               <div className="relative" style={{ borderColor: primaryColor }}>
                 <img
-                  src={logo || "/placeholder.svg"}
+                  src="/"
                   alt="Logo"
                   className="transition-all duration-300 w-24 sm:w-32 md:w-36 rounded-lg"
                 />
@@ -721,7 +721,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                         borderColor: primaryColor,
                         color: "rgb(139 59 122)",
                       }}
-                      placeholder="Search for traditional treasures..."
+                      placeholder="Search for classic men's wear..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       required

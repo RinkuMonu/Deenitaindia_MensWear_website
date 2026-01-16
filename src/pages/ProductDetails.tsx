@@ -246,11 +246,10 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
       <Star
         key={i}
         size={16}
-        className={`${
-          i < Math.floor(rating)
-            ? "fill-yellow-400 stroke-yellow-400"
-            : "stroke-gray-300"
-        }`}
+        className={`${i < Math.floor(rating)
+          ? "fill-yellow-400 stroke-yellow-400"
+          : "stroke-gray-300"
+          }`}
       />
     ));
   };
@@ -302,11 +301,10 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
                   key={index}
                   src={fullUrl}
                   alt={`Thumbnail ${index + 1}`}
-                  className={`w-24 h-24 object-cover rounded-xl cursor-pointer border-3 transition-all duration-300 transform hover:scale-105 ${
-                    mainImage === img
-                      ? "border-purple-600 shadow-lg"
-                      : "border-gray-200 hover:border-purple-300"
-                  }`}
+                  className={`w-24 h-24 object-cover rounded-xl cursor-pointer border-3 transition-all duration-300 transform hover:scale-105 ${mainImage === img
+                    ? "border-purple-600 shadow-lg"
+                    : "border-gray-200 hover:border-purple-300"
+                    }`}
                   onClick={() => setMainImage(img)}
                 />
               );
@@ -339,18 +337,18 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
               className="text-5xl font-bold mr-4"
               style={{ color: "#cba146" }}
             >
-              ₹{selectedSize?.price || product?.actualPrice}
+              {/* ₹{selectedSize?.price || product?.actualPrice} */}
+              ₹{product?.actualPrice}
+
             </span>
 
             {/* Show strikethrough price only if there's a difference */}
-            {product?.price &&
-              (selectedSize?.price
-                ? selectedSize.price < product.price
-                : product.actualPrice < product.price) && (
-                <span className="text-2xl text-gray-500 line-through">
-                  ₹{product?.price}
-                </span>
-              )}
+            {product?.price && product.actualPrice < product.price && (
+              <span className="text-2xl text-gray-500 line-through">
+                ₹{product?.price}
+              </span>
+            )}
+
 
             {/* Show discount badge */}
             {product?.discount && (
@@ -373,11 +371,10 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
                       key={s._id}
                       onClick={() => setSelectedSize(s)}
                       className={`px-4 py-2 rounded-full border text-sm font-semibold transition-all
-            ${
-              selectedSize?._id === s._id
-                ? "bg-black text-white border-black"
-                : "bg-white text-black border-gray-400 hover:border-black"
-            }`}
+            ${selectedSize?._id === s._id
+                          ? "bg-black text-white border-black"
+                          : "bg-white text-black border-gray-400 hover:border-black"
+                        }`}
                     >
                       {s.sizes}
                     </button>
@@ -388,17 +385,17 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
               )}
               {selectedSize && (
                 <div className="mt-3 text-green-700 font-medium text-base">
-                  Price for {selectedSize.sizes}: ₹{selectedSize.price}
+                  {/* Price for {selectedSize.sizes}: ₹{selectedSize.price} */}
                 </div>
               )}
             </div>
 
-            <div>
+            {/* <div>
               <span className="font-semibold">Category:</span>{" "}
               <span className="text-gray-700">
                 {product?.category?.name || "Uncategorized"}
               </span>
-            </div>
+            </div> */}
             <div>
               <span className="font-semibold">Material:</span>{" "}
               <span className="text-gray-700">{product?.material}</span>
@@ -406,9 +403,8 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             <div>
               <span className="font-semibold">Availability:</span>{" "}
               <span
-                className={`font-medium ${
-                  product?.stock <= 0 ? "text-red-600" : "text-green-600"
-                }`}
+                className={`font-medium ${product?.stock <= 0 ? "text-red-600" : "text-green-600"
+                  }`}
               >
                 {product?.stock <= 0 ? "Out Of Stock" : "In stock"}
               </span>
@@ -447,9 +443,8 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             <button
               onClick={() => handleAddToCart(product)}
               disabled={product.stock <= 0}
-              className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] text-sm ${
-                product?.stock <= 0 && "cursor-not-allowed opacity-50"
-              } `} // Smaller buttons
+              className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] text-sm ${product?.stock <= 0 && "cursor-not-allowed opacity-50"
+                } `} // Smaller buttons
               style={{ background: "#cba146" }}
             >
               <ShoppingCart size={20} /> Add to Cart
@@ -457,9 +452,8 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             <button
               onClick={handleBuyNow}
               disabled={product.stock <= 0}
-              className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-gray-800 text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:bg-gray-900 hover:shadow-xl hover:scale-[1.02] text-sm ${
-                product?.stock <= 0 && "cursor-not-allowed opacity-50"
-              }`} // Smaller buttons
+              className={`flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-gray-800 text-white font-bold rounded-full shadow-lg transition-all duration-300 hover:bg-gray-900 hover:shadow-xl hover:scale-[1.02] text-sm ${product?.stock <= 0 && "cursor-not-allowed opacity-50"
+                }`} // Smaller buttons
             >
               Buy Now
             </button>
@@ -483,43 +477,43 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
           <div className="flex items-center gap-4 text-gray-600 text-xl">
             <span className="font-semibold text-lg text-gray-800">Share:</span>
             <a
-              href="https://www.facebook.com/jajamblockprints"
+              href="/"
               aria-label="Share on Facebook"
               className="hover:text-purple-600 transition-colors"
             >
               <FaFacebookF />
             </a>
-               <a
-              href="https://www.instagram.com/jajamblockprints/"
+            <a
+              href="/"
               aria-label="Share on instagram"
               className="hover:text-purple-600 transition-colors"
             >
               <FaInstagram />
             </a>
             <a
-              href="#"
+              href="/"
               aria-label="Share on Twitter"
               className="hover:text-purple-600 transition-colors"
             >
               <FaTwitter />
             </a>
             <a
-              href="#"
+              href="/"
               aria-label="Share on Pinterest"
               className="hover:text-purple-600 transition-colors"
             >
               <FaPinterestP />
             </a>
-         
+
             <a
-              href="#"
+              href="/"
               aria-label="Share on WhatsApp"
               className="hover:text-purple-600 transition-colors"
             >
               <FaWhatsapp />
             </a>
             <a
-              href="#"
+              href="/"
               aria-label="Share via Email"
               className="hover:text-purple-600 transition-colors"
             >
@@ -543,8 +537,8 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             onClick={() => setActiveTab("description")}
             className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${
               activeTab === "description"
-                ? "border-b-4 border-[#cba146] text-[#cba146]"
-                : "text-gray-700 hover:text-[#cba146]"
+                ? "border-b-4 border-purple-600 text-purple-800"
+                : "text-gray-700 hover:text-purple-600"
             }`}
             style={{
               borderColor: activeTab === "description" ? "#cba146" : "",
@@ -559,8 +553,8 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
               onClick={() => setActiveTab("reviews")}
               className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${
                 activeTab === "reviews"
-                  ? "border-b-4 border-[#cba146] text-[#cba146]"
-                  : "text-gray-700 hover:text-[#cba146]"
+                  ? "border-b-4 border-purple-600 text-purple-800"
+                  : "text-gray-700 hover:text-purple-600"
               }`}
               style={{
                 borderColor: activeTab === "reviews" ? "#cba146" : "",
