@@ -16,6 +16,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import BlockImageSection from "../components/home/Blockimage";
 import ElevatedSection from "../components/home/Elevated";
+import Popular from "../components/home/Popular";
 
 interface HomeProps {
   addToCart: (product: Product) => void;
@@ -77,15 +78,16 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
     <>
       <Banner />
       <TrendingProducts addToCart={addToCart} /> {/* Pass addToCart here */}
-      <BlockImageSection />
+      {/* <BlockImageSection /> */}
       <Arrivals addToCart={addToCart} />
-      <ElevatedSection />
+      {/* <ElevatedSection /> */}
       {/* <DealOfTheDay addToCart={addToCart} /> */}
       <TopCategories />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       {/* <DeliveryFeatures /> */}
-        <FAQComponent />
+        {/* <FAQComponent /> */}
       {/* <Newsletter /> */}
+      <Popular />
 
     </>
   );

@@ -43,24 +43,24 @@ export default function TopCategories() {
   }, [baseUrl, referenceWebsite])
 
   return (
-    <section className="pt-20 pb-12 border-b-2 px-4 bg-white">
+    <section className="pt-20 border-b-2 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mb-6">
-            <span className="text-sm font-semibold px-6 py-3 underline inline-flex items-center gap-2">
+        <div className="text-left mb-16">
+          <div className="inline-flex items-center justify-center mb-1">
+            <span className="text-sm font-semibold py-3 underline inline-flex items-center gap-2">
               <Sparkles className="w-4 h-4" />
               Heritage Collections
               <Sparkles className="w-4 h-4" />
             </span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold mb-6" style={{ color: "#1B2E4F" }}>
+          <h2 className="text-5xl md:text-4xl font-bold" style={{ color: "#1B2E4F" }}>
             Our <span style={{ color: "#cba146" }}>Categories</span>
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 ">
             Discover our curated collection of traditional wear, each piece crafted with authentic techniques
           </p>
         </div>
@@ -144,9 +144,9 @@ export default function TopCategories() {
         </Swiper>
 
         {/* Bottom Message */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <p className="text-gray-600 font-medium">✨ Handcrafted with Love • Delivered with Care ✨</p>
-        </div>
+        </div> */}
 
       </div>
     </section>
