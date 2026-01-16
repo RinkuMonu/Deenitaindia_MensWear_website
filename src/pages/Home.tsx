@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Banner from "../components/home/Banner";
 import TrendingProducts from "../components/home/TrendingProducts";
 import Arrivals from "../components/home/Arrivals";
-import DealOfTheDay from "../components/home/DealOfTheDay";
+// import DealOfTheDay from "../components/home/DealOfTheDay";
 
 import TopCategories from "../components/home/TopCategories";
-import Newsletter from "../components/home/Newsletter";
+// import Newsletter from "../components/home/Newsletter";
 import HowItWorks from "../components/home/HowItWorks";
 import DeliveryFeatures from "../components/home/DeliveryFeatures";
 
@@ -82,10 +82,11 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
       <ElevatedSection />
       {/* <DealOfTheDay addToCart={addToCart} /> */}
       <TopCategories />
-      {/* <HowItWorks /> */}
+      <HowItWorks />
       {/* <DeliveryFeatures /> */}
         <FAQComponent />
       {/* <Newsletter /> */}
+
     </>
   );
 }
