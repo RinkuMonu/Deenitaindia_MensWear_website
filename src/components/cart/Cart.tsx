@@ -60,6 +60,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
     setLocalCart(updated);
     localStorage.setItem("addtocart", JSON.stringify(updated));
   };
+  const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   // Common handlers
   const handleIncrement = (id: string) => {
@@ -202,7 +203,7 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, cartItems }) => {
                   >
                     <div className="flex-shrink-0">
                       <img
-                        src={`http://localhost:5007${item.image}`}
+                        src={`${baseUrliMAGE}${item.image}`}
                         alt={item.name}
                         className="w-20 h-20 object-cover rounded-lg"
                       />
