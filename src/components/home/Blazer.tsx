@@ -161,7 +161,7 @@ export default function Blazer() {
                   <img
                     src={`${imageBaseUrl}${product.images[0]}`}
                     alt={product.productName}
-                    className="w-full h-full object-contain transition-transform duration-700"
+                    className="w-full h-full object-cover transition-transform duration-700"
                   />
                 </div>
 
