@@ -82,8 +82,8 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
       <ElevatedSection />
       {/* <DealOfTheDay addToCart={addToCart} /> */}
       <TopCategories />
-      <HowItWorks />
-      <DeliveryFeatures />
+      {/* <HowItWorks /> */}
+      {/* <DeliveryFeatures /> */}
         <FAQComponent />
       {/* <Newsletter /> */}
     </>
