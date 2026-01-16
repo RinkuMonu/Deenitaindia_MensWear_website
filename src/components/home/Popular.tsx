@@ -8,12 +8,10 @@ import { Link } from 'react-router-dom';
 export default function Popular() {
     const products = [
         { name: 'Chinos Set', price: '$95', colors: '2 Colors available', img: 'home/1.jpg' },
-        { name: 'The Utility Jacket', price: '$85', colors: '5 Colors available', img: 'home/2.jpg' },
-        { name: 'The Bomber Jacket', price: '$90', colors: '3 Colors available', img: 'home/3.jpg' },
+        { name: 'Utility Jacket', price: '$85', colors: '5 Colors available', img: 'home/2.jpg' },
+        { name: 'Bomber Jacket', price: '$90', colors: '3 Colors available', img: 'home/3.jpg' },
         { name: 'Suede Jacket', price: '$85', colors: '7 Colors available', img: 'home/1.jpg' },
         { name: 'Chinos Set', price: '$95', colors: '2 Colors available', img: 'home/2.jpg' },
-        { name: 'The Utility Jacket', price: '$85', colors: '5 Colors available', img: 'home/3.jpg' },
-        { name: 'The Bomber Jacket', price: '$90', colors: '3 Colors available', img: 'home/1.jpg' },
         { name: 'Suede Jacket', price: '$85', colors: '7 Colors available', img: 'home/2.jpg' }, 
     ];
 
@@ -45,7 +43,7 @@ export default function Popular() {
                 >
                     {products.map((product, index) => (
                         <SwiperSlide key={index}>
-                            <Link to={"/"} className="group relative h-full block overflow-hidden rounded-md shadow-2xl hover:shadow-3xl transition-all duration-700 w-full bg-gradient-to-br from-gray-50 to-gray-100">
+                            <Link to={"/products"} className="group relative h-full block overflow-hidden rounded-md shadow-2xl hover:shadow-3xl transition-all duration-700 w-full bg-gradient-to-br from-gray-50 to-gray-100">
                                 {/* Fixed Image - Full coverage */}
                                 <div className="absolute inset-0 w-full h-full">
                                     <img
@@ -63,9 +61,9 @@ export default function Popular() {
                                     <h3 className="text-2xl font-bold text-white drop-shadow-2xl mb-2 leading-tight">
                                         {product.name}
                                     </h3>
-                                    <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2 inline-block mb-2">
+                                    {/* <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2 inline-block mb-2">
                                         <p className="text-white text-xl font-bold drop-shadow-lg">{product.price}</p>
-                                    </div>
+                                    </div> */}
                                     <p className="text-white/90 text-sm font-medium drop-shadow-lg">{product.colors}</p>
                                 </div>
                             </Link>
