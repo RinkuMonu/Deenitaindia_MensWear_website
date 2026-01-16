@@ -60,8 +60,8 @@ export default function TopCategories() {
             Our <span style={{ color: "#cba146" }}>Categories</span>
           </h2>
 
-          <p className="text-lg text-gray-600 ">
-            Discover our curated collection of traditional wear, each piece crafted with authentic techniques
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Discover our acurated collection of traditional wear, each piece crafted with authentic techniques
           </p>
         </div>
 

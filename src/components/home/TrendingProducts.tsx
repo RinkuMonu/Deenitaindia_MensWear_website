@@ -202,11 +202,10 @@ const TrendingProducts = ({
       <Star
         key={i}
         size={14}
-        className={`${
-          i < Math.floor(rating)
+        className={`${i < Math.floor(rating)
             ? "fill-yellow-400 stroke-yellow-400"
             : "stroke-gray-300"
-        }`}
+          }`}
       />
     ));
   };
@@ -224,7 +223,7 @@ const TrendingProducts = ({
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
-const outOfStock = !products || products.stock >= 0;
+  const outOfStock = !products || products.stock >= 0;
 
 
   return (
@@ -239,7 +238,7 @@ const outOfStock = !products || products.stock >= 0;
             Trending <span style={{ color: "#cba146" }}>Products</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-ular items loved by customers worldwide
+            ular items loved by customers worldwide
           </p>
         </div>
 
@@ -327,7 +326,7 @@ ular items loved by customers worldwide
                             {product.discount && (
                               <div
                                 className="absolute top-4 left-4 text-white bg-[#cba146] text-xs font-bold px-3 py-2 rounded-full z-10"
-                                
+
                               >
                                 {product.discount}% OFF
                               </div>
@@ -398,7 +397,7 @@ ular items loved by customers worldwide
                             </div>
 
                             {/* Add to Cart Overlay */}
-                             {/* <button
+                            {/* <button
   onClick={() => {
     if (outOfStock) return;   // safety guard
     handleAddToCart(product);
@@ -413,29 +412,27 @@ ular items loved by customers worldwide
 >
   {outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
 </button> */}
-                              {product.stock <= 0 ?<button
+                            {product.stock <= 0 ? <button
                               // onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${
-                                hoveredProduct === product._id
+                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
-                              }`}
+                                }`}
                               style={{ background: "#cba146" }}
                               disabled={true}
                             >
                               Out of Stock
                             </button> :
-                            <button
-                              onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white bg-[#cba146] py-3 text-center font-semibold transition-all duration-300 z-20 ${
-                                hoveredProduct === product._id
-                                  ? "translate-y-0 opacity-100"
-                                  : "translate-y-full opacity-0"
-                              }`}
-                           
-                            >
-                              ADD TO CART
-                            </button>}     
+                              <button
+                                onClick={() => handleAddToCart(product)}
+                                className={`absolute bottom-0 left-0 w-full text-white bg-[#cba146] py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
+                                    ? "translate-y-0 opacity-100"
+                                    : "translate-y-full opacity-0"
+                                  }`}
+
+                              >
+                                ADD TO CART
+                              </button>}
 
                           </div>
 
@@ -457,7 +454,7 @@ ular items loved by customers worldwide
                                 {product.category?.name || "Traditional Wear"}
                               </p>
                             </div>
-                              
+
                             {/* Rating */}
                             {/* <div className="flex items-center mb-3">
                               <div className="flex mr-2">
@@ -473,7 +470,7 @@ ular items loved by customers worldwide
                               <div className="flex items-center space-x-2">
                                 <span
                                   className="text-xl text-[#cba146] font-bold"
-                               
+
                                 >
                                   ₹{product.actualPrice}
                                 </span>
@@ -500,9 +497,8 @@ ular items loved by customers worldwide
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === index ? "w-8" : ""
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? "w-8" : ""
+                  }`}
                 style={{
                   background:
                     currentSlide === index
@@ -519,7 +515,7 @@ ular items loved by customers worldwide
           <Link
             to="/products"
             className="inline-flex items-center px-8 py-4 rounded-full font-semibold transition-all duration-300 border-2 border-[#787878] text-[#787878] hover:shadow-lg "
-          
+
           >
             View All Products
           </Link>
@@ -566,9 +562,8 @@ ular items loved by customers worldwide
           onClick={closeModal}
         >
           <div
-            className={`relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${
-              isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
-            }`}
+            className={`relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+              }`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 z-10 bg-white p-6 border-b flex justify-between items-center">
@@ -617,9 +612,18 @@ ular items loved by customers worldwide
                         </span>
                       )}
                   </div>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  {/* <p className="text-gray-600 mb-8 leading-relaxed">
                     {selectedProduct.description ||
                       "Premium quality traditional wear crafted with authentic techniques and finest materials. Perfect for special occasions and cultural celebrations."}
+                  </p> */}
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          selectedProduct.description ||
+                          "Premium quality traditional wear crafted with authentic techniques and finest materials. Perfect for special occasions and cultural celebrations.",
+                      }}
+                    />
                   </p>
                 </div>
 
@@ -656,40 +660,40 @@ ular items loved by customers worldwide
                   </div>
                 </div>
 
-               <div className="flex flex-col sm:flex-row gap-4">
-  {/* Add to Cart */}
-  <button
-    onClick={(e) => {
-      if (outOfStock) return; // safety guard
-      handleAddToCart(selectedProduct);
-    }}
-    disabled={outOfStock}
-    type="button"
-    className={`flex-1 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2
+                <div className="flex flex-col sm:flex-row gap-4">
+                  {/* Add to Cart */}
+                  <button
+                    onClick={(e) => {
+                      if (outOfStock) return; // safety guard
+                      handleAddToCart(selectedProduct);
+                    }}
+                    disabled={outOfStock}
+                    type="button"
+                    className={`flex-1 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2
       ${outOfStock ? "opacity-50 cursor-not-allowed" : "hover:shadow-lg"}
     `}
-    style={{ background: "#cba146" }}
-  >
-    <ShoppingCart size={18} />
-    <span>{outOfStock ? "Out of Stock" : "Add to Cart"}</span>
-  </button>
+                    style={{ background: "#cba146" }}
+                  >
+                    <ShoppingCart size={18} />
+                    <span>{outOfStock ? "Out of Stock" : "Add to Cart"}</span>
+                  </button>
 
-  {/* Buy Now */}
-  <button
-    onClick={(e) => {
-      if (outOfStock) return; // safety guard
-      // yahan aap apna buyNow() ya checkout() function call karna chahte ho
-      handleAddToCart(selectedProduct); 
-    }}
-    disabled={outOfStock}
-    type="button"
-    className={`flex-1 bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2
+                  {/* Buy Now */}
+                  <button
+                    onClick={(e) => {
+                      if (outOfStock) return; // safety guard
+                      // yahan aap apna buyNow() ya checkout() function call karna chahte ho
+                      handleAddToCart(selectedProduct);
+                    }}
+                    disabled={outOfStock}
+                    type="button"
+                    className={`flex-1 bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2
       ${outOfStock ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-900 hover:shadow-lg"}
     `}
-  >
-    <span>{outOfStock ? "Out of Stock" : "Buy Now"}</span>
-  </button>
-</div>
+                  >
+                    <span>{outOfStock ? "Out of Stock" : "Buy Now"}</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
