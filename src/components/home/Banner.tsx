@@ -159,7 +159,7 @@ const Banner: React.FC = () => {
                                 item?.description
                               ).toLowerCase()}`
                         }
-                        className="group inline-flex items-center justify-center gap-2 py-1 px-4 text-xs font-bold bg-white text-black rounded-full shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                        className="group inline-flex items-center justify-center gap-2 py-1 px-4 text-xs font-bold bg-[#cba146] text-black rounded-full shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105"
                         onMouseEnter={(e) => {
                           e.currentTarget.style.background = "#cba146";
                           e.currentTarget.style.color = "white";
@@ -174,7 +174,7 @@ const Banner: React.FC = () => {
                       </Link>
                       <a
                         href="/products"
-                        className="group inline-flex items-center justify-center gap-2 py-1 px-4 text-sm font-bold rounded-full transition-all duration-300 border-2 border-white/50 backdrop-blur-sm hover:bg-white/20 bg-white/10 text-white"
+                        className="group inline-flex items-center justify-center gap-2 py-1 px-4 text-sm font-bold rounded-full transition-all duration-300 border-2 border-[#cba146] backdrop-blur-sm hover:bg-[#cba146] bg-[#cba146] text-white"
                       >
                         <span>View All Products</span>
                       </a>
