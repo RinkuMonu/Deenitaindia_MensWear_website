@@ -198,11 +198,10 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
       <Star
         key={i}
         size={14}
-        className={`${
-          i < Math.floor(rating)
+        className={`${i < Math.floor(rating)
             ? "fill-yellow-400 stroke-yellow-400"
             : "stroke-gray-300"
-        }`}
+          }`}
       />
     ));
   };
@@ -321,7 +320,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                             {product.discount && (
                               <div
                                 className="absolute top-4 left-4 text-white bg-[#cba146] text-xs font-bold px-3 py-2 rounded-full z-10"
-                                
+
                               >
                                 {product.discount}% OFF
                               </div>
@@ -392,29 +391,27 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                             </div>
 
                             {/* Add to Cart Overlay */}
-                            {product.stock <= 0 ?<button
+                            {product.stock <= 0 ? <button
                               // onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${
-                                hoveredProduct === product._id
+                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
                                   ? "translate-y-0 opacity-100"
                                   : "translate-y-full opacity-0"
-                              }`}
+                                }`}
                               style={{ background: "#cba146" }}
                               disabled={true}
                             >
                               Out of Stock
                             </button> :
-                            <button
-                              onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${
-                                hoveredProduct === product._id
-                                  ? "translate-y-0 opacity-100"
-                                  : "translate-y-full opacity-0"
-                              }`}
-                              style={{ background: "#cba146" }}
-                            >
-                              ADD TO CART
-                            </button>}
+                              <button
+                                onClick={() => handleAddToCart(product)}
+                                className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
+                                    ? "translate-y-0 opacity-100"
+                                    : "translate-y-full opacity-0"
+                                  }`}
+                                style={{ background: "#cba146" }}
+                              >
+                                ADD TO CART
+                              </button>}
                           </div>
 
                           {/* Product Info */}
@@ -435,7 +432,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                                 {product.category?.name || "Traditional Wear"}
                               </p>
                             </div>
-                              
+
                             {/* Rating */}
                             {/* <div className="flex items-center mb-3">
                               <div className="flex mr-2">
@@ -478,9 +475,8 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === index ? "w-8" : ""
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? "w-8" : ""
+                  }`}
                 style={{
                   background:
                     currentSlide === index
@@ -555,9 +551,8 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
           onClick={closeModal}
         >
           <div
-            className={`relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${
-              isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
-            }`}
+            className={`relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+              }`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 z-10 bg-white p-6 border-b flex justify-between items-center">
@@ -606,9 +601,19 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                         </span>
                       )}
                   </div>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  {/* <p className="text-gray-600 mb-8 leading-relaxed">
                     {selectedProduct.description ||
                       "Premium quality traditional wear crafted with authentic techniques and finest materials. Perfect for special occasions and cultural celebrations."}
+                  </p> */}
+
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          selectedProduct.description ||
+                          "Premium quality traditional wear crafted with authentic techniques and finest materials. Perfect for special occasions and cultural celebrations.",
+                      }}
+                    />
                   </p>
                 </div>
 
