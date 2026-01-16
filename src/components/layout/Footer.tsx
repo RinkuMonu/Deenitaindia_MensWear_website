@@ -571,9 +571,9 @@ import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 export default function Footer() {
 
       const links = [
-  { name: "About", href: "/about" },
+  { name: "About", href: "/about-us" },
   { name: "Products", href: "/products" },
-  { name: "Blog", href: "/blog" },
+  // { name: "Blog", href: "/blog" },
 
 ];
   return (
@@ -624,13 +624,29 @@ style={{
         </div>
 
      
-        <div>
-          <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
-          <ul className="space-y-2 text-sm text-gray-400">
-            <li>📞 +91 98765 43210</li>
-            <li>✉️ support@yourcompany.com</li>
-          </ul>
-        </div>
+       <div>
+  <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
+  <ul className="space-y-2 text-sm text-gray-400">
+    <li>
+      <Link
+        to="tel:01414511098"
+        className="hover:text-[#cba146] transition flex items-center gap-2"
+      >
+        📞 0141-451 1098
+      </Link>
+    </li>
+
+    <li>
+      <Link
+        to="mailto:info@deenitaindia.com"
+        className="hover:text-[#cba146] transition flex items-center gap-2"
+      >
+        ✉️ info@deenitaindia.com
+      </Link>
+    </li>
+  </ul>
+</div>
+
 
      
         <div>
@@ -659,7 +675,15 @@ style={{
 
       </div>
 
- 
+      <div>
+<ul className="flex justify-end gap-6 pb-3 text-gray-400 me-2">
+  <li><Link to="/privacy-policy">Privacy Policy</Link></li> <span>|</span>
+  <li><Link to="/returns-and-exchanges">Refund Policy</Link></li><span>|</span>
+  <li><Link to="/terms-of-service">Terms Policy</Link></li><span>|</span>
+  <li><Link to="/cancellation_policy">Cancellation Policy</Link></li><span>|</span>
+</ul>
+      </div>
+
       <div className="border-t border-white/10 text-center py-4 text-sm text-gray-500">
         © {new Date().getFullYear()} Your Company. All rights reserved.
       </div>

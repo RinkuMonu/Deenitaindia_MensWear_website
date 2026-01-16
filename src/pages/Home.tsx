@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Banner from "../components/home/Banner";
 import TrendingProducts from "../components/home/TrendingProducts";
 import Arrivals from "../components/home/Arrivals";
-import DealOfTheDay from "../components/home/DealOfTheDay";
+// import DealOfTheDay from "../components/home/DealOfTheDay";
 
 import TopCategories from "../components/home/TopCategories";
-import Newsletter from "../components/home/Newsletter";
+// import Newsletter from "../components/home/Newsletter";
 import HowItWorks from "../components/home/HowItWorks";
 import DeliveryFeatures from "../components/home/DeliveryFeatures";
 
@@ -16,6 +16,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import BlockImageSection from "../components/home/Blockimage";
 import ElevatedSection from "../components/home/Elevated";
+import Popular from "../components/home/Popular";
+import Blazer from "../components/home/Blazer";
+import Kurtaset from "../components/home/KurtaSet";
+import Casual from "../components/home/Casual";
+import TreckPents from "../components/home/TreckPents";
 
 interface HomeProps {
   addToCart: (product: Product) => void;
@@ -77,15 +82,21 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
     <>
       <Banner />
       <TrendingProducts addToCart={addToCart} /> {/* Pass addToCart here */}
-      <BlockImageSection />
+      {/* <BlockImageSection /> */}
       <Arrivals addToCart={addToCart} />
-      <ElevatedSection />
+         <Casual />
+      <TreckPents />
+      {/* <ElevatedSection /> */}
       {/* <DealOfTheDay addToCart={addToCart} /> */}
       <TopCategories />
-      <HowItWorks />
-      <DeliveryFeatures />
-        <FAQComponent />
+      {/* <HowItWorks /> */}
+      {/* <DeliveryFeatures /> */}
+        {/* <FAQComponent /> */}
       {/* <Newsletter /> */}
+      <Popular />
+      <Blazer />
+      <Kurtaset />
+   
     </>
   );
 }
