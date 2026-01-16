@@ -1,6 +1,6 @@
 "use client"
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState,useRef } from "react"
+import { useParams,Link,useNavigate } from "react-router-dom"
 import { Sliders, X, ChevronDown, ChevronUp } from "lucide-react"
 import ProductCard from "../components/products/ProductCard"
 
@@ -18,6 +18,17 @@ export default function CategoryPage() {
   const [openSections, setOpenSections] = useState({
     price: true,
     sizes: true,
+  })
+  const [categories, setCategories] = useState<any[]>([]);
+  const [groupedCategories, setGroupedCategories] = useState<any>({});
+  const [moreMenuOpen, setMoreMenuOpen] = useState(false);
+  const moreMenuRef = useRef<HTMLDivElement>(null);
+  
+  const [specialFilters, setSpecialFilters] = useState({
+    isPopular: false,
+    isTrending: false,
+    isFeatured: false,
+    isNewArrival: false,
   })
   const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE
   const baseUrl = import.meta.env.VITE_API_BASE_URL
@@ -39,6 +50,10 @@ export default function CategoryPage() {
               "desc",
           page: "1",   // default page
           limit: "100", // You can adjust this as needed
+          ...(specialFilters.isPopular && { isPopular: "true" }),
+          ...(specialFilters.isTrending && { isTrending: "true" }),
+          ...(specialFilters.isFeatured && { isFeatured: "true" }),
+          ...(specialFilters.isNewArrival && { isNewArrival: "true" }),
         })
 
         const res = await fetch(`${baseUrl}/product/getproducts?${queryParams.toString()}`)
@@ -56,7 +71,7 @@ export default function CategoryPage() {
     }
 
     fetchProducts()
-  }, [baseUrl, referenceWebsite, catagory1, priceRange, sortBy])
+  }, [baseUrl, referenceWebsite, catagory1, priceRange, sortBy,specialFilters])
 
 
   useEffect(() => {
@@ -103,8 +118,36 @@ export default function CategoryPage() {
     setPriceRange([initialMinPrice, initialMaxPrice])
     setSelectedSizes([])
     setSortBy("newest")
+    setSpecialFilters({
+      isPopular: false,
+      isTrending: false,
+      isFeatured: false,
+      isNewArrival: false,
+    })
   }
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch(`${baseUrl}/website/${referenceWebsite}`);
+        const data = await res.json();
+        const cats = data?.website?.categories || [];
+        setCategories(cats);
+
+        // Data ko group karein subcategory ke hisaab se
+        const grouped = cats.reduce((acc: any, item: any) => {
+          const sub = item?.subcategory || "Others";
+          if (!acc[sub]) acc[sub] = [];
+          acc[sub].push(item);
+          return acc;
+        }, {});
+        setGroupedCategories(grouped);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+    fetchCategories();
+  }, [baseUrl, referenceWebsite]);
 
   // console.log("filter", filteredProducts)
 
@@ -117,7 +160,7 @@ export default function CategoryPage() {
             {category?.replace(/-/g, " ") || "All Products"}
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover our curated collection of{" "}
+            Discover our acurated collection of{" "}
             <span className="font-semibold" style={{ color: "#cba146" }}>
               {filteredProducts.length}
             </span>{" "}
@@ -176,7 +219,55 @@ export default function CategoryPage() {
                 <X className="h-5 w-5" />
               </button>
             </div>
+              {/* 1. Add Category Section Toggle in Sidebar */}
+            <div className="border-b border-gray-200 pb-6">
+              <div 
+                className="flex justify-between items-center cursor-pointer mb-4" 
+                onClick={() => toggleSection("categories" as any)}
+              >
+                <h3 className="font-semibold text-gray-800">Browse Categories</h3>
+                {openSections.categories ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </div>
 
+              {openSections.categories && (
+                <div className="space-y-4">
+                  {Object.entries(groupedCategories).map(([subcategory, items]: [string, any]) => (
+                    <div key={subcategory} className="space-y-2">
+                      {/* Subcategory Name */}
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                        {subcategory}
+                      </h4>
+                      {/* Category Links */}
+                      <div className="flex flex-col space-y-1 ml-2">
+                        {items.map((item: any) => (
+                          <Link
+                            key={item._id}
+                            to={`/category/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                            className={`text-sm py-1 transition-colors ${
+                              catagory1 === item.name.toLowerCase() 
+                              ? "text-[#cba146] font-bold" 
+                              : "text-gray-600 hover:text-[#cba146]"
+                            }`}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  
+                  {/* More Categories Button (Agar 6 se zyada hain) */}
+                  {categories.length > 6 && (
+                    <button 
+                      onClick={() => setMoreMenuOpen(!moreMenuOpen)}
+                      className="text-xs font-bold text-[#cba146] underline mt-2"
+                    >
+                      {moreMenuOpen ? "Show Less" : "View More Collections"}
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
             {/* Price Range */}
             <div className="border-b border-gray-200 pb-6">
               <div
@@ -272,7 +363,33 @@ export default function CategoryPage() {
                 </div>
               )}
             </div>
-
+            {/* Collection Filters */}
+            <div className="border-b border-gray-200 py-6">
+              <h3 className="font-semibold text-gray-800 mb-4">Collections</h3>
+              <div className="space-y-3">
+                {[
+                  { id: 'isPopular', label: 'Popular' },
+                  { id: 'isTrending', label: 'Trending' },
+                  { id: 'isFeatured', label: 'Featured' },
+                  { id: 'isNewArrival', label: 'New Arrivals' }
+                ].map((filter) => (
+                  <label key={filter.id} className="flex items-center space-x-3 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={specialFilters[filter.id as keyof typeof specialFilters]}
+                      onChange={() => setSpecialFilters(prev => ({
+                        ...prev,
+                        [filter.id]: !prev[filter.id as keyof typeof specialFilters]
+                      }))}
+                      className="w-4 h-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500 cursor-pointer"
+                    />
+                    <span className="text-sm text-gray-700 group-hover:text-black transition-colors">
+                      {filter.label}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
 
             {/* <div className="space-y-3">
