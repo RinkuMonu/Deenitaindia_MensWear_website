@@ -165,7 +165,7 @@ export default function Casual() {
             <img
               src={`${imageBaseUrl}${product.images[0]}`}
               alt={product.productName}
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
 
