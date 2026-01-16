@@ -677,19 +677,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
 
   return (
     <>
-      {/* Top announcement bar */}
-      <div
-        className="relative overflow-hidden text-white bg-[#f9bd5b] text-xs sm:text-sm text-center py-2 sm:py-3 px-4"
-       
-      >
-        <div className="relative z-10 font-semibold tracking-wide">
-          <span className="hidden sm:inline">
-            ✨ Authentic Heritage Collection | Free Shipping Above ₹999 |
-            Handcrafted Excellence ✨
-          </span>
-          <span className="sm:hidden">✨ Free Shipping Above ₹999 ✨</span>
-        </div>
-      </div>
+     
 
       {/* Main Navbar */}
       <nav className="relative transition-all duration-300 bg-white py-3 sm:py-4">
@@ -929,40 +917,19 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
   }}
 >
   <div className="container mx-auto px-4 relative z-10">
-    <div className="flex items-center justify-center py-3 gap-10">
-      {/* Traditional ornamental left divider */}
-      <div className="flex items-center space-x-2">
-        <div
-          className="w-12 h-0.5 rounded-full"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #cba146, transparent)",
-          }}
-        ></div>
-        <div
-          className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
-          style={{
-            borderColor: primaryColor,
-            background: "rgba(203, 161, 70, 0.3)",
-          }}
-        >
-          <div
-            className="w-1.5 h-1.5 rounded-full"
-            style={{ background: primaryColor }}
-          ></div>
-        </div>
-      </div>
+    <div className="">
+    
+     
 
-      {/* Home Link */}
-      <Link
+      {/* Main Categories */}
+      <div className="flex items-center justify-between py-3 space-x-1 max-w-6xl mx-auto">
+         <Link
         to="/"
         className="text-[13px] font-semibold transition-all duration-300 hover:text-[#cba146] text-[#1B2E4F]"
       >
         Home
       </Link>
-
-      {/* Main Categories */}
-      <div className="flex items-center space-x-1">
+      
         {Object.entries(groupedCategories).map(([subcategory, items]) => (
           <div key={subcategory} className="relative group">
             <div
@@ -1013,9 +980,43 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
             </div>
           </div>
         ))}
+         <Link
+        to="/category/casual-trousers"
+        className="text-[13px] font-semibold transition-all duration-300 hover:text-[#cba146] text-[#1B2E4F]"
+      >
+        Casual Trousers
+      </Link>
+       <Link
+        to="/category/track-pants-and-joggers"
+        className="text-[13px] font-semibold transition-all duration-300 hover:text-[#cba146] text-[#1B2E4F]"
+      >
+        Track Pants
+      </Link>
+       <Link
+        to="/category/track-pants-and-joggers"
+        className="text-[13px] font-semibold transition-all duration-300 hover:text-[#cba146] text-[#1B2E4F]"
+      >
+        Shorts & Necker
+      </Link>
+       <Link
+        to="/category/dhotis"
+        className="text-[13px] font-semibold transition-all duration-300 hover:text-[#cba146] text-[#1B2E4F]"
+      >
+        Dhotis
+      </Link>
+       <Link
+        to="/category/sherwanis"
+        className="text-[13px] font-semibold transition-all duration-300 hover:text-[#cba146] text-[#1B2E4F]"
+      >
+        Sherwani
+      </Link>
         
         {/* More Categories Dropdown */}
-        {categories?.length > 6 && (
+
+
+
+
+        {/* {categories?.length > 6 && (
           <div className="relative" ref={moreMenuRef}>
             <button
               onClick={() => setMoreMenuOpen(!moreMenuOpen)}
@@ -1051,7 +1052,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
               </svg>
             </button>
 
-            {/* Dropdown Menu */}
+           
             {moreMenuOpen && (
               <div
                 className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 z-50"
@@ -1123,31 +1124,10 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
               </div>
             )}
           </div>
-        )}
+        )} */}
       </div>
 
-      {/* Traditional ornamental right divider */}
-      <div className="flex items-center space-x-2">
-        <div
-          className="w-4 h-4 rounded-full border-2 flex items-center justify-center"
-          style={{
-            borderColor: primaryColor,
-            background: "rgba(203, 161, 70, 0.3)",
-          }}
-        >
-          <div
-            className="w-1.5 h-1.5 rounded-full"
-            style={{ background: primaryColor }}
-          ></div>
-        </div>
-        <div
-          className="w-12 h-0.5 rounded-full"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, #cba146, transparent)",
-          }}
-        ></div>
-      </div>
+     
     </div>
   </div>
 </div>
