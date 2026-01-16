@@ -535,11 +535,10 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
           {/* Button for Description Tab */}
           <button
             onClick={() => setActiveTab("description")}
-            className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${
-              activeTab === "description"
-                ? "border-b-4 border-purple-600 text-purple-800"
-                : "text-gray-700 hover:text-purple-600"
-            }`}
+            className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${activeTab === "description"
+              ? "border-b-4 border-purple-600 text-purple-800"
+              : "text-gray-700 hover:text-purple-600"
+              }`}
             style={{
               borderColor: activeTab === "description" ? "#cba146" : "",
             }}
@@ -551,11 +550,10 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
           <div className=" flex justify-between gap-6 ">
             <button
               onClick={() => setActiveTab("reviews")}
-              className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${
-                activeTab === "reviews"
-                  ? "border-b-4 border-purple-600 text-purple-800"
-                  : "text-gray-700 hover:text-purple-600"
-              }`}
+              className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${activeTab === "reviews"
+                ? "border-b-4 border-purple-600 text-purple-800"
+                : "text-gray-700 hover:text-purple-600"
+                }`}
               style={{
                 borderColor: activeTab === "reviews" ? "#cba146" : "",
               }}
