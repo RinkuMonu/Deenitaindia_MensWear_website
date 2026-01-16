@@ -616,7 +616,6 @@ const TrendingProducts = ({
                     {selectedProduct.description ||
                       "Premium quality traditional wear crafted with authentic techniques and finest materials. Perfect for special occasions and cultural celebrations."}
                   </p> */}
-
                   <p className="text-gray-600 mb-8 leading-relaxed">
                     <span
                       dangerouslySetInnerHTML={{
