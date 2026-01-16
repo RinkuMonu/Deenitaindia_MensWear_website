@@ -18,33 +18,32 @@ export default function AboutUs() {
           <div className="space-y-8">
             <div className="space-y-6">
               <span className="bg-[#cba146] text-white px-4 py-2 rounded-full text-sm font-semibold">
-                Est. 1981 | Handcrafted in Rajasthan
+                Deenita India
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-[#393838]">
-                Jajam Block Prints
-                <span className="block text-base font-normal text-gray-600 mt-2">A Sub-Brand by Shree Shyam</span>
+                A Modern Take on Timeless Craft
+               
               </h2>
               <p className="text-sm text-gray-700 leading-relaxed">
-                To expand our legacy, we're excited to introduce Jajam Block Prints — a fresh, contemporary sub-brand
-                designed for the modern lifestyle. Named after the traditional floor spreads of Rajasthan, Jajam brings
-                the same authenticity and heritage in a more modern, design-forward format.
+                To celebrate our heritage, we proudly present Deenita India, a contemporary menswear brand designed for the modern lifestyle. Inspired by traditional Indian craftsmanship, Deenita India brings authentic techniques and rich heritage into stylish, modern designs.
+
+
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Whether you're looking for handcrafted apparel, home furnishings, or custom textiles, Jajam Block Prints
-                blends traditional techniques with contemporary style—made with heart, for you.
+               Whether you’re looking for handcrafted menswear, accessories, or curated fabrics, Deenita India blends traditional artistry with contemporary style crafted with care, made for you.
               </p>
             </div>
           </div>
           <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="/1.jpeg"
+              src="/about/about1.jpg"
               alt="Jajam Block Prints modern designs"
               className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-6 text-white">
               <p className="text-sm font-medium">Contemporary Designs</p>
-              <p className="text-xs opacity-80">Traditional Craft, Modern Appeal</p>
+              <p className="text-xs opacity-80">Traditional fits , Modern Appeal</p>
             </div>
           </div>
         </div>

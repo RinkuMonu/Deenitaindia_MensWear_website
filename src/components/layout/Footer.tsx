@@ -491,7 +491,7 @@
 //               </div>
 
 //               <div className="space-y-4">
-               
+
 //                 <Link
 //                   to="/about-us"
 //                   className="block text-lg font-semibold text-gray-700 hover:text-purple-800 transition-colors"
@@ -570,85 +570,84 @@ import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
 
-      const links = [
-  { name: "About", href: "/about-us" },
-  { name: "Products", href: "/products" },
-  // { name: "Blog", href: "/blog" },
+  const links = [
+    { name: "About", href: "/about-us" },
+    { name: "Products", href: "/products" },
+    // { name: "Blog", href: "/blog" },
 
-];
+  ];
   return (
     <footer className="bg-[#0f172a] text-gray-300"
-style={{
-  backgroundImage:
-    "linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,0,0,0.85), rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url('/home/footer-bg.JPG')",
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "center",
-  backgroundSize: "cover",
-}}
+      style={{
+        backgroundImage:
+          "linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,0,0,0.85), rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url('/home/footer-bg.JPG')",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
 
 
->
+    >
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-      
+
         <div>
           <img
-            src="/logo.png" 
+            src="/logo.png"
             alt="Logo"
             className="h-12 mb-4"
           />
           <p className="text-sm leading-relaxed text-gray-400">
-            We craft premium digital and fashion solutions with innovation,
-            quality, and customer satisfaction at the core of everything we do.
+            Premium men’s wear crafted for style, comfort, and confidence. Every outfit is designed to elevate your everyday look.
           </p>
         </div>
 
- 
+
         <div>
           <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
-      
 
-<ul className="space-y-2 text-sm">
-  {links.map((item) => (
-    <li key={item.name}>
-      <a
-        href={item.href}
-        className="hover:text-[#cba146] transition"
-      >
-        {item.name}
-      </a>
-    </li>
-  ))}
-</ul>
+
+          <ul className="space-y-2 text-sm">
+            {links.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className="hover:text-[#cba146] transition"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
 
         </div>
 
-     
-       <div>
-  <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
-  <ul className="space-y-2 text-sm text-gray-400">
-    <li>
-      <Link
-        to="tel:01414511098"
-        className="hover:text-[#cba146] transition flex items-center gap-2"
-      >
-        📞 0141-451 1098
-      </Link>
-    </li>
 
-    <li>
-      <Link
-        to="mailto:info@deenitaindia.com"
-        className="hover:text-[#cba146] transition flex items-center gap-2"
-      >
-        ✉️ info@deenitaindia.com
-      </Link>
-    </li>
-  </ul>
-</div>
+        <div>
+          <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
+          <ul className="space-y-2 text-sm text-gray-400">
+            <li>
+              <Link
+                to="tel:01414511098"
+                className="hover:text-[#cba146] transition flex items-center gap-2"
+              >
+                📞 0141-451 1098
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="mailto:info@deenitaindia.com"
+                className="hover:text-[#cba146] transition flex items-center gap-2"
+              >
+                ✉️ info@deenitaindia.com
+              </Link>
+            </li>
+          </ul>
+        </div>
 
 
-     
+
         <div>
           <h3 className="text-white font-semibold text-lg mb-4">Follow Us</h3>
           <div className="flex items-center gap-4">
@@ -676,12 +675,14 @@ style={{
       </div>
 
       <div>
-<ul className="flex justify-end gap-6 pb-3 text-gray-400 me-2">
-  <li><Link to="/privacy-policy">Privacy Policy</Link></li> <span>|</span>
-  <li><Link to="/returns-and-exchanges">Refund Policy</Link></li><span>|</span>
-  <li><Link to="/terms-of-service">Terms Policy</Link></li><span>|</span>
-  <li><Link to="/cancellation_policy">Cancellation Policy</Link></li><span>|</span>
-</ul>
+        <ul className="flex justify-end gap-6 pb-3 text-gray-400 me-2">
+          <li><Link to="/privacy-policy">Privacy Policy</Link></li> <span>|</span>
+          <li><Link to="/returns-and-exchanges">Refund Policy</Link></li><span>|</span>
+          <li><Link to="/terms-of-service">Terms Policy</Link></li><span>|</span>
+          <li><Link to="/cancellation_policy">Cancellation Policy</Link></li><span>|</span>
+          <li><Link to="/shipping-policy">Shipping Policy</Link></li><span>|</span>
+
+        </ul>
       </div>
 
       <div className="border-t border-white/10 text-center py-4 text-sm text-gray-500">

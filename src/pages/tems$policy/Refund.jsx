@@ -12,106 +12,73 @@ export default function ExchangeReturn() {
 
   <h2 className="text-xl font-semibold text-[#393838]">Return, Refund & Exchange Policy</h2>
   <p className="text-justify text-gray-700 leading-relaxed">
-    (Jajam Block Prints)
-    <br />
-    At Jajam Block Prints, we value your trust and aim to provide you with authentic hand-block printed textiles crafted with care. 
-    Since our products are handmade, minor variations in print, weave, or color are natural and reflect the beauty of handcrafted work, not defects.
-    <br />
-    However, we do provide options for return, refund, or exchange under the following conditions:
+    At Deenita India , we take pride in offering premium menswear crafted with care and quality. While we strive for perfection, we understand that sometimes a product may not meet your expectations. To ensure a smooth shopping experience, we offer returns, refunds, and exchanges under the following terms:
   </p>
 
-  <h3 className="text-lg font-semibold text-[#393838]">1. Replacement / Refund for Defective or Incorrect Products</h3>
+  <h3 className="text-lg font-semibold text-[#393838]">1. Replacement / Refund for Defective or Incorrect Items</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-    If you receive a defective or incorrect product, please notify us within 48 hours of delivery by emailing 
-    <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>.
-    The product must be returned within 7 days of delivery. Once received and inspected, we will issue either a replacement (if available) or a refund as per your preference.
+   If you receive a defective or incorrect product, please notify us within 48 hours of delivery by emailing support@Deenita India .com. The item must be returned within 7 days of delivery. Once we receive and inspect it, we will either replace it (if available) or issue a refund, according to your preference.
   </p>
   <p className="text-justify text-gray-700 leading-relaxed">
-    <strong>Return Conditions:</strong> Products must be unused, unworn, unwashed, and undamaged. 
-    They must be returned with the original invoice, packaging, labels, tags, and any accessories. 
-    If the returned product does not meet these conditions (e.g., used, washed, altered, or damaged), the return will be rejected.
+    <strong>Return Conditions:</strong> 
+    <ul>
+      <li>The item must be unused, unworn, unwashed, and undamaged</li>
+      <li>Original tags, labels, packaging, and invoice must be included</li>
+      <li>Any returned product that does not meet these conditions may be rejectedd</li>
+
+    </ul>
   </p>
 
   <h3 className="text-lg font-semibold text-[#393838]">2. Refund Process</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-    Refunds will be issued to the original payment method used at purchase. 
-    Please allow 7–14 working days for the amount to reflect in your account, depending on your payment provider. 
-    If replacement stock is unavailable, we will provide either store credit or a full refund.
+   Refunds will be issued to the original payment method used at the time of purchase.
+Please allow 7–14 business days for the refund to reflect, depending on your bank or payment provider.
+If replacement stock is unavailable, we may issue store credit or a full refund.
   </p>
 
   <h3 className="text-lg font-semibold text-[#393838]">3. Exchange Policy</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-    We offer product exchanges under the following terms:
-    <br />• Exchange can be requested within 7 days from the date of delivery.  
-    • Only products that are unused, unworn, unwashed, undamaged, and returned with all labels, tags, and original packaging intact are eligible.  
-    • Please mention your Name, Address, Contact Number, Email, Order ID, and the size/design required on the parcel.  
-    • Exchange is allowed once per order.  
-    • If we have delivered a damaged product or the wrong size/product, we will replace it at no extra cost.  
+    Exchanges are allowed under the following terms:
+    <br />Exchange requests must be made within 7 days of delivery.
+• Only items that are unused, unworn, unwashed, undamaged, and returned with all labels, tags, and original packaging intact are eligible for exchange.
+• Please include your Name, Address, Contact Number, Email, Order ID, and the size/design you want inside the parcel.
+• Each order can be exchanged once only.
+• If the error is on our part (defective or incorrect item), the replacement will be free of charge. 
   </p>
   <p className="text-justify text-gray-700 leading-relaxed">
-    <strong>Exchange Charges:</strong> For website orders, the customer must pay ₹150 for pickup (per product) + ₹100 for forward shipping (per product).  
-    If the mistake is from our side (damaged/incorrect product), Jajam Block Prints will bear the return shipping cost.  
-    In all other cases (e.g., wrong size chosen by the customer), shipping charges are to be borne by the customer.  
+    <strong>Exchange Charges:</strong> For standard website orders, customers are responsible for ₹150 pickup per item + ₹100 forward shipping per item  
+    If the return is due to our mistake, Deenita India  covers the shipping costs  
   </p>
   <p className="text-justify text-gray-700 leading-relaxed">
-    <strong>Store Credit:</strong> If the requested size/design is unavailable, we will issue store credit equal to the product value (minus shipping). 
-    Store credit is valid for 30 days from the date of issue.
+    <strong>Store Credit:</strong> If the requested size or design is unavailable, we will issue store credit equal to the product value (excluding shipping). Store credit is valid for 30 days from the issue date.
   </p>
 
   <h3 className="text-lg font-semibold text-[#393838]">4. Cancellations</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-    Orders can be cancelled before shipping by emailing us at 
-    <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>.  
-    If the order has already been shipped and delivered, you may return it following the return process above.
+   Orders can be cancelled before shipping by emailing support@Deenita India .com.
+If the order has already shipped, it may be returned according to our Return Process above.
   </p>
 
   <h3 className="text-lg font-semibold text-[#393838]">5. Non-Returnable / Non-Refundable Items</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-    For hygiene and safety reasons, the following items cannot be returned or exchanged:
-    <br />• Innerwear  
-    • Socks  
-    • Jewelry  
-    • Beauty & personal care products  
-    • Food items  
-    • Gift cards / downloadable products  
-    • Items marked as Final Sale or Non-Returnable  
-    • Free items or products purchased during clearance sales  
+   For hygiene and safety reasons, the following items cannot be returned or exchanged:
+    <br />Innerwear or socks
+• Personal care items
+• Accessories (belts, wallets, etc.)
+• Gift cards or digital products
+• Items marked as Final Sale or Non-Returnable
+• Complimentary or clearance items
   </p>
 
   <h3 className="text-lg font-semibold text-[#393838]">6. Important Notes</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-    • Color variation is not a valid reason for return/exchange. A 5–10% difference in shade may occur due to screen resolution and lighting.  
-    • Products once exchanged cannot be returned for a refund.  
-    • This policy applies only to products purchased from our official website 
-    <a href="https://www.jajamblockprints.com" target="_blank" rel="noopener noreferrer" className="text-blue-600"> www.jajamblockprints.com</a>.
-  </p>
-
-  <p className="text-justify text-gray-700 leading-relaxed">
-    📧 For any Return, Refund, or Exchange requests, kindly email us at: 
-    <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> shreeshyamblockprints.1@gmail.com</a>
-  </p>
-
-  <p className="text-justify text-gray-700 leading-relaxed">
-    ✨ With this policy, we ensure a smooth, fair, and transparent shopping experience for all our customers 
-    while respecting the effort that goes into handmade block-printed textiles.
+    • Minor color variations are not a valid reason for return/exchange, as shades may differ due to lighting and screen settings  
+    • Items that have been exchanged cannot be returned for a refund  
+    • This policy applies only to purchases made from our official website www.Deenita India .com 
   </p>
 </div>
 
 
-      <div className="mt-12 text-sm text-gray-600 space-y-2 border-t border-gray-300 pt-6">
-        <p>
-          <strong>Shop by Craft:</strong>{" "}
-          <span className="text-gray-700">
-            Jajam Block Print | Dabu Print | Sanganeri Print | Discharge Print | Tine And Dye Print | Black And White Print
-          </span>
-        </p>
-        <p>
-          <strong>Shop by Collection:</strong>{" "}
-          <span className="text-gray-700">
-            Cotton Suit Sets | Cotton Suit With Chiffon Dupatta | Cotton Suit With Cotton Dupatta | Cotton Suit With Kota Doria Dupatta | Maheshwari Silk Suit | Chanderi Silk Suit Sets
-          </span>
-        </p>
-      </div>
     </div>
   );
 }
