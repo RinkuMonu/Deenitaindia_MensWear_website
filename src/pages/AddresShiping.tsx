@@ -530,7 +530,7 @@ function AddressShipping({ cartItems }) {
                 {/* Logo */}
                 <div className="mb-6">
                   <img
-                    src={logo || "/placeholder.svg"}
+                    src="/"
                     alt="logo"
                     className="w-32 h-auto"
                   />

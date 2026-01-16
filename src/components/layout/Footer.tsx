@@ -573,7 +573,7 @@ export default function Footer() {
       const links = [
   { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Blog", href: "/blog" },
+  // { name: "Blog", href: "/blog" },
 
 ];
   return (
