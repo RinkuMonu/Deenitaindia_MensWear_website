@@ -197,7 +197,7 @@ const handleSizeChange = (size: string) => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
         <div
-  className={`lg:w-80 space-y-6 sticky top-24 ${
+  className={`lg:w-80 space-y-6 sticky h-fit top-24 ${
     showFilters
       ? "fixed inset-0 z-50 bg-white p-6 overflow-y-auto"
       : "hidden lg:block bg-white rounded-xl shadow-sm p-6 border border-gray-100  self-start h-fit"

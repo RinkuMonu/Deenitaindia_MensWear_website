@@ -139,8 +139,8 @@ export default function Kurtaset() {
       <div className="max-w-7xl mx-auto">
         <Swiper
           modules={[Pagination, Autoplay]}
-          spaceBetween={20}
-          slidesPerView={4.5}
+          spaceBetween={14}
+          slidesPerView={1.2}
           breakpoints={{
             640: { slidesPerView: 2, spaceBetween: 24 },
             1024: { slidesPerView: 3, spaceBetween: 30 },
@@ -160,7 +160,7 @@ export default function Kurtaset() {
                   <img
                     src={`${imageBaseUrl}${product.images[0]}`}
                     alt={product.productName}
-                    className="w-full h-full object-containe transition-transform duration-700"
+                    className="w-full h-full object-contain transition-transform duration-700"
                   />
                 </div>
 
