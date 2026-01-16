@@ -185,7 +185,7 @@ const handleSizeChange = (size: string) => {
             </button> */}
             <button
               onClick={() => {}}
-              className="flex items-center space-x-2 text-white px-6 py-2.5 rounded-lg transition-colors font-medium"
+              className="flex items-center space-x-2 text-white px-6 py-2.5 lg:hidden rounded-lg transition-colors font-medium"
               style={{ background: "#cba146" }}
             >
               <Sliders className="h-4 w-4" />
@@ -196,13 +196,14 @@ const handleSizeChange = (size: string) => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
-          <div
-            className={`lg:w-80 space-y-6 ${
-              showFilters
-                ? "fixed inset-0 z-50 bg-white p-6 overflow-y-auto"
-                : "hidden lg:block bg-white rounded-xl shadow-sm p-6 border border-gray-100"
-            }`}
-          >
+        <div
+  className={`lg:w-80 space-y-6 sticky top-24 ${
+    showFilters
+      ? "fixed inset-0 z-50 bg-white p-6 overflow-y-auto"
+      : "hidden lg:block bg-white rounded-xl shadow-sm p-6 border border-gray-100  self-start h-fit"
+  }`}
+>
+
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold" style={{ color: "#1B2E4F" }}>
                 Filters

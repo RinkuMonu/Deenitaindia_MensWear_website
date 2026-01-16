@@ -194,7 +194,7 @@ export default function CategoryPage() {
             </button> */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center space-x-2 text-white px-6 py-2.5 rounded-lg transition-colors font-medium"
+             className="flex items-center space-x-2 text-white px-6 py-2.5 rounded-lg transition-colors font-medium lg:hidden"
               style={{ background: "#cba146" }}
             >
               <Sliders className="h-4 w-4" />
@@ -206,7 +206,7 @@ export default function CategoryPage() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
           <div
-            className={`lg:w-80 space-y-6 ${showFilters
+            className={`lg:w-80 space-y-6 sticky top-24  ${showFilters
               ? "fixed inset-0 z-50 bg-white p-6 overflow-y-auto"
               : "hidden lg:block bg-white rounded-xl shadow-sm p-6 border border-gray-100"
               }`}
