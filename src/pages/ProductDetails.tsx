@@ -543,8 +543,8 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
             onClick={() => setActiveTab("description")}
             className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${
               activeTab === "description"
-                ? "border-b-4 border-purple-600 text-purple-800"
-                : "text-gray-700 hover:text-purple-600"
+                ? "border-b-4 border-[#cba146] text-[#cba146]"
+                : "text-gray-700 hover:text-[#cba146]"
             }`}
             style={{
               borderColor: activeTab === "description" ? "#cba146" : "",
@@ -559,8 +559,8 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
               onClick={() => setActiveTab("reviews")}
               className={`px-10 py-4 text-xl font-bold transition-all duration-300 w-full sm:w-auto ${
                 activeTab === "reviews"
-                  ? "border-b-4 border-purple-600 text-purple-800"
-                  : "text-gray-700 hover:text-purple-600"
+                  ? "border-b-4 border-[#cba146] text-[#cba146]"
+                  : "text-gray-700 hover:text-[#cba146]"
               }`}
               style={{
                 borderColor: activeTab === "reviews" ? "#cba146" : "",
