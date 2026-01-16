@@ -17,6 +17,10 @@ import { useEffect } from "react";
 import BlockImageSection from "../components/home/Blockimage";
 import ElevatedSection from "../components/home/Elevated";
 import Popular from "../components/home/Popular";
+import Blazer from "../components/home/Blazer";
+import Kurtaset from "../components/home/KurtaSet";
+import Casual from "../components/home/Casual";
+import TreckPents from "../components/home/TreckPents";
 
 interface HomeProps {
   addToCart: (product: Product) => void;
@@ -80,6 +84,8 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
       <TrendingProducts addToCart={addToCart} /> {/* Pass addToCart here */}
       {/* <BlockImageSection /> */}
       <Arrivals addToCart={addToCart} />
+         <Casual />
+      <TreckPents />
       {/* <ElevatedSection /> */}
       {/* <DealOfTheDay addToCart={addToCart} /> */}
       <TopCategories />
@@ -88,7 +94,9 @@ export default function   Home({ addToCart, onCartClick }: HomeProps) {
         {/* <FAQComponent /> */}
       {/* <Newsletter /> */}
       <Popular />
-
+      <Blazer />
+      <Kurtaset />
+   
     </>
   );
 }

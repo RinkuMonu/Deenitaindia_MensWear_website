@@ -4,8 +4,7 @@ import {  Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Link } from 'react-router-dom';
-
-export default function Popular() {
+export default function Casual() {
     const products = [
         { name: 'Chinos Set', price: '$95', colors: '2 Colors available', img: 'home/1.jpg' },
         { name: 'The Utility Jacket', price: '$85', colors: '5 Colors available', img: 'home/2.jpg' },
@@ -18,12 +17,12 @@ export default function Popular() {
     ];
 
     return (
-        <section className="min-h-screen bg-white pt-12 px-4 sm:px-6 lg:px-8">
+        <section className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8 border border-top">
             {/* Hero Section - Fixed */}
             <div className="text-left mb-4 max-w-7xl mx-auto">
                 <h1 className="text-3xl sm:text-4xl lg:text-xl font-bold text-gray-900 mb-6 leading-tight">
-                    Featured Products, 
-                    <span className="block text-2xl sm:text-3xl lg:text-4xl text-purple-600 mt-2">NEW JOURNEYS.</span>
+                    Trending Casual Wear 
+                    <span className="block text-2xl sm:text-3xl lg:text-4xl text-[#cba146] mt-2">Top Listed</span>
                 </h1>
             </div>
 
