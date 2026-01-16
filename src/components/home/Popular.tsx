@@ -45,7 +45,7 @@ export default function Popular() {
                 >
                     {products.map((product, index) => (
                         <SwiperSlide key={index}>
-                            <Link to="/" className="group relative overflow-hidden rounded-md shadow-2xl hover:shadow-3xl transition-all duration-700 w-full h-full bg-gradient-to-br from-gray-50 to-gray-100">
+                            <Link to={"/"} className="group relative h-full block overflow-hidden rounded-md shadow-2xl hover:shadow-3xl transition-all duration-700 w-full bg-gradient-to-br from-gray-50 to-gray-100">
                                 {/* Fixed Image - Full coverage */}
                                 <div className="absolute inset-0 w-full h-full">
                                     <img
