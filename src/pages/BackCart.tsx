@@ -298,7 +298,7 @@ const ShoppingCart: React.FC<{ cartItems: CartItem[] }> = ({ cartItems }) => {
                   <div className="md:col-span-2 flex items-center">
                     <div className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border border-gray-200">
                       <img
-                          src={`http://localhost:5007/${item?.image}`}
+                          src={`http://localhost:5007${item?.image}`}
                         alt={item.name}
                         className="w-full h-full object-cover"
                       />
