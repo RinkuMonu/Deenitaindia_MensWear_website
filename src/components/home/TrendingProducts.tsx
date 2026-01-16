@@ -625,6 +625,7 @@ const TrendingProducts = ({
                       }}
                     />
                   </p>
+
                 </div>
 
                 <div className="mb-8">

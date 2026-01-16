@@ -615,6 +615,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                       }}
                     />
                   </p>
+
                 </div>
 
                 <div className="mb-8">
