@@ -2,14 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { X, ShoppingCart, Trash2, Plus, Minus, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+// import Swal from "sweetalert2";
 import LoginModal from "../loginModal/LoginModal";
 import Login1 from "../../pages/Login1";
 import {
   removeItemFromCart,
   updateQuantity,
-  addItemToCart,
 } from "../../reduxslice/CartSlice";
 
 interface Product {

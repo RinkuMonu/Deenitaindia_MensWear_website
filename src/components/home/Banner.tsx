@@ -24,7 +24,7 @@ const Banner: React.FC = () => {
 
   const [banners, setBanners] = useState<APIBanner[]>([]);
   const [deviceType, setDeviceType] = useState<"mobile" | "desktop">("desktop");
-  const [categories, setCategories] = useState<string[]>([]);
+  // const [categories, setCategories] = useState<string[]>([]);
   const [isNewArrival, setIsNewArrival] = useState(false);
     const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
@@ -37,20 +37,20 @@ const Banner: React.FC = () => {
   }, [banners]);
 
   // ✅ Fetch categories
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const res = await fetch(`${baseUrl}/website/${referenceWebsite}`);
-        const data = await res.json();
-        if (Array.isArray(data.website?.categories)) {
-          setCategories(data.website.categories.map((cat: any) => cat.name));
-        }
-      } catch (error) {
-        console.error("Failed to fetch categories:", error);
-      }
-    };
-    fetchCategories();
-  }, [baseUrl, referenceWebsite]);
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const res = await fetch(`${baseUrl}/website/${referenceWebsite}`);
+  //       const data = await res.json();
+  //       if (Array.isArray(data.website?.categories)) {
+  //         setCategories(data.website.categories.map((cat: any) => cat.name));
+  //       }
+  //     } catch (error) {
+  //       console.error("Failed to fetch categories:", error);
+  //     }
+  //   };
+  //   fetchCategories();
+  // }, [baseUrl, referenceWebsite]);
 
   // ✅ Correct API call for newArrival
   useEffect(() => {
@@ -63,6 +63,7 @@ const Banner: React.FC = () => {
         console.log("🟢 Fetching products from:", url);
         const res = await fetch(url);
         const data = await res.json();
+        console.log("data...", data);
         // handle data.products here if needed
       } catch (err) {
         console.error("Failed to fetch products", err);
@@ -70,7 +71,7 @@ const Banner: React.FC = () => {
     };
 
     fetchProducts();
-  }, [isNewArrival]);
+  }, [isNewArrival , referenceWebsite, baseUrl]);
 
   // ✅ Device type detection
   useEffect(() => {
@@ -113,7 +114,7 @@ const Banner: React.FC = () => {
   };
 
   fetchBanners();
-}, [deviceType]);
+}, [deviceType , referenceWebsite, baseUrl]);
 
 
   if (banners.length === 0) return null;

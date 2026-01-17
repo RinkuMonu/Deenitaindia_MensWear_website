@@ -1,5 +1,5 @@
 "use client"
-import { Palette, Layers , Leaf, Globe } from "lucide-react";
+import { Palette, Leaf, Globe } from "lucide-react";
 
 const DeliveryFeatures = () => {
   

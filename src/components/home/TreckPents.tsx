@@ -37,7 +37,7 @@
 //                         1024: { slidesPerView: 3, spaceBetween: 30 },
 //                         1280: { slidesPerView: 4, spaceBetween: 32 },
 //                     }}
-               
+
 //                     autoplay={{ delay: 4000,  }}
 //                     loop={true}
 //                     className="swiper-custom h-96 lg:h-[28rem]"
@@ -53,10 +53,10 @@
 //                                         className="w-full h-full object-containe transition-transform duration-700"
 //                                     />
 //                                 </div>
-                                
+
 //                                 {/* Overlay Gradient */}
 //                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                
+
 //                                 {/* Content */}
 //                                 <div className="absolute bottom-6 left-6 right-6">
 //                                     <h3 className="text-2xl font-bold text-white drop-shadow-2xl mb-2 leading-tight">
@@ -123,7 +123,7 @@ export default function TreckPents() {
     };
 
     fetchProducts();
-  }, []);
+  }, [baseUrl, referenceWebsite]);
 
   return (
     <section className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8 border border-top">
@@ -136,62 +136,62 @@ export default function TreckPents() {
         </h1>
       </div>
 
-     <div className="max-w-7xl mx-auto px-4">
-  <Swiper
-    modules={[Pagination, Autoplay]}
-    spaceBetween={14}
-    slidesPerView={1.2}   // Mobile default
-    breakpoints={{
-      480: { slidesPerView: 1.5, spaceBetween: 16 },
-      640: { slidesPerView: 2, spaceBetween: 20 },
-      768: { slidesPerView: 2.5, spaceBetween: 22 },
-      1024: { slidesPerView: 3, spaceBetween: 26 },
-      1280: { slidesPerView: 4, spaceBetween: 30 },
-      1536: { slidesPerView: 4.5, spaceBetween: 32 },
-    }}
-    autoplay={{ delay: 3500, disableOnInteraction: false }}
-    loop={true}
-    className="swiper-custom h-[300px] sm:h-[340px] md:h-[380px] lg:h-[420px] xl:h-[460px]"
-  >
-    {products.map((product, index) => (
-      <SwiperSlide key={index} className="h-full">
-        <Link
-          to={`/product/${product._id}`}
-          className="group relative h-full block overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 w-full bg-gradient-to-br from-gray-50 to-gray-100"
+      <div className="max-w-7xl mx-auto px-4">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={14}
+          slidesPerView={1.2}   // Mobile default
+          breakpoints={{
+            480: { slidesPerView: 1.5, spaceBetween: 16 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 2.5, spaceBetween: 22 },
+            1024: { slidesPerView: 3, spaceBetween: 26 },
+            1280: { slidesPerView: 4, spaceBetween: 30 },
+            1536: { slidesPerView: 4.5, spaceBetween: 32 },
+          }}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          loop={true}
+          className="swiper-custom h-[300px] sm:h-[340px] md:h-[380px] lg:h-[420px] xl:h-[460px]"
         >
-          {/* Image */}
-          <div className="absolute inset-0 w-full h-full">
-            <img
-              src={`${imageBaseUrl}${product.images[0]}`}
-              alt={product.productName}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </div>
+          {products.map((product, index) => (
+            <SwiperSlide key={index} className="h-full">
+              <Link
+                to={`/product/${product._id}`}
+                className="group relative h-full block overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-500 w-full bg-gradient-to-br from-gray-50 to-gray-100"
+              >
+                {/* Image */}
+                <div className="absolute inset-0 w-full h-full">
+                  <img
+                    src={`${imageBaseUrl}${product.images[0]}`}
+                    alt={product.productName}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-          {/* Content */}
-          <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
-            <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white drop-shadow-2xl mb-1 leading-tight line-clamp-2">
-              {product.productName}
-            </h3>
+                {/* Content */}
+                <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white drop-shadow-2xl mb-1 leading-tight line-clamp-2">
+                    {product.productName}
+                  </h3>
 
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1 inline-block mb-1">
-              <p className="text-white text-sm sm:text-base lg:text-lg font-bold drop-shadow-lg">
-                ₹{product.actualPrice}
-              </p>
-            </div>
+                  <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1 inline-block mb-1">
+                    <p className="text-white text-sm sm:text-base lg:text-lg font-bold drop-shadow-lg">
+                      ₹{product.actualPrice}
+                    </p>
+                  </div>
 
-            <p className="text-white/90 text-[11px] sm:text-xs font-medium drop-shadow-lg">
-              {product.size?.length || 0} Sizes available
-            </p>
-          </div>
-        </Link>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
+                  <p className="text-white/90 text-[11px] sm:text-xs font-medium drop-shadow-lg">
+                    {product.size?.length || 0} Sizes available
+                  </p>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
     </section>
   );

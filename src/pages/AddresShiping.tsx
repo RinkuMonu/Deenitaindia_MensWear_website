@@ -1,6 +1,7 @@
 "use client";
 import type React from "react";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
+import { useCallback, useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import {
   ChevronLeft,
@@ -10,7 +11,7 @@ import {
   Clock,
   Shield,
 } from "lucide-react";
-import logo from "../assest/logo.jpg";
+// import logo from "../assest/logo.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -28,13 +29,13 @@ interface Address {
   isDefault?: boolean;
 }
 
-interface OrderItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+// interface OrderItem {
+//   id: string;
+//   name: string;
+//   price: number;
+//   quantity: number;
+//   image: string;
+// }
 
 interface ShippingMethod {
   id: string;
@@ -43,11 +44,11 @@ interface ShippingMethod {
   price: number;
 }
 
-interface CouponCode {
-  code: string;
-  discount: string;
-  description: string;
-}
+// interface CouponCode {
+//   code: string;
+//   discount: string;
+//   description: string;
+// }
 
 interface FormErrors {
   name?: string;
@@ -76,18 +77,18 @@ const shippingMethods: ShippingMethod[] = [
   { id: "3", name: "Flat Rate", description: "Fixed rate shipping", price: 20 },
 ];
 
-const coupons: CouponCode[] = [
-  {
-    code: "SAVE80",
-    discount: "80%",
-    description: "Discount 80% for all orders",
-  },
-  {
-    code: "FLAT500",
-    discount: "₹500",
-    description: "Flat ₹500 off on all orders",
-  },
-];
+// const coupons: CouponCode[] = [
+//   {
+//     code: "SAVE80",
+//     discount: "80%",
+//     description: "Discount 80% for all orders",
+//   },
+//   {
+//     code: "FLAT500",
+//     discount: "₹500",
+//     description: "Flat ₹500 off on all orders",
+//   },
+// ];
 
 function AddressShipping({ cartItems }) {
   console.log(cartItems, "cart Item");
@@ -95,7 +96,7 @@ function AddressShipping({ cartItems }) {
   const [selectedAddress, setSelectedAddress] = useState<string>("");
   const [selectedShipping, setSelectedShipping] = useState<string>("1");
   const [selectedPayment, setSelectedPayment] = useState<string>("");
-  const [showCouponInput, setShowCouponInput] = useState(false);
+  // const [showCouponInput, setShowCouponInput] = useState(false);
   const [upiIntent, setUpiIntent] = useState(null);
   const [isloading, setIsLoading] = useState(false);
   const [reference, setReference] = useState("");
@@ -117,6 +118,12 @@ function AddressShipping({ cartItems }) {
 
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const [showLoginModal, setShowLoginModal] = useState(false);
+
+  const totalTimeRef = useRef(0);
+
+  const addressFormRef = useRef<HTMLDivElement | null>(null);
+
+
   const token = "zsdfgyxchh";
   useEffect(() => {
     const loadUser = () => {
@@ -142,25 +149,50 @@ function AddressShipping({ cartItems }) {
 
   console.log(coupons);
 
-  const fetchCoupons = async () => {
-    try {
-      const response = await fetch(`${baseUrl}/coupons`);
-      const data = await response.json();
+  // const fetchCoupons = async () => {
+  //   try {
+  //     const response = await fetch(`${baseUrl}/coupons`);
+  //     const data = await response.json();
 
-      console.log("dsfdsfdsgfdsf", data.coupons);
+  //     console.log("dsfdsfdsgfdsf", data.coupons);
 
-      if (Array.isArray(data?.coupons)) {
-        setCoupons(data?.coupons);
-      } else {
-        console.error("Data is not an array:", data.data);
-      }
-    } catch (error) {
-      console.error("Error fetching coupons:", error);
+  //     if (Array.isArray(data?.coupons)) {
+  //       setCoupons(data?.coupons);
+  //     } else {
+  //       console.error("Data is not an array:", data.data);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching coupons:", error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   fetchCoupons();
+  // }, []);
+
+
+  
+
+  const fetchCoupons = useCallback(async () => {
+  try {
+    const response = await fetch(`${baseUrl}/coupons`);
+    const data = await response.json();
+
+    if (Array.isArray(data?.coupons)) {
+      setCoupons(data?.coupons);
+    } else {
+      console.error("Data is not an array:", data.data);
     }
-  };
-  useEffect(() => {
-    fetchCoupons();
-  }, []);
+  } catch (error) {
+    console.error("Error fetching coupons:", error);
+  }
+}, [baseUrl]);
+
+useEffect(() => {
+  fetchCoupons();
+}, [fetchCoupons]);
+
+
 
   const applicableCoupons = coupons?.filter((c) =>
     cartItems.some((item) => c.applicableProducts.includes(item.id))
@@ -296,16 +328,40 @@ function AddressShipping({ cartItems }) {
       // Trigger login modal
       return;
     }
+    // if (!validateForm()) {
+    //   // Mark all fields as touched to show errors
+    //   const allFields = isNewAddress
+    //     ? ["name", "email", "phone", "pinCode", "address"]
+    //     : ["email", "phone"];
+    //   setTouchedFields(
+    //     allFields.reduce((acc, field) => ({ ...acc, [field]: true }), {})
+    //   );
+    //   return;
+    // }
+
     if (!validateForm()) {
-      // Mark all fields as touched to show errors
-      const allFields = isNewAddress
-        ? ["name", "email", "phone", "pinCode", "address"]
-        : ["email", "phone"];
-      setTouchedFields(
-        allFields.reduce((acc, field) => ({ ...acc, [field]: true }), {})
-      );
-      return;
-    }
+  const allFields = isNewAddress
+    ? ["name", "email", "phone", "pinCode", "address"]
+    : ["email", "phone"];
+
+  setTouchedFields(
+    allFields.reduce((acc, field) => ({ ...acc, [field]: true }), {})
+  );
+
+  // Auto open new address form
+  setIsNewAddress(true);
+
+  // Scroll to address form
+  setTimeout(() => {
+    addressFormRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 100);
+
+  return;
+}
+
 
     setIsLoading(true);
     const newRef = generateReferenceNumber();
@@ -435,49 +491,100 @@ function AddressShipping({ cartItems }) {
   };
 
   // Payment status check effect (unchanged from your original code)
-  let totalTime = 0;
-  useEffect(() => {
-    if (!reference) return;
-    const maxDuration = 4 * 60 * 1000;
-    const intervalTime = 15000;
-    const interval = setInterval(async () => {
-      totalTime += intervalTime;
-      try {
-        setIsLoading(true);
-        const response = await axios.get(
-          `https://api.worldpayme.com/api/v1.1/payinTransactionCheckStatus/${reference}`,
-          {
-            headers: {
-              Authorization: `Bearer ${
-                selectedPayment === "upi1"
-                  ? token
-                  : "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjoiNzE1ZDJlODJiZTYxYzdiYjk1YzZhNDA0ZTdlYTNiZDRjOTNkYWRmNWEzYmJiYmExYmFhNTI2ZGIxNzVkNjhhNmI1YmZjZWU3N2ZmMTgwMDkiLCJpYXQiOjE3NDg1MTgwNTYuMjcyNDQyLCJuYmYiOjE3NDg1MTgwNTYuMjcyNDQ0LCJleHAiOjE3ODAwNTQwNTYuMjY5OTk3LCJzdWIiOiIzMDMiLCJzY29wZXMiOltdfQ.ElJzC40DRfPxMCJn8hKPJwOQqinyzK2yRONmLIky4IElGAeDJzghUbiBQg6uVIe0qMnQZCTY66trEbVh25TJZYpWv_rEyP4LYMhFNtyHOyEothKg-RAWt99y4baqf10wp5Mfl1YdUI3lQaYHKYF1B0y8gJFtLghvj8nxsWdi5a_V7TfkzcGGWy5HtqZnaYyDWxJCSIjm41E2mfJVoDrGz5_DMHCQq50JHN8rJwlx4R6pH4uD-D-xoYZsTgdg94ogkuuyWRpNpHTPx6ku9D6AVqO4gz8pGysphatUaIUeAHciNDNVW_hU3ReHMXUc6GsySmPjoogmRZJqtrtv432N4dhVZYZM8uPH8LmI437xsiT8Pwh8eigfJeiizElf0_sMgeNL7wwfkfsIkjWiNQlai9l0tgXpkSh_B4WHwbGMlhjN-xebvWE3NmiUu8Ut9m-aHyL-TCLX_hbkGepgEBilGiyqPzbpP9oNPXO7t3Js4MxAaFQjP4M2hHyHfxMPUUCbUEboS2cdL9uQpag_X9Z7w9cQMTaC6bFjv-RuAJhwGvSMHvs3paOZqdZxRd4bwybXUyCIisqdG1FHoFgPoz5tA5bYZ8CpILbYGuxPHeCpN51c0_QhOfGcEUT5st7PUadqwiQG1WJBOQ6XHquUNAt9ZySDpB9DjLtQ4jxjQbyer6I"
-              }`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log("responseeeeeeeeee", response.data);
-        const { data } = response.data;
-        const txnStatus = data?.status || "Unknown";
-        if (txnStatus === "Success" || txnStatus === "Failed") {
-          clearInterval(interval);
-          navigate(
-            `/resultPage?status=${txnStatus}&txnId=${data.transactionNo}`
-          );
-        } else if (totalTime >= maxDuration) {
-          clearInterval(interval);
-          navigate(`/resultPage?status=timeout&txnId=${reference}`);
+  // let totalTime = 0;
+  // useEffect(() => {
+  //   if (!reference) return;
+  //   const maxDuration = 4 * 60 * 1000;
+  //   const intervalTime = 15000;
+  //   const interval = setInterval(async () => {
+  //     totalTime += intervalTime;
+  //     try {
+  //       setIsLoading(true);
+  //       const response = await axios.get(
+  //         `https://api.worldpayme.com/api/v1.1/payinTransactionCheckStatus/${reference}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${
+  //               selectedPayment === "upi1"
+  //                 ? token
+  //                 : "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjoiNzE1ZDJlODJiZTYxYzdiYjk1YzZhNDA0ZTdlYTNiZDRjOTNkYWRmNWEzYmJiYmExYmFhNTI2ZGIxNzVkNjhhNmI1YmZjZWU3N2ZmMTgwMDkiLCJpYXQiOjE3NDg1MTgwNTYuMjcyNDQyLCJuYmYiOjE3NDg1MTgwNTYuMjcyNDQ0LCJleHAiOjE3ODAwNTQwNTYuMjY5OTk3LCJzdWIiOiIzMDMiLCJzY29wZXMiOltdfQ.ElJzC40DRfPxMCJn8hKPJwOQqinyzK2yRONmLIky4IElGAeDJzghUbiBQg6uVIe0qMnQZCTY66trEbVh25TJZYpWv_rEyP4LYMhFNtyHOyEothKg-RAWt99y4baqf10wp5Mfl1YdUI3lQaYHKYF1B0y8gJFtLghvj8nxsWdi5a_V7TfkzcGGWy5HtqZnaYyDWxJCSIjm41E2mfJVoDrGz5_DMHCQq50JHN8rJwlx4R6pH4uD-D-xoYZsTgdg94ogkuuyWRpNpHTPx6ku9D6AVqO4gz8pGysphatUaIUeAHciNDNVW_hU3ReHMXUc6GsySmPjoogmRZJqtrtv432N4dhVZYZM8uPH8LmI437xsiT8Pwh8eigfJeiizElf0_sMgeNL7wwfkfsIkjWiNQlai9l0tgXpkSh_B4WHwbGMlhjN-xebvWE3NmiUu8Ut9m-aHyL-TCLX_hbkGepgEBilGiyqPzbpP9oNPXO7t3Js4MxAaFQjP4M2hHyHfxMPUUCbUEboS2cdL9uQpag_X9Z7w9cQMTaC6bFjv-RuAJhwGvSMHvs3paOZqdZxRd4bwybXUyCIisqdG1FHoFgPoz5tA5bYZ8CpILbYGuxPHeCpN51c0_QhOfGcEUT5st7PUadqwiQG1WJBOQ6XHquUNAt9ZySDpB9DjLtQ4jxjQbyer6I"
+  //             }`,
+  //             "Content-Type": "application/json",
+  //           },
+  //         }
+  //       );
+  //       console.log("responseeeeeeeeee", response.data);
+  //       const { data } = response.data;
+  //       const txnStatus = data?.status || "Unknown";
+  //       if (txnStatus === "Success" || txnStatus === "Failed") {
+  //         clearInterval(interval);
+  //         navigate(
+  //           `/resultPage?status=${txnStatus}&txnId=${data.transactionNo}`
+  //         );
+  //       } else if (totalTime >= maxDuration) {
+  //         clearInterval(interval);
+  //         navigate(`/resultPage?status=timeout&txnId=${reference}`);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching payout status:", error);
+  //       clearInterval(interval);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   }, intervalTime);
+  //   return () => clearInterval(interval);
+  // }, [reference]);
+
+
+
+useEffect(() => {
+  if (!reference) return;
+
+  totalTimeRef.current = 0; // reset on new reference
+
+  const maxDuration = 4 * 60 * 1000;
+  const intervalTime = 15000;
+
+  const interval = setInterval(async () => {
+    totalTimeRef.current += intervalTime;
+
+    try {
+      setIsLoading(true);
+      const response = await axios.get(
+        `https://api.worldpayme.com/api/v1.1/payinTransactionCheckStatus/${reference}`,
+        {
+          headers: {
+            Authorization: `Bearer ${
+              selectedPayment === "upi1"
+                ? token
+                : "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4IiwianRpIjoiNzE1ZDJlODJiZTYxYzdiYjk1YzZhNDA0ZTdlYTNiZDRjOTNkYWRmNWEzYmJiYmExYmFhNTI2ZGIxNzVkNjhhNmI1YmZjZWU3N2ZmMTgwMDkiLCJpYXQiOjE3NDg1MTgwNTYuMjcyNDQyLCJuYmYiOjE3NDg1MTgwNTYuMjcyNDQ0LCJleHAiOjE3ODAwNTQwNTYuMjY5OTk3LCJzdWIiOiIzMDMiLCJzY29wZXMiOltdfQ.ElJzC40DRfPxMCJn8hKPJwOQqinyzK2yRONmLIky4IElGAeDJzghUbiBQg6uVIe0qMnQZCTY66trEbVh25TJZYpWv_rEyP4LYMhFNtyHOyEothKg-RAWt99y4baqf10wp5Mfl1YdUI3lQaYHKYF1B0y8gJFtLghvj8nxsWdi5a_V7TfkzcGGWy5HtqZnaYyDWxJCSIjm41E2mfJVoDrGz5_DMHCQq50JHN8rJwlx4R6pH4uD-D-xoYZsTgdg94ogkuuyWRpNpHTPx6ku9D6AVqO4gz8pGysphatUaIUeAHciNDNVW_hU3ReHMXUc6GsySmPjoogmRZJqtrtv432N4dhVZYZM8uPH8LmI437xsiT8Pwh8eigfJeiizElf0_sMgeNL7wwfkfsIkjWiNQlai9l0tgXpkSh_B4WHwbGMlhjN-xebvWE3NmiUu8Ut9m-aHyL-TCLX_hbkGepgEBilGiyqPzbpP9oNPXO7t3Js4MxAaFQjP4M2hHyHfxMPUUCbUEboS2cdL9uQpag_X9Z7w9cQMTaC6bFjv-RuAJhwGvSMHvs3paOZqdZxRd4bwybXUyCIisqdG1FHoFgPoz5tA5bYZ8CpILbYGuxPHeCpN51c0_QhOfGcEUT5st7PUadqwiQG1WJBOQ6XHquUNAt9ZySDpB9DjLtQ4jxjQbyer6I"
+            }`,
+            "Content-Type": "application/json",
+          },
         }
-      } catch (error) {
-        console.error("Error fetching payout status:", error);
+      );
+
+      const { data } = response.data;
+      const txnStatus = data?.status || "Unknown";
+
+      if (txnStatus === "Success" || txnStatus === "Failed") {
         clearInterval(interval);
-      } finally {
-        setIsLoading(false);
+        navigate(`/resultPage?status=${txnStatus}&txnId=${data.transactionNo}`);
+      } else if (totalTimeRef.current >= maxDuration) {
+        clearInterval(interval);
+        navigate(`/resultPage?status=timeout&txnId=${reference}`);
       }
-    }, intervalTime);
-    return () => clearInterval(interval);
-  }, [reference]);
+    } catch (error) {
+      console.error("Error fetching payout status:", error);
+      clearInterval(interval);
+    } finally {
+      setIsLoading(false);
+    }
+  }, intervalTime);
+
+  return () => clearInterval(interval);
+}, [reference, navigate, selectedPayment]);
+
 
   useEffect(() => {
     if (!startTimer || timeLeft <= 0) return;
@@ -561,7 +668,8 @@ function AddressShipping({ cartItems }) {
 
                     {/* New Address Form */}
                     {isNewAddress && (
-                      <div className="space-y-4 p-4 bg-gray-50 rounded-lg">
+                      // <div className="space-y-4 p-4 bg-gray-50 rounded-lg">
+                      <div ref={addressFormRef} className="space-y-4 p-4 bg-gray-50 rounded-lg">
                         {/* Error summary */}
                         {Object.values(errors).some((error) => error) && (
                           <div className="bg-red-50 border-l-4 border-red-500 p-4">

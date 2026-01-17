@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
-  ScrollRestoration,
   useLocation,
 } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
@@ -37,14 +35,14 @@ import VendorVerificationForm from "./pages/VerdorVerification";
 import OrderHistory from "./pages/order-history";
 import TrackOrder from "./pages/track-order";
 import Products from "./pages/Products";
-import WhatsAppButton from "./pages/WhatsAppButton";
+// import WhatsAppButton from "./pages/WhatsAppButton";
 import LoginModal from "./components/loginModal/LoginModal";
 import AboutUs from "./pages/AboutUs";
 import { ProfilePage } from "./components/userProfile/userProfile";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+// import { GoogleOAuthProvider } from "@react-oauth/google";
 import SearchPage from "./pages/SearchPage";
 
-const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+// const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 
 function App() {

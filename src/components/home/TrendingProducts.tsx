@@ -31,11 +31,8 @@ interface Product {
   reviewCount?: number;
 }
 
-const TrendingProducts = ({
-  addToCart,
-}: {
-  addToCart: (product: Product) => void;
-}) => {
+const TrendingProducts = ({ addToCart,}: { addToCart: (product: Product) => void;}) => {
+  console.log("add to cart ",addToCart );
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -137,8 +134,8 @@ const TrendingProducts = ({
     setTimeout(() => setSelectedProduct(null), 300);
   };
 
-  const handleIncrease = () => setQuantity((prev) => prev + 1);
-  const handleDecrease = () => quantity > 1 && setQuantity((prev) => prev - 1);
+  // const handleIncrease = () => setQuantity((prev) => prev + 1);
+  // const handleDecrease = () => quantity > 1 && setQuantity((prev) => prev - 1);
 
   const handleAddToCart = (product: Product) => {
     const token = localStorage.getItem("token");
@@ -158,7 +155,9 @@ const TrendingProducts = ({
       );
 
       const existingProductIndex = existingCart.findIndex(
-        (item: any) => item.id === product._id
+        // (item: any) => item.id === product._id
+          (item: { id: string }) => item.id === product._id
+
       );
 
       if (existingProductIndex !== -1) {
@@ -665,7 +664,7 @@ const TrendingProducts = ({
                 <div className="flex flex-col sm:flex-row gap-4">
                   {/* Add to Cart */}
                   <button
-                    onClick={(e) => {
+                    onClick={() => {
                       if (outOfStock) return; // safety guard
                       handleAddToCart(selectedProduct);
                     }}
@@ -682,7 +681,7 @@ const TrendingProducts = ({
 
                   {/* Buy Now */}
                   <button
-                    onClick={(e) => {
+                    onClick={() => {
                       if (outOfStock) return; // safety guard
                       // yahan aap apna buyNow() ya checkout() function call karna chahte ho
                       handleAddToCart(selectedProduct);

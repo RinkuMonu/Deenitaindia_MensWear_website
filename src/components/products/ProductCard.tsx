@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import type React from "react";
-import { Eye, Heart, ShoppingCart, Star, X } from "lucide-react";
+import { Eye, Heart, ShoppingCart, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItemToWishlist } from "../../reduxslice/WishlistSlice";
@@ -39,7 +39,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useDispatch();
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [addedProduct, setAddedProduct] = useState<Product | null>(null);
-  const [quantity, setQuantity] = useState(1);
+  // const [quantity, setQuantity] = useState(1);
+  const [quantity] = useState(1);
+
   const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   // Generate random review count and rating if not provided
@@ -72,7 +74,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
       );
 
       const existingProductIndex = existingCart.findIndex(
-        (item: any) => item.id === product._id
+        // (item: any) => item.id === product._id
+          (item: { id: string; quantity: number }) => item.id === product._id
+
       );
 
       if (existingProductIndex !== -1) {
@@ -114,19 +118,20 @@ const ProductCard = ({ product }: ProductCardProps) => {
     }, 3000);
   };
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }).map((_, i) => (
-      <Star
-        key={i}
-        size={12}
-        className={`${
-          i < Math.floor(rating)
-            ? "fill-yellow-400 stroke-yellow-400"
-            : "stroke-gray-300"
-        }`}
-      />
-    ));
-  };
+  // const renderStars = (rating: number) => {
+  //   return Array.from({ length: 5 }).map((_, i) => (
+  //     <Star
+  //       key={i}
+  //       size={12}
+  //       className={`${
+  //         i < Math.floor(rating)
+  //           ? "fill-yellow-400 stroke-yellow-400"
+  //           : "stroke-gray-300"
+  //       }`}
+  //     />
+  //   ));
+  // };
+
 
   // Handle image URL construction more safely
   const getImageUrl = (imagePath: string) => {

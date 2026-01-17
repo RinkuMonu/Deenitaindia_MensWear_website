@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef, useCallback, memo } from "react";
 import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../../assest/logo.jpg";
+// import logo from "../../assest/logo.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchWishlist, clearWishlist } from "../../reduxslice/WishlistSlice";
@@ -20,11 +20,22 @@ interface UserData {
   email: string;
 }
 
+interface RootState {
+  wishlist: {
+    items: unknown[];
+  };
+}
+
 const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
   const dispatch = useDispatch();
+  // const wishlistCount = useSelector(
+  //   (state: any) => state.wishlist.items.length
+  // );
+
   const wishlistCount = useSelector(
-    (state: any) => state.wishlist.items.length
-  );
+  (state: RootState) => state.wishlist.items.length
+);
+
   const navigate = useNavigate();
   const isLoggedIn = !!localStorage.getItem("token");
 
@@ -46,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [subCateName, setSubCateName] = useState([]);
+  // const [subCateName, setSubCateName] = useState([]);
   const [user, setUser] = useState<UserData | null>(null);
   // console.log("cateeee", categories);
 
