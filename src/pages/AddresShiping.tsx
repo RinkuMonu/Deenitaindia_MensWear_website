@@ -531,9 +531,9 @@ function AddressShipping({ cartItems }) {
                 {/* Logo */}
                 <div className="mb-6">
                   <img
-                    src="/"
+                    src="/home/Mens-logo.PNG"
                     alt="logo"
-                    className="w-32 h-auto"
+                    className="w-20 h-auto"
                   />
                 </div>
 
