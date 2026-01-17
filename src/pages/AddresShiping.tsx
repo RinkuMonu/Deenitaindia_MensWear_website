@@ -10,7 +10,7 @@ import {
   Clock,
   Shield,
 } from "lucide-react";
-import logo from "../assest/logo.jpg";
+// import logo from "../assest/logo.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -28,13 +28,13 @@ interface Address {
   isDefault?: boolean;
 }
 
-interface OrderItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
+// interface OrderItem {
+//   id: string;
+//   name: string;
+//   price: number;
+//   quantity: number;
+//   image: string;
+// }
 
 interface ShippingMethod {
   id: string;
@@ -43,11 +43,11 @@ interface ShippingMethod {
   price: number;
 }
 
-interface CouponCode {
-  code: string;
-  discount: string;
-  description: string;
-}
+// interface CouponCode {
+//   code: string;
+//   discount: string;
+//   description: string;
+// }
 
 interface FormErrors {
   name?: string;
@@ -76,18 +76,18 @@ const shippingMethods: ShippingMethod[] = [
   { id: "3", name: "Flat Rate", description: "Fixed rate shipping", price: 20 },
 ];
 
-const coupons: CouponCode[] = [
-  {
-    code: "SAVE80",
-    discount: "80%",
-    description: "Discount 80% for all orders",
-  },
-  {
-    code: "FLAT500",
-    discount: "₹500",
-    description: "Flat ₹500 off on all orders",
-  },
-];
+// const coupons: CouponCode[] = [
+//   {
+//     code: "SAVE80",
+//     discount: "80%",
+//     description: "Discount 80% for all orders",
+//   },
+//   {
+//     code: "FLAT500",
+//     discount: "₹500",
+//     description: "Flat ₹500 off on all orders",
+//   },
+// ];
 
 function AddressShipping({ cartItems }) {
   console.log(cartItems, "cart Item");
@@ -95,7 +95,7 @@ function AddressShipping({ cartItems }) {
   const [selectedAddress, setSelectedAddress] = useState<string>("");
   const [selectedShipping, setSelectedShipping] = useState<string>("1");
   const [selectedPayment, setSelectedPayment] = useState<string>("");
-  const [showCouponInput, setShowCouponInput] = useState(false);
+  // const [showCouponInput, setShowCouponInput] = useState(false);
   const [upiIntent, setUpiIntent] = useState(null);
   const [isloading, setIsLoading] = useState(false);
   const [reference, setReference] = useState("");

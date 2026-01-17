@@ -6,16 +6,16 @@ import Arrivals from "../components/home/Arrivals";
 
 import TopCategories from "../components/home/TopCategories";
 // import Newsletter from "../components/home/Newsletter";
-import HowItWorks from "../components/home/HowItWorks";
-import DeliveryFeatures from "../components/home/DeliveryFeatures";
+// import HowItWorks from "../components/home/HowItWorks";
+// import DeliveryFeatures from "../components/home/DeliveryFeatures";
 
-import FAQComponent from '../components/home/FAQComponent';
+// import FAQComponent from '../components/home/FAQComponent';
 
 
 import axios from "axios";
 import { useEffect } from "react";
-import BlockImageSection from "../components/home/Blockimage";
-import ElevatedSection from "../components/home/Elevated";
+// import BlockImageSection from "../components/home/Blockimage";
+// import ElevatedSection from "../components/home/Elevated";
 import Popular from "../components/home/Popular";
 import Blazer from "../components/home/Blazer";
 import Kurtaset from "../components/home/KurtaSet";
@@ -29,7 +29,7 @@ interface HomeProps {
   onCartClick: () => void;
 }
 
-export default function   Home({ addToCart, onCartClick }: HomeProps) {
+export default function   Home({ addToCart }: HomeProps) {
   // const [loading2, setLoading2] = useState(false);
 
   // const data = {

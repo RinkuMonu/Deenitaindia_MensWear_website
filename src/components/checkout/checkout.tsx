@@ -19,7 +19,7 @@ const Checkout = () => {
             const cashfree = window.Cashfree({
                 mode: "production",
             });
-            let checkoutOptions = {
+            const checkoutOptions = {
                 paymentSessionId: paymentSessionId,
                 redirectTarget: "_self",
             };

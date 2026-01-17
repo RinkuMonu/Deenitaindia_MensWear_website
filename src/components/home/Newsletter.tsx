@@ -112,11 +112,20 @@ export default function Newsletter() {
                 />
 
                 <div className="tp-subscribe-input relative md:mt-0 mt-4">
-                  <input
+                  {/* <input
                     type="email"
                     placeholder="Enter Your Email"
                     className="bg-white border-0 rounded-xl shadow-md font-sans h-16 px-16 w-full"
-                  />
+                  /> */}
+
+                  <input
+  type="email"
+  placeholder="Enter Your Email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  className="bg-white border-0 rounded-xl shadow-md font-sans h-16 px-16 w-full"
+/>
+
                   <button
                     type="submit"
                     className="absolute right-0 top-0 h-full px-8 bg-black text-white rounded-r-xl shadow-md hover:bg-gray-800"

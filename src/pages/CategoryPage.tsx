@@ -1,29 +1,68 @@
 "use client"
-import { useEffect, useState,useRef } from "react"
-import { useParams,Link,useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useParams, Link } from "react-router-dom"
 import { Sliders, X, ChevronDown, ChevronUp } from "lucide-react"
 import ProductCard from "../components/products/ProductCard"
 
+
+interface Product {
+  _id: string
+  name: string
+  actualPrice: number
+  createdAt: string
+  size?: string
+}
+
+interface Category {
+  _id: string
+  name: string
+  subcategory?: string
+}
+
+type GroupedCategory = {
+  [key: string]: Category[]
+}
+
+
 export default function CategoryPage() {
-  let initialMinPrice = 100
-  let initialMaxPrice = 5000
+  const initialMinPrice = 100
+  const initialMaxPrice = 5000
   const { category } = useParams()
   const catagory1 = category?.replace(/-/g, " ");
-  const [products, setProducts] = useState<any[]>([])
-  const [filteredProducts, setFilteredProducts] = useState<any[]>([])
+  // const [products, setProducts] = useState<any[]>([])
+  const [products, setProducts] = useState<Product[]>([])
+
+  // const [filteredProducts, setFilteredProducts] = useState<any[]>([])
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
+
   const [priceRange, setPriceRange] = useState([initialMinPrice, initialMaxPrice])
   const [selectedSizes, setSelectedSizes] = useState<string[]>([])
   const [sortBy, setSortBy] = useState("newest")
   const [showFilters, setShowFilters] = useState(false)
-  const [openSections, setOpenSections] = useState({
-    price: true,
-    sizes: true,
-  })
-  const [categories, setCategories] = useState<any[]>([]);
-  const [groupedCategories, setGroupedCategories] = useState<any>({});
+  // const [openSections, setOpenSections] = useState({
+  //   price: true,
+  //   sizes: true,
+  // })
+
+  const [openSections, setOpenSections] = useState<{
+  price: boolean
+  sizes: boolean
+  categories: boolean
+}>({
+  price: true,
+  sizes: true,
+  categories: true,
+})
+
+  // const [categories, setCategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<Category[]>([])
+
+  // const [groupedCategories, setGroupedCategories] = useState<any>({});
+  const [groupedCategories, setGroupedCategories] = useState<GroupedCategory>({})
+
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
-  const moreMenuRef = useRef<HTMLDivElement>(null);
-  
+  // const moreMenuRef = useRef<HTMLDivElement>(null);
+
   const [specialFilters, setSpecialFilters] = useState({
     isPopular: false,
     isTrending: false,
@@ -32,7 +71,7 @@ export default function CategoryPage() {
   })
   const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE
   const baseUrl = import.meta.env.VITE_API_BASE_URL
-  const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+  // const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
   // Initialize products
   useEffect(() => {
     const fetchProducts = async () => {
@@ -71,7 +110,7 @@ export default function CategoryPage() {
     }
 
     fetchProducts()
-  }, [baseUrl, referenceWebsite, catagory1, priceRange, sortBy,specialFilters])
+  }, [baseUrl, referenceWebsite, catagory1, priceRange, sortBy, specialFilters])
 
 
   useEffect(() => {
@@ -102,13 +141,13 @@ export default function CategoryPage() {
     setFilteredProducts(sorted)
   }, [products, priceRange, sortBy, selectedSizes])
 
-  const handleSizeChange = (size: string) => {
-    setSelectedSizes(prev =>
-      prev.includes(size)
-        ? prev.filter(s => s !== size)
-        : [...prev, size]
-    )
-  }
+  // const handleSizeChange = (size: string) => {
+  //   setSelectedSizes(prev =>
+  //     prev.includes(size)
+  //       ? prev.filter(s => s !== size)
+  //       : [...prev, size]
+  //   )
+  // }
 
   const toggleSection = (section: keyof typeof openSections) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }))
@@ -135,12 +174,21 @@ export default function CategoryPage() {
         setCategories(cats);
 
         // Data ko group karein subcategory ke hisaab se
-        const grouped = cats.reduce((acc: any, item: any) => {
-          const sub = item?.subcategory || "Others";
-          if (!acc[sub]) acc[sub] = [];
-          acc[sub].push(item);
-          return acc;
-        }, {});
+        // const grouped = cats.reduce((acc: any, item: any) => {
+        //   const sub = item?.subcategory || "Others";
+        //   if (!acc[sub]) acc[sub] = [];
+        //   acc[sub].push(item);
+        //   return acc;
+        // }, {});
+
+        const grouped = cats.reduce((acc: GroupedCategory, item: Category) => {
+          const sub = item?.subcategory || "Others"
+          if (!acc[sub]) acc[sub] = []
+          acc[sub].push(item)
+          return acc
+        }, {})
+
+
         setGroupedCategories(grouped);
       } catch (error) {
         console.error("Failed to fetch categories:", error);
@@ -164,7 +212,7 @@ export default function CategoryPage() {
             <span className="font-semibold" style={{ color: "#cba146" }}>
               {filteredProducts.length}
             </span>{" "}
-            authentic traditional pieces 
+            authentic traditional pieces
           </p>
         </div>
 
@@ -194,7 +242,7 @@ export default function CategoryPage() {
             </button> */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-             className="flex items-center space-x-2 text-white px-6 py-2.5 rounded-lg transition-colors font-medium lg:hidden"
+              className="flex items-center space-x-2 text-white px-6 py-2.5 rounded-lg transition-colors font-medium lg:hidden"
               style={{ background: "#cba146" }}
             >
               <Sliders className="h-4 w-4" />
@@ -219,11 +267,13 @@ export default function CategoryPage() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-              {/* 1. Add Category Section Toggle in Sidebar */}
+            {/* 1. Add Category Section Toggle in Sidebar */}
             <div className="border-b border-gray-200 pb-6">
-              <div 
-                className="flex justify-between items-center cursor-pointer mb-4" 
-                onClick={() => toggleSection("categories" as any)}
+              <div
+                className="flex justify-between items-center cursor-pointer mb-4"
+                // onClick={() => toggleSection("categories" as any)}
+                onClick={() => toggleSection("categories")}
+
               >
                 <h3 className="font-semibold text-gray-800">Browse Categories</h3>
                 {openSections.categories ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -231,23 +281,20 @@ export default function CategoryPage() {
 
               {openSections.categories && (
                 <div className="space-y-4">
-                  {Object.entries(groupedCategories).map(([subcategory, items]: [string, any]) => (
+                  {Object.entries(groupedCategories).map(([subcategory, items]) => (
                     <div key={subcategory} className="space-y-2">
-                      {/* Subcategory Name */}
                       <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
                         {subcategory}
                       </h4>
-                      {/* Category Links */}
                       <div className="flex flex-col space-y-1 ml-2">
-                        {items.map((item: any) => (
+                        {items.map((item: Category) => (
                           <Link
                             key={item._id}
                             to={`/category/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
-                            className={`text-sm py-1 transition-colors ${
-                              catagory1 === item.name.toLowerCase() 
-                              ? "text-[#cba146] font-bold" 
-                              : "text-gray-600 hover:text-[#cba146]"
-                            }`}
+                            className={`text-sm py-1 transition-colors ${catagory1 === item.name.toLowerCase()
+                                ? "text-[#cba146] font-bold"
+                                : "text-gray-600 hover:text-[#cba146]"
+                              }`}
                           >
                             {item.name}
                           </Link>
@@ -255,10 +302,11 @@ export default function CategoryPage() {
                       </div>
                     </div>
                   ))}
-                  
+
+
                   {/* More Categories Button (Agar 6 se zyada hain) */}
                   {categories.length > 6 && (
-                    <button 
+                    <button
                       onClick={() => setMoreMenuOpen(!moreMenuOpen)}
                       className="text-xs font-bold text-[#cba146] underline mt-2"
                     >

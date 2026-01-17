@@ -12,7 +12,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { GoogleLogin } from "@react-oauth/google";
+// import { GoogleLogin } from "@react-oauth/google";
 
 
 export default function Login() {
@@ -23,7 +23,8 @@ export default function Login() {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
+  const [setIsHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     firstName: "",
@@ -424,6 +425,9 @@ export default function Login() {
         resetToken,
         newPassword,
       });
+
+      console.log("ress:", res);
+
 
       Swal.fire(
         "Password Reset Successful",
