@@ -5,13 +5,25 @@ import { Sliders, X, ChevronDown, ChevronUp } from "lucide-react"
 import ProductCard from "../components/products/ProductCard"
 
 
+// interface Product {
+//   _id: string
+//   name: string
+//   actualPrice: number
+//   createdAt: string
+//   size?: string
+// }
+
 interface Product {
   _id: string
   name: string
   actualPrice: number
   createdAt: string
-  size?: string
+  size?: {
+    sizes: string
+    price: number
+  }[]
 }
+
 
 interface Category {
   _id: string
@@ -45,14 +57,18 @@ export default function CategoryPage() {
   // })
 
   const [openSections, setOpenSections] = useState<{
-  price: boolean
-  sizes: boolean
-  categories: boolean
-}>({
-  price: true,
-  sizes: true,
-  categories: true,
-})
+    price: boolean
+    sizes: boolean
+    categories: boolean
+  }>({
+    price: true,
+    sizes: true,
+    categories: true,
+  })
+
+
+  const [sizeOptions, setSizeOptions] = useState<string[]>([])
+
 
   // const [categories, setCategories] = useState<any[]>([]);
   const [categories, setCategories] = useState<Category[]>([])
@@ -100,7 +116,12 @@ export default function CategoryPage() {
 
         if (Array.isArray(data.products)) {
           setProducts(data.products)
-          // Optional: setPagination(data.pagination)
+          const allSizes = new Set<string>()
+          data.products.forEach((p: Product) => {
+            p.size?.forEach(s => allSizes.add(s.sizes.toUpperCase()))
+          })
+          setSizeOptions(Array.from(allSizes))
+
         } else {
           console.error("Unexpected products format:", data)
         }
@@ -118,10 +139,16 @@ export default function CategoryPage() {
       const priceMatch = product.actualPrice >= priceRange[0] && product.actualPrice <= priceRange[1]
       if (selectedSizes.length === 0) return priceMatch
 
-      if (!product.size) return false
+      // if (!product.size) return false
+      // return priceMatch && selectedSizes.includes(product.size.toUpperCase())
 
-      // Only show products that match selected sizes
-      return priceMatch && selectedSizes.includes(product.size.toUpperCase())
+      if (!product.size || product.size.length === 0) return false
+
+      const productSizes = product.size.map(s => s.sizes.toUpperCase())
+      const sizeMatch = selectedSizes.some(size => productSizes.includes(size))
+
+      return priceMatch && sizeMatch
+
 
     })
 
@@ -292,8 +319,8 @@ export default function CategoryPage() {
                             key={item._id}
                             to={`/category/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                             className={`text-sm py-1 transition-colors ${catagory1 === item.name.toLowerCase()
-                                ? "text-[#cba146] font-bold"
-                                : "text-gray-600 hover:text-[#cba146]"
+                              ? "text-[#cba146] font-bold"
+                              : "text-gray-600 hover:text-[#cba146]"
                               }`}
                           >
                             {item.name}
@@ -435,6 +462,32 @@ export default function CategoryPage() {
                       {filter.label}
                     </span>
                   </label>
+                ))}
+              </div>
+            </div>
+
+
+            {/* Size Filter */}
+            <div className="border-b border-gray-200 py-6">
+              <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {sizeOptions.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() =>
+                      setSelectedSizes(prev =>
+                        prev.includes(size)
+                          ? prev.filter(s => s !== size)
+                          : [...prev, size]
+                      )
+                    }
+                    className={`border rounded-md py-2 text-sm font-medium transition ${selectedSizes.includes(size)
+                        ? "bg-[#cba146] text-white border-[#cba146]"
+                        : "bg-white text-gray-700 border-gray-300 hover:border-[#cba146]"
+                      }`}
+                  >
+                    {size}
+                  </button>
                 ))}
               </div>
             </div>

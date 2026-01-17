@@ -71,7 +71,7 @@ const Banner: React.FC = () => {
     };
 
     fetchProducts();
-  }, [isNewArrival]);
+  }, [isNewArrival , referenceWebsite, baseUrl]);
 
   // ✅ Device type detection
   useEffect(() => {
@@ -114,7 +114,7 @@ const Banner: React.FC = () => {
   };
 
   fetchBanners();
-}, [deviceType]);
+}, [deviceType , referenceWebsite, baseUrl]);
 
 
   if (banners.length === 0) return null;
