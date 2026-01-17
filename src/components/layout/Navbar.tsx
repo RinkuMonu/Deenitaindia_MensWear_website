@@ -688,9 +688,9 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
             <Link to="/" className="flex items-center relative group">
               <div className="relative" style={{ borderColor: primaryColor }}>
                 <img
-                  src="/"
-                  alt="Logo"
-                  className="transition-all duration-300 w-24 sm:w-32 md:w-36 rounded-lg"
+                  src="/home/Mens-logo.PNG"
+                  alt="/"
+                  className="transition-all duration-300 w-22 sm:w-16 md:w-33 rounded-lg"
                 />
               </div>
             </Link>

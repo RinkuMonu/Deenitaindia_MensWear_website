@@ -187,12 +187,12 @@ const Banner: React.FC = () => {
           ))}
 
           {/* Navigation Buttons */}
-          <div className="swiper-button-prev hidden sm:flex" />
-          <div className="swiper-button-next hidden sm:flex" />
+          {/* <div className="swiper-button-prev hidden sm:flex" />
+          <div className="swiper-button-next hidden sm:flex" /> */}
         </Swiper>
 
         {/* Swiper Styles */}
-        <style jsx global>{`
+        {/* <style jsx global>{`
           .swiper-pagination {
             bottom: 20px !important;
           }
@@ -239,7 +239,7 @@ const Banner: React.FC = () => {
             color: white;
             font-weight: bold;
           }
-        `}</style>
+        `}</style> */}
       </div>
     </section>
   );

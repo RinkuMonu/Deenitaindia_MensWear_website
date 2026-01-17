@@ -585,12 +585,8 @@ export default function Footer() {
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
-
-
     >
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-
-
         <div>
           <img
             src="/logo.png"
@@ -601,12 +597,8 @@ export default function Footer() {
             Premium men’s wear crafted for style, comfort, and confidence. Every outfit is designed to elevate your everyday look.
           </p>
         </div>
-
-
         <div>
           <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
-
-
           <ul className="space-y-2 text-sm">
             {links.map((item) => (
               <li key={item.name}>
@@ -619,10 +611,7 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-
         </div>
-
-
         <div>
           <h3 className="text-white font-semibold text-lg mb-4">Contact</h3>
           <ul className="space-y-2 text-sm text-gray-400">
@@ -634,7 +623,6 @@ export default function Footer() {
                 📞 0141-451 1098
               </Link>
             </li>
-
             <li>
               <Link
                 to="mailto:info@deenitaindia.com"
@@ -645,9 +633,6 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-
-
-
         <div>
           <h3 className="text-white font-semibold text-lg mb-4">Follow Us</h3>
           <div className="flex items-center gap-4">
@@ -671,54 +656,42 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-
       </div>
-
       <div>
-  <ul className="flex flex-wrap justify-center sm:justify-end items-center gap-x-3 gap-y-2 pb-3 text-gray-400 px-3 text-sm sm:text-base">
-    <li>
-      <Link to="/privacy-policy" className="hover:text-black transition">
-        Privacy Policy
-      </Link>
-    </li>
-
-    <span className="hidden sm:inline">|</span>
-
-    <li>
-      <Link to="/returns-and-exchanges" className="hover:text-black transition">
-        Refund Policy
-      </Link>
-    </li>
-
-    <span className="hidden sm:inline">|</span>
-
-    <li>
-      <Link to="/terms-of-service" className="hover:text-black transition">
-        Terms Policy
-      </Link>
-    </li>
-
-    <span className="hidden sm:inline">|</span>
-
-    <li>
-      <Link to="/cancellation_policy" className="hover:text-black transition">
-        Cancellation Policy
-      </Link>
-    </li>
-
-    <span className="hidden sm:inline">|</span>
-
-    <li>
-      <Link to="/shipping-policy" className="hover:text-black transition">
-        Shipping Policy
-      </Link>
-    </li>
-  </ul>
-</div>
-
-
+        <ul className="flex flex-wrap justify-center sm:justify-end items-center gap-x-3 gap-y-2 pb-3 px-3 text-sm sm:text-base">
+          <li>
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-gray-100 transition">
+              Privacy Policy
+            </Link>
+          </li>
+          <span className="hidden sm:inline">|</span>
+          <li>
+            <Link to="/returns-and-exchanges" className="text-gray-400 hover:text-gray-100 transition">
+              Refund Policy
+            </Link>
+          </li>
+          <span className="hidden sm:inline">|</span>
+          <li>
+            <Link to="/terms-of-service" className="text-gray-400 hover:text-gray-100 transition">
+              Terms Policy
+            </Link>
+          </li>
+          <span className="hidden sm:inline">|</span>
+          <li>
+            <Link to="/cancellation_policy" className="text-gray-400 hover:text-gray-100 transition">
+              Cancellation Policy
+            </Link>
+          </li>
+          <span className="hidden sm:inline">|</span>
+          <li>
+            <Link to="/shipping-policy" className="text-gray-400 hover:text-gray-100 transition">
+              Shipping Policy
+            </Link>
+          </li>
+        </ul>
+      </div>
       <div className="border-t border-white/10 text-center py-4 text-sm text-gray-500">
-        © {new Date().getFullYear()} Your Company. All rights reserved.
+        © {new Date().getFullYear()} Deenita India. All rights reserved.
       </div>
     </footer>
   );
