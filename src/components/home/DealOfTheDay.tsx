@@ -4,7 +4,6 @@ import {
   Eye,
   Heart,
   ShoppingCart,
-  Star,
   X,
   ChevronLeft,
   ChevronRight,
@@ -43,6 +42,7 @@ interface Countdown {
 }
 
 const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) => {
+  console.log("deal of the day ::", addToCart);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -187,8 +187,8 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
     setTimeout(() => setSelectedProduct(null), 300);
   };
 
-  const handleIncrease = () => setQuantity((prev) => prev + 1);
-  const handleDecrease = () => quantity > 1 && setQuantity((prev) => prev - 1);
+  // const handleIncrease = () => setQuantity((prev) => prev + 1);
+  // const handleDecrease = () => quantity > 1 && setQuantity((prev) => prev - 1);
 
   const handleAddToCart = (product: Product) => {
     const token = localStorage.getItem("token");
@@ -208,7 +208,9 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
       );
 
       const existingProductIndex = existingCart.findIndex(
-        (item: any) => item.id === product._id
+        // (item: any) => item.id === product._id
+          (item: { id: string }) => item.id === product._id
+
       );
 
       if (existingProductIndex !== -1) {
@@ -248,19 +250,19 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
     }, 3000);
   };
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }).map((_, i) => (
-      <Star
-        key={i}
-        size={14}
-        className={`${
-          i < Math.floor(rating)
-            ? "fill-yellow-400 stroke-yellow-400"
-            : "stroke-gray-300"
-        }`}
-      />
-    ));
-  };
+  // const renderStars = (rating: number) => {
+  //   return Array.from({ length: 5 }).map((_, i) => (
+  //     <Star
+  //       key={i}
+  //       size={14}
+  //       className={`${
+  //         i < Math.floor(rating)
+  //           ? "fill-yellow-400 stroke-yellow-400"
+  //           : "stroke-gray-300"
+  //       }`}
+  //     />
+  //   ));
+  // };
 
   const maxSlides = Math.ceil(dealProducts.length / itemsPerSlide);
 

@@ -21,7 +21,8 @@ export default function Login1() {
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
+  const [ setIsHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({
     firstName: "",
@@ -350,7 +351,7 @@ console.log(location.state,"loca")
         // ✅ Step 4: Notify + redirect
         Swal.fire("Login Successful", "", "success");
         // navigate("/");
-        let intended = location.state;
+        const intended = location.state;
         if(intended){
           navigate(intended.from)
      
@@ -468,6 +469,9 @@ console.log(location.state,"loca")
         resetToken,
         newPassword,
       });
+
+      console.log("ress:", res);
+
 
       Swal.fire(
         "Password Reset Successful",

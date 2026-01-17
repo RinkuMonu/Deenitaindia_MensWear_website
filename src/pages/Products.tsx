@@ -1,42 +1,97 @@
 "use client"
-import { useEffect, useState,useRef } from "react"
-import { useParams,Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useParams, Link } from "react-router-dom"
 import { Sliders, X, ChevronDown, ChevronUp } from "lucide-react"
 import ProductCard from "../components/products/ProductCard"
 
+// interface Product {
+//   _id: string
+//   actualPrice: number
+//   createdAt: string
+//   size?: string
+//   category?: {
+//     name: string
+//   }
+// }
+
+
+interface Product {
+  _id: string
+  actualPrice: number
+  createdAt: string
+  size?: {
+    sizes: string
+    price: number
+  }[]
+  category?: {
+    name: string
+  }
+}
+
+
+interface Category {
+  _id: string
+  name: string
+  subcategory?: string
+}
+
+type GroupedCategories = {
+  [key: string]: Category[]
+}
 
 
 const initialMinPrice = 100
-const initialMaxPrice =5000
-const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+const initialMaxPrice = 5000
+// const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 export default function Products() {
   const { category } = useParams()
   const catagory1 = category?.replace(/-/g, " ");
-  const [products, setProducts] = useState<any[]>([])
-  const [filteredProducts, setFilteredProducts] = useState<[]>([])
+  // const [products, setProducts] = useState<any[]>([])
+  const [products, setProducts] = useState<Product[]>([])
+
+  // const [filteredProducts, setFilteredProducts] = useState<[]>([])
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
+
   const [priceRange, setPriceRange] = useState([initialMinPrice, initialMaxPrice])
   const [selectedSizes, setSelectedSizes] = useState<string[]>([])
   const [sortBy, setSortBy] = useState("newest")
   const [showFilters, setShowFilters] = useState(false)
-  const [openSections, setOpenSections] = useState({
+  // const [openSections, setOpenSections] = useState({
+  //   price: true,
+  //   brands: true,
+  // })
+
+  const [openSections, setOpenSections] = useState<{
+    price: boolean
+    brands: boolean
+    categories: boolean
+  }>({
     price: true,
     brands: true,
+    categories: true,
   })
-  
-  const [categories, setCategories] = useState<any[]>([]);
-  const [groupedCategories, setGroupedCategories] = useState<any>({});
+
+  const [sizeOptions, setSizeOptions] = useState<string[]>([])
+
+
+  // const [categories, setCategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<Category[]>([])
+
+  // const [groupedCategories, setGroupedCategories] = useState<any>({});
+  const [groupedCategories, setGroupedCategories] = useState<GroupedCategories>({})
+
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
-  const moreMenuRef = useRef<HTMLDivElement>(null);
+  // const moreMenuRef = useRef<HTMLDivElement>(null);
   const [specialFilters, setSpecialFilters] = useState({
     isPopular: false,
     isTrending: false,
     isFeatured: false,
     isNewArrival: false,
   })
-    const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE
+  const referenceWebsite = import.meta.env.VITE_REFERENCE_WEBSITE
   const baseUrl = import.meta.env.VITE_API_BASE_URL
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchProducts = async () => {
       try {
         // const res = await fetch(`${baseUrl}/product/getproducts?referenceWebsite=${referenceWebsite}`)
@@ -55,6 +110,12 @@ export default function Products() {
         if (Array.isArray(data.products)) {
           setProducts(data.products)
           console.log(data)
+          const allSizes = new Set<string>()
+          data.products.forEach((p: Product) => {
+            p.size?.forEach(s => allSizes.add(s.sizes.toUpperCase()))
+          })
+          setSizeOptions(Array.from(allSizes))
+
         } else {
           console.error("Unexpected products format:", data)
         }
@@ -63,19 +124,25 @@ export default function Products() {
       }
     }
     fetchProducts()
-  }, [baseUrl, referenceWebsite,specialFilters, priceRange])
+  }, [baseUrl, referenceWebsite, specialFilters, priceRange])
 
   useEffect(() => {
     const filtered = products.filter((product) => {
       const priceMatch = product.actualPrice >= priceRange[0] && product.actualPrice <= priceRange[1]
-     if (selectedSizes.length === 0) return priceMatch
-      
-      // If product has no size property, don't show it when sizes are selected
-      if (!product.size) return false
-      
-      // Only show products that match selected sizes
-      return priceMatch && selectedSizes.includes(product.size.toUpperCase())
-    
+      if (selectedSizes.length === 0) return priceMatch
+
+      // if (!product.size) return false
+
+      // return priceMatch && selectedSizes.includes(product.size.toUpperCase())
+
+      if (!product.size || product.size.length === 0) return false
+
+      const productSizes = product.size.map(s => s.sizes.toUpperCase())
+      const sizeMatch = selectedSizes.some(size => productSizes.includes(size))
+
+      return priceMatch && sizeMatch
+
+
     })
 
     const sorted = filtered.sort((a, b) => {
@@ -94,13 +161,13 @@ export default function Products() {
     setFilteredProducts(sorted)
   }, [products, priceRange, sortBy, selectedSizes])
 
-const handleSizeChange = (size: string) => {
-    setSelectedSizes(prev => 
-      prev.includes(size) 
-        ? prev.filter(s => s !== size) 
-        : [...prev, size]
-    )
-  }
+  // const handleSizeChange = (size: string) => {
+  //     setSelectedSizes(prev => 
+  //       prev.includes(size) 
+  //         ? prev.filter(s => s !== size) 
+  //         : [...prev, size]
+  //     )
+  //   }
 
   const toggleSection = (section: keyof typeof openSections) => {
     setOpenSections((prev) => ({ ...prev, [section]: !prev[section] }))
@@ -127,12 +194,20 @@ const handleSizeChange = (size: string) => {
         setCategories(cats);
 
         // Data ko group karein subcategory ke hisaab se
-        const grouped = cats.reduce((acc: any, item: any) => {
-          const sub = item?.subcategory || "Others";
-          if (!acc[sub]) acc[sub] = [];
-          acc[sub].push(item);
-          return acc;
-        }, {});
+        // const grouped = cats.reduce((acc: any, item: any) => {
+        //   const sub = item?.subcategory || "Others";
+        //   if (!acc[sub]) acc[sub] = [];
+        //   acc[sub].push(item);
+        //   return acc;
+        // }, {});
+
+        const grouped = cats.reduce((acc: GroupedCategories, item: Category) => {
+          const sub = item?.subcategory || "Others"
+          if (!acc[sub]) acc[sub] = []
+          acc[sub].push(item)
+          return acc
+        }, {})
+
         setGroupedCategories(grouped);
       } catch (error) {
         console.error("Failed to fetch categories:", error);
@@ -184,7 +259,7 @@ const handleSizeChange = (size: string) => {
               <span>Reset</span>
             </button> */}
             <button
-              onClick={() => {}}
+              onClick={() => { }}
               className="flex items-center space-x-2 text-white px-6 py-2.5 lg:hidden rounded-lg transition-colors font-medium"
               style={{ background: "#cba146" }}
             >
@@ -196,13 +271,12 @@ const handleSizeChange = (size: string) => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
-        <div
-  className={`lg:w-80 space-y-6 sticky h-fit top-24 ${
-    showFilters
-      ? "fixed inset-0 z-50 bg-white p-6 overflow-y-auto"
-      : "hidden lg:block bg-white rounded-xl shadow-sm p-6 border border-gray-100  self-start h-fit"
-  }`}
->
+          <div
+            className={`lg:w-80 space-y-6 sticky h-fit top-24 ${showFilters
+              ? "fixed inset-0 z-50 bg-white p-6 overflow-y-auto"
+              : "hidden lg:block bg-white rounded-xl shadow-sm p-6 border border-gray-100  self-start h-fit"
+              }`}
+          >
 
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-bold" style={{ color: "#1B2E4F" }}>
@@ -214,9 +288,11 @@ const handleSizeChange = (size: string) => {
             </div>
             {/* 1. Add Category Section Toggle in Sidebar */}
             <div className="border-b border-gray-200 pb-6">
-              <div 
-                className="flex justify-between items-center cursor-pointer mb-4" 
-                onClick={() => toggleSection("categories" as any)}
+              <div
+                className="flex justify-between items-center cursor-pointer mb-4"
+                // onClick={() => toggleSection("categories" as any)}
+                onClick={() => toggleSection("categories")}
+
               >
                 <h3 className="font-semibold text-gray-800">Browse Categories</h3>
                 {openSections.categories ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -224,23 +300,20 @@ const handleSizeChange = (size: string) => {
 
               {openSections.categories && (
                 <div className="space-y-4">
-                  {Object.entries(groupedCategories).map(([subcategory, items]: [string, any]) => (
+                  {Object.entries(groupedCategories).map(([subcategory, items]) => (
                     <div key={subcategory} className="space-y-2">
-                      {/* Subcategory Name */}
                       <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
                         {subcategory}
                       </h4>
-                      {/* Category Links */}
                       <div className="flex flex-col space-y-1 ml-2">
-                        {items.map((item: any) => (
+                        {items.map((item: Category) => (
                           <Link
                             key={item._id}
                             to={`/category/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
-                            className={`text-sm py-1 transition-colors ${
-                              catagory1 === item.name.toLowerCase() 
-                              ? "text-[#cba146] font-bold" 
+                            className={`text-sm py-1 transition-colors ${catagory1 === item.name.toLowerCase()
+                              ? "text-[#cba146] font-bold"
                               : "text-gray-600 hover:text-[#cba146]"
-                            }`}
+                              }`}
                           >
                             {item.name}
                           </Link>
@@ -248,10 +321,11 @@ const handleSizeChange = (size: string) => {
                       </div>
                     </div>
                   ))}
-                  
+
+
                   {/* More Categories Button (Agar 6 se zyada hain) */}
                   {categories.length > 6 && (
-                    <button 
+                    <button
                       onClick={() => setMoreMenuOpen(!moreMenuOpen)}
                       className="text-xs font-bold text-[#cba146] underline mt-2"
                     >
@@ -353,7 +427,7 @@ const handleSizeChange = (size: string) => {
                 </div>
               )}
             </div>
-               {/* Collection Filters */}
+            {/* Collection Filters */}
             <div className="border-b border-gray-200 py-6">
               <h3 className="font-semibold text-gray-800 mb-4">Collections</h3>
               <div className="space-y-3">
@@ -380,9 +454,35 @@ const handleSizeChange = (size: string) => {
                 ))}
               </div>
             </div>
-                  
-      
-          {/* <div className="space-y-3">
+
+
+            {/* Size Filter */}
+            <div className="border-b border-gray-200 py-6">
+              <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {sizeOptions.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() =>
+                      setSelectedSizes(prev =>
+                        prev.includes(size)
+                          ? prev.filter(s => s !== size)
+                          : [...prev, size]
+                      )
+                    }
+                    className={`border rounded-full py-2 text-sm font-medium transition ${selectedSizes.includes(size)
+                        ? "bg-[#cba146] text-white border-[#cba146]"
+                        : "bg-white text-gray-700 border-gray-300 hover:border-[#cba146]"
+                      }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+
+            {/* <div className="space-y-3">
             {sizeOptions.map((size) => (
               <label key={size} className="flex items-center space-x-3 cursor-pointer group">
                 <div className="relative">
@@ -414,7 +514,7 @@ const handleSizeChange = (size: string) => {
               </label>
             ))}
           </div> */}
-        
+
 
             <button
               onClick={resetFilters}
@@ -454,7 +554,7 @@ const handleSizeChange = (size: string) => {
         </div>
       </div>
       {/* Custom CSS for range sliders */}
-       <style jsx>{`
+      <style jsx>{`
         .range-slider::-webkit-slider-thumb {
           appearance: none;
           height: 20px;

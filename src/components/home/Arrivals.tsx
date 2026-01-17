@@ -32,6 +32,7 @@ interface Product {
 }
 
 const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
+  console.log("add to cart",addToCart);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -133,8 +134,8 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
     setTimeout(() => setSelectedProduct(null), 300);
   };
 
-  const handleIncrease = () => setQuantity((prev) => prev + 1);
-  const handleDecrease = () => quantity > 1 && setQuantity((prev) => prev - 1);
+  // const handleIncrease = () => setQuantity((prev) => prev + 1);
+  // const handleDecrease = () => quantity > 1 && setQuantity((prev) => prev - 1);
 
   const handleAddToCart = (product: Product) => {
     const token = localStorage.getItem("token");
@@ -154,7 +155,9 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
       );
 
       const existingProductIndex = existingCart.findIndex(
-        (item: any) => item.id === product._id
+        // (item: any) => item.id === product._id
+          (item: { id: string }) => item.id === product._id
+
       );
 
       if (existingProductIndex !== -1) {

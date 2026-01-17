@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { ShoppingCart, Star } from "lucide-react";
 import {
   FaFacebookF,
   FaTwitter,
   FaPinterestP,
-  FaLinkedinIn,
   FaWhatsapp,
   FaEnvelope,
   FaRegCopy,
@@ -44,10 +43,29 @@ interface ProductDetailsProps {
   addToCart: (product: Product) => void;
 }
 
+
+interface SizeOption {
+  _id: string;
+  sizes: string;
+  price: number;
+}
+
+interface Review {
+  id: string;
+  rating: number;
+  comment: string;
+  date: string;
+  user: {
+    firstName: string;
+    lastName: string;
+  };
+}
+
+
 const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
-  const location = useLocation();
-  const rating = location.state?.rating || 4;
-  const reviewCount = location.state?.reviewCount;
+  // const location = useLocation();
+  // const rating = location.state?.rating || 4;
+  // const reviewCount = location.state?.reviewCount;
   const [product, setProduct] = useState<Product | null>(null);
   // console.log(product,"sadfg")
   const [allProducts, setAllProducts] = useState<Product[]>([]);
@@ -58,7 +76,9 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
   const [mainImage, setMainImage] = useState<string>(""); // Re-introducing mainImage state
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [isRatingModalOpen, setRatingModalOpen] = useState(false);
-  const [selectedSize, setSelectedSize] = useState<any>(null);
+  // const [selectedSize, setSelectedSize] = useState<any>(null);
+  const [selectedSize, setSelectedSize] = useState<SizeOption | null>(null);
+
   const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   const dispatch = useDispatch();
@@ -68,9 +88,15 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
 
   // Popup States
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const [addedProduct, setAddedProduct] = useState<any>(null);
-  const [review, setReview] = useState(null);
-  const [gettoken, settoken] = useState(null);
+  // const [addedProduct, setAddedProduct] = useState<any>(null);
+  const [addedProduct, setAddedProduct] = useState<Product | null>(null);
+
+  // const [review, setReview] = useState(null);
+  // const [gettoken, settoken] = useState(null);
+
+  const [review, setReview] = useState<Review[] | null>(null);
+const [gettoken, settoken] = useState<string | null>(null);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     settoken(token);
@@ -88,7 +114,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
     if (id) {
       fetchReview();
     }
-  }, [id, isRatingModalOpen]);
+  }, [id, isRatingModalOpen, baseUrl ]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -175,7 +201,11 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
   //   }
   // };
 
-  const handleAddToCart = (product: any) => {
+
+
+  // const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
+
     const token = localStorage.getItem("token");
 
     const cartItem = {
@@ -194,9 +224,14 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
       );
 
       // Check if product already in cart
+      // const existingProductIndex = existingCart.findIndex(
+      //   (item: any) => item.id === product._id
+      // );
+
       const existingProductIndex = existingCart.findIndex(
-        (item: any) => item.id === product._id
-      );
+  (item: { id: string; quantity: number }) => item.id === product._id
+);
+
 
       if (existingProductIndex !== -1) {
         // Product exists – increase quantity
@@ -613,7 +648,9 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
               </h3>
               {review?.length > 0 ? (
                 <div className="space-y-8">
-                  {review?.map((review) => (
+                  {/* {review?.map((review) => ( */}
+                  {review?.map((review: Review) => (
+
                     <div
                       key={review.id}
                       className="border-b pb-6 last:border-b-0 last:pb-0"

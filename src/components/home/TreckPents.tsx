@@ -37,7 +37,7 @@
 //                         1024: { slidesPerView: 3, spaceBetween: 30 },
 //                         1280: { slidesPerView: 4, spaceBetween: 32 },
 //                     }}
-               
+
 //                     autoplay={{ delay: 4000,  }}
 //                     loop={true}
 //                     className="swiper-custom h-96 lg:h-[28rem]"
@@ -53,10 +53,10 @@
 //                                         className="w-full h-full object-containe transition-transform duration-700"
 //                                     />
 //                                 </div>
-                                
+
 //                                 {/* Overlay Gradient */}
 //                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                
+
 //                                 {/* Content */}
 //                                 <div className="absolute bottom-6 left-6 right-6">
 //                                     <h3 className="text-2xl font-bold text-white drop-shadow-2xl mb-2 leading-tight">
@@ -123,7 +123,7 @@ export default function TreckPents() {
     };
 
     fetchProducts();
-  }, []);
+  }, [baseUrl, referenceWebsite]);
 
   return (
     <section className="min-h-[60vh] bg-gray-100 pt-12 px-4 sm:px-6 lg:px-8 border border-top">

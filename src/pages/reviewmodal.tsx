@@ -1,5 +1,5 @@
 import { useState } from "react";
-import toast, { ToastBar, Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { FaStar, FaTimes } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 
@@ -71,11 +71,19 @@ export const RatingModal = ({ isOpen, onClose }: RatingModalProps) => {
       setTimeout(() => {
         onClose();
       }, 3000);
-    } catch (error: any) {
-      console.error("Review error:", error.message);
-      toast.error(error.message, {
+      // } catch (error: any) {
+      //   console.error("Review error:", error.message);
+      //   toast.error(error.message, {
+      //     duration: 4000,
+      //   });
+
+    } catch (error: unknown) {
+      const err = error as Error;
+      console.error("Review error:", err.message);
+      toast.error(err.message, {
         duration: 4000,
       });
+
       resetForm();
       setTimeout(() => {
         onClose();
@@ -112,11 +120,10 @@ export const RatingModal = ({ isOpen, onClose }: RatingModalProps) => {
               return (
                 <button
                   key={index}
-                  className={`text-3xl mx-1 cursor-pointer ${
-                    ratingValue <= (hover || rating)
+                  className={`text-3xl mx-1 cursor-pointer ${ratingValue <= (hover || rating)
                       ? "text-yellow-500"
                       : "text-gray-400"
-                  }`}
+                    }`}
                   onClick={() => setRating(ratingValue)}
                   onMouseEnter={() => setHover(ratingValue)}
                   onMouseLeave={() => setHover(0)}
@@ -137,9 +144,8 @@ export const RatingModal = ({ isOpen, onClose }: RatingModalProps) => {
             <textarea
               id="review"
               rows={4}
-              className={`w-full px-3 py-2 border rounded-md ${
-                errors.comment ? "border-red-500" : "border-gray-400"
-              }`}
+              className={`w-full px-3 py-2 border rounded-md ${errors.comment ? "border-red-500" : "border-gray-400"
+                }`}
               value={review}
               onChange={(e) => setReview(e.target.value)}
             />
@@ -151,11 +157,10 @@ export const RatingModal = ({ isOpen, onClose }: RatingModalProps) => {
           <button
             onClick={handleSubmit}
             disabled={rating === 0}
-            className={`w-full py-3 px-4 rounded-md font-medium text-white ${
-              rating === 0
+            className={`w-full py-3 px-4 rounded-md font-medium text-white ${rating === 0
                 ? "bg-gray-400 cursor-not-allowed"
                 : "bg-[#393838] hover:bg-[#C561B1"
-            }`}
+              }`}
           >
             Submit Rating
           </button>

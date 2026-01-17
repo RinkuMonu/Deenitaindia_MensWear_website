@@ -6,9 +6,40 @@ import { Trash2, Heart, ArrowLeft, ShoppingBag, Star, Eye } from "lucide-react"
 import { Link } from "react-router-dom"
 import Swal from "sweetalert2"
 
+interface WishlistProduct {
+  _id: string
+  productName: string
+  description: string
+  images: string[]
+  actualPrice: number
+  price?: number
+  discount?: number
+  rating?: number
+  category?: {
+    name: string
+  }
+}
+
+interface WishlistItem {
+  product: WishlistProduct
+}
+
+interface RootState {
+  wishlist: {
+    items: WishlistItem[]
+    loading: boolean
+  }
+}
+
+
 const Wishlist = () => {
-  const { items: wishlistItems, loading } = useSelector((state: any) => state.wishlist)
-  const dispatch = useDispatch<any>()
+  // const { items: wishlistItems, loading } = useSelector((state: any) => state.wishlist)
+  // const dispatch = useDispatch<any>()
+
+  const { items: wishlistItems, loading } = useSelector((state: RootState) => state.wishlist)
+  const dispatch = useDispatch()
+
+
   const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
 
   useEffect(() => {
@@ -22,23 +53,23 @@ const Wishlist = () => {
   }
 
   const handleClear = () => {
-  if (wishlistItems.length > 0) {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'Do you really want to clear your entire wishlist?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Yes, clear it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        dispatch(clearWishlist());
-        Swal.fire('Cleared!', 'Your wishlist has been cleared.', 'success');
-      }
-    });
-  }
-};
+    if (wishlistItems.length > 0) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Do you really want to clear your entire wishlist?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, clear it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(clearWishlist());
+          Swal.fire('Cleared!', 'Your wishlist has been cleared.', 'success');
+        }
+      });
+    }
+  };
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }).map((_, i) => (
@@ -91,7 +122,7 @@ const Wishlist = () => {
           </div>
         )}
 
-       
+
         {!loading && (!wishlistItems || wishlistItems.length === 0) && (
           <div className="bg-gray-50 rounded-lg p-12 text-center">
             <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center rounded-full bg-gray-200 text-gray-500">
@@ -115,9 +146,13 @@ const Wishlist = () => {
         {/* Wishlist Items */}
         {!loading && wishlistItems && wishlistItems.length > 0 && (
           <div className="space-y-6">
-            {wishlistItems
+            {/* {wishlistItems
               .filter((item: any) => item?.product) 
-              .map((item: any) => (
+              .map((item: any) => ( */}
+            {wishlistItems
+              .filter((item: WishlistItem) => item?.product)
+              .map((item: WishlistItem) => (
+
                 <div
                   key={item?.product?._id}
                   className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden border border-gray-200 p-6"
