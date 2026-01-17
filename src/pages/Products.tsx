@@ -62,16 +62,16 @@ export default function Products() {
   // })
 
   const [openSections, setOpenSections] = useState<{
-  price: boolean
-  brands: boolean
-  categories: boolean
-}>({
-  price: true,
-  brands: true,
-  categories: true,
-})
+    price: boolean
+    brands: boolean
+    categories: boolean
+  }>({
+    price: true,
+    brands: true,
+    categories: true,
+  })
 
-const [sizeOptions, setSizeOptions] = useState<string[]>([])
+  const [sizeOptions, setSizeOptions] = useState<string[]>([])
 
 
   // const [categories, setCategories] = useState<any[]>([]);
@@ -111,10 +111,10 @@ const [sizeOptions, setSizeOptions] = useState<string[]>([])
           setProducts(data.products)
           console.log(data)
           const allSizes = new Set<string>()
-data.products.forEach((p: Product) => {
-  p.size?.forEach(s => allSizes.add(s.sizes.toUpperCase()))
-})
-setSizeOptions(Array.from(allSizes))
+          data.products.forEach((p: Product) => {
+            p.size?.forEach(s => allSizes.add(s.sizes.toUpperCase()))
+          })
+          setSizeOptions(Array.from(allSizes))
 
         } else {
           console.error("Unexpected products format:", data)
@@ -137,10 +137,10 @@ setSizeOptions(Array.from(allSizes))
 
       if (!product.size || product.size.length === 0) return false
 
-const productSizes = product.size.map(s => s.sizes.toUpperCase())
-const sizeMatch = selectedSizes.some(size => productSizes.includes(size))
+      const productSizes = product.size.map(s => s.sizes.toUpperCase())
+      const sizeMatch = selectedSizes.some(size => productSizes.includes(size))
 
-return priceMatch && sizeMatch
+      return priceMatch && sizeMatch
 
 
     })
@@ -311,8 +311,8 @@ return priceMatch && sizeMatch
                             key={item._id}
                             to={`/category/${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                             className={`text-sm py-1 transition-colors ${catagory1 === item.name.toLowerCase()
-                                ? "text-[#cba146] font-bold"
-                                : "text-gray-600 hover:text-[#cba146]"
+                              ? "text-[#cba146] font-bold"
+                              : "text-gray-600 hover:text-[#cba146]"
                               }`}
                           >
                             {item.name}
@@ -457,30 +457,29 @@ return priceMatch && sizeMatch
 
 
             {/* Size Filter */}
-<div className="border-b border-gray-200 py-6">
-  <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
-  <div className="grid grid-cols-3 gap-2">
-    {sizeOptions.map((size) => (
-      <button
-        key={size}
-        onClick={() =>
-          setSelectedSizes(prev =>
-            prev.includes(size)
-              ? prev.filter(s => s !== size)
-              : [...prev, size]
-          )
-        }
-        className={`border rounded-md py-2 text-sm font-medium transition ${
-          selectedSizes.includes(size)
-            ? "bg-[#cba146] text-white border-[#cba146]"
-            : "bg-white text-gray-700 border-gray-300 hover:border-[#cba146]"
-        }`}
-      >
-        {size}
-      </button>
-    ))}
-  </div>
-</div>
+            <div className="border-b border-gray-200 py-6">
+              <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
+              <div className="grid grid-cols-3 gap-2">
+                {sizeOptions.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() =>
+                      setSelectedSizes(prev =>
+                        prev.includes(size)
+                          ? prev.filter(s => s !== size)
+                          : [...prev, size]
+                      )
+                    }
+                    className={`border rounded-full py-2 text-sm font-medium transition ${selectedSizes.includes(size)
+                        ? "bg-[#cba146] text-white border-[#cba146]"
+                        : "bg-white text-gray-700 border-gray-300 hover:border-[#cba146]"
+                      }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
 
 
             {/* <div className="space-y-3">

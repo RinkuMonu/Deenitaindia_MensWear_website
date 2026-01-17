@@ -853,15 +853,34 @@ export default function Login() {
                               }`}
                             type="tel"
                             value={mobile}
+                            // onChange={(e) => {
+                            //   const value = e.target.value;
+                            //   if (value === "" || /^[0-9]*$/.test(value)) {
+                            //     setMobile(value);
+                            //     if (errors.mobile) {
+                            //       setErrors({ ...errors, mobile: "" });
+                            //     }
+                            //   }
+                            // }}
+
                             onChange={(e) => {
-                              const value = e.target.value;
-                              if (value === "" || /^[0-9]*$/.test(value)) {
-                                setMobile(value);
-                                if (errors.mobile) {
-                                  setErrors({ ...errors, mobile: "" });
-                                }
-                              }
-                            }}
+  const value = e.target.value.replace(/\D/g, "");
+
+  // First digit must be 6,7,8,9
+  if (value.length === 1 && !/^[6-9]$/.test(value)) {
+    return; // block 0-5 as first digit
+  }
+
+  // Max 10 digits
+  if (value.length > 10) return;
+
+  setMobile(value);
+
+  if (errors.mobile) {
+    setErrors({ ...errors, mobile: "" });
+  }
+}}
+
                             onBlur={() => handleBlur("mobile")}
                             placeholder="1234567890"
                             maxLength="10"

@@ -481,7 +481,7 @@ export default function CategoryPage() {
                           : [...prev, size]
                       )
                     }
-                    className={`border rounded-md py-2 text-sm font-medium transition ${selectedSizes.includes(size)
+                    className={`border rounded-full py-2 text-sm font-medium transition ${selectedSizes.includes(size)
                         ? "bg-[#cba146] text-white border-[#cba146]"
                         : "bg-white text-gray-700 border-gray-300 hover:border-[#cba146]"
                       }`}
