@@ -85,19 +85,22 @@ export default function   Home({ addToCart }: HomeProps) {
       <Banner />
       <TrendingProducts addToCart={addToCart} /> {/* Pass addToCart here */}
       {/* <BlockImageSection /> */}
-      <BannerSection1 />
+    
+       <Casual />
+         <BannerSection1 />
       <Arrivals addToCart={addToCart} />
-         <Casual />
+        
       <TreckPents />
       {/* <ElevatedSection /> */}
       {/* <DealOfTheDay addToCart={addToCart} /> */}
-      <BannerSection2 />
+    
       <TopCategories />
       {/* <HowItWorks /> */}
       {/* <DeliveryFeatures /> */}
         {/* <FAQComponent /> */}
       {/* <Newsletter /> */}
       <Popular />
+        <BannerSection2 />
       <Blazer />
       <Kurtaset />
    

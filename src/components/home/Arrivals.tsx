@@ -225,7 +225,7 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
   };
 
   return (
-    <section className="py-16 px-10 bg-gray-50">
+    <section className="py-16 px-10">
       <div className="max-w-7xl mx-auto">
         {/* Simple Header */}
         <div className="text-center mb-12">
@@ -307,116 +307,92 @@ const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
                       .map((product) => (
                         <div
                           key={product._id}
-                          className="group relative bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden"
+                          className="group relative bg-white  shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden mb-8"
                           onMouseEnter={() => setHoveredProduct(product._id)}
                           onMouseLeave={() => setHoveredProduct(null)}
                         >
                           {/* Product Image */}
-                          <div className="relative aspect-square overflow-hidden">
-                            <img
-                              className="absolute inset-0 w-full h-full object-cover"
-                              src={`${baseUrliMAGE}${product.images[0]}`}
-                              alt={product.productName}
-                              loading="lazy"
-                            />
+                       <div className="relative aspect-square overflow-hidden group">
 
-                            {/* Discount Badge */}
-                            {product.discount && (
-                              <div
-                                className="absolute top-4 left-4 text-white bg-[#cba146] text-xs font-bold px-3 py-2 rounded-full z-10"
+  {/* Product Image */}
+  <img
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    src={`${baseUrliMAGE}${product.images[0]}`}
+    alt={product.productName}
+    loading="lazy"
+  />
 
-                              >
-                                {product.discount}% OFF
-                              </div>
-                            )}
+  {/* Dark fade for luxury look */}
+  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500 z-[1]" />
 
-                            {/* Action Buttons */}
-                            <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                              <button
-                                onClick={() => handleAddToCart(product)}
-                                className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
-                                style={{
-                                  color: "#cba146",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background =
-                                    "#cba146";
-                                  e.currentTarget.style.color = "white";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = "white";
-                                  e.currentTarget.style.color =
-                                    "#cba146";
-                                }}
-                              >
-                                <ShoppingCart size={18} />
-                              </button>
-                              <button
-                                onClick={() => openProductModal(product)}
-                                className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
-                                style={{
-                                  color: "#cba146",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background =
-                                    "#cba146";
-                                  e.currentTarget.style.color = "white";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = "white";
-                                  e.currentTarget.style.color =
-                                    "#cba146";
-                                }}
-                              >
-                                <Eye size={18} />
-                              </button>
-                              <button
-                                onClick={() => handleAddToWishlist(product)}
-                                className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
-                                style={{
-                                  color:
-                                    hoveredProduct === product._id
-                                      ? "#ef4444"
-                                      : "#cba146",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background =
-                                    "#cba146";
-                                  e.currentTarget.style.color = "white";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = "white";
-                                  e.currentTarget.style.color =
-                                    "#cba146";
-                                }}
-                              >
-                                <Heart size={18} />
-                              </button>
-                            </div>
+  {/* Bottom gold gradient hover layer */}
+  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[2] bg-gradient-to-t from-[#cba146] via-[#cba146]/40 to-transparent" />
 
-                            {/* Add to Cart Overlay */}
-                            {product.stock <= 0 ? <button
-                              // onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
-                                  ? "translate-y-0 opacity-100"
-                                  : "translate-y-full opacity-0"
-                                }`}
-                              style={{ background: "#cba146" }}
-                              disabled={true}
-                            >
-                              Out of Stock
-                            </button> :
-                              <button
-                                onClick={() => handleAddToCart(product)}
-                                className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
-                                    ? "translate-y-0 opacity-100"
-                                    : "translate-y-full opacity-0"
-                                  }`}
-                                style={{ background: "#cba146" }}
-                              >
-                                ADD TO CART
-                              </button>}
-                          </div>
+  {/* Discount Badge */}
+  {product.discount && (
+    <div className="absolute top-4 left-4 text-white bg-[#cba146] text-xs font-bold px-3 py-1.5 rounded-full z-20 shadow-md">
+      {product.discount}% OFF
+    </div>
+  )}
+
+  {/* Action Buttons */}
+  <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-400 z-20">
+    <button
+      onClick={() => handleAddToCart(product)}
+      className="bg-white/90 backdrop-blur rounded-full p-2 shadow-xl transition hover:scale-110"
+      style={{ color: "#cba146" }}
+    >
+      <ShoppingCart size={18} />
+    </button>
+
+    <button
+      onClick={() => openProductModal(product)}
+      className="bg-white/90 backdrop-blur rounded-full p-2 shadow-xl transition hover:scale-110"
+      style={{ color: "#cba146" }}
+    >
+      <Eye size={18} />
+    </button>
+
+    <button
+      onClick={() => handleAddToWishlist(product)}
+      className="bg-white/90 backdrop-blur rounded-full p-2 shadow-xl transition hover:scale-110"
+      style={{
+        color:
+          hoveredProduct === product._id ? "#ef4444" : "#cba146",
+      }}
+    >
+      <Heart size={18} />
+    </button>
+  </div>
+
+  {/* Add to Cart Overlay */}
+  {product.stock <= 0 ? (
+    <button
+      disabled
+      className={`absolute bottom-0 left-0 w-full py-4 text-white font-bold tracking-wide z-20 transition-all duration-500
+      ${hoveredProduct === product._id ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+      style={{
+        background:
+          "linear-gradient(to top, #cba146 0%, rgba(203,161,70,0.85) 40%, transparent 100%)",
+      }}
+    >
+      OUT OF STOCK
+    </button>
+  ) : (
+    <button
+      onClick={() => handleAddToCart(product)}
+      className={`absolute bottom-0 left-0 w-full py-4 text-white font-bold tracking-wide z-20 transition-all duration-500
+      ${hoveredProduct === product._id ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+      style={{
+        background:
+          "linear-gradient(to top, #cba146 0%, rgba(203,161,70,0.85) 40%, transparent 100%)",
+      }}
+    >
+      ADD TO CART
+    </button>
+  )}
+</div>
+
 
                           {/* Product Info */}
                           <div className="p-5">
