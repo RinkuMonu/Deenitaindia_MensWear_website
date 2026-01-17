@@ -154,39 +154,43 @@ export default function Casual() {
   >
     {products.map((product, index) => (
       <SwiperSlide key={index} className="h-full">
-        <Link
-          to={`/product/${product._id}`}
-          className="group relative h-full block overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-all duration-500 w-full bg-gradient-to-br from-gray-50 to-gray-100"
-        >
-          {/* Image */}
-          <div className="absolute inset-0 w-full h-full">
-            <img
-              src={`${imageBaseUrl}${product.images[0]}`}
-              alt={product.productName}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-          </div>
+      <Link
+  to={`/product/${product._id}`}
+  className="group relative h-full block overflow-hidden rounded-md shadow-xl hover:shadow-2xl transition-all duration-500 w-full bg-gradient-to-br from-gray-50 to-gray-100"
+>
+  {/* Image */}
+  <div className="absolute inset-0 w-full h-full z-[1]">
+    <img
+      src={`${imageBaseUrl}${product.images[0]}`}
+      alt={product.productName}
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+    />
+  </div>
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+  {/* 🔥 Sliding gold background */}
+  <span className="absolute inset-0 z-[2] bg-[#cba146]/60 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
 
-          {/* Content */}
-          <div className="absolute bottom-4 sm:bottom-5 left-4 right-4 sm:left-5 sm:right-5">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white drop-shadow-xl leading-tight line-clamp-2">
-              {product.productName}
-            </h3>
+  {/* Dark overlay for readability */}
+  <div className="absolute inset-0 z-[3] bg-gradient-to-t from-black/70 via-black/30 to-transparent transition-all duration-500" />
 
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 inline-block mt-2">
-              <p className="text-white text-base sm:text-lg font-bold">
-                ₹{product.actualPrice}
-              </p>
-            </div>
+  {/* Content */}
+  <div className="absolute bottom-4 sm:bottom-5 left-4 right-4 sm:left-5 sm:right-5 z-10">
+    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white drop-shadow-xl leading-tight line-clamp-2">
+      {product.productName}
+    </h3>
 
-            <p className="text-white/90 text-xs sm:text-sm font-medium mt-1">
-              {product.size?.length || 0} Sizes available
-            </p>
-          </div>
-        </Link>
+    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 inline-block mt-2">
+      <p className="text-white text-base sm:text-lg font-bold">
+        ₹{product.actualPrice}
+      </p>
+    </div>
+
+    <p className="text-white/90 text-xs sm:text-sm font-medium mt-1">
+      {product.size?.length || 0} Sizes available
+    </p>
+  </div>
+</Link>
+
       </SwiperSlide>
     ))}
   </Swiper>

@@ -228,7 +228,7 @@ const TrendingProducts = ({
 
 
   return (
-    <section className="py-16 px-12 bg-white">
+    <section className="pt-16 pb-4 px-12 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Simple Header */}
         <div className="text-center mb-12">
@@ -308,183 +308,124 @@ const TrendingProducts = ({
                         (slideIndex + 1) * itemsPerSlide
                       )
                       .map((product) => (
-                        <div
-                          key={product._id}
-                          onMouseEnter={() => setHoveredProduct(product._id)}
-                          onMouseLeave={() => setHoveredProduct(null)}
-                          className="group relative rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden"
-                        >
-                          {/* Product Image */}
-                          <div className="relative aspect-square overflow-hidden">
-                            <img
-                              className="absolute inset-0 w-full h-full object-cover"
-                              src={`${baseUrliMAGE}${product.images[0]}`}
-                              alt={product.productName}
-                              loading="lazy"
-                            />
-
-                            {/* Discount Badge */}
-                            {product.discount && (
-                              <div
-                                className="absolute top-4 left-4 text-white bg-[#cba146] text-xs font-bold px-3 py-2 rounded-full z-10"
-
-                              >
-                                {product.discount}% OFF
-                              </div>
-                            )}
-
-                            {/* Action Buttons */}
-                            <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                              <button
-                                onClick={() => handleAddToCart(product)}
-                                className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
-                                style={{
-                                  color: "#cba146",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background =
-                                    "#cba146";
-                                  e.currentTarget.style.color = "white";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = "white";
-                                  e.currentTarget.style.color =
-                                    "#cba146";
-                                }}
-                              >
-                                <ShoppingCart size={18} />
-                              </button>
-                              <button
-                                onClick={() => openProductModal(product)}
-                                className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
-                                style={{
-                                  color: "#cba146",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background =
-                                    "#cba146";
-                                  e.currentTarget.style.color = "white";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = "white";
-                                  e.currentTarget.style.color =
-                                    "#cba146";
-                                }}
-                              >
-                                <Eye size={18} />
-                              </button>
-                              <button
-                                onClick={() => handleAddToWishlist(product)}
-                                className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
-                                style={{
-                                  color:
-                                    hoveredProduct === product._id
-                                      ? "#ef4444"
-                                      : "#cba146",
-                                }}
-                                onMouseEnter={(e) => {
-                                  e.currentTarget.style.background =
-                                    "#cba146";
-                                  e.currentTarget.style.color = "white";
-                                }}
-                                onMouseLeave={(e) => {
-                                  e.currentTarget.style.background = "white";
-                                  e.currentTarget.style.color =
-                                    "#cba146";
-                                }}
-                              >
-                                <Heart size={18} />
-                              </button>
-                            </div>
-
-                            {/* Add to Cart Overlay */}
-                            {/* <button
-  onClick={() => {
-    if (outOfStock) return;   // safety guard
-    handleAddToCart(product);
-  }}
-  disabled={outOfStock}
-  type="button"
-  className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20
-    ${hoveredProduct === product._id ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}
-    ${outOfStock ? "opacity-50 cursor-not-allowed pointer-events-none" : "hover:scale-105"}
-  `}
-  style={{ background: "#cba146" }}
+                      <div
+  key={product._id}
+  onMouseEnter={() => setHoveredProduct(product._id)}
+  onMouseLeave={() => setHoveredProduct(null)}
+  className="group relative  overflow-hidden bg-white shadow-md hover:shadow-2xl transition-all duration-500"
 >
-  {outOfStock ? "OUT OF STOCK" : "ADD TO CART"}
-</button> */}
-                            {product.stock <= 0 ? <button
-                              // onClick={() => handleAddToCart(product)}
-                              className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
-                                  ? "translate-y-0 opacity-100"
-                                  : "translate-y-full opacity-0"
-                                }`}
-                              style={{ background: "#cba146" }}
-                              disabled={true}
-                            >
-                              Out of Stock
-                            </button> :
-                              <button
-                                onClick={() => handleAddToCart(product)}
-                                className={`absolute bottom-0 left-0 w-full text-white bg-[#cba146] py-3 text-center font-semibold transition-all duration-300 z-20 ${hoveredProduct === product._id
-                                    ? "translate-y-0 opacity-100"
-                                    : "translate-y-full opacity-0"
-                                  }`}
+  {/* Image Section */}
+  <div className="relative aspect-square overflow-hidden">
+    <img
+      src={`${baseUrliMAGE}${product.images[0]}`}
+      alt={product.productName}
+      loading="lazy"
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    />
 
-                              >
-                                ADD TO CART
-                              </button>}
+    {/* Discount */}
+    {product.discount && (
+      <div className="absolute top-4 left-4 bg-[#cba146] text-white text-xs font-bold px-3 py-1.5 rounded-full z-20 shadow">
+        {product.discount}% OFF
+      </div>
+    )}
 
-                          </div>
+    {/* Gradient Hover Overlay */}
+    <div
+      className={`absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 transition-all duration-500
+      ${hoveredProduct === product._id
+          ? "opacity-100"
+          : "opacity-0 pointer-events-none"
+        }`}
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(0,0,0,0.75))",
+      }}
+    >
+      {/* Action Icons */}
+      <div className="flex gap-4">
+        <button
+          onClick={() => handleAddToCart(product)}
+          className=" bg-white rounded-full p-3 shadow-xl transition hover:scale-110"
+          style={{ color: "#cba146" }}
+        >
+          <ShoppingCart size={20} />
+        </button>
 
-                          {/* Product Info */}
-                          <div className="p-5">
-                            <div className="mb-3">
-                              <Link
-                                to={`/product/${product._id}`}
-                                state={{
-                                  rating: product.rating,
-                                  reviewCount: product.reviewCount,
-                                }}
-                                className="text-lg font-bold mb-1 line-clamp-1"
-                                style={{ color: "#1B2E4F" }}
-                              >
-                                {product.productName}
-                              </Link>
-                              <p className="text-sm text-gray-500">
-                                {product.category?.name || "Traditional Wear"}
-                              </p>
-                            </div>
+        <button
+          onClick={() => openProductModal(product)}
+          className="bg-white rounded-full p-3 shadow-xl transition hover:scale-110"
+          style={{ color: "#cba146" }}
+        >
+          <Eye size={20} />
+        </button>
 
-                            {/* Rating */}
-                            {/* <div className="flex items-center mb-3">
-                              <div className="flex mr-2">
-                                {renderStars(product.rating || 4)}
-                              </div>
-                              <span className="text-xs text-gray-500">
-                                ({product.reviewCount} Reviews)
-                              </span>
-                            </div> */}
+        <button
+          onClick={() => handleAddToWishlist(product)}
+          className="bg-white rounded-full p-3 shadow-xl transition hover:scale-110"
+          style={{
+            color:
+              hoveredProduct === product._id ? "#ef4444" : "#cba146",
+          }}
+        >
+          <Heart size={20} />
+        </button>
+      </div>
 
-                            {/* Price */}
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center space-x-2">
-                                <span
-                                  className="text-xl text-[#cba146] font-bold"
+      {/* Add To Cart Button */}
+      {product.stock <= 0 ? (
+        <button
+          disabled
+          className="mt-4 px-8 py-3 rounded-full bg-white/80 text-gray-700 font-semibold cursor-not-allowed"
+        >
+          Out of Stock
+        </button>
+      ) : (
+        <button
+          onClick={() => handleAddToCart(product)}
+          className="mt-4 px-10 py-3 rounded-full bg-white text-[#cba146] font-bold tracking-wide shadow-xl transition hover:scale-105"
+        >
+          ADD TO CART
+        </button>
+      )}
+    </div>
+  </div>
 
-                                >
-                                  ₹{product.actualPrice}
-                                </span>
-                                {product.price &&
-                                  product.price !== product.actualPrice && (
-                                    <span className="text-sm text-gray-400 line-through">
-                                      ₹{product.price}
-                                    </span>
-                                  )}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+  {/* Info Section */}
+  <div className="p-5">
+    <Link
+      to={`/product/${product._id}`}
+      state={{
+        rating: product.rating,
+        reviewCount: product.reviewCount,
+      }}
+      className="block text-lg font-bold leading-tight line-clamp-1 hover:text-[#cba146] transition"
+      style={{ color: "#1B2E4F" }}
+    >
+      {product.productName}
+    </Link>
+
+    <p className="text-sm text-gray-500 mt-1">
+      {product.category?.name || "Traditional Wear"}
+    </p>
+
+    <div className="flex items-center justify-between mt-3">
+      <div className="flex items-center gap-2">
+        <span className="text-xl font-bold text-[#cba146]">
+          ₹{product.actualPrice}
+        </span>
+
+        {product.price &&
+          product.price !== product.actualPrice && (
+            <span className="text-sm text-gray-400 line-through">
+              ₹{product.price}
+            </span>
+          )}
+      </div>
+    </div>
+  </div>
+</div>
+
                       ))}
                   </div>
                 </div>
@@ -493,7 +434,7 @@ const TrendingProducts = ({
           </div>
 
           {/* Slider Dots */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-2 space-x-2">
             {Array.from({ length: maxSlides }).map((_, index) => (
               <button
                 key={index}
@@ -512,10 +453,10 @@ const TrendingProducts = ({
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-4">
           <Link
             to="/products"
-            className="inline-flex items-center px-8 py-4 rounded-full font-semibold transition-all duration-300 border-2 border-[#787878] text-[#787878] hover:shadow-lg "
+            className="inline-flex items-center px-6 py-3 bg-black text-white hover:bg-[#cba146] hover:border-[#cba146] rounded-md font-semibold transition-all duration-300 border-2 border-[#787878] text-[#787878] hover:shadow-lg "
 
           >
             View All Products
