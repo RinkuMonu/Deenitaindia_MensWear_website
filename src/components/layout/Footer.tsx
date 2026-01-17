@@ -589,11 +589,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <img
-            src="/logo.png"
+            src="/home/Mens-logo.PNG"
             alt="Logo"
-            className="h-12 mb-4"
+            className="h-28 mb-4"
           />
-          <p className="text-sm leading-relaxed text-gray-400">
+          <p className="text-sm leading-relaxed text-gray-400 mt-5">
             Premium men’s wear crafted for style, comfort, and confidence. Every outfit is designed to elevate your everyday look.
           </p>
         </div>
