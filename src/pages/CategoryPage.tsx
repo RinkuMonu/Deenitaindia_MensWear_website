@@ -32,7 +32,10 @@ interface Category {
   name: string
   subcategory?: string
 }
-
+interface Brand {
+  _id: string;
+  name: string;
+}
 type GroupedCategory = {
   [key: string]: Category[]
 }
@@ -52,7 +55,8 @@ export default function CategoryPage() {
     price: true,
     sizes: true,
     categories: true,
-    colors: true, // Added colors section
+    colors: true,
+    brands: true,
   })
   // const [filteredProducts, setFilteredProducts] = useState<any[]>([])
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
@@ -78,7 +82,8 @@ export default function CategoryPage() {
 
 
   const [sizeOptions, setSizeOptions] = useState<string[]>([])
-
+  const [brands, setBrands] = useState<Brand[]>([])
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([])
 
   // const [categories, setCategories] = useState<any[]>([]);
   const [categories, setCategories] = useState<Category[]>([])
@@ -155,15 +160,17 @@ export default function CategoryPage() {
     const filtered = products.filter((product) => {
       const priceMatch = product.actualPrice >= priceRange[0] && product.actualPrice <= priceRange[1]
       
-      // Size logic
       const productSizes = product.size?.map(s => s.sizes.toUpperCase()) || []
       const sizeMatch = selectedSizes.length === 0 || selectedSizes.some(size => productSizes.includes(size))
 
-      // Color logic (Checking nested colors in size array)
       const productColors = product.size?.flatMap(s => s.colors || []).map(c => c.toLowerCase()) || []
       const colorMatch = selectedColors.length === 0 || selectedColors.some(color => productColors.includes(color.toLowerCase()))
 
-      return priceMatch && sizeMatch && colorMatch
+      // BRAND FILTER LOGIC:
+      // Hum product.brand.name ya product.brand._id se match kar sakte hain
+      const brandMatch = selectedBrands.length === 0 || (product.brand && selectedBrands.includes(product.brand.name))
+
+      return priceMatch && sizeMatch && colorMatch && brandMatch
     })
 
     const sorted = filtered.sort((a, b) => {
@@ -180,7 +187,7 @@ export default function CategoryPage() {
     })
 
     setFilteredProducts(sorted)
-  }, [products, priceRange, sortBy, selectedSizes,selectedColors])
+  }, [products, priceRange, sortBy, selectedSizes,selectedColors,selectedBrands])
 
   // const handleSizeChange = (size: string) => {
   //   setSelectedSizes(prev =>
@@ -205,6 +212,7 @@ export default function CategoryPage() {
       isFeatured: false,
       isNewArrival: false,
     })
+    setSelectedBrands([])
   }
 
   useEffect(() => {
@@ -239,6 +247,18 @@ export default function CategoryPage() {
     fetchCategories();
   }, [baseUrl, referenceWebsite]);
 
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const res = await fetch(`${baseUrl}/brand/getall`); // Apne sahi API endpoint ka use karein
+        const data = await res.json();
+        setBrands(data.brands || data); 
+      } catch (error) {
+        console.error("Error fetching brands:", error);
+      }
+    };
+    fetchBrands();
+  }, [baseUrl]);
   // console.log("filter", filteredProducts)
 
   return (
@@ -481,7 +501,47 @@ export default function CategoryPage() {
               </div>
             </div>
 
+                {/* Brand Filter */}
+                <div className="border-b border-gray-200 py-6">
+                  <div 
+                    className="flex justify-between items-center cursor-pointer mb-4"
+                    onClick={() => toggleSection("brands")}
+                  >
+                    <h3 className="font-semibold text-gray-800">Brands</h3>
+                    {openSections.brands ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                  </div>
 
+                  {openSections.brands && (
+                    <div className="space-y-3 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                      {brands && brands.length > 0 ? (
+                        brands.map((brand) => (
+                          <label key={brand._id} className="flex items-center space-x-3 cursor-pointer group">
+                            <input
+                              type="checkbox"
+                              checked={selectedBrands.includes(brand.name)}
+                              onChange={() => 
+                                setSelectedBrands(prev => 
+                                  prev.includes(brand.name) 
+                                    ? prev.filter(b => b !== brand.name) 
+                                    : [...prev, brand.name]
+                                )
+                              }
+                              className="w-4 h-4 rounded border-gray-300 text-[#cba146] focus:ring-[#cba146]"
+                            />
+                            <span className="text-sm text-gray-700 group-hover:text-black transition-colors">
+                              {brand.name}
+                            </span>
+                          </label>
+                        ))
+                      ) : (
+                        /* Agar brands nahi miltay toh ye message dikhayega */
+                        <p className="text-sm text-gray-400 italic py-2">
+                          No brands available.
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
             {/* Size Filter */}
             <div className="border-b border-gray-200 py-6">
               <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
