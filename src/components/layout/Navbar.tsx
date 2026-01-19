@@ -719,7 +719,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                         borderColor: primaryColor,
                         color: "rgb(139 59 122)",
                       }}
-                      placeholder="Search for classic men's wear..."
+                      placeholder="Search for Classic Men's Wear..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       required
