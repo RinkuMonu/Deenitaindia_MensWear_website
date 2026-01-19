@@ -15,12 +15,14 @@ import ProductCard from "../components/products/ProductCard"
 
 interface Product {
   _id: string
-  name: string
+  productName: string
   actualPrice: number
   createdAt: string
+  brand?: { name: string; logo?: string }
   size?: {
     sizes: string
     price: number
+    colors?: string[] // Added colors here
   }[]
 }
 
@@ -43,7 +45,15 @@ export default function CategoryPage() {
   const catagory1 = category?.replace(/-/g, " ");
   // const [products, setProducts] = useState<any[]>([])
   const [products, setProducts] = useState<Product[]>([])
+  const [selectedColors, setSelectedColors] = useState<string[]>([])
+  const [colorOptions, setColorOptions] = useState<string[]>([])
 
+  const [openSections, setOpenSections] = useState({
+    price: true,
+    sizes: true,
+    categories: true,
+    colors: true, // Added colors section
+  })
   // const [filteredProducts, setFilteredProducts] = useState<any[]>([])
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
 
@@ -56,15 +66,15 @@ export default function CategoryPage() {
   //   sizes: true,
   // })
 
-  const [openSections, setOpenSections] = useState<{
-    price: boolean
-    sizes: boolean
-    categories: boolean
-  }>({
-    price: true,
-    sizes: true,
-    categories: true,
-  })
+  // const [openSections, setOpenSections] = useState<{
+  //   price: boolean
+  //   sizes: boolean
+  //   categories: boolean
+  // }>({
+  //   price: true,
+  //   sizes: true,
+  //   categories: true,
+  // })
 
 
   const [sizeOptions, setSizeOptions] = useState<string[]>([])
@@ -115,13 +125,20 @@ export default function CategoryPage() {
         const data = await res.json()
 
         if (Array.isArray(data.products)) {
-          setProducts(data.products)
+          setProducts(data.products)          
           const allSizes = new Set<string>()
-          data.products.forEach((p: Product) => {
-            p.size?.forEach(s => allSizes.add(s.sizes.toUpperCase()))
-          })
-          setSizeOptions(Array.from(allSizes))
+          const allColors = new Set<string>()
 
+          data.products.forEach((p: Product) => {
+            p.size?.forEach(s => {
+              allSizes.add(s.sizes.toUpperCase())
+              // Extract colors from each size entry
+              s.colors?.forEach(c => allColors.add(c.toLowerCase()))
+            })
+          })
+          
+          setSizeOptions(Array.from(allSizes))
+          setColorOptions(Array.from(allColors)) // Set extracted colors
         } else {
           console.error("Unexpected products format:", data)
         }
@@ -137,19 +154,16 @@ export default function CategoryPage() {
   useEffect(() => {
     const filtered = products.filter((product) => {
       const priceMatch = product.actualPrice >= priceRange[0] && product.actualPrice <= priceRange[1]
-      if (selectedSizes.length === 0) return priceMatch
+      
+      // Size logic
+      const productSizes = product.size?.map(s => s.sizes.toUpperCase()) || []
+      const sizeMatch = selectedSizes.length === 0 || selectedSizes.some(size => productSizes.includes(size))
 
-      // if (!product.size) return false
-      // return priceMatch && selectedSizes.includes(product.size.toUpperCase())
+      // Color logic (Checking nested colors in size array)
+      const productColors = product.size?.flatMap(s => s.colors || []).map(c => c.toLowerCase()) || []
+      const colorMatch = selectedColors.length === 0 || selectedColors.some(color => productColors.includes(color.toLowerCase()))
 
-      if (!product.size || product.size.length === 0) return false
-
-      const productSizes = product.size.map(s => s.sizes.toUpperCase())
-      const sizeMatch = selectedSizes.some(size => productSizes.includes(size))
-
-      return priceMatch && sizeMatch
-
-
+      return priceMatch && sizeMatch && colorMatch
     })
 
     const sorted = filtered.sort((a, b) => {
@@ -166,7 +180,7 @@ export default function CategoryPage() {
     })
 
     setFilteredProducts(sorted)
-  }, [products, priceRange, sortBy, selectedSizes])
+  }, [products, priceRange, sortBy, selectedSizes,selectedColors])
 
   // const handleSizeChange = (size: string) => {
   //   setSelectedSizes(prev =>
@@ -183,6 +197,7 @@ export default function CategoryPage() {
   const resetFilters = () => {
     setPriceRange([initialMinPrice, initialMaxPrice])
     setSelectedSizes([])
+    setSelectedColors([])
     setSortBy("newest")
     setSpecialFilters({
       isPopular: false,
@@ -525,7 +540,51 @@ export default function CategoryPage() {
               </label>
             ))}
           </div> */}
+            {/* Color Filter */}
+              <div className="border-b border-gray-200 py-6">
+                <div
+                  className="flex justify-between items-center cursor-pointer mb-4"
+                  onClick={() => toggleSection("colors")}
+                >
+                  <h3 className="font-semibold text-gray-800">Colors</h3>
+                  {openSections.colors ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </div>
 
+                {openSections.colors && (
+                  <div className="flex flex-wrap gap-3">
+                    {colorOptions.length > 0 ? (
+                      colorOptions.map((color) => (
+                        <button
+                          key={color}
+                          onClick={() =>
+                            setSelectedColors(prev =>
+                              prev.includes(color)
+                                ? prev.filter(c => c !== color)
+                                : [...prev, color]
+                            )
+                          }
+                          className={`group flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${
+                            selectedColors.includes(color)
+                              ? "border-[#cba146] bg-[#cba146] text-white"
+                              : "border-gray-200 hover:border-[#cba146] bg-white text-gray-700"
+                          }`}
+                        >
+                          <span 
+                            className="w-3 h-3 rounded-full border border-gray-300" 
+                            style={{ backgroundColor: color }}
+                          />
+                          <span className="text-xs font-medium capitalize">{color}</span>
+                        </button>
+                      ))
+                    ) : (
+                      /* Jab color available na ho tab ye message dikhega */
+                      <p className="text-sm text-gray-400 italic py-2">
+                        No colors available for these products.
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
 
             <button
               onClick={resetFilters}
