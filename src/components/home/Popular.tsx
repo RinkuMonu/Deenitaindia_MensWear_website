@@ -14,17 +14,11 @@ export default function Popular() {
         { name: 'Chinos Set', price: '$95', colors: '2 Colors available', img: 'home/2.jpg' },
         { name: 'Suede Jacket', price: '$85', colors: '7 Colors available', img: 'home/2.jpg' },
     ];
-
     return (
         <section className="min-h-screen bg-white pt-12 px-4 sm:px-6 lg:px-8">
             {/* Hero Section - Fixed */}
             <div className="text-left mb-4 max-w-7xl mx-auto">
-                <h1 className="text-3xl sm:text-4xl lg:text-xl font-bold text-gray-900 mb-6 leading-tight">
-                    Featured Products,
-                    <span className="block text-2xl sm:text-3xl lg:text-4xl text-[#cba146] mt-2">NEW JOURNEYS.</span>
-                </h1>
-            </div>
-
+                <h1 className="text-3xl sm:text-4xl lg:text-xl font-bold text-gray-900 mb-6 leading-tight">Featured Products,<span className="block text-2xl sm:text-3xl lg:text-4xl text-[#cba146] mt-2">NEW JOURNEYS.</span></h1></div>
             {/* Fixed Swiper Container */}
             <div className="max-w-7xl mx-auto">
                 <Swiper
@@ -36,7 +30,6 @@ export default function Popular() {
                         1024: { slidesPerView: 3, spaceBetween: 30 },
                         1280: { slidesPerView: 4, spaceBetween: 32 },
                     }}
-
                     autoplay={{ delay: 4000, }}
                     loop={true}
                     className="swiper-custom h-96 lg:h-[28rem]"
@@ -55,32 +48,23 @@ export default function Popular() {
       className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
     />
   </div>
-
   {/* Black base overlay */}
   <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
   {/* 🔥 Sliding gold layer (BOTTOM → TOP) */}
   <div className="absolute top-0 right-0 w-full h-full z-[3] bg-[#cba146]/40 translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
-
   {/* Soft dark fade (still behind text) */}
   <div className="absolute inset-0 z-[4] bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
   {/* ✅ CONTENT — ALWAYS TOP */}
   <div className="absolute bottom-6 right-6  z-[10]
                   opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 
                   transition-all duration-700 delay-100">
-
     <h3 className="text-2xl font-bold text-white drop-shadow-2xl mb-2 leading-tight">
       {product.name}
     </h3>
-
-    <p className="text-white text-sm font-medium drop-shadow-xl">
-      {product.colors}
-    </p>
+    <p className="text-white text-sm font-medium drop-shadow-xl">{product.colors}</p>
   </div>
 </Link>
-
-                        </SwiperSlide>
+   </SwiperSlide>
                     ))}
                 </Swiper>
 

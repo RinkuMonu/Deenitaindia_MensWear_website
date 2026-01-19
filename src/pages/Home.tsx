@@ -84,10 +84,10 @@ export default function Home({ addToCart }: HomeProps) {
     <>
       <Banner />
       <TrendingProducts addToCart={addToCart} />
-      <Popular />
+      <TreckPents />
       <Arrivals addToCart={addToCart} />
       <BannerSection1 />
-      <TreckPents />
+      <Popular />
       {/* <DealOfTheDay addToCart={addToCart} /> */}
       <TopCategories />
       {/* <HowItWorks /> */}
