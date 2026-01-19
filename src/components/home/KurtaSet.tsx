@@ -164,7 +164,7 @@ export default function Kurtaset() {
                   />
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
                 <div className="absolute bottom-6 left-6 right-6">
                   <h3 className="text-2xl font-bold text-white drop-shadow-2xl mb-2 leading-tight">

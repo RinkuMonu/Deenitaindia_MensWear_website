@@ -84,7 +84,7 @@ export default function Home({ addToCart }: HomeProps) {
     <>
       <Banner />
       <TrendingProducts addToCart={addToCart} />
-      <Casual />
+      <Popular />
       <Arrivals addToCart={addToCart} />
       <BannerSection1 />
       <TreckPents />
@@ -94,7 +94,7 @@ export default function Home({ addToCart }: HomeProps) {
       {/* <DeliveryFeatures /> */}
       {/* <FAQComponent /> */}
       {/* <Newsletter /> */}
-      <Popular />
+      <Casual />
       <BannerSection2 />
       <Blazer />
       <Kurtaset />

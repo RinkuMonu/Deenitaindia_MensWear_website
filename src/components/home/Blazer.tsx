@@ -153,34 +153,54 @@ export default function Blazer() {
         >
           {products.map((product, index) => (
             <SwiperSlide key={index}>
-              <Link
-                to={`/product/${product._id}`}
-                className="group relative h-full block overflow-hidden rounded-md shadow-2xl hover:shadow-3xl transition-all duration-700 w-full bg-gradient-to-br from-gray-50 to-gray-100"
-              >
-                <div className="absolute inset-0 w-full h-full">
-                  <img
-                    src={`${imageBaseUrl}${product.images[0]}`}
-                    alt={product.productName}
-                    className="w-full h-full object-cover transition-transform duration-700"
-                  />
-                </div>
+            <Link
+  to={`/product/${product._id}`}
+  className="group relative block h-full w-full overflow-hidden rounded-2xl 
+             bg-gradient-to-br from-gray-50 to-gray-100
+             shadow-xl hover:shadow-2xl transition-all duration-700
+             hover:-translate-y-1"
+>
+  {/* Image */}
+  <div className="absolute inset-0">
+    <img
+      src={`${imageBaseUrl}${product.images[0]}`}
+      alt={product.productName}
+      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+    />
+  </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+  {/* Dark gradient for readability */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-lg font-bold text-white drop-shadow-2xl mb-2 leading-tight">
-                    {product.productName}
-                  </h3>
-                  <div className="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2 inline-block mb-2">
-                    <p className="text-white text-xl font-bold drop-shadow-lg">
-                      ₹{product.actualPrice}
-                    </p>
-                  </div>
-                  <p className="text-white/90 text-sm font-medium drop-shadow-lg">
-                    {product.size?.length || 0} Sizes available
-                  </p>
-                </div>
-              </Link>
+  {/* Content wrapper */}
+  <div className="relative z-10 flex h-full flex-col justify-end">
+
+    {/* Golden bottom section */}
+    <div className="bg-[#cba146]/30 backdrop-blur-md px-5 py-4 h-[20vh]">
+      <h3 className="text-lg md:text-xl font-bold text-white leading-tight mb-2 line-clamp-2">
+        {product.productName}
+      </h3>
+
+      <div className="flex items-center justify-between gap-3">
+        {/* Price */}
+        <div className="bg-white/25 backdrop-blur-md  rounded-xl px-4 py-1.5 shadow-lg">
+          <p className="text-white text-xl font-extrabold tracking-wide">
+            ₹{product.actualPrice}
+          </p>
+        </div>
+
+        {/* Sizes */}
+        <p className="text-white/90 text-sm font-medium">
+          {product.size?.length || 0} Sizes
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Soft border glow */}
+  <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10 group-hover:ring-[#cba146]/50 transition duration-700" />
+</Link>
+
             </SwiperSlide>
           ))}
         </Swiper>
