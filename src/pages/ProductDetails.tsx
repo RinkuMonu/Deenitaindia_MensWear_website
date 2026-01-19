@@ -28,15 +28,25 @@ interface Product {
   description: string;
   images: string[];
   actualPrice: number;
-  price?: number; // Original price, optional
-  discount?: number; // Discount percentage, optional
-  size?: string; // Size, optional
-  category: {
+  price: number;
+  discount: number;
+  material: string; // Add kiya
+  stock: number;    // Add kiya
+  brand: {          // Response ke according update
+    _id: string;
+    name: string;
+    logo: string;
+  };
+  category: {       // Response ke according update
     _id: string;
     name: string;
   };
-  rating?: number; // Rating, optional
-  quantity?: number; // Used in cart context, optional
+  size: {           // Response mein size array of objects hai
+    _id: string;
+    sizes: string;
+    price: number;
+    colors: string[];
+  }[];
 }
 
 interface ProductDetailsProps {
@@ -213,8 +223,10 @@ const [gettoken, settoken] = useState<string | null>(null);
       name: product.productName,
       image: product.images?.[0] || "",
       category: product.category?.name || "Uncategorized",
+      // YAHAN CHANGE KAREIN: selectedSize ki price pehle bhejni hai
       price: selectedSize?.price || product.actualPrice || product.price,
       quantity,
+      size: selectedSize?.sizes || "Standard" // Extra: size info bhi add kar sakte hain
     };
 
     if (!token) {
@@ -267,11 +279,8 @@ const [gettoken, settoken] = useState<string | null>(null);
     }
     if (product) {
       addToCart({
-        id: product._id,
-        name: product.productName,
-        image: product.images?.[0] || "",
-        category: product.category?.name || "Uncategorized",
-        price: selectedSize?.price || product.actualPrice || product.price,
+        ...product, // Pura product spread karein
+        price: selectedSize?.price || product.actualPrice || product.price, // Correct price overwrite
         quantity,
       });
     }
@@ -350,12 +359,18 @@ const [gettoken, settoken] = useState<string | null>(null);
 
         {/* Product Details */}
         <div className="p-2">
+          <p className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-1">
+            {product?.brand?.name}
+          </p>
           <h1
             className="text-2xl md:text-5xl font-extrabold mb-4 leading-tight"
             style={{ color: "#1B2E4F" }}
           >
             {product?.productName}
           </h1>
+          <p className="text-md text-gray-600 mb-4 italic">
+            {product?.category?.name}
+          </p>
           <p className="text-gray-700 text-xl mb-6 leading-relaxed">
             <div dangerouslySetInnerHTML={{ __html: product.description }} />
           </p>
@@ -374,8 +389,8 @@ const [gettoken, settoken] = useState<string | null>(null);
               style={{ color: "#cba146" }}
             >
               {/* ₹{selectedSize?.price || product?.actualPrice} */}
-              ₹{product?.actualPrice}
-
+              {/* ₹{product?.actualPrice} */}
+              ₹{selectedSize?.price || product?.actualPrice}
             </span>
 
             {/* Show strikethrough price only if there's a difference */}
@@ -407,8 +422,8 @@ const [gettoken, settoken] = useState<string | null>(null);
                       key={s._id}
                       onClick={() => setSelectedSize(s)}
                       className={`px-4 py-2 rounded-full border text-sm font-semibold transition-all
-            ${selectedSize?._id === s._id
-                          ? "bg-black text-white border-black"
+                        ${selectedSize?._id === s._id  // <- Ye line match honi chahiye
+                          ? "bg-black text-white border-black" 
                           : "bg-white text-black border-gray-400 hover:border-black"
                         }`}
                     >

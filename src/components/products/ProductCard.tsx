@@ -262,7 +262,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <div className="p-4">
             {ratedProduct.brand && (
               <p className="text-xs text-gray-500 mb-1 uppercase tracking-wide">
-                {ratedProduct.brand}
+                {ratedProduct?.brand?.name}
               </p>
             )}
 
