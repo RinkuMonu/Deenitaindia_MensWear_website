@@ -529,7 +529,7 @@ export default function Products() {
             {/* Size Filter */}
             <div className="border-b border-gray-200 py-6">
               <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-4 gap-2">
                 {sizeOptions.map((size) => (
                   <button
                     key={size}
@@ -540,9 +540,9 @@ export default function Products() {
                           : [...prev, size]
                       )
                     }
-                    className={`border rounded-full py-2 text-sm font-medium transition ${selectedSizes.includes(size)
+                    className={`border rounded-md py-2 text-sm font-medium transition ${selectedSizes.includes(size)
                         ? "bg-[#cba146] text-white border-[#cba146]"
-                        : "bg-white text-gray-700 border-gray-300 hover:border-[#cba146]"
+                        : "bg-gray-100 text-gray-700 border-gray-100 hover:border-[#000000] hover:bg-[#000000] hover:text-gray-100"
                       }`}
                   >
                     {size}

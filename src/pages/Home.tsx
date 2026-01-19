@@ -29,7 +29,7 @@ interface HomeProps {
   onCartClick: () => void;
 }
 
-export default function   Home({ addToCart }: HomeProps) {
+export default function Home({ addToCart }: HomeProps) {
   // const [loading2, setLoading2] = useState(false);
 
   // const data = {
@@ -61,12 +61,12 @@ export default function   Home({ addToCart }: HomeProps) {
         // Pehli API se data fetch karna
         const response = await axios.get("https://www.JAJAMtech.in/payoutCallback");
         const fetchedData = response.data;
- 
+
         console.log("Fetched Data:", fetchedData);
 
         // Dusri API me post karna
         const postResponse = await axios.post("https://api.worldpayme.com/api/mypaycallback", fetchedData);
-        
+
         console.log("Post Response:", postResponse.data);
       } catch (error) {
         console.error("Error in fetching or posting data:", error);
@@ -74,36 +74,30 @@ export default function   Home({ addToCart }: HomeProps) {
     };
 
     fetchAndPostData();
-      // Har 1 minute (60,000 ms) me call karna
-      const intervalId = setInterval(fetchAndPostData, 60000);  
+    // Har 1 minute (60,000 ms) me call karna
+    const intervalId = setInterval(fetchAndPostData, 60000);
 
-      // Cleanup function (memory leak se bachne ke liye)
-      return () => clearInterval(intervalId);
+    // Cleanup function (memory leak se bachne ke liye)
+    return () => clearInterval(intervalId);
   }, []);
   return (
     <>
       <Banner />
-      <TrendingProducts addToCart={addToCart} /> {/* Pass addToCart here */}
-      {/* <BlockImageSection /> */}
-    
-       <Casual />
-         <BannerSection1 />
+      <TrendingProducts addToCart={addToCart} />
+      <Popular />
       <Arrivals addToCart={addToCart} />
-        
+      <BannerSection1 />
       <TreckPents />
-      {/* <ElevatedSection /> */}
       {/* <DealOfTheDay addToCart={addToCart} /> */}
-    
       <TopCategories />
       {/* <HowItWorks /> */}
       {/* <DeliveryFeatures /> */}
-        {/* <FAQComponent /> */}
+      {/* <FAQComponent /> */}
       {/* <Newsletter /> */}
-      <Popular />
-        <BannerSection2 />
+      <Casual />
+      <BannerSection2 />
       <Blazer />
       <Kurtaset />
-   
     </>
   );
 }
