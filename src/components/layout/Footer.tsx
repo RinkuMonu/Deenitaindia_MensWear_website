@@ -78,7 +78,7 @@ export default function Footer() {
 
 
       {/* Top Section */}
-     <div className="relative z-10 max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+     <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
         <div>
           <img src="/home/Mens-logo.PNG" alt="Logo" className="h-28 mb-4" />
@@ -134,7 +134,7 @@ export default function Footer() {
 
       {/* 🔥 New Categories Section */}
       <div className="relative z-10 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           {categories.map((cat) => (
             <div key={cat.title}>
               <h4 className="text-white font-semibold text-lg mb-4 relative after:absolute after:left-0 after:-bottom-1 after:w-10 after:h-[2px] after:bg-[#cba146]">
