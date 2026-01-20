@@ -18,7 +18,7 @@ export default function Popular() {
         <section className="min-h-screen bg-white pt-12 px-4 sm:px-6 lg:px-8">
             {/* Hero Section - Fixed */}
             <div className="text-left mb-4 max-w-7xl mx-auto">
-                <h1 className="text-3xl sm:text-4xl lg:text-xl font-bold text-gray-900 mb-6 leading-tight">Featured Products,<span className="block text-2xl sm:text-3xl lg:text-4xl text-[#cba146] mt-2">NEW JOURNEYS.</span></h1></div>
+                <h1 className="text-3xl sm:text-4xl lg:text-xl font-bold text-gray-900 mb-6 leading-tight">Featured Products,<span className="block text-2xl sm:text-3xl lg:text-4xl text-[#cba146] mt-2">NEW JOURNEYS</span></h1></div>
             {/* Fixed Swiper Container */}
             <div className="max-w-7xl mx-auto">
                 <Swiper

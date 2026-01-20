@@ -83,6 +83,7 @@ export default function CategoryPage() {
 
   const [sizeOptions, setSizeOptions] = useState<string[]>([])
   const [brands, setBrands] = useState<Brand[]>([])
+  console.log("brands", brands)
   const [selectedBrands, setSelectedBrands] = useState<string[]>([])
 
   // const [categories, setCategories] = useState<any[]>([]);
@@ -250,7 +251,8 @@ export default function CategoryPage() {
   useEffect(() => {
     const fetchBrands = async () => {
       try {
-        const res = await fetch(`${baseUrl}/brand/getall`); // Apne sahi API endpoint ka use karein
+        const res = await fetch(`${baseUrl}/brands`); // Apne sahi API endpoint ka use karein
+        console.log("res brands", res)
         const data = await res.json();
         setBrands(data.brands || data); 
       } catch (error) {

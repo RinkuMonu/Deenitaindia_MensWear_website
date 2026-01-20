@@ -83,6 +83,7 @@ const ProductDetails = ({ addToCart }: ProductDetailsProps) => {
   const [activeTab, setActiveTab] = useState<"description" | "reviews">(
     "description"
   );
+  console.log("active tabs = ", activeTab);
   const [mainImage, setMainImage] = useState<string>(""); // Re-introducing mainImage state
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [isRatingModalOpen, setRatingModalOpen] = useState(false);
@@ -611,6 +612,7 @@ const [gettoken, settoken] = useState<string | null>(null);
             >
               Reviews
             </button>
+            {console.log("token value =", gettoken)}
             {activeTab === "reviews" && gettoken && (
               <button
                 onClick={() => setRatingModalOpen(true)}
