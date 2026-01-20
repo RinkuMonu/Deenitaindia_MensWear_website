@@ -32,7 +32,6 @@ interface Product {
 }
 
 const Arrivals = ({ addToCart }: { addToCart: (product: Product) => void }) => {
-  console.log("add to cart",addToCart);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
