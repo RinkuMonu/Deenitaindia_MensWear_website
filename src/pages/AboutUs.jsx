@@ -18,19 +18,19 @@ export default function AboutUs() {
           <div className="space-y-8">
             <div className="space-y-6">
               <span className="bg-[#cba146] text-white px-4 py-2 rounded-full text-sm font-semibold">
-                Deenita India
+                Verily Unique Fashions
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-[#393838]">
                 A Modern Take on Timeless Craft
                
               </h2>
               <p className="text-sm text-gray-700 leading-relaxed">
-                To celebrate our heritage, we proudly present Deenita India, a contemporary menswear brand designed for the modern lifestyle. Inspired by traditional Indian craftsmanship, Deenita India brings authentic techniques and rich heritage into stylish, modern designs.
+                To celebrate our heritage, we proudly present Verily Unique Fashions, a contemporary menswear brand designed for the modern lifestyle. Inspired by traditional Indian craftsmanship, Verily Unique Fashions brings authentic techniques and rich heritage into stylish, modern designs.
 
 
               </p>
               <p className="text-gray-600 leading-relaxed">
-               Whether you’re looking for handcrafted menswear, accessories, or curated fabrics, Deenita India blends traditional artistry with contemporary style crafted with care, made for you.
+               Whether you’re looking for handcrafted menswear, accessories, or curated fabrics, Verily Unique Fashions blends traditional artistry with contemporary style crafted with care, made for you.
               </p>
             </div>
           </div>

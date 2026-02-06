@@ -812,7 +812,7 @@ export default function CancellationPolicy() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold text-[#393838] mb-4">Cancellation Policy</h1>
         <p className="text-md text-gray-600">
-         At Deenita India , we understand that plans can change. To make your shopping experience flexible and stress-free, we offer order cancellations under the following conditions:
+         At Verily Unique Fashions , we understand that plans can change. To make your shopping experience flexible and stress-free, we offer order cancellations under the following conditions:
         </p>
       </div>
 
@@ -823,13 +823,13 @@ export default function CancellationPolicy() {
 
         <h3 className="text-lg font-semibold text-[#393838]">1. Order Cancellation Before Shipping</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
-          You can cancel your order within 24 hours of placing it, or at any time before it has been shipped. To cancel, please email us at support@Deenita India .com with your Order ID. In these cases, a full refund will be issued to your original payment method.
+          You can cancel your order within 24 hours of placing it, or at any time before it has been shipped. To cancel, please email us at support@verilyunique.com with your Order ID. In these cases, a full refund will be issued to your original payment method.
         </p>
 
         <h3 className="text-lg font-semibold text-[#393838]">2. Cancelling an Order After Shipping</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
           If your order has already been shipped but not yet delivered, please contact us immediately at
-          <a href="mailto:shreeshyamblockprints.1@gmail.com" className="text-blue-600"> info@deenitaindia.com</a>.
+          <a href="mailto:info@verilyunique.com" className="text-blue-600"> info@verilyunique.com </a> 
           Once the package is returned to us, we will process a refund minus any applicable shipping charges.
         </p>
 

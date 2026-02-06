@@ -12,13 +12,13 @@ export default function ShippingDelivery() {
 
       <div className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 border-[#393838] space-y-4 text-justify text-gray-700 leading-relaxed">
         <p>
-       At Deenita India , we take pride in delivering premium menswear with care and attention to quality. Our shipping policy ensures that your order reaches you safely and on time.
+       At Verily Unique Fashions , we take pride in delivering premium menswear with care and attention to quality. Our shipping policy ensures that your order reaches you safely and on time.
         </p>
 
         <h2 className="text-xl font-semibold mt-4">Delivery</h2>
         <p>
          We deliver across India and internationally using trusted courier partners.
-Please ensure your shipping address is complete and accurate, as Deenita India  will not be responsible for delays caused by incorrect or incomplete addresses. Any reshipping charges in such cases will be borne by the customer.
+Please ensure your shipping address is complete and accurate, as Verily Unique Fashions  will not be responsible for delays caused by incorrect or incomplete addresses. Any reshipping charges in such cases will be borne by the customer.
 
         </p>
 

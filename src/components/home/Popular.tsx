@@ -74,7 +74,7 @@ export default function Popular() {
                         ‹
                     </button>
                     <div className="flex space-x-2">
-                        <div className="w-3 h-3 rounded-full bg-purple-600 opacity-70" />
+                        <div className="w-3 h-3 rounded-full bg-[#cba146] opacity-70" />
                         <div className="w-3 h-3 rounded-full bg-white/50" />
                         <div className="w-3 h-3 rounded-full bg-white/50" />
                         <div className="w-3 h-3 rounded-full bg-white/50" />

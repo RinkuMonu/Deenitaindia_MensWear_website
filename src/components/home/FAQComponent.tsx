@@ -56,8 +56,8 @@ const FAQComponent: React.FC = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
-          <p className="mt-4 text-purple-600">Loading FAQs...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#cba146] mx-auto"></div>
+          <p className="mt-4 text-[#cba146]">Loading FAQs...</p>
         </div>
       </div>
     );
@@ -70,7 +70,7 @@ const FAQComponent: React.FC = () => {
           <p>Error: {error}</p>
           <button 
             onClick={() => window.location.reload()}
-            className="mt-4 px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
+            className="mt-4 px-4 py-2 bg-[#cba146] text-white rounded hover:bg-purple-700"
           >
             Retry
           </button>

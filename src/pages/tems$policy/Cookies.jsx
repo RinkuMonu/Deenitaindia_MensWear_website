@@ -312,7 +312,7 @@ const Cookies = () => {
                   <div id="third-party-cookies" className="mb-10 scroll-mt-24">
                     <div className="flex items-center mb-4">
                       <div className="bg-purple-100 p-2 rounded-lg mr-3">
-                        <Share2 className="h-6 w-6 text-purple-600" />
+                        <Share2 className="h-6 w-6 text-[#cba146]" />
                       </div>
                       <h2 className="text-xl font-bold text-gray-800">Third-Party Cookies</h2>
                     </div>

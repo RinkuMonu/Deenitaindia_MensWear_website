@@ -476,7 +476,7 @@ const TrackOrder = () => {
       case "shipped":
       case "in transit":
       case "out for delivery":
-        return <Truck className="w-5 h-5 text-purple-500" />;
+        return <Truck className="w-5 h-5 text-[#cba146]" />;
       case "delivered":
         return <CheckCircle className="w-5 h-5 text-green-500" />;
       case "payment verification":
@@ -841,7 +841,7 @@ const TrackOrder = () => {
                               orderData.trackingEvents.findIndex(
                                 (e) => !e.isCompleted
                               )
-                            ? "border-purple-500 bg-purple-50 animate-pulse"
+                            ? "border-[#cba146] bg-purple-50 animate-pulse"
                             : "border-gray-300 bg-gray-50"
                         }`}
                       >

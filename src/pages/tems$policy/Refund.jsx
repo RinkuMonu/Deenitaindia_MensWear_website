@@ -12,12 +12,12 @@ export default function ExchangeReturn() {
 
   <h2 className="text-xl font-semibold text-[#393838]">Return, Refund & Exchange Policy</h2>
   <p className="text-justify text-gray-700 leading-relaxed">
-    At Deenita India , we take pride in offering premium menswear crafted with care and quality. While we strive for perfection, we understand that sometimes a product may not meet your expectations. To ensure a smooth shopping experience, we offer returns, refunds, and exchanges under the following terms:
+    At Verily Unique Fashions , we take pride in offering premium menswear crafted with care and quality. While we strive for perfection, we understand that sometimes a product may not meet your expectations. To ensure a smooth shopping experience, we offer returns, refunds, and exchanges under the following terms:
   </p>
 
   <h3 className="text-lg font-semibold text-[#393838]">1. Replacement / Refund for Defective or Incorrect Items</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-   If you receive a defective or incorrect product, please notify us within 48 hours of delivery by emailing support@Deenita India .com. The item must be returned within 7 days of delivery. Once we receive and inspect it, we will either replace it (if available) or issue a refund, according to your preference.
+   If you receive a defective or incorrect product, please notify us within 48 hours of delivery by emailing <a href="mailto:support@verilyuniquefashions.com" className="text-blue-600"> support@verilyuniquefashions.com</a> The item must be returned within 7 days of delivery. Once we receive and inspect it, we will either replace it (if available) or issue a refund, according to your preference.
   </p>
   <p className="text-justify text-gray-700 leading-relaxed">
     <strong>Return Conditions:</strong> 
@@ -47,7 +47,7 @@ If replacement stock is unavailable, we may issue store credit or a full refund.
   </p>
   <p className="text-justify text-gray-700 leading-relaxed">
     <strong>Exchange Charges:</strong> For standard website orders, customers are responsible for ₹150 pickup per item + ₹100 forward shipping per item  
-    If the return is due to our mistake, Deenita India  covers the shipping costs  
+    If the return is due to our mistake, Verily Unique Fashions  covers the shipping costs  
   </p>
   <p className="text-justify text-gray-700 leading-relaxed">
     <strong>Store Credit:</strong> If the requested size or design is unavailable, we will issue store credit equal to the product value (excluding shipping). Store credit is valid for 30 days from the issue date.
@@ -55,7 +55,7 @@ If replacement stock is unavailable, we may issue store credit or a full refund.
 
   <h3 className="text-lg font-semibold text-[#393838]">4. Cancellations</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-   Orders can be cancelled before shipping by emailing support@Deenita India .com.
+   Orders can be cancelled before shipping by emailing <a href="mailto:support@verilyunique@gmail.com" className="text-blue-600"> support@verilyunique.com</a>.
 If the order has already shipped, it may be returned according to our Return Process above.
   </p>
 
@@ -72,9 +72,9 @@ If the order has already shipped, it may be returned according to our Return Pro
 
   <h3 className="text-lg font-semibold text-[#393838]">6. Important Notes</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-    • Minor color variations are not a valid reason for return/exchange, as shades may differ due to lighting and screen settings  
-    • Items that have been exchanged cannot be returned for a refund  
-    • This policy applies only to purchases made from our official website www.Deenita India .com 
+    • Minor color variations are not a valid reason for return/exchange, as shades may differ due to lighting and screen settings <br/ >
+    • Items that have been exchanged cannot be returned for a refund  <br/ >
+    • This policy applies only to purchases made from our official website <a href="verilyuniquefashion.com">verilyuniquefashion.com</a>
   </p>
 </div>
 

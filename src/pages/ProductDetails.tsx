@@ -338,7 +338,7 @@ const [gettoken, settoken] = useState<string | null>(null);
                   src={fullUrl}
                   alt={`Thumbnail ${index + 1}`}
                   className={`w-24 h-24 object-cover rounded-xl cursor-pointer border-3 transition-all duration-300 transform hover:scale-105 ${mainImage === img
-                    ? "border-purple-600 shadow-lg"
+                    ? "border-[#cba146] shadow-lg"
                     : "border-gray-200 hover:border-purple-300"
                     }`}
                   onClick={() => setMainImage(img)}
@@ -515,28 +515,28 @@ const [gettoken, settoken] = useState<string | null>(null);
             <a
               href="/"
               aria-label="Share on Facebook"
-              className="hover:text-purple-600 transition-colors"
+              className="hover:text-[#cba146] transition-colors"
             >
               <FaFacebookF />
             </a>
             <a
               href="/"
               aria-label="Share on instagram"
-              className="hover:text-purple-600 transition-colors"
+              className="hover:text-[#cba146] transition-colors"
             >
               <FaInstagram />
             </a>
             <a
               href="/"
               aria-label="Share on Twitter"
-              className="hover:text-purple-600 transition-colors"
+              className="hover:text-[#cba146] transition-colors"
             >
               <FaTwitter />
             </a>
             <a
               href="/"
               aria-label="Share on Pinterest"
-              className="hover:text-purple-600 transition-colors"
+              className="hover:text-[#cba146] transition-colors"
             >
               <FaPinterestP />
             </a>
@@ -544,20 +544,20 @@ const [gettoken, settoken] = useState<string | null>(null);
             <a
               href="/"
               aria-label="Share on WhatsApp"
-              className="hover:text-purple-600 transition-colors"
+              className="hover:text-[#cba146] transition-colors"
             >
               <FaWhatsapp />
             </a>
             <a
               href="/"
               aria-label="Share via Email"
-              className="hover:text-purple-600 transition-colors"
+              className="hover:text-[#cba146] transition-colors"
             >
               <FaEnvelope />
             </a>
             <button
               aria-label="Copy link"
-              className="hover:text-purple-600 transition-colors"
+              className="hover:text-[#cba146] transition-colors"
             >
               <FaRegCopy />
             </button>

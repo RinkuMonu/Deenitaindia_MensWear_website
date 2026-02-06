@@ -184,7 +184,7 @@ const OrderHistory = () => {
       case "processing":
         return <RefreshCw className="w-4 h-4 text-blue-500" />
       case "shipped":
-        return <Truck className="w-4 h-4 text-purple-500" />
+        return <Truck className="w-4 h-4 text-[#cba146]" />
       case "delivered":
         return <CheckCircle className="w-4 h-4 text-green-500" />
       case "cancelled":
@@ -251,7 +251,7 @@ const OrderHistory = () => {
                 <select
                   value={selectedStatus}
                   onChange={(e) => setSelectedStatus(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white min-w-[150px]"
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146] bg-white min-w-[150px]"
                 >
                   <option value="all">All Orders</option>
                   <option value="pending">Pending</option>
@@ -268,7 +268,7 @@ const OrderHistory = () => {
                 <select
                   value={selectedTimeRange}
                   onChange={(e) => setSelectedTimeRange(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white min-w-[150px]"
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146] bg-white min-w-[150px]"
                 >
                   <option value="all">All Time</option>
                   <option value="week">Last Week</option>
@@ -383,7 +383,6 @@ const OrderHistory = () => {
                       </div>
                     )}
                   </div>
-
                   {/* Action Buttons */}
                   <div className="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
                     <div className="flex flex-wrap gap-3">
@@ -394,20 +393,17 @@ const OrderHistory = () => {
                         <Eye className="w-4 h-4" />
                         <span>{expandedOrder === order.id ? "Hide Details" : "View Details"}</span>
                       </button>
-
                       {order.trackingNumber && (
                         <Link to={"/trackorder"} className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors">
                           <Truck className="w-4 h-4" />
                           <span>Track Order</span>
                         </Link>
                       )}
-
                       {/* <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-colors">
                         <Download className="w-4 h-4" />
                         <span>Invoice</span>
                       </button> */}
                     </div>
-
                     {order.status === "delivered" && (
                       <button
                         className="flex items-center gap-2 text-white px-4 py-2 rounded-lg font-medium transition-colors"
@@ -419,7 +415,6 @@ const OrderHistory = () => {
                     )}
                   </div>
                 </div>
-
                 {/* Expanded Order Details */}
                 {expandedOrder === order.id && (
                   <div className="border-t border-gray-100 p-6 bg-gray-50">
@@ -449,7 +444,6 @@ const OrderHistory = () => {
                           ))}
                         </div>
                       </div>
-
                       {/* Order Information */}
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-4">Order Information</h4>
@@ -458,19 +452,16 @@ const OrderHistory = () => {
                             <p className="text-sm font-medium text-gray-700">Shipping Address</p>
                             <p className="text-sm text-gray-600 mt-1">{order.shippingAddress}</p>
                           </div>
-
                           <div>
                             <p className="text-sm font-medium text-gray-700">Payment Method</p>
                             <p className="text-sm text-gray-600 mt-1">{order.paymentMethod}</p>
                           </div>
-
                           {order.trackingNumber && (
                             <div>
                               <p className="text-sm font-medium text-gray-700">Tracking Number</p>
                               <p className="text-sm font-mono text-gray-600 mt-1">{order.trackingNumber}</p>
                             </div>
                           )}
-
                           {order.estimatedDelivery && (
                             <div>
                               <p className="text-sm font-medium text-gray-700">Estimated Delivery</p>
@@ -492,7 +483,6 @@ const OrderHistory = () => {
             ))}
           </div>
         )}
-
         {/* Summary Stats */}
         {!loading && filteredOrders.length > 0 && (
           <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -503,7 +493,6 @@ const OrderHistory = () => {
               <p className="text-2xl font-bold text-gray-900">{filteredOrders.length}</p>
               <p className="text-sm text-gray-600">Total Orders</p>
             </div>
-
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
               <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full bg-green-100">
                 <CheckCircle className="w-6 h-6 text-green-600" />
@@ -513,17 +502,15 @@ const OrderHistory = () => {
               </p>
               <p className="text-sm text-gray-600">Delivered</p>
             </div>
-
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
               <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full bg-purple-100">
-                <Truck className="w-6 h-6 text-purple-600" />
+                <Truck className="w-6 h-6 text-[#cba146]" />
               </div>
               <p className="text-2xl font-bold text-gray-900">
                 {filteredOrders.filter((o) => o.status === "shipped").length}
               </p>
               <p className="text-sm text-gray-600">In Transit</p>
             </div>
-
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center">
               <div
                 className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full"

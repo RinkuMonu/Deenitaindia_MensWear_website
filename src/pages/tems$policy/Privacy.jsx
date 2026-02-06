@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
         Privacy Policy
       </h1>
       <p className="text-md text-gray-600 text-center">
-        Please read our Privacy Policy carefully before using Deenita India Mens Wear services.
+        Please read our Privacy Policy carefully before using Verily Unique Fashions Mens Wear services.
       </p>
 
       {privacySections.map((section, index) => (
@@ -78,13 +78,13 @@ const privacySections = [
     title: "5. Communications and Grievances",
     content: [
       "If you do not wish to receive promotional emails or wish to report any privacy concerns, please contact us at:",
-      "Email: support@deenitaindia.com"
+      "Email: support@varily.com"
     ]
   },
   {
     title: "6. Important Disclaimer",
     content: [
-      "While we take extensive measures to safeguard your data, we advise you not to share sensitive information with third parties claiming to be associated with Deenita India.",
+      "While we take extensive measures to safeguard your data, we advise you not to share sensitive information with third parties claiming to be associated with Verily Unique Fashions.",
       "We disclaim any responsibility for losses arising from your negligence or sharing of sensitive information outside our official website or communication channels."
     ]
   }

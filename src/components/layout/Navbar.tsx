@@ -488,7 +488,7 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
                               >
                                 <span className="relative truncate">  
                                   {item?.name}
-                                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-purple-500 transition-all duration-300 group-hover/link:w-full"></span> 
+                                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#cba146] transition-all duration-300 group-hover/link:w-full"></span> 
                                 </span>
                                 {item?.icon && (
                                   <span className="ml-2 text-gray-400 group-hover/link:text-purple-400 transition-colors">
@@ -699,9 +699,9 @@ const Navbar: React.FC<NavbarProps> = ({ onCartClick, cartItemCount }) => {
             <Link to="/" className="flex items-center relative group">
               <div className="relative" style={{ borderColor: primaryColor }}>
                 <img
-                  src="/home/Mens-logo.PNG"
+                  src="/home/main-logo-img.png"
                   alt="/"
-                  className="transition-all duration-300 w-22 sm:w-16 md:w-33 rounded-lg"
+                  className="transition-all duration-300 w-28 sm:w-16 md:w-36 rounded-lg"
                 />
               </div>
             </Link>
