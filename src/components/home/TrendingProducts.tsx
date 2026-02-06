@@ -523,7 +523,7 @@ const TrendingProducts = ({ addToCart,}: { addToCart: (product: Product) => void
               <div className="flex items-center justify-center bg-gray-50 rounded-xl p-8">
                 <img
                   className="rounded-xl object-contain max-h-[400px]"
-                  src={`${baseUrliMAGE}${selectedProduct.images}`}
+                  src={`${baseUrliMAGE}${selectedProduct?.images?.[0]}`}
                   alt={selectedProduct.productName}
                   loading="lazy"
                 />
@@ -574,7 +574,7 @@ const TrendingProducts = ({ addToCart,}: { addToCart: (product: Product) => void
                     className="text-lg font-semibold mb-4 border-b pb-2"
                     style={{ color: "#1B2E4F" }}
                   >
-                    Product Details
+                    Product Detailseeee
                   </h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex flex-col">

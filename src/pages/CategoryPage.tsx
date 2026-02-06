@@ -15,12 +15,14 @@ import ProductCard from "../components/products/ProductCard"
 
 interface Product {
   _id: string
-  name: string
+  productName: string
   actualPrice: number
   createdAt: string
+  brand?: { name: string; logo?: string }
   size?: {
     sizes: string
     price: number
+    colors?: string[] // Added colors here
   }[]
 }
 
@@ -30,7 +32,10 @@ interface Category {
   name: string
   subcategory?: string
 }
-
+interface Brand {
+  _id: string;
+  name: string;
+}
 type GroupedCategory = {
   [key: string]: Category[]
 }
@@ -43,7 +48,16 @@ export default function CategoryPage() {
   const catagory1 = category?.replace(/-/g, " ");
   // const [products, setProducts] = useState<any[]>([])
   const [products, setProducts] = useState<Product[]>([])
+  const [selectedColors, setSelectedColors] = useState<string[]>([])
+  const [colorOptions, setColorOptions] = useState<string[]>([])
 
+  const [openSections, setOpenSections] = useState({
+    price: true,
+    sizes: true,
+    categories: true,
+    colors: true,
+    brands: true,
+  })
   // const [filteredProducts, setFilteredProducts] = useState<any[]>([])
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([])
 
@@ -56,19 +70,21 @@ export default function CategoryPage() {
   //   sizes: true,
   // })
 
-  const [openSections, setOpenSections] = useState<{
-    price: boolean
-    sizes: boolean
-    categories: boolean
-  }>({
-    price: true,
-    sizes: true,
-    categories: true,
-  })
+  // const [openSections, setOpenSections] = useState<{
+  //   price: boolean
+  //   sizes: boolean
+  //   categories: boolean
+  // }>({
+  //   price: true,
+  //   sizes: true,
+  //   categories: true,
+  // })
 
 
   const [sizeOptions, setSizeOptions] = useState<string[]>([])
-
+  const [brands, setBrands] = useState<Brand[]>([])
+  console.log("brands", brands)
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([])
 
   // const [categories, setCategories] = useState<any[]>([]);
   const [categories, setCategories] = useState<Category[]>([])
@@ -115,13 +131,20 @@ export default function CategoryPage() {
         const data = await res.json()
 
         if (Array.isArray(data.products)) {
-          setProducts(data.products)
+          setProducts(data.products)          
           const allSizes = new Set<string>()
-          data.products.forEach((p: Product) => {
-            p.size?.forEach(s => allSizes.add(s.sizes.toUpperCase()))
-          })
-          setSizeOptions(Array.from(allSizes))
+          const allColors = new Set<string>()
 
+          data.products.forEach((p: Product) => {
+            p.size?.forEach(s => {
+              allSizes.add(s.sizes.toUpperCase())
+              // Extract colors from each size entry
+              s.colors?.forEach(c => allColors.add(c.toLowerCase()))
+            })
+          })
+          
+          setSizeOptions(Array.from(allSizes))
+          setColorOptions(Array.from(allColors)) // Set extracted colors
         } else {
           console.error("Unexpected products format:", data)
         }
@@ -137,19 +160,18 @@ export default function CategoryPage() {
   useEffect(() => {
     const filtered = products.filter((product) => {
       const priceMatch = product.actualPrice >= priceRange[0] && product.actualPrice <= priceRange[1]
-      if (selectedSizes.length === 0) return priceMatch
+      
+      const productSizes = product.size?.map(s => s.sizes.toUpperCase()) || []
+      const sizeMatch = selectedSizes.length === 0 || selectedSizes.some(size => productSizes.includes(size))
 
-      // if (!product.size) return false
-      // return priceMatch && selectedSizes.includes(product.size.toUpperCase())
+      const productColors = product.size?.flatMap(s => s.colors || []).map(c => c.toLowerCase()) || []
+      const colorMatch = selectedColors.length === 0 || selectedColors.some(color => productColors.includes(color.toLowerCase()))
 
-      if (!product.size || product.size.length === 0) return false
+      // BRAND FILTER LOGIC:
+      // Hum product.brand.name ya product.brand._id se match kar sakte hain
+      const brandMatch = selectedBrands.length === 0 || (product.brand && selectedBrands.includes(product.brand.name))
 
-      const productSizes = product.size.map(s => s.sizes.toUpperCase())
-      const sizeMatch = selectedSizes.some(size => productSizes.includes(size))
-
-      return priceMatch && sizeMatch
-
-
+      return priceMatch && sizeMatch && colorMatch && brandMatch
     })
 
     const sorted = filtered.sort((a, b) => {
@@ -166,7 +188,7 @@ export default function CategoryPage() {
     })
 
     setFilteredProducts(sorted)
-  }, [products, priceRange, sortBy, selectedSizes])
+  }, [products, priceRange, sortBy, selectedSizes,selectedColors,selectedBrands])
 
   // const handleSizeChange = (size: string) => {
   //   setSelectedSizes(prev =>
@@ -183,6 +205,7 @@ export default function CategoryPage() {
   const resetFilters = () => {
     setPriceRange([initialMinPrice, initialMaxPrice])
     setSelectedSizes([])
+    setSelectedColors([])
     setSortBy("newest")
     setSpecialFilters({
       isPopular: false,
@@ -190,6 +213,7 @@ export default function CategoryPage() {
       isFeatured: false,
       isNewArrival: false,
     })
+    setSelectedBrands([])
   }
 
   useEffect(() => {
@@ -224,6 +248,19 @@ export default function CategoryPage() {
     fetchCategories();
   }, [baseUrl, referenceWebsite]);
 
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const res = await fetch(`${baseUrl}/brands`); // Apne sahi API endpoint ka use karein
+        console.log("res brands", res)
+        const data = await res.json();
+        setBrands(data.brands || data); 
+      } catch (error) {
+        console.error("Error fetching brands:", error);
+      }
+    };
+    fetchBrands();
+  }, [baseUrl]);
   // console.log("filter", filteredProducts)
 
   return (
@@ -466,7 +503,47 @@ export default function CategoryPage() {
               </div>
             </div>
 
+                {/* Brand Filter */}
+                <div className="border-b border-gray-200 py-6">
+                  <div 
+                    className="flex justify-between items-center cursor-pointer mb-4"
+                    onClick={() => toggleSection("brands")}
+                  >
+                    <h3 className="font-semibold text-gray-800">Brands</h3>
+                    {openSections.brands ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                  </div>
 
+                  {openSections.brands && (
+                    <div className="space-y-3 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                      {brands && brands.length > 0 ? (
+                        brands.map((brand) => (
+                          <label key={brand._id} className="flex items-center space-x-3 cursor-pointer group">
+                            <input
+                              type="checkbox"
+                              checked={selectedBrands.includes(brand.name)}
+                              onChange={() => 
+                                setSelectedBrands(prev => 
+                                  prev.includes(brand.name) 
+                                    ? prev.filter(b => b !== brand.name) 
+                                    : [...prev, brand.name]
+                                )
+                              }
+                              className="w-4 h-4 rounded border-gray-300 text-[#cba146] focus:ring-[#cba146]"
+                            />
+                            <span className="text-sm text-gray-700 group-hover:text-black transition-colors">
+                              {brand.name}
+                            </span>
+                          </label>
+                        ))
+                      ) : (
+                        /* Agar brands nahi miltay toh ye message dikhayega */
+                        <p className="text-sm text-gray-400 italic py-2">
+                          No brands available.
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
             {/* Size Filter */}
             <div className="border-b border-gray-200 py-6">
               <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
@@ -525,7 +602,51 @@ export default function CategoryPage() {
               </label>
             ))}
           </div> */}
+            {/* Color Filter */}
+              <div className="border-b border-gray-200 py-6">
+                <div
+                  className="flex justify-between items-center cursor-pointer mb-4"
+                  onClick={() => toggleSection("colors")}
+                >
+                  <h3 className="font-semibold text-gray-800">Colors</h3>
+                  {openSections.colors ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </div>
 
+                {openSections.colors && (
+                  <div className="flex flex-wrap gap-3">
+                    {colorOptions.length > 0 ? (
+                      colorOptions.map((color) => (
+                        <button
+                          key={color}
+                          onClick={() =>
+                            setSelectedColors(prev =>
+                              prev.includes(color)
+                                ? prev.filter(c => c !== color)
+                                : [...prev, color]
+                            )
+                          }
+                          className={`group flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all ${
+                            selectedColors.includes(color)
+                              ? "border-[#cba146] bg-[#cba146] text-white"
+                              : "border-gray-200 hover:border-[#cba146] bg-white text-gray-700"
+                          }`}
+                        >
+                          <span 
+                            className="w-3 h-3 rounded-full border border-gray-300" 
+                            style={{ backgroundColor: color }}
+                          />
+                          <span className="text-xs font-medium capitalize">{color}</span>
+                        </button>
+                      ))
+                    ) : (
+                      /* Jab color available na ho tab ye message dikhega */
+                      <p className="text-sm text-gray-400 italic py-2">
+                        No colors available for these products.
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
 
             <button
               onClick={resetFilters}

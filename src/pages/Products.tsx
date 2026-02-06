@@ -22,10 +22,12 @@ interface Product {
   size?: {
     sizes: string
     price: number
+    colors?: string[] // Colors yaha array mein hain
   }[]
   category?: {
     name: string
-  }
+  },
+  brand?: string;
 }
 
 
@@ -54,8 +56,13 @@ export default function Products() {
 
   const [priceRange, setPriceRange] = useState([initialMinPrice, initialMaxPrice])
   const [selectedSizes, setSelectedSizes] = useState<string[]>([])
+  const [selectedColors, setSelectedColors] = useState<string[]>([]) // Naya state
+  const [colorOptions, setColorOptions] = useState<string[]>([])
   const [sortBy, setSortBy] = useState("newest")
   const [showFilters, setShowFilters] = useState(false)
+  const [brands, setBrands] = useState<any[]>([]); // API se aane wale brands
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  
   // const [openSections, setOpenSections] = useState({
   //   price: true,
   //   brands: true,
@@ -69,6 +76,7 @@ export default function Products() {
     price: true,
     brands: true,
     categories: true,
+    colors: true,
   })
 
   const [sizeOptions, setSizeOptions] = useState<string[]>([])
@@ -111,10 +119,16 @@ export default function Products() {
           setProducts(data.products)
           console.log(data)
           const allSizes = new Set<string>()
+          const allColors = new Set<string>()
           data.products.forEach((p: Product) => {
-            p.size?.forEach(s => allSizes.add(s.sizes.toUpperCase()))
+            p.size?.forEach(s => {
+              if (s.sizes) allSizes.add(s.sizes.toUpperCase())
+              // Response se colors nikaal kar set mein daalna
+              s.colors?.forEach(c => allColors.add(c.toLowerCase()))
+            })
           })
           setSizeOptions(Array.from(allSizes))
+          setColorOptions(Array.from(allColors))
 
         } else {
           console.error("Unexpected products format:", data)
@@ -128,21 +142,22 @@ export default function Products() {
 
   useEffect(() => {
     const filtered = products.filter((product) => {
+      // 1. Price Match (Hamesha check hoga)
       const priceMatch = product.actualPrice >= priceRange[0] && product.actualPrice <= priceRange[1]
-      if (selectedSizes.length === 0) return priceMatch
+      
+      // 2. Size Match (Agar selectedSizes khali hai toh true, warna check karein)
+      const productSizes = product.size?.map(s => s.sizes.toUpperCase()) || []
+      const sizeMatch = selectedSizes.length === 0 || selectedSizes.some(size => productSizes.includes(size))
 
-      // if (!product.size) return false
+      // 3. Color Match (Agar selectedColors khali hai toh true, warna check karein)
+      const productColors = product.size?.flatMap(s => s.colors?.map(c => c.toLowerCase()) || []) || []
+      const colorMatch = selectedColors.length === 0 || selectedColors.some(color => productColors.includes(color))
+      const brandMatch = selectedBrands.length === 0 || 
+        (product.brand && selectedBrands.some(brand => 
+          brand.toLowerCase() === product?.brand?.name?.toLowerCase()
+        ));
 
-      // return priceMatch && selectedSizes.includes(product.size.toUpperCase())
-
-      if (!product.size || product.size.length === 0) return false
-
-      const productSizes = product.size.map(s => s.sizes.toUpperCase())
-      const sizeMatch = selectedSizes.some(size => productSizes.includes(size))
-
-      return priceMatch && sizeMatch
-
-
+          return priceMatch && sizeMatch && colorMatch && brandMatch;
     })
 
     const sorted = filtered.sort((a, b) => {
@@ -159,7 +174,7 @@ export default function Products() {
     })
 
     setFilteredProducts(sorted)
-  }, [products, priceRange, sortBy, selectedSizes])
+  }, [products, priceRange, sortBy, selectedSizes,selectedColors,selectedBrands])
 
   // const handleSizeChange = (size: string) => {
   //     setSelectedSizes(prev => 
@@ -183,6 +198,8 @@ export default function Products() {
       isFeatured: false,
       isNewArrival: false,
     })
+    setSelectedColors([]);
+    setSelectedBrands([]);
   }
 
   useEffect(() => {
@@ -216,6 +233,19 @@ export default function Products() {
     fetchCategories();
   }, [baseUrl, referenceWebsite]);
 
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const res = await fetch(`${baseUrl}/brands`); // Aapka API path
+        const data = await res.json();
+        // Maan lete hain data array mein aa raha hai
+        setBrands(Array.isArray(data) ? data : data.brands || []);
+      } catch (error) {
+        console.error("Error fetching brands:", error);
+      }
+    };
+    fetchBrands();
+  }, [baseUrl]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -282,7 +312,7 @@ export default function Products() {
               <h2 className="text-xl font-bold" style={{ color: "#1B2E4F" }}>
                 Filters
               </h2>
-              <button onClick={() => setShowFilters(false)} className="lg:hidden text-gray-500 hover:text-gray-700 p-1">
+              <button onClick={() => setShowFilters(true)} className="lg:hidden text-gray-500 hover:text-gray-700 p-1">
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -455,7 +485,47 @@ export default function Products() {
               </div>
             </div>
 
+                {/* Brands Filter */}
+              <div className="border-b border-gray-200 py-6">
+                <div 
+                  className="flex justify-between items-center cursor-pointer mb-4"
+                  onClick={() => toggleSection("brands")}
+                >
+                  <h3 className="font-semibold text-gray-800">Brands</h3>
+                  {openSections.brands ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                </div>
 
+                {openSections.brands && (
+                  <div className="space-y-3 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                    {brands && brands.length > 0 ? (
+                      brands.map((brand) => (
+                        <label key={brand._id} className="flex items-center space-x-3 cursor-pointer group">
+                          <input
+                            type="checkbox"
+                            checked={selectedBrands.includes(brand.name)}
+                            onChange={() => 
+                              setSelectedBrands(prev => 
+                                prev.includes(brand.name) 
+                                  ? prev.filter(b => b !== brand.name) 
+                                  : [...prev, brand.name]
+                              )
+                            }
+                            className="w-4 h-4 rounded border-gray-300 text-[#cba146] focus:ring-[#cba146]"
+                          />
+                          <span className="text-sm text-gray-700 group-hover:text-black transition-colors">
+                            {brand.name}
+                          </span>
+                        </label>
+                      ))
+                    ) : (
+                      /* Agar brands nahi miltay toh ye message dikhayega */
+                      <p className="text-sm text-gray-400 italic py-2">
+                        No brands available.
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
             {/* Size Filter */}
             <div className="border-b border-gray-200 py-6">
               <h3 className="font-semibold text-gray-800 mb-4">Size</h3>
@@ -515,7 +585,44 @@ export default function Products() {
             ))}
           </div> */}
 
+              <div className="border-b border-gray-200 py-6">
+              <div 
+                className="flex justify-between items-center cursor-pointer mb-4"
+                onClick={() => setOpenSections(prev => ({...prev, colors: !prev.colors}))}
+              >
+                <h3 className="font-semibold text-gray-800">Colors</h3>
+                {openSections.colors ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </div>
 
+              {openSections.colors && (
+                <div className="flex flex-wrap gap-2">
+                  {colorOptions.map((color) => (
+                    <button
+                      key={color}
+                      onClick={() =>
+                        setSelectedColors(prev =>
+                          prev.includes(color)
+                            ? prev.filter(c => c !== color)
+                            : [...prev, color]
+                        )
+                      }
+                      className={`px-4 py-1.5 rounded-full border text-xs font-medium capitalize transition-all
+                        ${selectedColors.includes(color)
+                          ? "bg-[#1B2E4F] text-white border-[#1B2E4F]"
+                          : "bg-white text-gray-600 border-gray-200 hover:border-[#cba146]"
+                        }`}
+                    >
+                      <span 
+                        className="inline-block w-2 h-2 rounded-full mr-2 border border-gray-200" 
+                        style={{ backgroundColor: color }}
+                      ></span>
+                      {color}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <button
               onClick={resetFilters}
               className="w-full py-3 text-center bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium"

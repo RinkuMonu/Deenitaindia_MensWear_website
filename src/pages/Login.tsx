@@ -260,81 +260,72 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
-
     setIsLoading(true);
 
     try {
       const res = await axios.post(
         `${baseUrl}/auth/login`,
-        {
-          email,
-          password,
-          referenceWebsite,
-        },
+        { email, password, referenceWebsite },
         { withCredentials: true }
       );
 
       const data = res.data;
-
-      console.log("login data : : " , data);
 
       if (data && data.accessToken) {
         // ✅ Save login data
         localStorage.setItem("userData", JSON.stringify(data.userData));
         localStorage.setItem("token", data.accessToken);
 
-        // ✅ Step 1: Check for guest cart
+        // ✅ Cart Sync Logic (As it is)
         const guestCart = JSON.parse(localStorage.getItem("addtocart") || "[]");
-
         if (guestCart.length > 0) {
-          // ✅ Step 2: Send guest cart items to user's backend cart
           await Promise.all(
             guestCart.map((item) =>
               axios.post(
                 `${baseUrl}/cart/add`,
+                { productId: item.id, quantity: item.quantity },
                 {
-                  productId: item.id,
-                  quantity: item.quantity,
-                },
-                {
-                  headers: {
-                    Authorization: `Bearer ${data.accessToken}`,
-                  },
+                  headers: { Authorization: `Bearer ${data.accessToken}` },
                   withCredentials: true,
                 }
               )
             )
           );
-
-          // ✅ Step 3: Clear localStorage guest cart
           localStorage.removeItem("addtocart");
         }
 
-        // ✅ Step 4: Notify + redirect
+        // ✅ REDIRECT LOGIC START
         Swal.fire("Login Successful", "", "success");
-        navigate("/");
-        window.location.reload(); // Refresh to load Redux cart from server
+
+        // 1. Check if there is a redirect URL saved
+        const redirectURL = sessionStorage.getItem("redirectURL");
+
+        if (redirectURL) {
+          // 2. Remove it from session so it doesn't redirect again next time
+          sessionStorage.removeItem("redirectURL");
+          
+          // 3. Navigate to the saved URL
+          navigate(redirectURL);
+        } else {
+          // 4. Default redirect to home
+          navigate("/");
+        }
+        // ✅ REDIRECT LOGIC END
+
+        window.location.reload(); 
       } else {
         Swal.fire("Login failed", data?.msg || "Invalid credentials", "error");
       }
     } catch (err) {
-      Swal.fire(
-        "Login failed",
-        err.response?.data?.msg || "Something went wrong",
-        "error"
-      );
+      Swal.fire("Login failed", err.response?.data?.msg || "Something went wrong", "error");
     }
-
     setIsLoading(false);
-  };
+};
 
-  const handleRegister = async (e) => {
+ const handleRegister = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
-
     setIsLoading(true);
 
     try {
@@ -354,11 +345,31 @@ export default function Login() {
       );
 
       const data = res.data;
+
       if (data && data.accessToken) {
+        // Agar registration ke baad seedha login ho raha hai (Token mil raha hai)
+        localStorage.setItem("userData", JSON.stringify(data.userData));
+        localStorage.setItem("token", data.accessToken);
+
         Swal.fire("Registration Successful", "", "success");
-        setIsLogin(true);
+
+        // ✅ REDIRECT LOGIC START
+        const redirectURL = sessionStorage.getItem("redirectURL");
+        if (redirectURL) {
+          sessionStorage.removeItem("redirectURL");
+          navigate(redirectURL);
+          window.location.reload(); 
+        } else {
+          // Agar redirectURL nahi hai toh normal flow
+          setIsLogin(true); // Login form dikhayein ya dashboard bhejein
+        }
+        // ✅ REDIRECT LOGIC END
+
       } else {
-        Swal.fire("Failed", data?.msg || "Something went wrong", "error");
+        // Agar sirf account bana hai par login alag se karna hai
+        Swal.fire("Registration Successful", "Please login to continue", "success");
+        setIsLogin(true); 
+        // Is case mein redirectURL session mein hi rahega aur handleLogin use sambhal lega
       }
     } catch (err) {
       Swal.fire(
@@ -367,10 +378,8 @@ export default function Login() {
         "error"
       );
     }
-
     setIsLoading(false);
   };
-
   const handleRequestReset = async (e) => {
     e.preventDefault();
 
