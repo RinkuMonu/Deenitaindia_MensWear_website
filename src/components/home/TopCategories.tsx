@@ -85,7 +85,7 @@ export default function TopCategories() {
               <Link to={`/category/${linkUrl(name?.name)}`} className="group block h-full">
 
                 <div
-                  className="bg-white rounded-xl border-2 overflow-hidden h-[68vh] transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                  className="bg-white rounded-xl border-2 overflow-hidden h-[72vh] transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                   style={{ borderColor: "rgba(120, 120, 120, 0.3)" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = "#cba146"

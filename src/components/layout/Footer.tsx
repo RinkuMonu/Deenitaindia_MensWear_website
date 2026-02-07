@@ -81,7 +81,7 @@ export default function Footer() {
      <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
         <div>
-          <img src="/home/Mens-logo.PNG" alt="Logo" className="h-28 mb-4" />
+          <img src="/home/verily-footer.png" alt="footer-Logo" className="h-16  mb-4" />
           <p className="text-sm leading-relaxed text-gray-300 mt-5">
             Premium men’s wear crafted for style, comfort, and confidence. Every outfit is designed to elevate your everyday look.
           </p>
@@ -109,8 +109,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="mailto:info@deenitaindia.com" className="hover:text-[#cba146] transition flex items-center gap-2">
-                ✉️ info@deenitaindia.com
+              <Link to="mailto:info@verilyuniquefashion.com" className="hover:text-[#cba146] transition flex items-center gap-2">
+                ✉️ info@verilyuniquefashion.com
               </Link>
             </li>
           </ul>
@@ -171,7 +171,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="relative z-10 border-t border-white/10 text-center py-4 text-sm text-gray-400">
-        © {new Date().getFullYear()} Deenita India. All rights reserved.
+        © {new Date().getFullYear()} Verily Unique Private Limited. All rights reserved.
       </div>
     </footer>
   );

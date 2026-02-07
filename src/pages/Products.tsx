@@ -271,7 +271,7 @@ export default function Products() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white"
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146] bg-white"
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
@@ -433,7 +433,7 @@ export default function Products() {
                           const value = Number(e.target.value) || 0
                           if (value <= priceRange[1]) setPriceRange([value, priceRange[1]])
                         }}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146] text-sm"
                         placeholder="Min"
                       />
                     </div>
@@ -449,7 +449,7 @@ export default function Products() {
                           const value = Number(e.target.value) || initialMaxPrice
                           if (value >= priceRange[0]) setPriceRange([priceRange[0], value])
                         }}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146] text-sm"
                         placeholder="Max"
                       />
                     </div>
@@ -475,7 +475,7 @@ export default function Products() {
                         ...prev,
                         [filter.id]: !prev[filter.id as keyof typeof specialFilters]
                       }))}
-                      className="w-4 h-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500 cursor-pointer"
+                      className="w-4 h-4 rounded border-gray-300 text-[#cba146] focus:ring-[#cba146] cursor-pointer"
                     />
                     <span className="text-sm text-gray-700 group-hover:text-black transition-colors">
                       {filter.label}
@@ -565,7 +565,7 @@ export default function Products() {
                   <div
                     className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
                       selectedSizes.includes(size)
-                        ? "border-purple-600 bg-purple-600"
+                        ? "border-[#cba146] bg-[#cba146]"
                         : "border-gray-300 group-hover:border-purple-400"
                     }`}
                   >

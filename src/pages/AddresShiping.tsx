@@ -656,7 +656,7 @@ useEffect(() => {
                         Select Address
                       </label>
                       <select
-                        className="w-full rounded-lg border border-gray-300 px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                        className="w-full rounded-lg border border-gray-300 px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]"
                         value={selectedAddress}
                         onChange={handleAddressChange}
                         style={{ focusRingColor: "#cba146" }}
@@ -722,7 +722,7 @@ useEffect(() => {
                                 errors.name
                                   ? "border-red-500"
                                   : "border-gray-300"
-                              } px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500`}
+                              } px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]`}
                               value={userdata.name}
                               onChange={handleonChange}
                               onBlur={() => handleBlur("name")}
@@ -745,7 +745,7 @@ useEffect(() => {
                                 errors.phone
                                   ? "border-red-500"
                                   : "border-gray-300"
-                              } px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500`}
+                              } px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]`}
                               value={userdata.phone}
                               onChange={(e) => {
                                 const val = e.target.value
@@ -779,7 +779,7 @@ useEffect(() => {
                               errors.email
                                 ? "border-red-500"
                                 : "border-gray-300"
-                            } px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500`}
+                            } px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]`}
                             value={userdata.email}
                             onChange={handleonChange}
                             onBlur={() => handleBlur("email")}
@@ -803,7 +803,7 @@ useEffect(() => {
                                 errors.pinCode
                                   ? "border-red-500"
                                   : "border-gray-300"
-                              } px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500`}
+                              } px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]`}
                               value={pinCode}
                               onChange={handlePinCodeChange}
                               onBlur={() => handleBlur("pinCode")}
@@ -851,7 +851,7 @@ useEffect(() => {
                               errors.address
                                 ? "border-red-500"
                                 : "border-gray-300"
-                            } px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500`}
+                            } px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]`}
                             rows={3}
                             value={userdata.address}
                             onChange={handleonChange}
@@ -912,7 +912,7 @@ useEffect(() => {
                           value={method.id}
                           checked={selectedShipping === method.id}
                           onChange={(e) => setSelectedShipping(e.target.value)}
-                          className="h-4 w-4 text-purple-600 focus:ring-purple-500"
+                          className="h-4 w-4 text-[#cba146] focus:ring-[#cba146]"
                           style={{ accentColor: "#cba146" }}
                         />
                         <div className="ml-3">
@@ -942,7 +942,7 @@ useEffect(() => {
                         value="upi1"
                         checked={selectedPayment === "upi1"}
                         onChange={(e) => setSelectedPayment(e.target.value)}
-                        className="h-4 w-4 text-purple-600 focus:ring-purple-500"
+                        className="h-4 w-4 text-[#cba146] focus:ring-[#cba146]"
                         style={{ accentColor: "#cba146" }}
                       />
                       <div className="ml-3">
@@ -961,7 +961,7 @@ useEffect(() => {
                         value="upi2"
                         checked={selectedPayment === "upi2"}
                         onChange={(e) => setSelectedPayment(e.target.value)}
-                        className="h-4 w-4 text-purple-600 focus:ring-purple-500"
+                        className="h-4 w-4 text-[#cba146] focus:ring-[#cba146]"
                         style={{ accentColor: "#cba146" }}
                       />
                       <div className="ml-3">
@@ -982,7 +982,7 @@ useEffect(() => {
                     Order Notes (Optional)
                   </label>
                   <textarea
-                    className="w-full rounded-lg border border-gray-300 px-3 py-2.5 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]"
                     rows={3}
                     placeholder="Notes about your order, e.g. special notes for delivery"
                   />
@@ -1191,7 +1191,7 @@ useEffect(() => {
                     <div className="mt-3 flex gap-2">
                       <input
                         type="text"
-                        className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                        className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]"
                         placeholder="Enter coupon code"
                       />
                       <button
