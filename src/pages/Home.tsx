@@ -2,7 +2,7 @@
 import Banner from "../components/home/Banner";
 import TrendingProducts from "../components/home/TrendingProducts";
 import Arrivals from "../components/home/Arrivals";
-// import DealOfTheDay from "../components/home/DealOfTheDay";
+import DealOfTheDay from "../components/home/DealOfTheDay";
 
 import TopCategories from "../components/home/TopCategories";
 // import Newsletter from "../components/home/Newsletter";
@@ -88,7 +88,7 @@ export default function Home({ addToCart }: HomeProps) {
       <Arrivals addToCart={addToCart} />
       <BannerSection1 />
       <Popular />
-      {/* <DealOfTheDay addToCart={addToCart} /> */}
+      <DealOfTheDay addToCart={addToCart} />
       <TopCategories />
       {/* <HowItWorks /> */}
       {/* <DeliveryFeatures /> */}

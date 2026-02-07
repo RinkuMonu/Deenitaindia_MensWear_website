@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Lock,
   User,
@@ -996,7 +997,7 @@ export default function Login() {
                         <button
                           type="button"
                           onClick={() => setShowForgotPassword(true)}
-                          className="text-sm text-[#cba146]  hover:text-[#cba146] "
+                          className="text-sm text-[#cba146]  hover:text-[#cba146]"
                         >
                           Forgot password?
                         </button>
@@ -1042,7 +1043,7 @@ export default function Login() {
                     </button>
                   </div>
 
-
+<Link href="/" className="text-gray-300">login with otp</Link>
 
                 </motion.div>
               )}
