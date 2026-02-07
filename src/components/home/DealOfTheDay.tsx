@@ -90,13 +90,13 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
   useEffect(() => {
     const interval = setInterval(() => {
       const updatedCountdowns: { [key: string]: Countdown } = {};
-      
+
       products.forEach(product => {
         if (product.dealExpiresAt) {
           updatedCountdowns[product._id] = calculateCountdown(product.dealExpiresAt);
         }
       });
-      
+
       setCountdowns(updatedCountdowns);
     }, 1000);
 
@@ -209,7 +209,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
 
       const existingProductIndex = existingCart.findIndex(
         // (item: any) => item.id === product._id
-          (item: { id: string }) => item.id === product._id
+        (item: { id: string }) => item.id === product._id
 
       );
 
@@ -277,12 +277,18 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
+if (!products || products.length === 0) {
+  return null;
+}
 
+if (dealProducts.length === 0) {
+  return null;
+}
   return (
-    <section className="py-16 px-10 bg-[#efeeee]">
+    <section className="py-16 px-10 ">
       <div className="max-w-7xl mx-auto">
         {/* Header with Countdown Timer */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-6">
             <h2
               className="text-4xl md:text-5xl font-bold"
@@ -300,7 +306,27 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Don't miss out on our exclusive daily deals! Special discounts available for a limited time only.
           </p>
+        </div> */}
+        <div className="text-left mb-12">
+          <div className="flex flex-col md:flex-row items-center justify-left gap-4 mb-6">
+            <h2
+              className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent drop-shadow-lg"
+              style={{ backgroundImage: 'linear-gradient(135deg, #1B2E4F 0%, #334155 100%)' }}
+            >
+              Deal Of The <span style={{ color: "#cba146", textShadow: '2px 2px 4px rgba(203,161,70,0.3)' }}>Day</span>
+            </h2>
+            <div className="flex items-center gap-3 bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-3 rounded-full shadow-xl border-2 border-white/30 backdrop-blur-sm hover:scale-105 transition-all duration-300">
+              <Clock size={20} className="drop-shadow-lg animate-pulse" />
+              <span className="text-sm font-bold uppercase tracking-wide">
+                Limited Time Offer
+              </span>
+            </div>
+          </div>
+          <p className="text-lg text-gray-600 max-w-2xl font-medium leading-relaxed drop-shadow-sm">
+            🔥 Exclusive daily deals you won't find anywhere else! Limited time discounts on premium products.
+          </p>
         </div>
+
 
         {/* Products Slider */}
         {dealProducts.length > 0 ? (
@@ -347,7 +373,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
             </button>
 
             {/* Slider Container */}
-            <div className="overflow-hidden rounded-2xl">
+            <div className="overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{
@@ -374,14 +400,14 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                           return (
                             <div
                               key={product._id}
-                              className="group relative bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden border-2 border-transparent hover:border-purple-200"
+                              className="group relative bg-white  overflow-hidden border-2 border-transparent hover:border-purple-200"
                               onMouseEnter={() => setHoveredProduct(product._id)}
                               onMouseLeave={() => setHoveredProduct(null)}
                             >
                               {/* Countdown Timer */}
                               {product.dealExpiresAt && (
-                                <div className="absolute top-4 left-4 z-20">
-                                  <div className={`text-white text-xs font-bold px-3 py-2 rounded-full ${isExpired ? 'bg-red-500' : 'bg-gradient-to-r from-red-500 to-pink-500'}`}>
+                                <div className="absolute top-0 left-0 z-20">
+                                  <div className={`text-white text-xs font-bold px-3 py-2 ${isExpired ? 'bg-red-500' : 'bg-gradient-to-r from-red-500 to-pink-500'}`}>
                                     {isExpired ? (
                                       "EXPIRED"
                                     ) : (
@@ -406,7 +432,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                 {/* Discount Badge */}
                                 {product.discount && (
                                   <div
-                                    className="absolute top-4 right-4 text-white text-xs font-bold px-3 py-2 rounded-full z-10"
+                                    className="absolute top-0 right-0 text-white text-xs font-bold px-3 py-2 z-10"
                                     style={{ background: "#cba146" }}
                                   >
                                     {product.discount}% OFF
@@ -414,7 +440,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                 )}
 
                                 {/* Action Buttons */}
-                                <div className="absolute top-16 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                                {/* <div className="absolute top-16 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                                   <button
                                     onClick={() => handleAddToCart(product)}
                                     className="bg-white rounded-full p-2 shadow-lg transition-all hover:text-white"
@@ -475,10 +501,10 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                   >
                                     <Heart size={18} />
                                   </button>
-                                </div>
+                                </div> */}
 
                                 {/* Add to Cart Overlay */}
-                                {product.stock <= 0 ? (
+                                {/* {product.stock <= 0 ? (
                                   <button
                                     className={`absolute bottom-0 left-0 w-full text-white py-3 text-center font-semibold transition-all duration-300 z-20 ${
                                       hoveredProduct === product._id
@@ -502,7 +528,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                                   >
                                     ADD TO CART
                                   </button>
-                                )}
+                                )} */}
                               </div>
 
                               {/* Product Info */}
@@ -556,7 +582,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
             </div>
 
             {/* Slider Dots */}
-            <div className="flex justify-center mt-8 space-x-2">
+            {/* <div className="flex justify-center mt-8 space-x-2">
               {Array.from({ length: maxSlides }).map((_, index) => (
                 <button
                   key={index}
@@ -572,7 +598,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                   }}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
         ) : (
           <div className="text-center py-12">
@@ -651,9 +677,8 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
           onClick={closeModal}
         >
           <div
-            className={`relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${
-              isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
-            }`}
+            className={`relative bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"
+              }`}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="sticky top-0 z-10 bg-white p-6 border-b flex justify-between items-center">
@@ -783,7 +808,7 @@ const DealOfTheDay = ({ addToCart }: { addToCart: (product: Product) => void }) 
                   <button
                     onClick={() => handleAddToCart(selectedProduct)}
                     className="flex-1 text-white bg-[#787878] font-semibold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2 hover:shadow-lg"
-                    
+
                   >
                     <ShoppingCart size={18} />
                     <span>Add to Cart</span>

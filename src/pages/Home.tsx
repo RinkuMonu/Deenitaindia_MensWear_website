@@ -23,6 +23,7 @@ import Casual from "../components/home/Casual";
 import TreckPents from "../components/home/TreckPents";
 import BannerSection1 from "../components/banner/Banner1";
 import BannerSection2 from "../components/banner/Banner2";
+import Activeuser from "../components/home/Activeuser";
 
 interface HomeProps {
   addToCart: (product: Product) => void;
@@ -90,6 +91,7 @@ export default function Home({ addToCart }: HomeProps) {
       <Popular />
       <DealOfTheDay addToCart={addToCart} />
       <TopCategories />
+      <Activeuser />
       {/* <HowItWorks /> */}
       {/* <DeliveryFeatures /> */}
       {/* <FAQComponent /> */}

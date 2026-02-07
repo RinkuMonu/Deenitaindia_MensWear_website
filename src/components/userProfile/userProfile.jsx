@@ -208,7 +208,7 @@ export const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className=" bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Profile Header */}
         <div className="text-center mb-12">
@@ -229,7 +229,7 @@ export const ProfilePage = () => {
             onClick={() => setActiveTab("profile")}
             className={`py-4 px-6 font-medium text-md flex items-center space-x-2 ${
               activeTab === "profile"
-                ? "border-b-2 border-[#971D89] text-[#971D89]"
+                ? "border-b-2 border-[#f6b908] text-[#f6b908]"
                 : "text-gray-500 hover:text-gray-700"
             }`}
           >
@@ -240,7 +240,7 @@ export const ProfilePage = () => {
             onClick={() => setActiveTab("orders")}
             className={`py-4 px-6 font-medium text-md flex items-center space-x-2 ${
               activeTab === "orders"
-                ? "border-b-2 border-[#971D89] text-[#971D89]"
+                ? "border-b-2 border-[#f6b908] text-[#f6b908]"
                 : "text-gray-500 hover:text-gray-700"
             }`}
           >
@@ -467,7 +467,8 @@ export const ProfilePage = () => {
                   <div className="pt-4">
                     <button
                       onClick={() => setIsEditing(true)}
-                      className="px-4 py-2 bg-[#971D89] text-white rounded-lg hover:bg-[#7e176f] transition flex items-center justify-center space-x-2"
+                      style={{background: "linear-gradient(135deg, rgb(184, 134, 11), rgb(255, 193, 7))"}}
+                      className="px-4 py-2 text-white rounded-lg hover:bg-[#7e176f] transition flex items-center justify-center space-x-2"
                     >
                       <FaEdit className="h-4 w-4" />
                       <span>Edit Profile</span>

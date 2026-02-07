@@ -230,10 +230,6 @@
 //   );
 // };
 
-
-
-
-
 import { useEffect, useState } from "react";
 import {
   FaBox,
@@ -246,6 +242,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Copy, Check } from "lucide-react";
 
 export const OrderPage = () => {
   const [orders, setOrders] = useState([]);
@@ -258,6 +255,8 @@ export const OrderPage = () => {
   const [trackError, setTrackError] = useState("");
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const baseUrliMAGE = import.meta.env.VITE_API_BASE_URL_IMAGE;
+  const [copiedOrderId, setCopiedOrderId] = useState(null);
+
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -306,7 +305,7 @@ export const OrderPage = () => {
 
       const data = await response.json();
       const foundOrder = data?.orders?.find(
-        (order) => order._id === trackOrderId.trim()
+        (order) => order._id === trackOrderId.trim(),
       );
 
       if (foundOrder) {
@@ -345,7 +344,7 @@ export const OrderPage = () => {
   const OrderStatusTracker = ({ order }) => {
     const statusFlow = ["pending", "processing", "shipped", "delivered"];
     const currentStatusIndex = statusFlow.indexOf(order?.status?.toLowerCase());
-    
+
     const getStatusIcon = (status, index) => {
       if (index < currentStatusIndex) {
         return "✓"; // Completed
@@ -376,13 +375,15 @@ export const OrderPage = () => {
           <FaTruck className="mr-2 text-blue-600" />
           Order Status Tracker
         </h3>
-        
+
         <div className="relative">
           {/* Progress Line */}
-          <div className="absolute left-8 top-4 h-0.5 w-[calc(100%-4rem)] bg-gray-200">
-            <div 
+          <div className="absolute left-4 top-4 w-0.5 h-[calc(100%-4rem)] bg-gray-200">
+            <div
               className={`h-full bg-green-500 transition-all duration-500`}
-              style={{ width: `${(currentStatusIndex / (statusFlow.length - 1)) * 100}%` }}
+              style={{
+                width: `${(currentStatusIndex / (statusFlow.length - 1)) * 100}%`,
+              }}
             ></div>
           </div>
 
@@ -390,13 +391,19 @@ export const OrderPage = () => {
           <div className="relative space-y-8">
             {statusFlow.map((status, index) => (
               <div key={status} className="flex items-start">
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center font-semibold text-sm z-10 ${getStatusColorClass(status, index)}`}>
+                <div
+                  className={`flex-shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center font-semibold text-sm z-10 ${getStatusColorClass(status, index)}`}
+                >
                   {getStatusIcon(status, index)}
                 </div>
                 <div className="ml-4 flex-1">
-                  <p className={`font-medium capitalize ${
-                    index <= currentStatusIndex ? "text-gray-900" : "text-gray-500"
-                  }`}>
+                  <p
+                    className={`font-medium capitalize ${
+                      index <= currentStatusIndex
+                        ? "text-gray-900"
+                        : "text-gray-500"
+                    }`}
+                  >
                     {status}
                   </p>
                   {index === currentStatusIndex && (
@@ -429,11 +436,14 @@ export const OrderPage = () => {
               </p>
             </div>
             <div>
-              <h4 className="font-medium text-gray-900 mb-2">Shipping Address</h4>
+              <h4 className="font-medium text-gray-900 mb-2">
+                Shipping Address
+              </h4>
               <p className="text-sm text-gray-600 flex items-start">
                 <FaMapMarkerAlt className="flex-shrink-0 mt-0.5 mr-2 text-gray-400" />
-                {order.shippingAddress.address}, {order.shippingAddress.state}, 
-                {order.shippingAddress.country} - {order.shippingAddress.pinCode}
+                {order.shippingAddress.address}, {order.shippingAddress.state},
+                {order.shippingAddress.country} -{" "}
+                {order.shippingAddress.pinCode}
               </p>
             </div>
           </div>
@@ -465,14 +475,15 @@ export const OrderPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div className="  sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header with Track Order Button */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
           <h1 className="text-3xl font-bold text-gray-900">Your Orders</h1>
           <button
             onClick={() => setShowTrackOrder(true)}
-            className="px-6 py-3 bg-[#971D89] text-white rounded-lg hover:bg-[#7e176f] transition flex items-center space-x-2"
+            style={{background: "linear-gradient(135deg, rgb(184, 134, 11), rgb(255, 193, 7))",}}
+            className="px-6 py-3  text-white rounded-lg `transition flex items-center space-x-2"
           >
             <FaSearch className="h-4 w-4" />
             <span>Track Your Order</span>
@@ -486,7 +497,7 @@ export const OrderPage = () => {
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-                    <FaSearch className="mr-3 text-[#971D89]" />
+                    <FaSearch className="mr-3 text-[#f1b508]" />
                     Track Your Order
                   </h2>
                   <button
@@ -498,8 +509,18 @@ export const OrderPage = () => {
                     }}
                     className="text-gray-400 hover:text-gray-600 transition"
                   >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -519,7 +540,8 @@ export const OrderPage = () => {
                     <button
                       type="submit"
                       disabled={trackLoading}
-                      className="px-6 py-3 bg-[#971D89] text-white rounded-lg hover:bg-[#7e176f] transition disabled:opacity-50 flex items-center space-x-2"
+                        style={{background: "linear-gradient(135deg, rgb(184, 134, 11), rgb(255, 193, 7))",}}
+                      className="px-6 py-3 text-white rounded-lg hover:bg-[#7e176f] transition disabled:opacity-50 flex items-center space-x-2"
                     >
                       {trackLoading ? (
                         <FaSpinner className="animate-spin" />
@@ -554,12 +576,13 @@ export const OrderPage = () => {
                               Order #{order._id.slice(-8)}
                             </p>
                             <p className="text-sm text-gray-600">
-                              {formatDate(order.createdAt)} • ₹{order.totalAmount}
+                              {formatDate(order.createdAt)} • ₹
+                              {order.totalAmount}
                             </p>
                           </div>
                           <span
                             className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                              order.status
+                              order.status,
                             )}`}
                           >
                             {order.status.toUpperCase()}
@@ -576,7 +599,7 @@ export const OrderPage = () => {
 
         {/* Orders List */}
         {orders?.length === 0 ? (
-          <div className="min-h-screen flex items-center justify-center">
+          <div className=" flex items-center justify-center">
             <div className="text-center">
               <FaBox className="mx-auto text-5xl text-gray-400 mb-4" />
               <h2 className="text-2xl font-semibold text-gray-700">
@@ -596,11 +619,30 @@ export const OrderPage = () => {
               >
                 <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                   <div className="flex items-center space-x-4">
-                    <div>
-                      <p className="text-sm text-gray-500">Order ID</p>
-                      <p className="font-medium text-gray-900">{order?._id}</p>
-                    </div>
-                    <div>
+                    <div
+  className="flex items-center gap-2 p-1 -m-1 rounded hover:bg-gray-100 cursor-pointer transition-all duration-200 group"
+  onClick={() => {
+    if (order?._id) {
+      navigator.clipboard.writeText(order._id);
+      setCopiedOrderId(order._id);
+      setTimeout(() => setCopiedOrderId(null), 2000); // Show check for 2 seconds
+    }
+  }}
+>
+  <p className="text-sm text-gray-500">Order ID</p>
+  <div className="flex items-center gap-2">
+    <p className="font-medium text-gray-900 text-sm truncate">
+      {order?._id}
+    </p>
+    {copiedOrderId === order?._id ? (
+      <Check className="w-4 h-4 text-green-600 animate-pulse" />
+    ) : (
+      <Copy className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors" />
+    )}
+  </div>
+</div>
+
+                    <div className="flex items-center gap-2">
                       <p className="text-sm text-gray-500">Date</p>
                       <div className="flex items-center">
                         <FaCalendarAlt className="text-gray-400 mr-2" />
@@ -613,7 +655,7 @@ export const OrderPage = () => {
                   <div>
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                        order?.status
+                        order?.status,
                       )}`}
                     >
                       {order?.status.toUpperCase()}
@@ -674,7 +716,9 @@ export const OrderPage = () => {
                     <div className="flex items-center">
                       <FaTruck className="text-gray-400 mr-2" />
                       <div>
-                        <p className="text-sm text-gray-500">Shipping Address</p>
+                        <p className="text-sm text-gray-500">
+                          Shipping Address
+                        </p>
                         <p className="text-sm text-gray-900">
                           {order.shippingAddress.address},{" "}
                           {order.shippingAddress.state},{" "}

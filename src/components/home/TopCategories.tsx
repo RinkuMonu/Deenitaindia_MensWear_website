@@ -44,7 +44,7 @@ export default function TopCategories() {
   }, [baseUrl, referenceWebsite])
 
   return (
-    <section className="pt-20 border-b-2 px-4 bg-white">
+    <section className="pt-20 border-b-2 px-4 bg-[#efeeee]">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -68,9 +68,8 @@ export default function TopCategories() {
 
         {/* ✅ Slider */}
         <Swiper
-          modules={[Navigation, Autoplay]}
+          modules={[Autoplay]}
           spaceBetween={24}
-          navigation
           autoplay={{ delay: 3500, disableOnInteraction: false }}
           breakpoints={{
             320: { slidesPerView: 1.2 },
@@ -118,16 +117,16 @@ export default function TopCategories() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3" style={{ color: "#1B2E4F" }}>
+                    <h3 className="text-md font-bold mb-3" style={{ color: "#1B2E4F" }}>
                       {name?.name}
                     </h3>
 
                     <div
-                      className="w-12 h-0.5 rounded-full mb-4 transition-all duration-300 group-hover:w-20"
+                      className="w-12 h-0.5 rounded-full mb-1 transition-all duration-300 group-hover:w-20"
                       style={{ background: "#cba146" }}
                     />
 
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                    <p className="text-gray-600 text-[12px] mb-4 line-clamp-2">
                       {name?.description
                         ? name?.description
                         : `Explore our premium collection of ${name?.name?.toLowerCase()} with authentic craftsmanship and quality materials.`}
