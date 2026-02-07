@@ -1,6 +1,7 @@
 "use client";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaPinterestP } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { PiCoatHangerDuotone } from "react-icons/pi";
 
 
@@ -103,13 +104,17 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold text-lg mb-4 relative after:absolute after:left-0 after:-bottom-1 after:w-10 after:h-[2px] after:bg-[#cba146]">Contact</h3>
           <ul className="space-y-2 text-sm text-gray-300">
+          <li className="hover:text-[#cba146] transition flex items-start gap-2">
+  📍
+  <div className="leading-snug">
+  <ul>  <li><p>Vaishali Nagar, 
+      Jaipur</p></li>
+    <li><p className="pt-2">Agra Road, Jaipur</p></li></ul>
+  </div>
+</li>
+
             <li>
-              <Link to="tel:01414511098" className="hover:text-[#cba146] transition flex items-center gap-2">
-                📞 0141-451 1098
-              </Link>
-            </li>
-            <li>
-              <Link to="mailto:info@verilyuniquefashion.com" className="hover:text-[#cba146] transition flex items-center gap-2">
+              <Link to="mailto:info@verilyuniquefashion.com" className="hover:text-[#cba146] transition flex items-center gap-2 pt-4">
                 ✉️ info@verilyuniquefashion.com
               </Link>
             </li>
@@ -118,17 +123,34 @@ export default function Footer() {
 
         <div>
           <h3 className="text-white font-semibold text-lg mb-4 relative after:absolute after:left-0 after:-bottom-1 after:w-10 after:h-[2px] after:bg-[#cba146]">Follow Us</h3>
-          <div className="flex items-center gap-4">
-            <Link to="/" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cba146] hover:text-black transition">
-              <FaInstagram />
-            </Link>
-            <Link to="/" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cba146] hover:text-black transition">
-              <FaFacebookF />
-            </Link>
-            <Link to="/" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cba146] hover:text-black transition">
-              <FaTwitter />
-            </Link>
-          </div>
+      <div className="flex items-center gap-4">
+  <Link
+    to="https://www.instagram.com/verilyuniquefashion/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cba146] hover:text-black transition"
+  >
+    <FaInstagram />
+  </Link>
+
+  <Link
+    to="https://x.com/verilyunique"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cba146] hover:text-black transition"
+  >
+    <FaXTwitter />
+  </Link>
+
+  <Link
+    to="https://in.pinterest.com/verilyunique/_pins/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cba146] hover:text-black transition"
+  >
+    <FaPinterestP />
+  </Link>
+</div>
         </div>
       </div>
 
