@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
   Lock,
   User,
@@ -11,12 +10,18 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import LoginOtpModal from "../components/LoginOtpModal";
+
 // import { GoogleLogin } from "@react-oauth/google";
 
 
 export default function Login() {
+
+  const [open, setOpen] = useState(false);
+
+
   const [isLogin, setIsLogin] = useState(true);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -997,7 +1002,7 @@ export default function Login() {
                         <button
                           type="button"
                           onClick={() => setShowForgotPassword(true)}
-                          className="text-sm text-[#cba146]  hover:text-[#cba146]"
+                          className="text-sm text-[#cba146]  hover:text-[#cba146] "
                         >
                           Forgot password?
                         </button>
@@ -1043,7 +1048,16 @@ export default function Login() {
                     </button>
                   </div>
 
-<Link href="/" className="text-gray-300">login with otp</Link>
+
+{/* <Link to="/" className="text-sm text-gray-600 hover:text-[#cba146] underline float-end">Login with OTP</Link> */}
+ <button
+        onClick={() => setOpen(true)}
+        className="underline float-end text-sm text-[#cba146]  hover:text-[#cba146] "
+      >
+        Login with otp
+      </button>
+
+      <LoginOtpModal isOpen={open} onClose={() => setOpen(false)} />
 
                 </motion.div>
               )}
