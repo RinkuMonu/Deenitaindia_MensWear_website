@@ -2,10 +2,8 @@
 import { Link } from "react-router-dom";
 import { FaInstagram, FaPinterestP } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { PiCoatHangerDuotone } from "react-icons/pi";
-
-
 
 export default function Footer() {
 
@@ -158,7 +156,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#cba146] hover:text-black transition"
             >
-              <FaFacebook />
+           <FaFacebookF />
             </Link>
           </div>
         </div>
