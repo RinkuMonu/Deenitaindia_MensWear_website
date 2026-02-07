@@ -1074,10 +1074,10 @@ const TrackOrder = () => {
                   <h4 className="font-semibold text-gray-900 mb-1">Email Us</h4>
                   <p className="text-gray-600 text-sm">
                     <a
-                      href="mailto:shreeshyamblockprints.1@gmail.com"
+                      href="mailto:info@verilyuniquefashion.com"
                       className="hover:underline"
                     >
-                      shreeshyamblockprints.1@gmail.com
+                      info@verilyuniquefashion.com
                     </a>
                   </p>
                 </div>

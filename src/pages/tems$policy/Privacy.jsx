@@ -78,7 +78,7 @@ const privacySections = [
     title: "5. Communications and Grievances",
     content: [
       "If you do not wish to receive promotional emails or wish to report any privacy concerns, please contact us at:",
-      "Email: support@varily.com"
+      "Email: info@verilyuniquefashion.com"
     ]
   },
   {
