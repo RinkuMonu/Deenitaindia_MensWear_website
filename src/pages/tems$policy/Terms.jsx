@@ -94,7 +94,7 @@ const sectionContents = [
   [
     "If you have any questions regarding these Terms of Service, please contact us at ",
     "Email: info@verilyuniquefashion.com",
-    // "Address: Verily Unique Fashions",
+    "Address: Vaishali Nagar & Agra Road, Jaipur, Rajasthan",
     "Phone: 0141-4511098",
   ],
 ];
