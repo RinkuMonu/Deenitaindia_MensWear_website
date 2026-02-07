@@ -829,7 +829,7 @@ export default function CancellationPolicy() {
         <h3 className="text-lg font-semibold text-[#393838]">2. Cancelling an Order After Shipping</h3>
         <p className="text-justify text-gray-700 leading-relaxed">
           If your order has already been shipped but not yet delivered, please contact us immediately at
-          <a href="mailto:info@verilyunique.com" className="text-blue-600"> info@verilyunique.com </a> 
+          <a href="mailto:info@verilyuniquefashion.com" className="text-blue-600"> info@verilyunique.com </a> 
           Once the package is returned to us, we will process a refund minus any applicable shipping charges.
         </p>
 

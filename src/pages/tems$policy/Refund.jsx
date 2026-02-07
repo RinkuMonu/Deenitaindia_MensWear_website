@@ -17,7 +17,7 @@ export default function ExchangeReturn() {
 
   <h3 className="text-lg font-semibold text-[#393838]">1. Replacement / Refund for Defective or Incorrect Items</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-   If you receive a defective or incorrect product, please notify us within 48 hours of delivery by emailing <a href="mailto:support@verilyuniquefashions.com" className="text-blue-600"> support@verilyuniquefashions.com</a> The item must be returned within 7 days of delivery. Once we receive and inspect it, we will either replace it (if available) or issue a refund, according to your preference.
+   If you receive a defective or incorrect product, please notify us within 48 hours of delivery by emailing <a href="mailto:info@verilyuniquefashion.com" className="text-blue-600"> support@verilyuniquefashions.com</a> The item must be returned within 7 days of delivery. Once we receive and inspect it, we will either replace it (if available) or issue a refund, according to your preference.
   </p>
   <p className="text-justify text-gray-700 leading-relaxed">
     <strong>Return Conditions:</strong> 
@@ -55,7 +55,7 @@ If replacement stock is unavailable, we may issue store credit or a full refund.
 
   <h3 className="text-lg font-semibold text-[#393838]">4. Cancellations</h3>
   <p className="text-justify text-gray-700 leading-relaxed">
-   Orders can be cancelled before shipping by emailing <a href="mailto:support@verilyunique@gmail.com" className="text-blue-600"> support@verilyunique.com</a>.
+   Orders can be cancelled before shipping by emailing <a href="mailto:info@verilyuniquefashion.com" className="text-blue-600"> support@verilyunique.com</a>.
 If the order has already shipped, it may be returned according to our Return Process above.
   </p>
 

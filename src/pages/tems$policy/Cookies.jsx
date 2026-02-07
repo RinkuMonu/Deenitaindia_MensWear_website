@@ -76,7 +76,7 @@
 //             <p>For more general information on cookies, please read the <a href="https://www.cookiespolicy.com">Cookies Policy</a>.</p>
 //             <p>If you still have questions, you can contact us using the following contact methods:</p>
 //             <ul className="terms-list">
-//               <li>Email: <a href="mailto:Info@Finunique Small Pvt Ltd.in">Info@JAJAMtech.in</a></li>
+//               <li>Email: <a href="mailto:Info@Finunique Small Pvt Ltd.in">info@verilyuniquefashion.com</a></li>
 //             </ul>
 //           </div>
 //         </div>
@@ -203,7 +203,7 @@ const Cookies = () => {
                       <p className="text-xs text-gray-600">Contact our support</p>
                     </div>
                     <a 
-                      href="mailto:info@JAJAMtech.in" 
+                      href="mailto:info@verilyuniquefashion.com" 
                       className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full px-3 py-1 text-sm transition-colors"
                     >
                       Email Us
@@ -389,10 +389,10 @@ const Cookies = () => {
                       <p className="text-gray-600 mb-4">You can contact us using the following contact methods:</p>
                       <div className="flex flex-col sm:flex-row gap-3">
                         <a 
-                          href="mailto:info@JAJAMtech.in" 
+                          href="mailto:info@verilyuniquefashion.com" 
                           className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                         >
-                          <span>Email: info@JAJAMtech.in</span>
+                          <span>Email: info@verilyuniquefashion.com</span>
                         </a>
                         <a 
                           href="/contact" 

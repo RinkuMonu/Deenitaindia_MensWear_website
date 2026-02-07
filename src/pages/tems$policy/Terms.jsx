@@ -93,7 +93,7 @@ const sectionContents = [
   ],
   [
     "If you have any questions regarding these Terms of Service, please contact us at ",
-    "Email: info@verilyuniquefashions.com",
+    "Email: info@verilyuniquefashion.com",
     // "Address: Verily Unique Fashions",
     "Phone: 0141-4511098",
   ],
