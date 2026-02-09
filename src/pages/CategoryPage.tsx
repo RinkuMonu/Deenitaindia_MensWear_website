@@ -54,7 +54,7 @@ export default function CategoryPage() {
   const [openSections, setOpenSections] = useState({
     price: true,
     sizes: true,
-    categories: true,
+    categories: false,
     colors: true,
     brands: true,
   })
