@@ -93,6 +93,7 @@ const shippingMethods: ShippingMethod[] = [
 function AddressShipping({ cartItems }) {
   console.log(cartItems, "cart Item");
   const [isNewAddress, setIsNewAddress] = useState(false);
+  const [selectedAddressObj, setSelectedAddressObj] = useState<any>(null);
   const [selectedAddress, setSelectedAddress] = useState<string>("");
   const [selectedShipping, setSelectedShipping] = useState<string>("1");
   const [selectedPayment, setSelectedPayment] = useState<string>("");
@@ -144,7 +145,7 @@ function AddressShipping({ cartItems }) {
     city: "",
     address: "",
   });
-
+  const [addresses, setAddresses] = useState([]);
   const [coupons, setCoupons] = useState([]);
 
   console.log(coupons);
@@ -303,13 +304,52 @@ useEffect(() => {
 
   const handleAddressChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-    setIsNewAddress(value === "new");
+
     setSelectedAddress(value);
-    // Reset errors when changing address type
-    if (value !== "new") {
-      setErrors({});
+
+    // Always open modal/form
+    setIsNewAddress(true);
+
+    // Agar "new" select kiya
+    if (value === "new") {
+      setSelectedAddressObj(null);
+
+      // Empty form reset
+      setUserData({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+      });
+
+      setPinCode("");
+      setCity("");
+      setState("");
+
+      return;
     }
+
+    // Existing address find karo
+    const selectedObj = addresses.find((item) => item.address === value);
+
+    if (selectedObj) {
+      setSelectedAddressObj(selectedObj);
+      console.log("Selected Address Object:", selectedObj);
+      // Auto-fill form fields
+      setUserData((prev) => ({
+        ...prev,
+        address: selectedObj.address,
+      }));
+
+      setPinCode(selectedObj.pinCode);
+      setCity(selectedObj.city || "");
+      setState(selectedObj.state || "");
+    }
+
+    // Reset errors
+    setErrors({});
   };
+
 
   const generateReferenceNumber = () => {
     const timestamp = Date.now();
@@ -318,6 +358,7 @@ useEffect(() => {
   };
 
   const handlePayment = async () => {
+    console.log("Initiating payment with data:")
     const isUserLoggedIn = !!localStorage.getItem("token");
 
     if (!isUserLoggedIn) {
@@ -490,6 +531,22 @@ useEffect(() => {
     }
   };
 
+  useEffect(() => {
+    const fetchOrderData = async () => {
+      try {
+        const token = localStorage.getItem("token"); // Aapka token jahan bhi store ho
+        const res = await axios.get(`${baseUrl}/order/orders`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+
+        setAddresses(res.data.uniqueAddresses);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+    fetchOrderData();
+  }, []);
+  console.log("addresses", addresses);
   // Payment status check effect (unchanged from your original code)
   // let totalTime = 0;
   // useEffect(() => {
@@ -659,11 +716,19 @@ useEffect(() => {
                         className="w-full rounded-lg border border-gray-300 px-3 py-2.5 focus:ring-2 focus:ring-[#cba146] focus:border-[#cba146]"
                         value={selectedAddress}
                         onChange={handleAddressChange}
-                        style={{ focusRingColor: "#cba146" }}
                       >
                         <option value="">Select Address</option>
+
+                        {/* Dynamic Address List */}
+                        {addresses?.map((item, index) => (
+                          <option key={index} value={item.address}>
+                            {item.address}, {item.state}, {item.country} - {item.pinCode}
+                          </option>
+                        ))}
+
                         <option value="new">Add new address...</option>
                       </select>
+
                     </div>
 
                     {/* New Address Form */}
