@@ -65,7 +65,7 @@ export default function SearchPage() {
     }>({
         price: true,
         sizes: true,
-        categories: true,
+        categories: false,
     })
 
 

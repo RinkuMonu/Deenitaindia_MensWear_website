@@ -75,7 +75,7 @@ export default function Products() {
   }>({
     price: true,
     brands: true,
-    categories: true,
+    categories: false,
     colors: true,
   })
 
